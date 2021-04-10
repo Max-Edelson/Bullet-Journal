@@ -6,17 +6,17 @@ Meeting location: <br>
 When the meeting began: <br> 
 When the meeting finished:
 
-Who is in attendance:
+### Who is in attendance:
 -
 
-Who is missing:
+### Who is missing:
 -
 
-Agenda:
+## Agenda:
 1. 
 
-To-Do for next meeting:
+## To-Do for next meeting:
 1. 
 
-Notes from discussion:
+## Notes from discussion:
 -
