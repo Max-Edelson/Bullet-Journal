@@ -27,4 +27,4 @@ Who is missing:
 3. Make sure that every member has signed and uploaded their signatures onto the rules.md file as a PDF.
 
 ## Notes from discussion:
--
+- Netbeans? Java?
