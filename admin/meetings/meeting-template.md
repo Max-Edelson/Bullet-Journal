@@ -13,10 +13,10 @@ Who is missing:
 -
 
 Agenda:
-1. first thing
+1. 
 
 To-Do for next meeting:
-1.
+1. 
 
 Notes from discussion:
 -
