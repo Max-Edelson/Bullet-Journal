@@ -1,9 +1,9 @@
-Date: ##-##-####
-Time: 
-Type of meeting:
-Team number:
-Meeting location:
-When the meeting began: 
+Date: ##-##-#### <br>
+Time: <br> 
+Type of meeting: <br>
+Team number: <br>
+Meeting location: <br>
+When the meeting began: <br> 
 When the meeting finished:
 
 Who is in attendance:

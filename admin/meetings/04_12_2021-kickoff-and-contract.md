@@ -1,9 +1,9 @@
 Date: 04-12-2021 <br>
-Time: 
-Type of meeting: 556
-Team number:
-Meeting location:
-When the meeting began: 
+Time: <br> 
+Type of meeting: <br>
+Team number: <br>
+Meeting location: <br>
+When the meeting began: <br> 
 When the meeting finished:
 
 Who is in attendance:
