@@ -13,7 +13,7 @@ Who is missing:
 -
 
 Agenda:
-1.
+1. first thing
 
 To-Do for next meeting:
 1.
