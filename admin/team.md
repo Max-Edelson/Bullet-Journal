@@ -19,3 +19,5 @@ Carmen Li (https://github.com/carmenli14/): I'm a second year Computer Science m
 Ricardo Guerrero (https://github.com/InfernalDrago): I'm a second year Computer Science major. My hobbies are playing RPG video games, reading fantasy novels and manga, and watching anime. I want to make games in the future.
 
 Qiuyu Tong (https://github.com/aimeeqiuyu): I am a third year computer science major. I like travelling and taking selfies. 
+
+Sophia Klueter (https://github.com/sophiaklu): I am a second year Math-Computer Science major with a strong interest in frontend design. I love art, drawing, and painting. I also love to travel and experience new cultures and their amazing food.
