@@ -17,3 +17,5 @@ Javier Galvan (https://github.com/Ovijavi): I'm third year Math-Computer Science
 Carmen Li (https://github.com/carmenli14/): I'm a second year Computer Science major with strong interests in design and software development. In my free time, I love to bake, binge-watch dramas, or just do nothing ^-^
 
 Ricardo Guerrero (https://github.com/InfernalDrago): I'm a second year Computer Science major. My hobbies are playing RPG video games, reading fantasy novels and manga, and watching anime. I want to make games in the future.
+
+Qiuyu Tong (https://github.com/aimeeqiuyu): I am a third year computer science major. I like travelling and taking selfies. 
