@@ -1,3 +1,3 @@
 # cse110-w21-group16
 
-Team Site: [Team Site](admin/team.md)
+[Team Site](admin/team.md)
