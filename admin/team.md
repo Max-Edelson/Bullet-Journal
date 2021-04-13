@@ -20,7 +20,7 @@ ITEM:
 Collection: 
 - Carmen (Prototyper)
 - Sophia
-Source/Coordinator: Maxim
+Source/Coordinator: Maxim <br>
 Prototype/Coordinator: Qiuyu
 
 Maxim Edelson (https://github.com/Max-Edelson): I'm a second year computer science major with a passion for machine learning. I absolutely love food and I'm always cooking up a feast.
