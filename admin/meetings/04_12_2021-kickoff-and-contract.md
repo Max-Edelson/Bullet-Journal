@@ -20,7 +20,7 @@ Who is missing:
 
 Jobs: 
 - Have everyone sign and upload rules by Wednesday 11:59 PM.
-- Have everyone Slack DM Carmen with 10 - 15s of introductory video (with face). Name, grade, major, random fact(s)
+- Have everyone Slack DM Carmen with 10 - 15s of introductory video (with face). Name, grade, major, random fact(s). Maxim will introduce the team (brand, name).
 
 ## Agenda:
 1. Fillout rules.md by discussing our "contract" and deciding on a set principles that we will all abide by.
