@@ -10,6 +10,19 @@ Values:
 - Teamwork
 - Openmindedness
 
+Team Roles: 
+GUI: 
+- Khyat
+- Joshua
+ITEM: 
+- Ricardo
+- Javier
+Collection: 
+- Carmen (Prototyper)
+- Sophia
+Source/Coordinator: Maxim
+Prototype/Coordinator: Qiuyu
+
 Maxim Edelson (https://github.com/Max-Edelson): I'm a second year computer science major with a passion for machine learning. I absolutely love food and I'm always cooking up a feast.
 
 Javier Galvan (https://github.com/Ovijavi): I'm third year Math-Computer Science major. I love to play games so hit me up with you wanna get beat in smash bros. 
