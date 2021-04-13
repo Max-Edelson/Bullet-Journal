@@ -22,6 +22,7 @@ Collection:
 - Sophia
 Source/Coordinator: 
 - Maxim
+
 Prototype/Coordinator:
 - Qiuyu
 
