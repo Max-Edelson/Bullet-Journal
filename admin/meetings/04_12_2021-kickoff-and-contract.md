@@ -1,16 +1,22 @@
 Date: 04-12-2021 <br>
-Time: <br> 
-Type of meeting: <br>
-Team number: <br>
-Meeting location: <br>
-When the meeting began: <br> 
+Type of meeting: Overview and role <br>
+Team number: 16 <br>
+Meeting location: Zoom <br>
+When the meeting began: 6:30 <br> 
 When the meeting finished:
 
 Who is in attendance:
--
+- Maxim
+- Carmen
+- Javier
+- Joshua
+- Qiuyu
+- Ricardo
+- Sophia
+- Khyat
 
 Who is missing:
--
+- 
 
 ## Agenda:
 1. Fillout rules.md by discussing our "contract" and deciding on a set principles that we will all abide by.
