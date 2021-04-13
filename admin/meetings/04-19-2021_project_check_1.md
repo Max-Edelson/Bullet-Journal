@@ -15,7 +15,7 @@ When the meeting finished:
 ## Job due for this week:
 Maxim:
 - Write readme
-- Make website
+- Make website (team.md)
 - Fix repo file structure
 - Talk to prototype team
 - Set up Slack channels for each team
@@ -24,7 +24,7 @@ Qiuyu:
 - Design software introductory page
 - If time, work on calender page
 - Schedule a meeting with Carmen
-- Work with Maxim on website
+- Work with Maxim on website (team.me)
 
 Carmen and Sophia (Collection):
 - Form basic data structure with Sophia
