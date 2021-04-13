@@ -1,6 +1,6 @@
 Team name: #import <creative.name> <br>
 Team color: purple <br>
-Logo: Purple Banana <br>
+Emblem: ![banana emblem](misc/banana_emblem.jpeg)
 
 Values:
 - Honesty
