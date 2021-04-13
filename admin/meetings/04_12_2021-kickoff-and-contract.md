@@ -3,7 +3,7 @@ Type of meeting: Overview and role <br>
 Team number: 16 <br>
 Meeting location: Zoom <br>
 When the meeting began: 6:30 <br> 
-When the meeting finished:
+When the meeting finished: 7:36
 
 Who is in attendance:
 - Maxim
@@ -37,4 +37,4 @@ Jobs:
 3. Make sure that every member has signed and uploaded their signatures onto the rules.md file as a PDF.
 
 ## Notes from discussion:
-- Netbeans? Java?
+- The project will be coded in Java
