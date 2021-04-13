@@ -12,6 +12,22 @@ When the meeting finished:
 ### Who is missing:
 -
 
+## Job due for next week:
+Maxim:
+- 
+
+Qiuyu:
+- 
+
+Carmen and Sophia (Collection):
+- 
+
+Ricardo and Javier (Item):
+- 
+
+Khyat and Joshua (GUI):
+- 
+
 ## Agenda:
 1. 
 
