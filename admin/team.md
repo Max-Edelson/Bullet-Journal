@@ -26,7 +26,7 @@ Source/Coordinator:
 Prototype/Coordinator:
 - Qiuyu
 
-Maxim Edelson (https://max-edelson.github.io/CSE-110/): I'm a second year computer science major with a passion for machine learning. I absolutely love food and I'm always cooking up a feast.
+Maxim Edelson (https://max-edelson.github.io/cse110_lab1/): I'm a second year computer science major with a passion for machine learning. I absolutely love food and I'm always cooking up a feast.
 
 Javier Galvan (https://github.com/Ovijavi): I'm third year Math-Computer Science major. I love to play games so hit me up with you wanna get beat in smash bros. 
 
