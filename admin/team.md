@@ -14,10 +14,10 @@ Team Roles:
 GUI: 
 - Khyat
 - Joshua
-ITEM: 
+Item & Entry classes: 
 - Ricardo
 - Javier
-Collection: 
+Collection class: 
 - Carmen (Prototyper)
 - Sophia
 Source/Coordinator: 
