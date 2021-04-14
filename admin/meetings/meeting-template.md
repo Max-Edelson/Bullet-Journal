@@ -16,10 +16,10 @@ When the meeting finished:
 Everyone:
 -
 
-Maxim:
+Maxim (Coordinator/Planner/Organizer):
 - 
 
-Qiuyu:
+Qiuyu (Coordinator/Designer):
 - 
 
 Carmen and Sophia (Collection):
