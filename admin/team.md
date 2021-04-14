@@ -40,4 +40,4 @@ Sophia Klueter (https://github.com/sophiaklu): I am a second year Math-Computer 
 
 Joshua Hong (https://github.com/joshua-j-hong): I'm a second year Cognitive Science major with specialization in ML and NC. I'm interested in research concerning NLP and computer vision, as well as theoretical CS. When I have free time, I enjoy playing video games, cooking food, and watching movies! 
 
-Khyat Doshi (https://github.com/Khyat24): I am a second year CE student and I am from India. I am really into machine learning, movies, and music. Whenever I am free, I usually just write something or watch a filmmaking lecture.
+Khyat Doshi (https://khyat24.github.io/CSE110_Lab1/): I am a second year CE student and I am from India. I am really into machine learning, movies, and music. Whenever I am free, I usually just write something or watch a filmmaking lecture.
