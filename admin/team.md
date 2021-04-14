@@ -36,7 +36,7 @@ Ricardo Guerrero (https://github.com/InfernalDrago): I'm a second year Computer 
 
 Qiuyu Tong (https://github.com/aimeeqiuyu): I am a third year computer science major. I like travelling and taking selfies. 
 
-Sophia Klueter (https://github.com/sophiaklu): I am a second year Math-Computer Science major with a strong interest in frontend design. I love art, drawing, and painting. I also love to travel and experience new cultures and their amazing food.
+Sophia Klueter (https://sophiaklu.github.io/cse110/): I am a second year Math-Computer Science major with a strong interest in frontend design. I love art, drawing, and painting. I also love to travel and experience new cultures and their amazing food.
 
 Joshua Hong (https://github.com/joshua-j-hong): I'm a second year Cognitive Science major with specialization in ML and NC. I'm interested in research concerning NLP and computer vision, as well as theoretical CS. When I have free time, I enjoy playing video games, cooking food, and watching movies! 
 
