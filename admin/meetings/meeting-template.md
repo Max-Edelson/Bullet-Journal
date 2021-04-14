@@ -34,8 +34,5 @@ Khyat and Joshua (GUI):
 ## Agenda:
 1. 
 
-## To-Do for next meeting:
-1. 
-
 ## Notes from discussion:
 -
