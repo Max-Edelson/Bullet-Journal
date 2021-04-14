@@ -40,7 +40,7 @@ Khyat and Joshua (GUI):
 - Start looking into how collection and item DTs will be intertwined
 
 ## Agenda:
-1. 
+1. discuss standup meetings 
 
 ## To-Do for next meeting:
 1. 
