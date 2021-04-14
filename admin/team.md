@@ -1,5 +1,5 @@
-Team name: #import <creative.name> <br>
-Team color: purple <br>
+# Team name: #import <creative.name> <br>
+## Team color: purple <br>
 Emblem:<br> ![banana emblem](branding/banana_emblem.jpeg)
 
 Values:
