@@ -26,10 +26,10 @@ Values:
 - Carmen (Prototyper)
 - Sophia <br>
 
-## Source/Coordinator: 
+## Code Control/Coordinator: 
 - Maxim <br>
 
-## Prototype/Coordinator:
+## Prototyper/Coordinator:
 - Qiuyu
 
 <hr>
