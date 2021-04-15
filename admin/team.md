@@ -10,18 +10,22 @@ Values:
 - Teamwork
 - Openmindedness
 
-Team Roles: 
+# Team Roles
+
 GUI: 
 - Khyat
-- Joshua
+- Joshua <br>
+
 Item & Entry classes: 
 - Ricardo
-- Javier
+- Javier <br>
+
 Collection class: 
 - Carmen (Prototyper)
-- Sophia
+- Sophia <br>
+
 Source/Coordinator: 
-- Maxim
+- Maxim <br>
 
 Prototype/Coordinator:
 - Qiuyu
