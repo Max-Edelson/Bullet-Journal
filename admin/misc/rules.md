@@ -16,4 +16,3 @@
 2. If we are having time or capability issues, dissolve the issue among members.
 
 ## Signature: 
-Qiuyu Tong
