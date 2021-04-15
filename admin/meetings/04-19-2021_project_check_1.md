@@ -41,9 +41,8 @@ Khyat and Joshua (GUI):
 
 ## Agenda:
 1. discuss standup meetings 
-
-## To-Do for next meeting:
-1. 
+2. ask everyone to turn on cameras, for those who have cameras
+3. go over demos
 
 ## Notes from discussion:
 -

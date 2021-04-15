@@ -14,10 +14,10 @@ Team Roles:
 GUI: 
 - Khyat
 - Joshua
-ITEM: 
+Item & Entry classes: 
 - Ricardo
 - Javier
-Collection: 
+Collection class: 
 - Carmen (Prototyper)
 - Sophia
 Source/Coordinator: 
@@ -38,6 +38,6 @@ Qiuyu Tong (https://github.com/aimeeqiuyu): I am a third year computer science m
 
 Sophia Klueter (https://sophiaklu.github.io/cse110/): I am a second year Math-Computer Science major with a strong interest in frontend design. I love art, drawing, and painting. I also love to travel and experience new cultures and their amazing food.
 
-Joshua Hong (https://github.com/joshua-j-hong): I'm a second year Cognitive Science major with specialization in ML and NC. I'm interested in research concerning NLP and computer vision, as well as theoretical CS. When I have free time, I enjoy playing video games, cooking food, and watching movies! 
+Joshua Hong (https://joshua-j-hong.github.io/User-Page/): I'm a second year Cognitive Science major with specialization in ML and NC. I'm interested in research concerning NLP and computer vision, as well as theoretical CS. When I have free time, I enjoy playing video games, cooking food, and watching movies! 
 
 Khyat Doshi (https://khyat24.github.io/CSE110_Lab1/): I am a second year CE student and I am from India. I am really into machine learning, movies, and music. Whenever I am free, I usually just write something or watch a filmmaking lecture.
