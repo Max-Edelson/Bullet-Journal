@@ -23,14 +23,18 @@ Values:
 - Javier <br>
 
 ## Collection class: 
-- Carmen (Prototyper)
+- Carmen <br>
 - Sophia <br>
 
 ## Code Control/Coordinator: 
 - Maxim <br>
 
-## Prototyper/Coordinator:
-- Qiuyu
+## Coordinator:
+- Qiuyu <br>
+
+## Design team:
+- Qiuyu <br>
+- Carmen
 
 <hr>
 
