@@ -10,6 +10,8 @@ Values:
 - Teamwork
 - Openmindedness
 
+<hr>
+
 # Team Roles
 
 ## GUI: 
@@ -29,6 +31,8 @@ Values:
 
 ## Prototype/Coordinator:
 - Qiuyu
+
+<hr>
 
 Maxim Edelson (https://max-edelson.github.io/cse110_lab1/): I'm a second year computer science major with a passion for machine learning. I absolutely love food and I'm always cooking up a feast.
 
