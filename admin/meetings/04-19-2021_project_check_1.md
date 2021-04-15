@@ -42,7 +42,8 @@ Khyat and Joshua (GUI):
 ## Agenda:
 1. discuss standup meetings 
 2. ask everyone to turn on cameras, for those who have cameras
-3. go over demos
+3. pull requests for workflow outline
+4. go over demos
 
 ## Notes from discussion:
 -
