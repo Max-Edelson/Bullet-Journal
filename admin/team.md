@@ -12,22 +12,22 @@ Values:
 
 # Team Roles
 
-GUI: 
+## GUI: 
 - Khyat
 - Joshua <br>
 
-Item & Entry classes: 
+## Item & Entry classes: 
 - Ricardo
 - Javier <br>
 
-Collection class: 
+## Collection class: 
 - Carmen (Prototyper)
 - Sophia <br>
 
-Source/Coordinator: 
+## Source/Coordinator: 
 - Maxim <br>
 
-Prototype/Coordinator:
+## Prototype/Coordinator:
 - Qiuyu
 
 Maxim Edelson (https://max-edelson.github.io/cse110_lab1/): I'm a second year computer science major with a passion for machine learning. I absolutely love food and I'm always cooking up a feast.
