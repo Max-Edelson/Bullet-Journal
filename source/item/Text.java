@@ -6,7 +6,17 @@
 *   @since 2021-04-16
 */
 public class Text extends Item {
-    String text;
+    String text; //should this be text file?
+
+    /**
+     * creates new text item using text string and description
+     * @param text string that holds text of item
+     * @param description summary or title of the text
+     */
+    public Text(String text, String description){
+        super("Text", description);
+        this.text = text;
+    }
 
     /**
      * replaces text item with new string

@@ -15,6 +15,17 @@ public abstract class Item{
     String description;
 
     /**
+     * creates a new item with a type and description
+     * @param type type of the item
+     * @param description description that describes the item
+     */
+    public Item(String type, String description){
+        this.type = type;
+        this.description = description;
+        this.date = Calendar.getInstance();
+    }
+
+    /**
     *   Returns the type of the item in the journal
     *   @return String type of the item (text, video, audio or image)
     */

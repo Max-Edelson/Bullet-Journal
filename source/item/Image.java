@@ -6,9 +6,19 @@
 *   @since  2021-04-16
  */
 public class Image extends Item{
-    //imageFile field:  how are we going to upload files?
+    String filePath;
     final int MAX_WIDTH = 100;  //width of journal?
     final int MAX_HEIGHT = 100; //height of journal?
 
-    
+    /**
+     * creates image item from filePath and description
+     * @param filePath path to the image file
+     * @param description description of the image
+     */
+    public Image(String filePath, String description){
+        super("Image", description);
+        this.filePath = filePath;
+
+        //check if Image is too big TODO
+    }
 }
