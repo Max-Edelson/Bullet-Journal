@@ -5,6 +5,11 @@
 *   @author Javier Galvan
 *   @since  2021-04-16
  */
+//import java.awt.image.BufferedImage;
+//import java.io.File;
+//import java.io.IOException;
+//import javax.imageio.ImageIO;
+
 public class Image extends Item{
     String filePath;
     final int MAX_WIDTH = 100;  //width of journal?
@@ -20,5 +25,13 @@ public class Image extends Item{
         this.filePath = filePath;
 
         //check if Image is too big TODO
+        /* 
+        BufferedImage bimg = ImageIO.read(new File(filePath));
+        int width = bimg.getWidth();
+        int height = bimg.getHeight();
+        if (width > 100 && height > 100){
+            BufferedImage resizeImageJpg = resizeImage(bimg, type, 100, 100);
+        }
+        */
     }
 }
