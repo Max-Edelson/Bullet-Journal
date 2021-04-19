@@ -1,7 +1,7 @@
-Date: ##-##-#### <br>
-Time: <br> 
-Type of meeting: <br>
-Team number: <br>
+Date: 04-18-2021 <br>
+Time: 6:30 <br> 
+Type of meeting: Weekly meeting <br>
+Team number: 16 <br>
 Meeting location: <br>
 When the meeting began: <br> 
 When the meeting finished:
@@ -40,12 +40,14 @@ Khyat and Joshua (GUI):
 - Start looking into how collection and item DTs will be intertwined
 
 ## Agenda:
-1. discuss standup meetings 
+1. discuss standup meetings (synchronous or Slack)
 2. ask everyone to turn on cameras, for those who have cameras
 3. pull requests for workflow outline
 4. discuss slack responses
-5. go over demos
-6. form goals for next monday
+5. discuss github pull requests, issues, and branches
+6. go over demos
+7. form goals for next monday
+8. schedule brainstorming activity
 
 ## Notes from discussion:
 -
