@@ -45,6 +45,7 @@ Khyat and Joshua (GUI):
 3. pull requests for workflow outline
 4. discuss slack responses
 5. go over demos
+6. form goals for next monday
 
 ## Notes from discussion:
 -
