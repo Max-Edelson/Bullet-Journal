@@ -36,7 +36,7 @@ Ricardo and Javier (Item):
 - Figure out complete future plans for this ADT
 
 Khyat and Joshua (GUI):
-- Getting a basic gui running
+- Get started on landing page based on Qiuyu's design
 - Start looking into how collection and item DTs will be intertwined
 
 ## Agenda:
