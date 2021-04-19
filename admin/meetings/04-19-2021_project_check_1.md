@@ -43,7 +43,8 @@ Khyat and Joshua (GUI):
 1. discuss standup meetings 
 2. ask everyone to turn on cameras, for those who have cameras
 3. pull requests for workflow outline
-4. go over demos
+4. discuss slack responses
+5. go over demos
 
 ## Notes from discussion:
 -
