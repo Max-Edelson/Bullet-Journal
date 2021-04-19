@@ -48,6 +48,7 @@ Khyat and Joshua (GUI):
 6. go over demos
 7. form goals for next monday
 8. schedule brainstorming activity
+9. new team name, one that will sound like a plausable website?
 
 ## Notes from discussion:
 -
