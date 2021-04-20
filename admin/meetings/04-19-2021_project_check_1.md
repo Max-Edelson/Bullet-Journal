@@ -13,6 +13,7 @@ When the meeting finished:
 - Sophia
 - Joshua
 - Maxim
+- Carmen
 
 ### Who is missing:
 -
