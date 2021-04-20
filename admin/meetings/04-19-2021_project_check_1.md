@@ -7,7 +7,12 @@ When the meeting began: <br>
 When the meeting finished:
 
 ### Who is in attendance:
--
+- Qiuyu
+- Javier
+- Ricardo
+- Sophia
+- Joshua
+- Maxim
 
 ### Who is missing:
 -
