@@ -7,8 +7,7 @@ public class Video extends Item{
      * @param description description of the video
      */
     public Video(String filePath, String description){
-        super("Video", description);
-        this.filePath = filePath;
+        super("Video", description, filePath);
     }
 
 }

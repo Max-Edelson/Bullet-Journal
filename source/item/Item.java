@@ -10,19 +10,21 @@ import java.util.Calendar;
  */
 public abstract class Item{
     String type;
-    //data type of input?? might not need 
     Calendar date;
     String description;
+    String filePath;
 
     /**
      * creates a new item with a type and description
      * @param type type of the item
      * @param description description that describes the item
+     * @param filePath string containing the path to the input file
      */
-    public Item(String type, String description){
+    public Item(String type, String description, String filePath){
         this.type = type;
         this.description = description;
         this.date = Calendar.getInstance();
+        this.filePath = filePath;
     }
 
     /**
@@ -32,14 +34,6 @@ public abstract class Item{
     public String getType(){
         return type;
     }
-
-    /**
-    *   Returns the input given from the user
-    *   @return ??? input given by user to be put in journal
-    */
-    // public getInput(){
-    //     //TODO
-    // }
 
     /**
     *   Returns the date of the journal entry
@@ -55,6 +49,14 @@ public abstract class Item{
     */
     public String getDescription(){
         return description;
+    }
+
+    /**
+     * returns the filepath of the input file from the user
+     * @return filepath to the item
+     */
+    public String getPath(){
+        return filePath;
     }
 
     /**

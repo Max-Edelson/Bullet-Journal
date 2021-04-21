@@ -11,7 +11,6 @@
 //import javax.imageio.ImageIO;
 
 public class Image extends Item{
-    String filePath;
     final int MAX_WIDTH = 100;  //width of journal?
     final int MAX_HEIGHT = 100; //height of journal?
 
@@ -21,8 +20,7 @@ public class Image extends Item{
      * @param description description of the image
      */
     public Image(String filePath, String description){
-        super("Image", description);
-        this.filePath = filePath;
+        super("Image", description, filePath);
 
         //check if Image is too big TODO
         /* 

@@ -6,24 +6,14 @@
 *   @since 2021-04-16
 */
 public class Text extends Item {
-    String text; //should this be text file?
+    String filepath;
 
     /**
      * creates new text item using text string and description
-     * @param text string that holds text of item
+     * @param filePath string that holds the path to text file
      * @param description summary or title of the text
      */
-    public Text(String text, String description){
-        super("Text", description);
-        this.text = text;
+    public Text(String filePath, String description){
+        super("Text", description, filePath);
     }
-
-    /**
-     * replaces text item with new string
-     * @param newText newText to replace the text item
-     */
-    public void edit(String newText){
-        text = newText;
-    }
-
 }
