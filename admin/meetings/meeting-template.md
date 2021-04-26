@@ -1,8 +1,8 @@
 Date: ##-##-#### <br>
 Time: <br> 
 Type of meeting: <br>
-Team number: <br>
-Meeting location: <br>
+Team number: 16 <br>
+Meeting location: Zoom <br>
 When the meeting began: <br> 
 When the meeting finished:
 
@@ -22,13 +22,10 @@ Maxim (Coordinator/Planner/Organizer):
 Qiuyu (Coordinator/Designer):
 - 
 
-Carmen and Sophia (Collection):
+Carmen, Sophia, and Javier (Collection):
 - 
 
-Ricardo and Javier (Item):
-- 
-
-Khyat and Joshua (GUI):
+Khyat, Joshua, and Ricardo (GUI):
 - 
 
 ## Agenda:

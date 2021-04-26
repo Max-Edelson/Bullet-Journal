@@ -1,8 +1,8 @@
-Date: ##-##-#### <br>
-Time: <br> 
-Type of meeting: <br>
-Team number: <br>
-Meeting location: <br>
+Date: 04-26-2021 <br>
+Time: 6:30 PM <br> 
+Type of meeting: Weekly Debriefing <br>
+Team number: 16 <br>
+Meeting location: Zoom <br>
 When the meeting began: <br> 
 When the meeting finished:
 
@@ -34,7 +34,8 @@ Khyat and Joshua (GUI):
 - work on other pages as they are available
 
 ## Agenda:
-1. 
+1. Go over GUI demos
+2. Assign jobs for next monday
 
 ## Notes from discussion:
 -
