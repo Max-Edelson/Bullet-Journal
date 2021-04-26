@@ -17,14 +17,12 @@ Values:
 ## GUI: 
 - Khyat
 - Joshua <br>
-
-## Item & Entry classes: 
-- Ricardo
-- Javier <br>
+- Ricardo <br>
 
 ## Collection class: 
 - Carmen <br>
 - Sophia <br>
+- Javier <br>
 
 ## Code Control/Coordinator: 
 - Maxim <br>
