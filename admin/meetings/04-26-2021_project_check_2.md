@@ -7,10 +7,16 @@ When the meeting began: <br>
 When the meeting finished:
 
 ### Who is in attendance:
--
+- Maxim
+- Qiuyu
+- Carmen
+- Joshua
+- Javier
+- Ricardo
 
 ### Who is missing:
--
+- Sophia
+- Ricardo
 
 ## Job due for next meeting:
 Everyone:
