@@ -16,7 +16,7 @@ When the meeting finished:
 
 ### Who is missing:
 - Sophia
-- Ricardo
+- Khyat
 
 ## Job due for next meeting:
 Everyone:
