@@ -38,6 +38,7 @@ Khyat, Joshua, and Ricardo (GUI):
 2. Go over demos
 3. Choose jobs for each team for next week
 4. We must start making tangible progress (coding and designing) because we are more than halfway through the quarter
+5. Choose a leader for each team
 
 ## Notes from discussion:
 -
