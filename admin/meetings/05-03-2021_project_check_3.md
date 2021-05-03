@@ -40,6 +40,8 @@ Khyat, Joshua, and Ricardo (GUI):
 4. We must start making tangible progress (coding and designing) because we are more than halfway through the quarter
 5. Choose a leader for each team
 6. Each member of GUI team must agree on the creation pipeline
+7. Do we want special features like an exercise or book tracker or etc...
+	- Graphs?
 
 ## Notes from discussion:
 -
