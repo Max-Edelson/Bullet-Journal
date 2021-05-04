@@ -30,6 +30,7 @@ Maxim (Coordinator/Planner/Organizer):
 Qiuyu (Coordinator/Designer):
 - Finish login page
 - Work with design team
+- Think of how to handle logging in and begin coding
 
 Design Team:
 - Look at comments and adjust diagrams
@@ -40,7 +41,6 @@ Carmen, Sophia, and Javier (Collection):
 - Build item & entry classes/structs
 - Build collections
 - Meet to discuss how backend will meet with the frontend
-- Think of how to handle logging in
 - Agree one coding house style
 
 Khyat, Joshua, and Ricardo (GUI):
