@@ -1,10 +1,9 @@
 Date: 05-03-2021 <br>
-Time: <br> 
 Type of meeting: Weekly Discussion<br>
 Team number: 16 <br>
 Meeting location: Zoom <br>
-When the meeting began: <br> 
-When the meeting finished:
+When the meeting began: 6:30 PM <br> 
+When the meeting finished: 7:37 PM
 
 ### Who is in attendance:
 -
