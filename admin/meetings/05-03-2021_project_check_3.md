@@ -12,7 +12,7 @@ When the meeting finished:
 ### Who is missing:
 -
 
-## Job due for next meeting:
+## Job due for this meeting:
 Everyone:
 -
 
