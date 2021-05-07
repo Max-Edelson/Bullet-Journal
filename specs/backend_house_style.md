@@ -23,6 +23,7 @@ Patterns to be used:
 - Keep all files together (for now)
 - Cruly bracket "{" at the end of the line
 - Space between if/for and ()
+- else statement in new line
 - space between // and what ever you are commenting
 
 Patterns to be avoided:
