@@ -1,4 +1,4 @@
-# **Team name:** #import <creative.name> <br>
+# **Team name:** Banananotes <br>
 ## Team color: purple <br>
 Emblem:<br> ![banana emblem](branding/banana_emblem.jpeg)
 
@@ -17,14 +17,12 @@ Values:
 ## GUI: 
 - Khyat
 - Joshua <br>
-
-## Item & Entry classes: 
-- Ricardo
-- Javier <br>
+- Ricardo <br>
 
 ## Collection class: 
 - Carmen <br>
 - Sophia <br>
+- Javier <br>
 
 ## Code Control/Coordinator: 
 - Maxim <br>
