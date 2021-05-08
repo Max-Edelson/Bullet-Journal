@@ -30,14 +30,14 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Only run this if .eslintrc.json exists
-        run: "(test -f $GITHUB_WORKSPACE/CI/.eslintrc.json && echo .eslintrc.json exists) || echo .eslintrc.json does not exist, skipping step"
+        run: "(test -f CI/.eslintrc.json && echo .eslintrc.json exists) || echo .eslintrc.json does not exist, skipping step"
           
       - name: perform ls
-        run: ls
+        run: ls CI -a
         
       - name: Perform linting
         run: |
-            npx eslint --fix -c $GITHUB_WORKSPACE/CI/.eslintrc.json $GITHUB_WORKSPACE/source/collection/Future_log.js
+            npx eslint --fix -c CI/.eslintrc.json source/collection/Future_log.js
             git add .
      
       - name: Commit files
