@@ -18,9 +18,23 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
-      - run: npm install babel-eslint --save-dev
+      - run: |
+          npm config set init-author-name "Maxim Edelson"
+          npm config set init-author-email "medelson@ucsd.edu"
+          npm init -y
+          npm install babel-eslint --save-dev
       - uses: sibiraj-s/action-eslint@v1
-      - run: npx eslint --fix -c ~/CI/.eslintrc.json ~/source/collection_team/*.js
+      - run: |
+          git clone https://github.com/Max-Edelson/cse110-sp21-group16
+          npx eslint --fix -c ~/CI/.eslintrc.json ~/source/collection_team/*.js
+          
+          run: git add .
+      - name: Commit files
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -m "Enforced backend house coding style" -a
+          git push
       
       
         #with:
