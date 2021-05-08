@@ -1,6 +1,6 @@
-const EVENT_SYMBOL = ""; /*NEED SYMBOL FOR EVENT*/
-const TASK_SYMBOL = ""; /*NEED SYMBOL FOR TASK*/
-const NOTE_SYMBOL = ""; /*NEED SYMBOL FOR NOTE*/
+const EVENT_SYMBOL = ''; /* NEED SYMBOL FOR EVENT */
+const TASK_SYMBOL = ''; /* NEED SYMBOL FOR TASK */
+const NOTE_SYMBOL = ''; /* NEED SYMBOL FOR NOTE */
 
 /**
 *   Abstract item class that will represent the item being
@@ -17,7 +17,7 @@ class Item{
 	constructor(symbol, text, media){
 		// prevent the abstract class from being created alone
 		if(this.constructor === Item){
-			throw new Error("Instance of Abstrct class cannot be instatiated");
+			throw new Error('Instance of Abstrct class cannot be instatiated');
 		}
 
 		this.symbol = symbol;
@@ -25,7 +25,7 @@ class Item{
 
 		// check if media was included
 		if (media === undefined){
-			this.media = "";
+			this.media = '';
 		} 
 		else{		
 			this.media = media;
@@ -61,7 +61,7 @@ class Item{
 	 * @returns returns true is item has media false otherwise
 	 */
 	hasMedia(){
-		if (this.media === ""){
+		if (this.media === ''){
 			return false;
 		}
 		else{
@@ -88,7 +88,7 @@ class Events extends Item{
 		
 		// check if title was included
 		if (title === undefined){
-			this.title = "";
+			this.title = '';
 		} 
 		else{
 			this.title = title;	
