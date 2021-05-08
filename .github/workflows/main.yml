@@ -1,4 +1,4 @@
-name: lint
+name: Enforce Backend House Coding Style
 
 on:
   push:
@@ -24,8 +24,8 @@ jobs:
           npm init -y
           npm install babel-eslint --save-dev
       - uses: sibiraj-s/action-eslint@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
       - run: |
           npx eslint --fix -c ~/CI/.eslintrc.json ~/source/collection_team/*.js
           git add .
