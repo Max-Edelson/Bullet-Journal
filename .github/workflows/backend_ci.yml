@@ -2,7 +2,8 @@ name: Enforce Backend House Coding Style
 
 on:
   push:
-    branches: [ collection_team ]
+    branches: 
+      - 'collection_team'
  # pull_request:
     # branches: [ main ]
 
@@ -12,7 +13,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -21,19 +21,26 @@ jobs:
       - run: |
           npm config set init-author-name "Maxim Edelson"
           npm config set init-author-email "medelson@ucsd.edu"
-          npm init -y
-          npm install babel-eslint --save-dev
+      # npm init -y
+      # npm install --prefix CI babel-eslint --save-dev
       - uses: sibiraj-s/action-eslint@v1
         with:
           eslintArgs: '--ignore-path=.gitignore --quiet'
           extensions: 'js'
           annotations: true
         env:
-         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: |
-          npx eslint --fix -c ~/CI/.eslintrc.json ~/source/collection_team/*.js
-          git add .
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Only run this if .eslintrc.json exists
+        run: "(test -f CI/.eslintrc.json && echo .eslintrc.json exists) || echo .eslintrc.json does not exist, skipping step"
           
+      #- name: perform ls
+        #run: ls CI -a
+        
+      - name: Perform linting
+        run: |
+            npx eslint --fix -c CI/.eslintrc.json source/collection/*.js
+            git add .
+     
       - name: Commit files
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
