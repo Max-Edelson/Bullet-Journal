@@ -37,7 +37,7 @@ jobs:
         
       - name: Perform linting
         run: |
-            npx eslint --fix -c CI/.eslintrc.json source/collection/Future_log.js
+            npx eslint --fix -c CI/.eslintrc.json source/collection/*.js
             git add .
      
       - name: Commit files
