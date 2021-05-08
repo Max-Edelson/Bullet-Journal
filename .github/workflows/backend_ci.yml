@@ -31,7 +31,7 @@ jobs:
         env:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: |
-          npx eslint --fix -c /CI/.eslintrc.json /source/collection_team/*.js
+          npx eslint --fix -c $GITHUB_WORKSPACE/CI/.eslintrc.json $GITHUB_WORKSPACE/source/collection/Future_log.js
           git add .
           
       - name: Commit files
