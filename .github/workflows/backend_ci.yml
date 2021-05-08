@@ -21,8 +21,8 @@ jobs:
       - run: |
           npm config set init-author-name "Maxim Edelson"
           npm config set init-author-email "medelson@ucsd.edu"
+          npm install --prefix CI babel-eslint --save-dev
       # npm init -y
-      # npm install --prefix CI babel-eslint --save-dev
       - uses: sibiraj-s/action-eslint@v1
         with:
           eslintArgs: '--ignore-path=.gitignore --quiet'
