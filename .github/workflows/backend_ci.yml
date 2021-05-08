@@ -12,7 +12,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -29,13 +28,17 @@ jobs:
           extensions: 'js'
           annotations: true
         env:
-         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Only run this if .eslintrc.json exists
-        run: '(test -f GITHUB_WORKSPACE/CI/.eslintrc.json && echo .eslintrc.json exists) || echo .eslintrc.json does not exist, skipping step'
-      - run: |
-          npx eslint --fix -c $GITHUB_WORKSPACE/CI/.eslintrc.json $GITHUB_WORKSPACE/source/collection/Future_log.js
-          git add .
-          
+        run: |
+          "(test -f $GITHUB_WORKSPACE/CI/.eslintrc.json && echo .eslintrc.json exists) || echo .eslintrc.json does not exist, skipping step"
+          ls
+        
+      - name: Perform linting
+        run: |
+            npx eslint --fix -c $GITHUB_WORKSPACE/CI/.eslintrc.json $GITHUB_WORKSPACE/source/collection/Future_log.js
+            git add .
+     
       - name: Commit files
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
