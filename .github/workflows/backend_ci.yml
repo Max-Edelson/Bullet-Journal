@@ -1,4 +1,4 @@
-name: lint
+name: Enforce Backend House Coding Style
 
 on:
   push:
@@ -24,11 +24,16 @@ jobs:
           npm init -y
           npm install babel-eslint --save-dev
       - uses: sibiraj-s/action-eslint@v1
+        with:
+          eslintArgs: '--ignore-path=.gitignore --quiet'
+          extensions: 'js'
+          annotations: true
+        env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: |
-          git clone https://github.com/Max-Edelson/cse110-sp21-group16
           npx eslint --fix -c ~/CI/.eslintrc.json ~/source/collection_team/*.js
+          git add .
           
-          run: git add .
       - name: Commit files
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
