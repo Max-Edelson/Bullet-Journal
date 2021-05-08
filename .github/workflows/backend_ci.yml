@@ -2,7 +2,8 @@ name: Enforce Backend House Coding Style
 
 on:
   push:
-    branches: [ collection_team ]
+    branches: 
+      - 'collection_team'
  # pull_request:
     # branches: [ main ]
 
@@ -20,8 +21,8 @@ jobs:
       - run: |
           npm config set init-author-name "Maxim Edelson"
           npm config set init-author-email "medelson@ucsd.edu"
-          npm init -y
-          npm install babel-eslint --save-dev
+      # npm init -y
+      # npm install --prefix CI babel-eslint --save-dev
       - uses: sibiraj-s/action-eslint@v1
         with:
           eslintArgs: '--ignore-path=.gitignore --quiet'
@@ -32,8 +33,8 @@ jobs:
       - name: Only run this if .eslintrc.json exists
         run: "(test -f CI/.eslintrc.json && echo .eslintrc.json exists) || echo .eslintrc.json does not exist, skipping step"
           
-      - name: perform ls
-        run: ls CI -a
+      #- name: perform ls
+        #run: ls CI -a
         
       - name: Perform linting
         run: |
