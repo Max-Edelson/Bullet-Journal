@@ -21,13 +21,14 @@ jobs:
       - name: clean CI
         run: |
           cd CI
-          rm -rf node_modules package.json 
+          rm -rf node_modules package.json package-lock.json
           ls
       - name: install eslint
         run: |
           npm config set init-author-name "sp21 software team 16"
           npm config set init-author-email "medelson@ucsd.edu"
           npm init -y
+          npm install eslint --save-dev
           cd ..
           npm install --prefix CI babel-eslint --save-dev
       # npm init -y
