@@ -1,7 +1,7 @@
 # Phase 1 of the CI/CD pipeline
 
 ## Linting and code style enforcement
-- There is currently an action built for the collection\_team branch that automatically parses through javascript files and ensures that they are agreeing to the backend house style for javascript.
+- There is currently an action built for the collection\_team branch that automatically parses through javascript files and ensures that they are agreeing to the backend house style for javascript that is located in /specs/house_styles/backend_house_style.md.
 	- This action is called everytime someone pushes to the collection\_team branch.
 - There will be probably another action built for html and perhaps css, but that might change.
 
