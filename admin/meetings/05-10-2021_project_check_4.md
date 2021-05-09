@@ -50,7 +50,10 @@ Khyat, Joshua, and Ricardo (GUI):
 - Everyone: Meet and agree on house style
 
 ## Agenda:
-1.
+1. Maxim no longer coding with colleciton team but will joing any meeting with any team if asked to
+2. Discuss making an mvp
+3. Demos
+4. Plan jobs for next week
 
 ## Notes from discussion:
 - Collection team leader: Javier
