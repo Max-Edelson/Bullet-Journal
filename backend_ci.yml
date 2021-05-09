@@ -1,0 +1,66 @@
+name: Enforce Backend House Coding Style
+
+on:
+  push:
+    branches: 
+      - 'collection_team'
+ # pull_request:
+    # branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - run: |
+          npm config set init-author-name "sp21 software team 16"
+          npm config set init-author-email "medelson@ucsd.edu"
+          npm install --prefix CI babel-eslint --save-dev
+      # npm init -y
+      # npm install --prefix CI babel-eslint --save-dev
+      - uses: sibiraj-s/action-eslint@v1
+        with:
+          eslintArgs: '--ignore-path=.gitignore --quiet'
+          extensions: 'js'
+          annotations: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Only run this if .eslintrc.json exists
+        run: "(test -f CI/.eslintrc.json && echo .eslintrc.json exists) || echo .eslintrc.json does not exist, skipping step"
+          
+      #- name: perform ls
+        #run: ls CI -a
+        
+      - name: Perform linting
+        run: |
+            npx eslint --fix -c CI/.eslintrc.json source/collection/*.js
+            git add .
+     
+      - name: Commit files
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -m "Enforced backend house coding style" -a
+          git push
+      
+      
+        #with:
+          #eslintArgs: '--ignore-path=.gitignore --quiet'
+          #extensions: 'js'
+          #annotations: true
+        # env:
+          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        #run: npm ci
+          #npx eslint --fix -c ~/CI/.eslintrc.json ~/source/collection_team/*.js
+
+      # Runs a set of commands using the runners shell
+      # - name: Run a multi-line script
+        # run: |
+          # echo Add other actions to build,
+          # echo test, and deploy your project.
