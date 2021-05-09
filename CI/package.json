@@ -15,10 +15,11 @@
     "type": "git",
     "url": "git+https://github.com/Max-Edelson/cse110-sp21-group16.git"
   },
-  "author": "",
+  "author": "sp21 software team 16 <medelson@ucsd.edu>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Max-Edelson/cse110-sp21-group16/issues"
   },
-  "homepage": "https://github.com/Max-Edelson/cse110-sp21-group16#readme"
+  "homepage": "https://github.com/Max-Edelson/cse110-sp21-group16#readme",
+  "keywords": []
 }
