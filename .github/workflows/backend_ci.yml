@@ -18,11 +18,14 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
+      - name: clean CI
+      - run: |
+          cd CI
+          rm -rf node_modules package.json 
+          ls
       - run: |
           npm config set init-author-name "sp21 software team 16"
           npm config set init-author-email "medelson@ucsd.edu"
-          cd CI
-          rm -rf node_modules package.json 
           npm init -y
           cd ..
           npm install --prefix CI babel-eslint --save-dev
