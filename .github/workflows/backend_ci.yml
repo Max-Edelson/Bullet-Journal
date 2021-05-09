@@ -21,6 +21,9 @@ jobs:
       - run: |
           npm config set init-author-name "sp21 software team 16"
           npm config set init-author-email "medelson@ucsd.edu"
+          cd CI
+          npm init -y
+          cd ..
           npm install --prefix CI babel-eslint --save-dev
       # npm init -y
       # npm install --prefix CI babel-eslint --save-dev
