@@ -23,6 +23,7 @@ jobs:
           cd CI
           rm -rf node_modules package.json 
           ls
+      - name: install eslint
       - run: |
           npm config set init-author-name "sp21 software team 16"
           npm config set init-author-email "medelson@ucsd.edu"
