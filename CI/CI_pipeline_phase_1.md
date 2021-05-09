@@ -17,3 +17,9 @@
 
 ## Documentation generation via automation
 - We are going to try to figure out how to get JSDocs to automatically generate documentation for our code through the use of an action.
+
+## Project checkpoint 1 video
+- https://youtu.be/7QSyaevo0jk
+
+## Project checkpoint 1 diagram
+- [diagram](ci_pipeline.drawio.png)
