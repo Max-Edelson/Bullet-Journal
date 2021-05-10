@@ -37,7 +37,7 @@ jobs:
       - name: Perform linting
         uses: creyD/prettier_action@v3.1
         with: 
-          prettier_options: --wite **/*.js
+          prettier_options: "--wite ~/source/collection/*.js"
           commit_message: "Prettified collection team javascript code"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
