@@ -21,6 +21,11 @@ jobs:
       - name: move to CI
         run: |
           cd CI
+          npm install --save-dev --save-exact prettier
+          prettier --write ~/source/collection/*.js
+          cd ..
+          git add .
+      #    npx eslint --fix -c CI/.eslintrc.json source/collection/*.js
       # npm config set init-author-name "sp21 software team 16"
       # npm config set init-author-email "medelson@ucsd.edu"
       # npm install eslint --save-dev
@@ -34,28 +39,21 @@ jobs:
     # - name: Only run this if .eslintrc.json exists
       #  run: "(test -f CI/.eslintrc.json && echo .eslintrc.json exists) || echo .eslintrc.json does not exist, skipping step"
           
-      - name: Perform linting
-        uses: creyD/prettier_action@v3.1
-        with: 
+      #- name: Perform linting
+      #  uses: creyD/prettier_action@v3.1
+      #  with: 
       #    prettier_options: "--wite ~/source/collection/*.js"
-          commit_message: "Prettified collection team javascript code"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        
-        #run: |
-        #    cd CI
-        #    if: ${{ npx prettier --check ~/source/collection/*.js }}
-        #    cd ..
-        #    git add .
-        #    npx eslint --fix -c CI/.eslintrc.json source/collection/*.js
+      #    commit_message: "Prettified collection team javascript code"
+      #  env:
+      #    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
      
-      #- name: Commit files
-      #  run: |
-      #    git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-      #    git config --local user.name "github-actions[bot]"
-      #    git add .
-      #    git commit -m "Enforced backend house coding style" -a
-      #    git push
+      - name: Commit files
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add .
+          git commit -m "Enforced backend house coding style" -a
+          git push
       
       
         #with:
