@@ -1,26 +1,32 @@
 {
-    "parser": "babel-eslint",
     "env": {
         "browser": true,
         "es2021": true
     },
+    "extends": ["eslint:recommended", "prettier"],
     "parserOptions": {
         "ecmaVersion": 12,
         "sourceType": "module"
     },
     "rules": {
-	"semi": ["error", "always"],
-	"quotes": ["error", "single"],
+        "indent": [
+            "error",
+            "tab"
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
 	"spaced-comment": ["error", "always", {
-	    "line": {
-		"markers": ["/"],
-		"exceptions": ["-", "+"]
-	    },
-	    "block": {
-		"markers": ["!"],
-		"exceptions": ["*"],
-		"balanced": true
-	    }
+            "line": {
+                "markers": ["/"],
+                "exceptions": ["-", "+"]
+            },
+    	    "block": {
+        	"markers": ["!"],
+        	"exceptions": ["*"],
+        	"balanced": true
+    	    }
 	}]
     }
 }
