@@ -20,7 +20,7 @@ jobs:
           node-version: '14'
       - name: install eslint
         run: |
-	  cd CI
+          cd CI
           npm config set init-author-name "sp21 software team 16"
           npm config set init-author-email "medelson@ucsd.edu"
           npm update
