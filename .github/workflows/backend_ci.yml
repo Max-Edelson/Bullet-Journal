@@ -18,37 +18,46 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
-      - name: install eslint
+      - name: move to CI
         run: |
           cd CI
-          npm config set init-author-name "sp21 software team 16"
-          npm config set init-author-email "medelson@ucsd.edu"
-          npm update
-          cd ..
+      # npm config set init-author-name "sp21 software team 16"
+      # npm config set init-author-email "medelson@ucsd.edu"
       # npm install eslint --save-dev
       # npm init -y
       # npm install --prefix CI babel-eslint --save-dev
-      - uses: sibiraj-s/action-eslint@v1
-        with:
-          eslintArgs: '--ignore-path=.gitignore --quiet'
-          extensions: 'js'
-          annotations: true
+      # - uses: sibiraj-s/action-eslint@v1
+      #  with:
+      #    eslintArgs: '--ignore-path=.gitignore --quiet'
+      #    extensions: 'js'
+      #    annotations: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Only run this if .eslintrc.json exists
-        run: "(test -f CI/.eslintrc.json && echo .eslintrc.json exists) || echo .eslintrc.json does not exist, skipping step"
+    # - name: Only run this if .eslintrc.json exists
+      #  run: "(test -f CI/.eslintrc.json && echo .eslintrc.json exists) || echo .eslintrc.json does not exist, skipping step"
           
       - name: Perform linting
-        run: |
-            npx eslint --fix -c CI/.eslintrc.json source/collection/*.js
-            git add .
+        uses: creyD/prettier_action@v3.1
+        with: 
+          prettier_options: --wite ~/source/collection/*.js
+          commit_message: "Prettified collection team javascript code"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
+        #run: |
+        #    cd CI
+        #    if: ${{ npx prettier --check ~/source/collection/*.js }}
+        #    cd ..
+        #    git add .
+        #    npx eslint --fix -c CI/.eslintrc.json source/collection/*.js
      
-      - name: Commit files
-        run: |
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git commit -m "Enforced backend house coding style" -a
-          git push
+      #- name: Commit files
+      #  run: |
+      #    git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      #    git config --local user.name "github-actions[bot]"
+      #    git add .
+      #    git commit -m "Enforced backend house coding style" -a
+      #    git push
       
       
         #with:
