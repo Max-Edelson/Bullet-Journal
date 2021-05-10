@@ -24,7 +24,6 @@ jobs:
           npm install --save-dev --save-exact prettier
           npx prettier --write --config .prettierrc.json ../source/collection/*.js
           cd ..
-          git add .
       #    npx eslint --fix -c CI/.eslintrc.json source/collection/*.js
       # npm config set init-author-name "sp21 software team 16"
       # npm config set init-author-email "medelson@ucsd.edu"
@@ -52,8 +51,9 @@ jobs:
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add .
-          git commit -m "Prettified collection javascript code" -a
-          git push
+          git diff-index --quiet HEAD || git commit -m 'Prettified collection javascript code' || git push
+      #    git commit -m "Prettified collection javascript code" -a
+      #    git push
       
       
         #with:
