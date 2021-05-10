@@ -29,6 +29,7 @@ jobs:
           npm config set init-author-email "medelson@ucsd.edu"
           npm init -y
           npm install eslint@4.x --save-dev babel-eslint@8 --save-dev
+          npm update
           cd ..
       # npm install eslint --save-dev
       # npm init -y
