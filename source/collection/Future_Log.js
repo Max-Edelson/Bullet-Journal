@@ -2,8 +2,8 @@
 //import * from "./filewithitemobjects.js"
 
 export default class Future_Log {
-  constructor() {}
+	constructor() {}
 
-  currDate = new Date();
-  currMonth = currDate.getMonth();
+	currDate = new Date();
+	currMonth = currDate.getMonth();
 }

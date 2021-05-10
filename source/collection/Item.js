@@ -3,20 +3,20 @@ const TASK_SYMBOL = ''; /* NEED SYMBOL FOR TASK */
 const NOTE_SYMBOL = ''; /* NEED SYMBOL FOR NOTE */
 
 /**
-*   Abstract item class that will represent the item being
-*   held in the journal entry. This can be an Event, Task or Note. 
-*	Each of these types will extend this class
+ *   Abstract item class that will represent the item being
+ *   held in the journal entry. This can be an Event, Task or Note.
+ *	Each of these types will extend this class
  */
-class Item{
+class Item {
 	/**
 	 * Creates and instance of the Item object with media
 	 * @param symbol image that represents the type of item
 	 * @param text text of the item
 	 * @param media file path to additional media(video, image, audio)(optional)
 	 */
-	constructor(symbol, text, media){
+	constructor(symbol, text, media) {
 		// prevent the abstract class from being created alone
-		if(this.constructor === Item){
+		if (this.constructor === Item) {
 			throw new Error('Instance of Abstrct class cannot be instatiated');
 		}
 
@@ -24,10 +24,9 @@ class Item{
 		this.text = text;
 
 		// check if media was included
-		if (media === undefined){
+		if (media === undefined) {
 			this.media = '';
-		} 
-		else{		
+		} else {
 			this.media = media;
 		}
 	}
@@ -36,7 +35,7 @@ class Item{
 	 * getter method for symbol of item
 	 * @returns returns image that is symbol of item
 	 */
-	get symbol(){
+	get symbol() {
 		return this.symbol;
 	}
 
@@ -44,7 +43,7 @@ class Item{
 	 * getter method for text of item
 	 * @returns returns string that is text of item
 	 */
-	get text(){
+	get text() {
 		return this.text;
 	}
 
@@ -52,7 +51,7 @@ class Item{
 	 * getter method for media of item
 	 * @returns returns string that is filepath to media
 	 */
-	get media(){
+	get media() {
 		return this.media;
 	}
 
@@ -60,21 +59,20 @@ class Item{
 	 * check if the media has additional media
 	 * @returns returns true is item has media false otherwise
 	 */
-	hasMedia(){
-		if (this.media === ''){
+	hasMedia() {
+		if (this.media === '') {
 			return false;
-		}
-		else{
+		} else {
 			return true;
 		}
 	}
 }
 
 /**
- * Event class that extends the item class. Keeps track of upcoming or 
+ * Event class that extends the item class. Keeps track of upcoming or
  * past events
  */
-class Events extends Item{
+class Events extends Item {
 	/**
 	 * Creates an event object that has symbol, text and optional media
 	 * title and time
@@ -83,22 +81,20 @@ class Events extends Item{
 	 * @param title title of the event (optional)
 	 * @param date date object that represents date of the event (optional)
 	 */
-	constructor(text, media, title, date){
+	constructor(text, media, title, date) {
 		super(EVENT_SYMBOL, text, media);
-		
+
 		// check if title was included
-		if (title === undefined){
+		if (title === undefined) {
 			this.title = '';
-		} 
-		else{
-			this.title = title;	
+		} else {
+			this.title = title;
 		}
 
 		// check if time was included
-		if (date === undefined){
+		if (date === undefined) {
 			this.date = null;
-		}
-		else{
+		} else {
 			this.date = time;
 		}
 	}
@@ -107,7 +103,7 @@ class Events extends Item{
 	 * getter method for date of the event
 	 * @returns date object representing date/time of the event
 	 */
-	get date(){
+	get date() {
 		return this.date;
 	}
 
@@ -115,13 +111,13 @@ class Events extends Item{
 	 * getter method for title of the event
 	 * @returns string representing title of the event
 	 */
-	get title(){
+	get title() {
 		return this.title;
 	}
 	/**
-		 * adds/replaces the date of the event
-		 * @param newDate date object representing new date 
-		 */
+	 * adds/replaces the date of the event
+	 * @param newDate date object representing new date
+	 */
 	addDate(newDate) {
 		this.date = newDate;
 	}
@@ -129,7 +125,7 @@ class Events extends Item{
 	/**
 	 * removes the date from the event
 	 */
-	removeDate(){
+	removeDate() {
 		this.date = null;
 	}
 
@@ -138,11 +134,10 @@ class Events extends Item{
 	 * @returns returns true if there exists a date for this event, false
 	 * otherwise
 	 */
-	hasDate(){
-		if (this.date === null){
+	hasDate() {
+		if (this.date === null) {
 			return false;
-		}
-		else{
+		} else {
 			return true;
 		}
 	}
@@ -152,24 +147,22 @@ class Events extends Item{
  * Task class that extends the item class. Used to keep track of task
  * needed to be done
  */
-class Task extends Item{
-
+class Task extends Item {
 	/**
 	 * creates a new Task object that is an item
 	 * @param text text of the task
 	 * @param media additional media for the task
 	 * @param deadline date object that represents the deadline of the task
 	 */
-	constructor(text, media, deadline){
+	constructor(text, media, deadline) {
 		super(TASK_SYMBOL, text, media);
 
 		this.completed = false;
 
 		// check if dealine was included
-		if (deadline === undefined){
+		if (deadline === undefined) {
 			this.deadline = null;
-		} 
-		else{
+		} else {
 			this.deadline = deadline;
 		}
 	}
@@ -178,7 +171,7 @@ class Task extends Item{
 	 * getter method for the deadline
 	 * @returns returns date object representing the dealine of task
 	 */
-	get deadline(){
+	get deadline() {
 		return this.deadline;
 	}
 
@@ -186,7 +179,7 @@ class Task extends Item{
 	 * getter method whether task is completed or not
 	 * @returns returns boolean representing if task is completed
 	 */
-	get completed(){
+	get completed() {
 		return this.completed;
 	}
 
@@ -194,14 +187,14 @@ class Task extends Item{
 	 * add/replaces deadline of the task
 	 * @param newDeadline date object representing new deadline to be added
 	 */
-	addDeadline(newDeadline){
+	addDeadline(newDeadline) {
 		this.deadline = newDeadline;
 	}
 
 	/**
 	 * removes the deadline of the task
 	 */
-	removeDeadline(){
+	removeDeadline() {
 		this.deadline = null;
 	}
 
@@ -209,10 +202,10 @@ class Task extends Item{
 	 * checks if task has a deadline
 	 * @returns returns true if there exists a deadline, false otherwise
 	 */
-	hasDeadline(){
-		if (this.deadline === null){
+	hasDeadline() {
+		if (this.deadline === null) {
 			return false;
-		} else{
+		} else {
 			return true;
 		}
 	}
@@ -220,14 +213,14 @@ class Task extends Item{
 	/**
 	 * marks task as completed
 	 */
-	markCompleted(){
+	markCompleted() {
 		this.completed = true;
 	}
 
 	/**
 	 * marks task as uncomplete
 	 */
-	markUncompleted(){
+	markUncompleted() {
 		this.completed = false;
 	}
 }
@@ -235,14 +228,13 @@ class Task extends Item{
 /**
  * Note class that extends the item class. Used to keep track of information
  */
-class Notes extends Item{
-	
+class Notes extends Item {
 	/**
 	 * creates a new note object
 	 * @param text text of the note
 	 * @param media additional media for the note
 	 */
-	constructor(text, media){
+	constructor(text, media) {
 		super(NOTE_SYMBOL, text, media);
 	}
 }
