@@ -10,7 +10,7 @@
   "author": "sp21 software team 16 <medelson@ucsd.edu>",
   "license": "ISC",
   "devDependencies": {
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.26.0"
+    "babel-eslint": ">=10.1.0",
+    "eslint": ">=7.26.0"
   }
 }

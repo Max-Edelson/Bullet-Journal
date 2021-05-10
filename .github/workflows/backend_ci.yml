@@ -18,17 +18,11 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
-      - name: clean CI
-        run: |
-          cd CI
-          rm -rf node_modules package.json package-lock.json
-          ls
       - name: install eslint
         run: |
+	  cd CI
           npm config set init-author-name "sp21 software team 16"
           npm config set init-author-email "medelson@ucsd.edu"
-          npm init -y
-          npm install eslint@4.x --save-dev babel-eslint@8 --save-dev
           npm update
           cd ..
       # npm install eslint --save-dev
@@ -44,9 +38,6 @@ jobs:
       - name: Only run this if .eslintrc.json exists
         run: "(test -f CI/.eslintrc.json && echo .eslintrc.json exists) || echo .eslintrc.json does not exist, skipping step"
           
-      #- name: perform ls
-        #run: ls CI -a
-        
       - name: Perform linting
         run: |
             npx eslint --fix -c CI/.eslintrc.json source/collection/*.js
