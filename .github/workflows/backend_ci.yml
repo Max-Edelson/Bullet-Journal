@@ -21,7 +21,9 @@ jobs:
       - name: Prettify code
         run: |
           cd CI
+          npm install eslint --save-dev
           npm install --save-dev --save-exact prettier
+          npx eslint -c .eslintrc.json ../source/collection/*.js
           npx prettier --write --config .prettierrc.json ../source/collection/*.js
           cd ..
       #    npx eslint --fix -c CI/.eslintrc.json source/collection/*.js
