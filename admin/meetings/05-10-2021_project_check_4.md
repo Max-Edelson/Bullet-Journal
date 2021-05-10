@@ -52,8 +52,10 @@ Khyat, Joshua, and Ricardo (GUI):
 ## Agenda:
 1. Maxim no longer coding with colleciton team but will joing any meeting with any team if asked to
 2. Discuss making an mvp
-3. Demos
-4. Plan jobs for next week
+3. Qiuyu talk about storage
+4. Demos
+5. Plan jobs for next week
+6. Status video
 
 ## Notes from discussion:
 - Collection team leader: Javier
