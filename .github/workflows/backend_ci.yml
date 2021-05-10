@@ -31,8 +31,6 @@ jobs:
       #    eslintArgs: '--ignore-path=.gitignore --quiet'
       #    extensions: 'js'
       #    annotations: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     # - name: Only run this if .eslintrc.json exists
       #  run: "(test -f CI/.eslintrc.json && echo .eslintrc.json exists) || echo .eslintrc.json does not exist, skipping step"
           
