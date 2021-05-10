@@ -21,11 +21,10 @@ jobs:
       - name: move to CI
         run: |
           cd CI
-          yarn add --dev --exact prettier
-          prettier --write ~/source/collection/*.js
+          npm install --save-dev --save-exact prettier
+          npx prettier --write --config .prettierrc.json ../source/collection/*.js
           cd ..
           git add .
-     #    npm install --save-dev --save-exact prettier
       #    npx eslint --fix -c CI/.eslintrc.json source/collection/*.js
       # npm config set init-author-name "sp21 software team 16"
       # npm config set init-author-email "medelson@ucsd.edu"
