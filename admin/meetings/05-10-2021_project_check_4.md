@@ -66,3 +66,4 @@ Khyat, Joshua, and Ricardo (GUI):
 - GUI team leader: Joshua
 - GUI team meet to discuss next steps concerning MVP
 - Collections team to meet to discuss back-end/front-end demos
+- Meeting on May 16th
