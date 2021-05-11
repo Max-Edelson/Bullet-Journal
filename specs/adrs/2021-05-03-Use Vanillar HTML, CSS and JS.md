@@ -17,7 +17,6 @@ We have finished the design process. With the design we had, we decided to start
 ## Considered Options
 * Use vanilla html, css and javascript
 * Use Bootstrap and React
-* … <!-- numbers of options can vary -->
 
 ## Decision Outcome
 
