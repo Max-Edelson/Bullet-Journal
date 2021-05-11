@@ -29,7 +29,7 @@ jobs:
       - name: Generate documentation
         run: |
           npm install --save-dev jsdoc
-          npx jsdoc -d ../source/documentation -r -R ../source/README.md ../source/collection/*.js
+          npx jsdoc -r -d ../source/documentation ../source/collection/*.js
           cd ..
      
       - name: Commit files
