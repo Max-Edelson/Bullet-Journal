@@ -54,10 +54,12 @@ Khyat, Joshua, and Ricardo (GUI):
 2. Discuss making an mvp
 3. Qiuyu talk about storage
 4. Mini collection team demos
-5. Setup future meeting for sprint review
-6. Demos
-7. Plan jobs for next week
-8. Status video
+5. Discuss how we want code to be accepted onto repo
+6. Setup future meeting for sprint review
+7. Demos
+8. Plan jobs for next week
+9. Status video
+10. Remind frontend to discuss coding style and then bring it to Maxim to make an action
 
 ## Notes from discussion:
 - Collection team leader: Javier
