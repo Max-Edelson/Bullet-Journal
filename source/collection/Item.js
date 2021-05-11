@@ -95,7 +95,8 @@ class Events extends Item {
 		if (date === undefined) {
 			this.date = null;
 		} else {
-			this.date = time;
+//			this.date = time;
+			// TODO: define time
 		}
 	}
 
