@@ -36,30 +36,21 @@ Chosen option: " Use vanilla html, css and javascript", because most people do n
 
 ### [option 1]
 
-Use  <!-- optional -->
+Use vanilla html, css and javascript<!-- optional -->
 
-* Good, because [argument a]
-* Good, because [argument b]
-* Bad, because [argument c]
-* … <!-- numbers of pros and cons can vary -->
+* Good, because everyone in our groups knows vanillar html, css and javascript
+* Good, because TAs and professor Powell can help us if we encounter problems
+* Bad, because we probably need to write more code with one feature
 
 ### [option 2]
 
-[example | description | pointer to more information | …] <!-- optional -->
+Use Bootstrap and React<!-- optional -->
 
-* Good, because [argument a]
-* Good, because [argument b]
-* Bad, because [argument c]
-* … <!-- numbers of pros and cons can vary -->
+* Good, because we can write less code
+* Good, because most people build websites with these two. We will have more docs in the internet.
+* Bad, because TAs and Professor Powell won't help us.
+* Bad, most people in the group don't know how to use.
 
-### [option 3]
-
-[example | description | pointer to more information | …] <!-- optional -->
-
-* Good, because [argument a]
-* Good, because [argument b]
-* Bad, because [argument c]
-* … <!-- numbers of pros and cons can vary -->
 
 ## Links <!-- optional -->
 
