@@ -64,3 +64,5 @@ Khyat, Joshua, and Ricardo (GUI):
 ## Notes from discussion:
 - Collection team leader: Javier
 - GUI team leader: Joshua
+- GUI team meet to discuss next steps concerning MVP
+- Collections team to meet to discuss back-end/front-end demos
