@@ -2,7 +2,7 @@
 
 * Status: accepted
 * Deciders: The whole team member
-* Date: 2021-05-10
+* Date: 2021-05-03
 
 ## We are on the coding phase so we need to decide what to use so that everyone can keep up with each other
 
