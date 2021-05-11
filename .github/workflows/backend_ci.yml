@@ -1,4 +1,4 @@
-name: Enforce Backend House Coding Style
+name: Lint and Document Code
 
 on:
   push:
@@ -18,13 +18,18 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
-      - name: Prettify Code
+      - name: Lint Code
         run: |
           cd CI
           npm install eslint --save-dev
           npm install --save-dev --save-exact prettier
           npx eslint --fix -c .eslintrc.json ../source/collection/*.js
           npx prettier --write --config .prettierrc.json ../source/collection/*.js
+        
+      - name: Generate documentation
+        run: |
+          npm install --save-dev jsdoc
+          npx jsdoc -d ../source/documentation -r -R ../source/README.md ../source/collection/*.js
           cd ..
      
       - name: Commit files
