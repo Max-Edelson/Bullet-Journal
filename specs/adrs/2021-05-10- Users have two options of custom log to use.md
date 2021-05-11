@@ -1,4 +1,4 @@
-# Have two custom logs options for users to choose
+# Users have two custom logs options for users to choose
 * Status: accepted
 * Deciders: The whole team member
 * Date: 2021-05-03
