@@ -50,8 +50,3 @@ Use Bootstrap and React<!-- optional -->
 * Bad, because TAs and Professor Powell won't help us.
 * Bad, most people in the group don't know how to use.
 
-
-## Links <!-- optional -->
-
-* [Link type] [Link to ADR] <!-- example: Refined by [ADR-0005](0005-example.md) -->
-* … <!-- numbers of links can vary -->
