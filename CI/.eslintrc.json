@@ -18,7 +18,7 @@
             "error",
             "unix"
         ],
-	"no-unused-vars": ["error", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
+	"no-unused-vars": ["warn", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
 	"spaced-comment": ["error", "always", {
             "line": {
                 "markers": ["/"],
