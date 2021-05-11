@@ -29,6 +29,7 @@ jobs:
       - name: Generate documentation
         run: |
           npm install --save-dev jsdoc
+          npm audit fix
           npx jsdoc -r -d ../source/documentation ../source/collection/*.js
           cd ..
      
