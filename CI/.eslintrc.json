@@ -18,7 +18,6 @@
             "error",
             "unix"
         ],
-	"no-undef": ["error", "always"],
 	"no-unused-vars": ["error", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
 	"spaced-comment": ["error", "always", {
             "line": {
