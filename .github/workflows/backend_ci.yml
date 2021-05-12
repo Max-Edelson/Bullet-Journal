@@ -31,7 +31,8 @@ jobs:
           cd CI
           npm install --save-dev jsdoc
           npm audit fix
-          npx jsdoc -r -d ../source/documentation ../source/collection/*.js
+          npx jsdoc -r -R ../README.md -d ../source/documentation ../source/collection/*.js
+	  ls ~/
      
       - name: Commit files
         run: |
