@@ -23,9 +23,9 @@ jobs:
           cd CI
           npm install eslint --save-dev
           npm install --save-dev --save-exact prettier
-          npm install --save-dev eslint-config-prettier
           npx eslint --fix -c .eslintrc.json $GITHUB_WORKSPACE/source/collection/*.js
           npx prettier --write --config .prettierrc.json $GITHUB_WORKSPACE/source/collection/*.js
+     #     npm install --save-dev eslint-config-prettier    
         
       - name: Generate documentation
         run: |
