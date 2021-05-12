@@ -32,7 +32,7 @@ jobs:
           npm install --save-dev jsdoc
           npm audit fix
           npx jsdoc -r -R ../README.md -d ../source/documentation ../source/collection/*.js
-	  ls ~/
+          ls ~/
      
       - name: Commit files
         run: |
