@@ -30,7 +30,7 @@ jobs:
         run: |
           cd CI
           npm install --save-dev jsdoc
-          npx jsdoc $GITHUB_WORKSPACE/source/collection/Item.js 
+          npx jsdoc -r -d $GITHUB_WORKSPACE/source/documentation $GITHUB_WORKSPACE/source/collection/*.js 
           
      # -d ../source/documentation
       - name: Commit files
