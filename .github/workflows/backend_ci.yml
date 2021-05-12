@@ -29,9 +29,8 @@ jobs:
       - name: Generate documentation
         run: |
           cd CI
-          npx jsdoc $GITHUB_WORKSPACE/source/collection/*.js
-      #    npm install --save-dev jsdoc
-          
+          npm install --save-dev jsdoc
+          npx jsdoc $GITHUB_WORKSPACE/source/collection/Item.js 
           
      # -d ../source/documentation
       - name: Commit files
