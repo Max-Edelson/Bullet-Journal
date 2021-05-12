@@ -1,5 +1,5 @@
 General HTML Formatting:
-- Uses tabs for indentation
+- Uses tabs (2 spaces) for indentation
 - Indent html elements that are nested in another element
 - Keep HTML and CSS in separate files
 - Keep HTML and Javascript in separate files
