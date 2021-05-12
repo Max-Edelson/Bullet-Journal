@@ -32,8 +32,9 @@ jobs:
           npm install --save-dev jsdoc
           npm audit fix
           npx jsdoc --recurse --destination ./out ../source/collection/*.js
-          ls ~/
-          ls ../source/collection/*.js
+          ls /
+          `ls ../source/collection/*.js`
+          
      # -d ../source/documentation
       - name: Commit files
         run: |
