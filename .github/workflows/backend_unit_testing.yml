@@ -1,10 +1,10 @@
 name: unit testing back end
 
 on:
-  push:
-    branches: 
+#  push:
+#    branches: 
 #      - collection_team
-  workflow_dispatch:
+   workflow_dispatch:
 
 jobs:
   build:
