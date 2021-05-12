@@ -31,9 +31,8 @@ jobs:
           cd CI
           npm install --save-dev jsdoc
           npm audit fix
-          npx jsdoc --recurse --destination ./out ../source/collection/*.js
-          ls /
-          `ls ../source/collection/*.js`
+          npx jsdoc ../source/collection/*.js
+          ls $GITHUB_WORKSPACE
           
      # -d ../source/documentation
       - name: Commit files
