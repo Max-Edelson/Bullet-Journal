@@ -31,9 +31,9 @@ jobs:
           cd CI
           npm install --save-dev jsdoc
           npm audit fix
-          npx jsdoc ../source/collection/*.js -r -d ../source/documentation
+          npx jsdoc ../source/collection/*.js -r 
           ls ~/
-     
+     # -d ../source/documentation
       - name: Commit files
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
