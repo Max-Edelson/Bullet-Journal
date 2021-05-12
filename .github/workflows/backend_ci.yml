@@ -32,6 +32,7 @@ jobs:
         run: |
           cd CI
           npm install --save-dev jsdoc
+          npm audit fix
           npx jsdoc -r -d $GITHUB_WORKSPACE/source/documentation $GITHUB_WORKSPACE/source/collection/*.js 
           
      # -d ../source/documentation
