@@ -10,4 +10,6 @@ Decisions Made:
 
 Demo Model:
 - have a single form that the user can edit
-- when form is submited it will add the entry to the top of the page
+- can add date, note, title
+- when you submit, adds custom element entry that holds text of form
+- trying to implement local storage
