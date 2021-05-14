@@ -15,4 +15,4 @@ Within these parts, certain features that it will include are:
 - collections of items (time based or custom)
 - Migration
 
-## Gain access to the CodeClimate review of our code at: https://codeclimate.com/github/Max-Edelson/cse110-sp21-group16
+### Gain access to the CodeClimate review of our code at: https://codeclimate.com/github/Max-Edelson/cse110-sp21-group16
