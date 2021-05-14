@@ -12,16 +12,28 @@ When the meeting finished: 7:45 PM
 -
 
 ## Job due for this meeting:
-Maxim (Coordinator/Planner/Organizer):
+Maxim 
 -
 
-Qiuyu (Coordinator/Designer):
+Qiuyu 
 -
 
-Carmen, Sophia, and Javier (Collection):
+Carmen:
 -
 
-Khyat, Joshua, and Ricardo (GUI):
+Sophia:
+-
+
+Javier:
+-
+
+Khyat:
+-
+
+Joshua:
+-
+
+Ricardo:
 -
 
 ## Agenda:
