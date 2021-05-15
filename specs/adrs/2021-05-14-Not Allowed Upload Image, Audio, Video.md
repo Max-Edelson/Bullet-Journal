@@ -4,50 +4,50 @@
 * Deciders: The whole team member
 * Date: 2021-05-14
 
-## We are on the coding phase so we need to decide what to use so that everyone can keep up with each other
+## We decided to use local storage as the data storage method. With reserach, the maximum storage is 5MB. We are afraid that users cannot store what they want to store.
 
-We have finished the design process. With the design we had, we decided to start coding as soon as possible. There are many frameworks and libraries for us to choose. With these libraries and framworks, we don't know they will help us or be a problem for us. Not all of us have experience of using different frameworks and libraries. 
+We had a discussion about use local storage for our data storage. With only 5MB, we wish users can still store their most important data.
 
 ## Decision Drivers 
 
-* TAs and Professors will only provide help for vanilla html, css an javascript
-* We need time to study different framework and libraries
-* However, frameworks and libraries might help us to build our website 
+* Video takes up too much space
+* Audio takes up too much space
+* Images take up to much space.
 
 ## Considered Options
-* Use vanilla html, css and javascript
-* Use Bootstrap and React
+* Let users store whatever they want, include video, audio, images
+* Only let users store text
 
 ## Decision Outcome
 
-Chosen option: " Use vanilla html, css and javascript", because most people do not have the experiences of using Bootstrap and React before. We probably need tons of time to study these instead of start coding. Also we will get more help from TAs and Professor Powell.
-
+Chosen option: "Only let users store text", because most people used to record to take notes are the text. This is the basic functionality of our log. We do not want other like image, video and audio take up too much space. In that way, texts will lose their their functionality. 
 ### Positive Consequences <!-- optional -->
 
-* We have started coding.
+* We don't have to include designs and implementation for image, audio and video
+* We are confident that the storage is enough for a short time
 
 ### Negative Consequences <!-- optional -->
 
-* We might need to write more code to implement a feature
+* Users might have less experience with our website.
+* They might want to store image, audio, video as well.
 
 
 ## Pros and Cons of the Options <!-- optional -->
 
 ### [option 1]
 
-Use vanilla html, css and javascript<!-- optional -->
+Let users store whatever they want, include video, audio, images<!-- optional -->
 
-* Good, because everyone in our groups knows vanillar html, css and javascript
-* Good, because TAs and professor Powell can help us if we encounter problems
-* Bad, because we probably need to write more code with one feature
+* Good, because our website can have more functionalities.
+* Good, because some users want to store video, audio, images. We can satify their needs.
+* Bad, because we don't have space.
 
 ### [option 2]
 
-Use Bootstrap and React<!-- optional -->
+Only let users store text<!-- optional -->
 
-* Good, because we can write less code
-* Good, because most people build websites with these two. We will have more docs in the internet.
-* Bad, because TAs and Professor Powell won't help us.
-* Bad, most people in the group don't know how to use.
+* Good, we have enough space for short time.
+* Good, because people will not meet the situation that they can't store text.
+* Bad, because some users want to store video, audio, images. We cannot satify their needs. 
 
 
