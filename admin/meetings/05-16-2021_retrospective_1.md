@@ -13,6 +13,7 @@ When the meeting finished: 5:00 PM
 - Javier
 - Joshua
 - Carmen
+- Khyat(late)
 
 ### Who is missing:
 - Khyat
