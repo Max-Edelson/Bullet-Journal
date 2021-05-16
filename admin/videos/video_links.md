@@ -4,5 +4,8 @@
 ## CI project checkpoint 1 phase 1
 1. https://youtu.be/7QSyaevo0jk
 
-## Sprint Reviews
+## Sprint Reviews (too large to upload source)
 1. https://youtu.be/uMpxnHtlNec
+
+## Team Status Videos
+1. https://youtu.be/7RpADOlv49Q
