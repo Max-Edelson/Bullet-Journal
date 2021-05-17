@@ -9,3 +9,6 @@
 
 ## Team Status Videos
 1. https://youtu.be/7RpADOlv49Q
+
+## Retrospective Meetings (too large to upload source)
+1. https://youtu.be/4wsBo0SWgRw
