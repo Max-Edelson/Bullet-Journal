@@ -16,6 +16,7 @@ module.exports = {
   // Automatically clear mock calls and instances between every test
   clearMocks: true,
 
+
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
 
@@ -94,6 +95,11 @@ module.exports = {
 
   // A preset that is used as a base for Jest's configuration
   // preset: undefined,
+  preset: 'ts-jest',
+  transform: {
+    '^.+\\.(ts|tsx)?$': 'ts-jest',
+    "^.+\\.(js|jsx)$": "babel-jest",
+  },
 
   // Run tests from one or more projects
   // projects: undefined,

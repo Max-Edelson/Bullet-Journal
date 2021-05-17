@@ -14,14 +14,14 @@ class Item {
 	 * @param text text of the item
 	 * @param media file path to additional media(video, image, audio)(optional)
 	 */
-	constructor(symbol, text, media) {
+	constructor(s, t, media) {
 		// prevent the abstract class from being created alone
 		if (this.constructor === Item) {
 			throw new Error("Instance of Abstrct class cannot be instatiated");
 		}
 
-		this.symbol = symbol;
-		this.text = text;
+		this.symbol = s;
+		this.text = t;
 
 		// check if media was included
 		if (media === undefined) {
@@ -37,6 +37,18 @@ class Item {
 	 */
 	get symbol() {
 		return this.symbol;
+	}
+
+	set symbol(s) {
+		this._symbol = s;
+	}
+
+	set text(t) {
+		this._text = t;
+	}
+
+	set media(m) {
+		this._media = m;
 	}
 
 	/**
@@ -72,7 +84,7 @@ class Item {
  * Event class that extends the item class. Keeps track of upcoming or
  * past events
  */
-class Events extends Item {
+export class Event extends Item {
 	/**
 	 * Creates an event object that has symbol, text and optional media
 	 * title and time
@@ -143,6 +155,8 @@ class Events extends Item {
 		}
 	}
 }
+
+module.exports = { Event };
 
 /**
  * Task class that extends the item class. Used to keep track of task
