@@ -1,4 +1,4 @@
-Date: ##-##-#### <br>
+Date: 05-24-2021 <br>
 Type of meeting: Weekly Project Check <br>
 Team number: 16 <br>
 Meeting location: Zoom <br>
