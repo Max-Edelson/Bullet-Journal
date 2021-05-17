@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="entry-form" onsubmit="alert('Entered')">
+        <label for="entry-content">Enter main note</label><br>
+        <textarea id="entry-content" name="note"
+            rows="5" cols="33" maxlength="50">Enter main content
+        </textarea><br>
+
+        <label id="sublabel" for="subentry-content" hidden>Enter sub note</label><br>
+        <textarea id="subentry-content" name="note"
+            rows="5" cols="33" maxlength="50" hidden>Enter sub content
+        </textarea><br id="sub-break" hidden>
+        
+        <button type="button" id="subButton">Add sub-note</button> <br>
+        <button type="submit">Enter Entry</button>
+    </form>
+
+    <main></main>
+
+    <script src="../collection/Item.js" type="module"></script>
+    <script src="../collection/Entry.js" type="module"></script>
+    <script src="./custom_element_demo.js" type="module"></script>
+</body>
+</html>
