@@ -32,30 +32,6 @@ class Item {
 	}
 
 	/**
-	 * getter method for symbol of item
-	 * @returns returns image that is symbol of item
-	 */
-	/*get symbol() {
-		return this.symbol;
-	}*/
-
-	/**
-	 * getter method for text of item
-	 * @returns returns string that is text of item
-	 */
-/*	get text() {
-		return this.text;
-	}*/
-
-	/**
-	 * getter method for media of item
-	 * @returns returns string that is filepath to media
-	 */
-/*d	get media() {
-		return this.media;
-	}*/
-
-	/**
 	 * check if the media has additional media
 	 * @returns returns true is item has media false otherwise
 	 */

@@ -1,6 +1,6 @@
 import {Item, Event, Task, Note} from '../collection/Item.js';
 
-let form = document.querySelector('#entry-form');
+let form = document.querySelector('#entry-form'); //change
 let note = document.querySelector('#entry-content');
 let subnote = document.querySelector('#subentry-content');
 let subButton = document.querySelector("[type='button']");

@@ -23,6 +23,9 @@ class Entry extends HTMLElement {
                 margin-left:25px;
                 margin-right:-25px;
             }
+            .entry{
+                border-style: solid;
+            }
         </style>
         <article class="entry">
             <div class="main-section">
