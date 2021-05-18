@@ -37,7 +37,7 @@ Ricardo:
 -
 
 ## Agenda:
-1.
+1.yes
 
 ## Notes from discussion:
 -
