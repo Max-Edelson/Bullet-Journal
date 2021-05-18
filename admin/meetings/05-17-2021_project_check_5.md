@@ -6,10 +6,16 @@ Time began: 6:30 PM <br>
 When the meeting finished:
 
 ### Who is in attendance:
--
+- Maxim
+- Qiuyu
+- Sophia
+- Javier
+- Joshua
+- Ricardo
+- Carmen
 
 ### Who is missing:
--
+- Khyat
 
 Maxim (Coordinator/Planner/Organizer):
 - Expand lint action to more branches
@@ -44,4 +50,5 @@ Ricardo:
 4. Goal for next week.
 
 ## Notes from discussion:
--
+- Main branch and collection branch will be protected.
+- 
