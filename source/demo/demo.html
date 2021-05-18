@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="entry-form" onsubmit="alert('Entered')">
+        <input id="entry-title" type="text" placeholder="Entry Title" />
+
+        <label for="entry-date">Date:</label>
+        <input type="date" id="entry-date" name="date-entry"
+            value="yyyy-mm-dd"
+            min="2021-01-01" max="2022-12-31">
+        <br>
+        
+        <label for="entry-content">Enter your journal entry here:</label><br>
+        <textarea id="entry-content" name="note"
+            rows="5" cols="33" maxlength="50">enter note
+        </textarea><br>
+        <label for="symbol-select">Note symbol:</label>
+        <select name="class" id="symbol-select">
+            <option value="">--Please choose an option--</option>
+            <option value="important">important</option>
+        </select><br>
+        <button type="submit">Enter Entry</button>
+    </form>
+
+    <article class="entry">
+        <h2 class="entry-title">Template Title</h2>
+        <p class="entry-date">mm/dd/yyyy</p>
+        <p class="entry-content">blah blah blah...</p>
+    </article>
+
+    <main></main>
+
+    <script src="../collection/Item.js" type="module"></script>
+    <script src="../collection/Entry.js" type="module"></script>
+    <script src="./demo.js" type="module"></script>
+</body>
+</html>
