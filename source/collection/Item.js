@@ -72,7 +72,6 @@ class Event extends Item {
 			this.date = null;
 		} else {
 			this.date = date;
-			// TODO: define time
 		}
 	}
 
