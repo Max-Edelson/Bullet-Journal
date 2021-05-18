@@ -38,7 +38,9 @@ Ricardo:
 - Monthly log
 
 ## Agenda:
-1.
+1. Go over demos.
+2. There is a CI/CD Pipeline due soon.
+3. Goal for next week.
 
 ## Notes from discussion:
 -
