@@ -51,4 +51,4 @@ Ricardo:
 
 ## Notes from discussion:
 - Main branch and collection branch will be protected.
-- 
+- Friday will be the only stand-up meeting
