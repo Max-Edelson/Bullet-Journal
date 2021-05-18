@@ -1,24 +1,25 @@
 {
-  "name": "package",
+  "name": "javascript ci",
   "version": "1.0.0",
-  "description": "linting software",
+  "description": "This project is aimed at building a bullet journal website for CSE 110 at UCSD in spring of 2021.",
   "main": "index.js",
-  "dependencies": {},
-  "devDependencies": {
-    "babel-eslint": "^10.1.0",
-    "eslint": "^7.25.0"
-  },
   "scripts": {
-    "test": "test_lint"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [],
+  "author": "sp21 software team 16 <medelson@ucsd.edu>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Max-Edelson/cse110-sp21-group16.git"
+    "url": "https://github.com/Max-Edelson/cse110-sp21-group16"
   },
-  "author": "",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/Max-Edelson/cse110-sp21-group16/issues"
   },
-  "homepage": "https://github.com/Max-Edelson/cse110-sp21-group16#readme"
+  "license": "ISC",
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.26.0",
+    "eslint-config-prettier": "^8.3.0",
+    "prettier": "2.3.0"
+  }
 }

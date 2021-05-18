@@ -10,7 +10,22 @@ class Entry extends HTMLElement {
 
         template.innerHTML = `
         <style>
-
+            .main-item{
+                font-size: 20px;
+                margin-top:30px
+            }
+            .sub-item{
+                font-size: 15px;
+                margin-top: -20px;
+                marign-bottom:-20px;
+            }
+            .sub-section{
+                margin-left:25px;
+                margin-right:-25px;
+            }
+            .entry{
+                border-style: solid;
+            }
         </style>
         <article class="entry">
             <div class="main-section">
@@ -58,6 +73,24 @@ class Entry extends HTMLElement {
         
         /* Check if there is media (How do we know which type of file??)
         if(mainItem.media != ''){
+
+        }*/
+    }
+
+    /**
+     * setter method that runs when subItem attribute is changed
+     * adds all the content of the item to the entry custom element
+     * @param subItem item object that will server as the sub item
+     */
+     set subItem(subItem){
+        let entryArticle = this.shadowRoot.querySelector('.entry');
+        let subSec = this.shadowRoot.querySelector('.sub-section');
+
+        let subText = this.shadowRoot.querySelector('.sub-item');
+        subText.textContent = subItem.text;
+        
+        /* Check if there is media (How do we know which type of file??)
+        if(subItem.media != ''){
 
         }*/
     }
