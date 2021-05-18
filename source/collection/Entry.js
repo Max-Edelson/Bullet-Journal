@@ -1,3 +1,4 @@
+import {Item, Event, Task, Note} from './Item.js';
 class Entry extends HTMLElement {
 
     /**
@@ -65,16 +66,24 @@ class Entry extends HTMLElement {
      * @param mainItem item object that will server as the main item
      */
     set mainItem(mainItem){
-        let entryArticle = this.shadowRoot.querySelector('.entry');
-        let mainSec = this.shadowRoot.querySelector('.main-section');
+      //  let entryArticle = this.shadowRoot.querySelector('.entry');
+      //  let mainSec = this.shadowRoot.querySelector('.main-section');
 
         let mainText = this.shadowRoot.querySelector('.main-item');
-        mainText.textContent = mainItem.text;
         
-        /* Check if there is media (How do we know which type of file??)
-        if(mainItem.media != ''){
+        
+        if (mainItem instanceof Event){
+            mainText.textContent = mainItem.title + '/// ' + mainItem.date + ': ' + mainItem.text;
+        }
 
-        }*/
+        else if (mainItem instanceof Task){
+            mainText.textContent = mainItem.text + '/// Deadline: ' + mainItem.deadline;
+        }
+        
+        else{
+            mainText.textContent = mainItem.text;
+        }
+        console.log(mainItem);
     }
 
     /**
@@ -87,12 +96,18 @@ class Entry extends HTMLElement {
         let subSec = this.shadowRoot.querySelector('.sub-section');
 
         let subText = this.shadowRoot.querySelector('.sub-item');
-        subText.textContent = subItem.text;
         
-        /* Check if there is media (How do we know which type of file??)
-        if(subItem.media != ''){
+        
+        if (subItem instanceof Event){
+            subText.textContent = subItem.title + '/// ' + subItem.date + ': ' + subItem.text;
+        }
 
-        }*/
+        else if (subItem instanceof Task){
+            subText.textContent = subItem.text + '/// Deadline: ' + subItem.deadline;
+        }
+        else{
+            subText.textContent = subItem.text;
+        }
     }
 }
 

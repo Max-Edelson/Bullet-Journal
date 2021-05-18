@@ -71,30 +71,11 @@ class Event extends Item {
 		if (date === undefined) {
 			this.date = null;
 		} else {
-			//			this.date = time;
+			this.date = date;
 			// TODO: define time
 		}
 	}
 
-	/**
-	 * getter method for date of the event
-	 * @returns date object representing date/time of the event
-	 */
-	get date() {
-		return this.date;
-	}
-
-	/**
-	 * getter method for title of the event
-	 * @returns string representing title of the event
-	 */
-	get title() {
-		return this.title;
-	}
-	/**
-	 * adds/replaces the date of the event
-	 * @param newDate date object representing new date
-	 */
 	addDate(newDate) {
 		this.date = newDate;
 	}
@@ -142,22 +123,6 @@ class Task extends Item {
 		} else {
 			this.deadline = deadline;
 		}
-	}
-
-	/**
-	 * getter method for the deadline
-	 * @returns returns date object representing the dealine of task
-	 */
-	get deadline() {
-		return this.deadline;
-	}
-
-	/**
-	 * getter method whether task is completed or not
-	 * @returns returns boolean representing if task is completed
-	 */
-	get completed() {
-		return this.completed;
 	}
 
 	/**
