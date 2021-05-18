@@ -3,6 +3,8 @@
 */
 
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&family=Mulish:wght@500&display=swap');
 body {
     font-family: 'Poppins', sans-serif;
     background: #fafafa;
@@ -76,6 +78,12 @@ a:focus {
     border-bottom: 2px solid #AAAAAA;
 }
 
+#sidebar .sidebar-header h3{
+    font-family: Mulish;
+    font-style: italic;
+    font-weight: bold;
+  }
+
 #sidebar ul.components {
     padding: 20px 0;
     border-bottom: 1px solid #47748b;
@@ -96,6 +104,7 @@ a:focus {
     padding: 10px;
     font-size: 1.1em;
     display: block;
+    color: #575767;
 }
 
 #sidebar ul li a:hover {
@@ -162,6 +171,7 @@ a.article:hover {
     transition: all 0.3s;
     font-size: 10vh;
     padding: 40vh 0 0 0;
+    font-family: 'Poppins', sans-serif;
 }
 
 #sidebarIcon.active {
@@ -177,7 +187,7 @@ a.article:hover {
 
 #content {
     width: calc(100% - 250px);
-    padding: 40px;
+    padding: 40px 40px 40px 70px;
     min-height: 100vh;
     height: 100%;
     transition: all 0.3s;
