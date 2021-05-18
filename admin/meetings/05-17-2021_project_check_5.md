@@ -38,9 +38,10 @@ Ricardo:
 - Monthly log
 
 ## Agenda:
-1. Go over demos.
-2. There is a CI/CD Pipeline due soon.
-3. Goal for next week.
+1. The response of github issues from Maxim
+2. Go over demos.
+3. There is a CI/CD Pipeline due soon.
+4. Goal for next week.
 
 ## Notes from discussion:
 -
