@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>task demo</title>
+</head>
+<body>
+
+
+    <!-- TASK ITEM -->
+    <template id="task">
+    <li class="task tasks__task">
+        <label class="task__label">
+            <!-- task text -->
+            <input class="task__checkbox" type="checkbox" />
+            <span class="task__checkbox-custom"></span>
+        </label>
+
+        <!-- task text, can edit by tapping -->
+        <p class="task__text" contenteditable></p>
+
+        <!-- delete button -->
+        <button class="btn btn--red task__delete" type="button">delete</button>
+    </li>
+    </template>
+
+
+    <!-- WRAPPING CONTAINER-->
+    <div class="container">
+
+        <!-- task items get appended to this list with js-->
+        <ul class="tasks"></ul> 
+
+        <!-- FORM -->
+        <form class="create-task">
+            <textarea class="create-task__textarea" placeholder="task title"></textarea>
+            <!-- add/create button -->
+            <button class="btn btn--bg-blue create-task__submit" type="submit" disabled>create</button>
+        </form>
+
+    </div>
+
+    <!-- scripts -->
+    <script src="LocalStorage.js" type="module"></script>
+    <script src="script.js" type="module"></script>
+
+</body>
+</html>
