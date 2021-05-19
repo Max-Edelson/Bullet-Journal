@@ -40,6 +40,11 @@ jobs:
           npm audit fix
           npx jsdoc -r -d $GITHUB_WORKSPACE/source/documentation $GITHUB_WORKSPACE/source/collection/*.js 
           
+      - name: Cleanup modules
+        run: |
+          cd CI
+          rm -rf node_modules
+          
      # -d ../source/documentation
 =======
       - run: |
