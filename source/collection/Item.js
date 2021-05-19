@@ -112,12 +112,20 @@ export class Event extends Item {
 		}
 	}
 
+	set title(t) {
+		this._title = t;
+	}
+
+	set date(d) {
+		this._date = d;
+	}
+
 	/**
 	 * getter method for date of the event
 	 * @returns date object representing date/time of the event
 	 */
 	get date() {
-		return this.date;
+		return this._date;
 	}
 
 	/**
