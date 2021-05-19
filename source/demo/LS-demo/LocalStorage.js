@@ -8,8 +8,17 @@ export default class LocalStorage {
     // create task
     create(data) {
         data.token = this.token;
-        this.entries.push(data);
-        localStorage.setItem('entries', JSON.stringify(this.entries));
+
+        // add to entries
+        if (!data.addToCustom) {
+            this.entries.push(data);
+            localStorage.setItem('entries', JSON.stringify(this.entries));
+        }
+        // else add to custom
+        else {
+            this.custom.push(data);
+            localStorage.setItem('custom', JSON.stringify(this.custom));
+        }
     }
   
     // update/edit task
@@ -17,8 +26,16 @@ export default class LocalStorage {
         let index = this.getIndexByToken(data.token);
     
         if (index !== -1) {
-            this.entries[index] = data;
-            localStorage.setItem('entries', JSON.stringify(this.entries));
+            // update entries
+            if (!data.addToCustom) {
+                this.entries[index] = data;
+                localStorage.setItem('entries', JSON.stringify(this.entries));
+            }
+            // update custom
+            else {
+                this.custom[index] = data;
+                localStorage.setItem('custom', JSON.stringify(this.custom));
+            }
         }
     }
   
@@ -31,8 +48,16 @@ export default class LocalStorage {
 
         // if index is found, delete it from this.tasks and rewrite localStorage item
         if (index !== -1) {
-            this.entries.splice(index, 1);
-            localStorage.setItem('entries', JSON.stringify(this.entries));
+            // delete from entries 
+            if (!data.addToCustom) {
+                this.entries.splice(index, 1);
+                localStorage.setItem('entries', JSON.stringify(this.entries));
+            }
+            // delete from custom 
+            else {
+                this.custom.splice(index, 1);
+                localStorage.setItem('custom', JSON.stringify(this.custom));
+            }
         }
     }
   
@@ -40,10 +65,16 @@ export default class LocalStorage {
     getIndexByToken(token) {
         for (let i = 0; i < this.entries.length; i++) {
             if (this.entries[i].token === token) {
-            return i;
+                return i;
             }
         }
-        // if not in this.tasks
+
+        for (let i = 0; i < this.custom.length; i++) {
+            if (this.custom[i].token === token) {
+                return i;
+            }
+        }
+        // if not in either array
         return -1;
     }
   

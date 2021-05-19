@@ -27,9 +27,14 @@ let subtaskButton = document.querySelector('button.subtask');
 let subnoteButton = document.querySelector('button.subnote');
 
 let customButton = document.querySelector('#customButton');
+let customLogSelect = document.querySelector('#customLogs');
+let monthlyDes = document.querySelector('MonthlyDes');
+let customDes = document.querySelector('CustomDes');
 
 let currMainItem = "note";
 let currSubItem = "note";
+
+let addToCustom = false;
 
 let date = new Date();
 
@@ -58,6 +63,7 @@ form.addEventListener('submit', (e) => {
     let newEntry = document.createElement('journal-entry');
     newEntry.setAttribute('dateMade', date.toDateString());
     newEntry.setAttribute('timeMade', date.toTimeString());
+    newEntry.setAttribute('inCustom', addToCustom);
     newEntry.mainItem = mainItem;
 
     
@@ -82,7 +88,8 @@ form.addEventListener('submit', (e) => {
         main: mainItem,
         sub: subItem,
         date: newEntry.getAttribute('dateMade'),
-        time: newEntry.getAttribute('timeMade')
+        time: newEntry.getAttribute('timeMade'),
+        addToCustom: newEntry.getAttribute('inCustom')
     };
 
     storage.create(data);
@@ -96,6 +103,7 @@ form.addEventListener('submit', (e) => {
     subSection.hidden = true;
     currMainItem = "note";
     currSubItem = "note";
+    customLogSelect.hidden = true;
     setElementsHidden('event-specific', true);
     setElementsHidden('task-specific', true);
     setElementsHidden('subevent-specific', true);
@@ -108,18 +116,21 @@ subButton.addEventListener('click', (e) => {
 });
 
 eventButton.addEventListener('click', () => {
+    addToMonthly(true);
     currMainItem = "event";
     setElementsHidden('event-specific', false);
     setElementsHidden('task-specific', true);
 })
 
 taskButton.addEventListener('click', () => {
+    addToMonthly(true);
     currMainItem = "task";
     setElementsHidden('event-specific', true);
     setElementsHidden('task-specific', false);
 })
 
 noteButton.addEventListener('click', () => {
+    addToMonthly(true);
     currMainItem = "note";
     noteButton.hidden = false;
     setElementsHidden('event-specific', true);
@@ -127,18 +138,21 @@ noteButton.addEventListener('click', () => {
 })
 
 subeventButton.addEventListener('click', () => {
+    addToMonthly(true);
     currSubItem = "event";
     setElementsHidden('subevent-specific', false);
     setElementsHidden('subtask-specific', true);
 })
 
 subtaskButton.addEventListener('click', () => {
+    addToMonthly(true);
     currSubItem = "task";
     setElementsHidden('subevent-specific', true);
     setElementsHidden('subtask-specific', false);
 })
 
 subnoteButton.addEventListener('click', () => {
+    addToMonthly(true);
     currSubItem = "note";
     noteButton.hidden = false;
     setElementsHidden('subevent-specific', true);
@@ -146,8 +160,10 @@ subnoteButton.addEventListener('click', () => {
 })
 
 customButton.addEventListener('click', () => {
+    addToMonthly(false);
     curSubItem = "note";
     curMainItem = "note";
+    customLogSelect.hidden = false;
     setElementsHidden('event-specific', true);
     setElementsHidden('task-specific', true);
     setElementsHidden('subevent-specific', true);
@@ -160,4 +176,10 @@ function setElementsHidden(className, newHiddenVal){
     for(eventElement of eventElements){
         eventElement.hidden = newHiddenVal;
     }
+}
+
+function addToMonthly(newBool){
+    monthlyDes.hidden = !newBool;
+    customDes.hidden = newBool;
+    addToCustom = !newBool;
 }
