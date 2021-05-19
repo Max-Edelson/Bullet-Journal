@@ -14,14 +14,14 @@ class Item {
 	 * @param text text of the item
 	 * @param media file path to additional media(video, image, audio)(optional)
 	 */
-	constructor(s, t, media) {
+	constructor(symbol, text, media) {
 		// prevent the abstract class from being created alone
 		if (this.constructor === Item) {
 			throw new Error("Instance of Abstrct class cannot be instatiated");
 		}
 
-		this.symbol = s;
-		this.text = t;
+		this.symbol = symbol;
+		this.text = text;
 
 		// check if media was included
 		if (media === undefined) {
@@ -32,45 +32,6 @@ class Item {
 	}
 
 	/**
-<<<<<<< HEAD
-=======
-	 * getter method for symbol of item
-	 * @returns returns image that is symbol of item
-	 */
-	get symbol() {
-		return this.symbol;
-	}
-
-	set symbol(s) {
-		this._symbol = s;
-	}
-
-	set text(t) {
-		this._text = t;
-	}
-
-	set media(m) {
-		this._media = m;
-	}
-
-	/**
-	 * getter method for text of item
-	 * @returns returns string that is text of item
-	 */
-	get text() {
-		return this.text;
-	}
-
-	/**
-	 * getter method for media of item
-	 * @returns returns string that is filepath to media
-	 */
-	get media() {
-		return this.media;
-	}
-
-	/**
->>>>>>> ci_testing
 	 * check if the media has additional media
 	 * @returns returns true is item has media false otherwise
 	 */
@@ -87,11 +48,7 @@ class Item {
  * Event class that extends the item class. Keeps track of upcoming or
  * past events
  */
-<<<<<<< HEAD
 class Event extends Item {
-=======
-export class Event extends Item {
->>>>>>> ci_testing
 	/**
 	 * Creates an event object that has symbol, text and optional media
 	 * title and time
@@ -118,36 +75,6 @@ export class Event extends Item {
 		}
 	}
 
-<<<<<<< HEAD
-=======
-	set title(t) {
-		this._title = t;
-	}
-
-	set date(d) {
-		this._date = d;
-	}
-
-	/**
-	 * getter method for date of the event
-	 * @returns date object representing date/time of the event
-	 */
-	get date() {
-		return this._date;
-	}
-
-	/**
-	 * getter method for title of the event
-	 * @returns string representing title of the event
-	 */
-	get title() {
-		return this.title;
-	}
-	/**
-	 * adds/replaces the date of the event
-	 * @param newDate date object representing new date
-	 */
->>>>>>> ci_testing
 	addDate(newDate) {
 		this.date = newDate;
 	}
@@ -172,8 +99,6 @@ export class Event extends Item {
 		}
 	}
 }
-
-module.exports = { Event };
 
 /**
  * Task class that extends the item class. Used to keep track of task
