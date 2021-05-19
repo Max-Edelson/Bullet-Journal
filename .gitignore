@@ -1,2 +1,2 @@
-CI/node_modules/
+CI/node_modules/*
 source/testing/addingTest.*
