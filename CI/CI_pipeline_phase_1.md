@@ -8,15 +8,17 @@
 ## Code quality via tool
 - We are using Codeclimate to review the code quality using a tool.
 	- The link to the Codeclimate page for the repo is: https://codeclimate.com/github/Max-Edelson/cse110-sp21-group16
+	- Codeclimate is setup to automatically review the code within each pull request an will raise a flag if is sees something wrong in code quality or complexity.
 
 ## Code Quality via human review
-- We have not progressed far enough as of yet to begin to forsee the usage of pull requests for our repo, however, we will likely decide on a code of usage for pull requests in the near future.
+- We now have branch protection over the ```main``` branch that requires that two people, other than the poster, reviews and approves the changes before allowing any pull requests through. 
 
 ## Unit tests via automation
-- We are currently planning on integrating Jest to unit test via automatic actions in the near future.
+- Jest is currently being implement and unit tests are being written up to test the backend code
+- Jest will automatically be worked into a github action once we have some unit tests
 
 ## Documentation generation via automation
-- We are going to try to figure out how to get JSDocs to automatically generate documentation for our code through the use of an action.
+- JSdocs is setup in the auto-linting github action to provide automatic documentation generation each time code is loaded onto the ```collection_team``` branch.
 
 ## Project checkpoint 1 video
 - https://youtu.be/7QSyaevo0jk
