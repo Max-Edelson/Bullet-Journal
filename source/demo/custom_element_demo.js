@@ -1,4 +1,7 @@
 import {Item, Event, Task, Note} from '../collection/Item.js';
+import LocalStorage from './LS-demo/LocalStorage.js';
+
+let storage = new LocalStorage();
 
 let form = document.querySelector('#entry-form');
 let note = document.querySelector('#entry-content');
@@ -23,16 +26,25 @@ let subeventButton = document.querySelector('button.subevent');
 let subtaskButton = document.querySelector('button.subtask');
 let subnoteButton = document.querySelector('button.subnote');
 
+let customButton = document.querySelector('#customButton');
+
 let currMainItem = "note";
 let currSubItem = "note";
+
+let date = new Date();
+
+// add entries in storage to the webpage TODO
+// tasks.forEach((data) => {
+//    onCreateTask({data});
+// });
+
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    // console.log("Form Submitted");
-
+    // create main item for new entry
     let mainItem;
-    if(currMainItem == "note"){
+    if (currMainItem == "note"){
         mainItem = new Note(note.value, '');
     }
     else if (currMainItem == "event"){
@@ -42,13 +54,18 @@ form.addEventListener('submit', (e) => {
         mainItem = new Task(note.value, '', taskDeadline.value);
     }
     
+    //create new entry element
     let newEntry = document.createElement('journal-entry');
+    newEntry.setAttribute('dateMade', date.toDateString());
+    newEntry.setAttribute('timeMade', date.toTimeString());
     newEntry.mainItem = mainItem;
-    //console.log(mainItem);
 
+    
+    // if add subitem was selected, add sub item attribute to new entry
+    let subItem;
     if(subSection.hidden == false){
-        let subItem;
-        if(currSubItem == "note"){
+        
+        if (currSubItem == "note"){
             subItem = new Note(subnote.value, '');
         }
         else if (currSubItem == "event"){
@@ -58,16 +75,23 @@ form.addEventListener('submit', (e) => {
             subItem = new Task(subnote.value, '', subtaskDeadline.value);
         }
         
-        
         newEntry.subItem = subItem;
-        // console.log(subItem);
     }
 
-    
-    // console.log(newEntry);
+    const data = {
+        main: mainItem,
+        sub: subItem,
+        date: newEntry.getAttribute('dateMade'),
+        time: newEntry.getAttribute('timeMade')
+    };
+
+    storage.create(data);
+
+    // add new entry to the webpage
     let main = document.querySelector('main');
     main.appendChild(newEntry);
 
+    // change page to default state
     subButton.hidden = false;
     subSection.hidden = true;
     currMainItem = "note";
@@ -121,9 +145,17 @@ subnoteButton.addEventListener('click', () => {
     setElementsHidden('subtask-specific', true);
 })
 
+customButton.addEventListener('click', () => {
+    curSubItem = "note";
+    curMainItem = "note";
+    setElementsHidden('event-specific', true);
+    setElementsHidden('task-specific', true);
+    setElementsHidden('subevent-specific', true);
+    setElementsHidden('subtask-specific', true);
+});
+
 function setElementsHidden(className, newHiddenVal){
     let eventElements = document.getElementsByClassName(className);
-    // console.log(eventElements);
     let eventElement;
     for(eventElement of eventElements){
         eventElement.hidden = newHiddenVal;

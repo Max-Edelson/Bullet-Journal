@@ -1,14 +1,15 @@
 export default class LocalStorage {
     constructor() {
-        // if item by key 'tasks' is not defined, empty array
-        this.tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+        // if item by key of array is not defined, empty array
+        this.entries = JSON.parse(localStorage.getItem('entries')) || [];
+        this.custom = JSON.parse(localStorage.getItem('custom')) || [];
     }
   
     // create task
     create(data) {
         data.token = this.token;
-        this.tasks.push(data);
-        localStorage.setItem('tasks', JSON.stringify(this.tasks));
+        this.entries.push(data);
+        localStorage.setItem('entries', JSON.stringify(this.entries));
     }
   
     // update/edit task
@@ -16,8 +17,8 @@ export default class LocalStorage {
         let index = this.getIndexByToken(data.token);
     
         if (index !== -1) {
-            this.tasks[index] = data;
-            localStorage.setItem('tasks', JSON.stringify(this.tasks));
+            this.entries[index] = data;
+            localStorage.setItem('entries', JSON.stringify(this.entries));
         }
     }
   
@@ -26,19 +27,19 @@ export default class LocalStorage {
         let index = this.getIndexByToken(data.token);
     
         console.log(data.token);
-        console.log(this.tasks);
+        console.log(this.entries);
 
         // if index is found, delete it from this.tasks and rewrite localStorage item
         if (index !== -1) {
-            this.tasks.splice(index, 1);
-            localStorage.setItem('tasks', JSON.stringify(this.tasks));
+            this.entries.splice(index, 1);
+            localStorage.setItem('entries', JSON.stringify(this.entries));
         }
     }
   
     // searches for task index in this.tasks in order to update or delete it
     getIndexByToken(token) {
-        for (let i = 0; i < this.tasks.length; i++) {
-            if (this.tasks[i].token === token) {
+        for (let i = 0; i < this.entries.length; i++) {
+            if (this.entries[i].token === token) {
             return i;
             }
         }

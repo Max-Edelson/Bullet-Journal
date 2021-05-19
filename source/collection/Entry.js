@@ -83,7 +83,7 @@ class Entry extends HTMLElement {
         else{
             mainText.textContent = mainItem.text;
         }
-        console.log(mainItem);
+        //console.log(mainItem);
     }
 
     /**
