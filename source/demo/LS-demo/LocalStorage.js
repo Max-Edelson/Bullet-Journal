@@ -23,58 +23,75 @@ export default class LocalStorage {
   
     // update/edit task
     update(data) {
-        let index = this.getIndexByToken(data.token);
-    
-        if (index !== -1) {
-            // update entries
-            if (!data.addToCustom) {
+        let index;
+
+        // if entries
+        if (!data.addToCustom) {
+            index = this.getIndexByToken(data.token);
+            // if index is found, update this.entries and rewrite localStorage item
+            if (index !== -1) {
+                // update entries 
                 this.entries[index] = data;
                 localStorage.setItem('entries', JSON.stringify(this.entries));
             }
-            // update custom
-            else {
+        } 
+        // else custom
+        else {
+            index = this.getIndexByTokenCustom(data.token);
+            // if index is found, update this.custom and rewrite localStorage item
+            if (index !== -1) {
+                // update custom 
                 this.custom[index] = data;
                 localStorage.setItem('custom', JSON.stringify(this.custom));
             }
-        }
+        } 
     }
   
     // delete task
     delete(data) {
-        let index = this.getIndexByToken(data.token);
-    
-        console.log(data.token);
-        console.log(this.entries);
+        let index;
 
-        // if index is found, delete it from this.tasks and rewrite localStorage item
-        if (index !== -1) {
-            // delete from entries 
-            if (!data.addToCustom) {
+        // if entries
+        if (!data.addToCustom) {
+            index = this.getIndexByToken(data.token);
+            // if index is found, delete it from this.entries and rewrite localStorage item
+            if (index !== -1) {
+                // delete from entries 
                 this.entries.splice(index, 1);
                 localStorage.setItem('entries', JSON.stringify(this.entries));
             }
-            // delete from custom 
-            else {
+        } 
+        // else custom
+        else {
+            index = this.getIndexByTokenCustom(data.token);
+            // if index is found, delete it from this.custom and rewrite localStorage item
+            if (index !== -1) {
+                // delete from custom 
                 this.custom.splice(index, 1);
                 localStorage.setItem('custom', JSON.stringify(this.custom));
             }
-        }
+        } 
     }
   
-    // searches for task index in this.tasks in order to update or delete it
+    // searches for entry index in this.entries in order to update or delete it
     getIndexByToken(token) {
         for (let i = 0; i < this.entries.length; i++) {
             if (this.entries[i].token === token) {
                 return i;
             }
         }
+        // if not in array
+        return -1;
+    }
 
+    // searches for entry index in this.custom in order to update or delete it
+    getIndexByTokenCustom(token) {
         for (let i = 0; i < this.custom.length; i++) {
             if (this.custom[i].token === token) {
                 return i;
             }
         }
-        // if not in either array
+        // if not in array
         return -1;
     }
   
