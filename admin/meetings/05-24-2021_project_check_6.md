@@ -13,13 +13,15 @@ When the meeting finished: 7:45 PM
 
 ## Job due for this meeting:
 Maxim 
--
+- Making unit test for collection team
+- Checkpoint2
 
 Qiuyu 
--
+- Build Custom Log Page(start with the list view)
+- 
 
 Carmen:
--
+- 
 
 Sophia:
 -
@@ -31,13 +33,14 @@ Khyat:
 -
 
 Joshua:
--
+- Have a meeting tomorrow
+- Look through html for other components
 
 Ricardo:
--
+- 
 
 ## Agenda:
-1.
+1.yes
 
 ## Notes from discussion:
 -
