@@ -10,15 +10,24 @@
         "sourceType": "module"
     },
     "rules": {
-        "indent": [
-            "error",
-            "tab"
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
+        "indent": ["error", "tab"],
+        "linebreak-style": ["error", "unix"],
+	"padding-line-between-statements": ["error",
+		{ blankLine: "always", prev: "*", next: "return" },
+		{ blankLine: "always", prev: ["const", "let", "var"], next: "*" },
+    		{ blankLine: "any",    prev: ["const", "let", "var"], next: ["const", "let", "var"] }
+	],
+	"no-var": "error",
+	"prefer-const": "error",
+	"no-useless-constructor": "error",
+	"arrow-spacing": ["error", { "before": false, "after": true }],
+	"line-comment-position": ["error", { "position": "above" }],
+	"keyword-spacing": ["error", { "after": true }],
+	"space-before-function-paren": ["error", "always"],
+	"brace-style": [2, "stroustrup", { "allowSingleLine": true }],
 	"no-unused-vars": ["warn", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
+	"camelcase": [2, {"properties": "always"}],
+	"comma-spacing": [2, {"before": false, "after": true}],
 	"spaced-comment": ["error", "always", {
             "line": {
                 "markers": ["/"],
