@@ -4,7 +4,7 @@
   "description": "This project is aimed at building a bullet journal website for CSE 110 at UCSD in spring of 2021.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [],
   "author": "sp21 software team 16 <medelson@ucsd.edu>",
@@ -17,9 +17,17 @@
   },
   "license": "ISC",
   "devDependencies": {
+    "@babel/preset-env": "^7.14.2",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.26.0",
     "eslint-config-prettier": "^8.3.0",
-    "prettier": "2.3.0"
+    "jest": "^26.6.3",
+    "prettier": "2.3.0",
+    "ts-jest": "^26.5.6"
+  },
+  "dependencies": {
+    "chalk": "^4.1.1",
+    "jest-cli": "^26.6.3",
+    "save-dev": "^0.0.1-security"
   }
 }

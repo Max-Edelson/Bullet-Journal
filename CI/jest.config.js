@@ -16,6 +16,7 @@ module.exports = {
   // Automatically clear mock calls and instances between every test
   clearMocks: true,
 
+
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
 
@@ -94,6 +95,11 @@ module.exports = {
 
   // A preset that is used as a base for Jest's configuration
   // preset: undefined,
+  preset: 'ts-jest',
+  transform: {
+    '^.+\\.(ts|tsx)?$': 'ts-jest',
+    "^.+\\.(js|jsx)$": "babel-jest",
+  },
 
   // Run tests from one or more projects
   // projects: undefined,
@@ -116,10 +122,10 @@ module.exports = {
   // The root directory that Jest should scan for tests and modules within
   // rootDir: undefined,
 
-  // A list of paths to directories that Jest should use to search for files in
-  // roots: [
-  //   "<rootDir>"
-  // ],
+  //  A list of paths to directories that Jest should use to search for files in
+   roots: [
+     "<rootDir>/../source/"
+   ],
 
   // Allows you to use a custom runner instead of Jest's default test runner
   // runner: "jest-runner",
