@@ -15,10 +15,11 @@ When the meeting finished: 7:45 PM
 Maxim 
 - Making unit test for collection team
 - Checkpoint2
+- Wiki
 
 Qiuyu 
 - Build Custom Log Page(start with the list view)
-- 
+
 
 Carmen:
 - 
@@ -40,7 +41,7 @@ Ricardo:
 - 
 
 ## Agenda:
-1.yes
+1. Discuss issue, pull request, and branching strategy for wiki
 
 ## Notes from discussion:
 -
