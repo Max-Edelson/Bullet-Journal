@@ -45,3 +45,4 @@ jobs:
           git diff-index --quiet HEAD || git commit -m 'Prettified/Eslinted collection javascript code and generated documentation' || git push
           git commit -m "Enforced backend house coding style" -a
           git push
+          continue-on-error: true
