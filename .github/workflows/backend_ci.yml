@@ -28,8 +28,9 @@ jobs:
       - name: Generate documentation
         run: |
           cd CI
-          npm audit fix
-          npx jsdoc -r -d $GITHUB_WORKSPACE/source/documentation $GITHUB_WORKSPACE/source/collection/*.js 
+           npx jsdoc -r -d $GITHUB_WORKSPACE/source/documentation $GITHUB_WORKSPACE/source/collection/*.js 
+ #         npm audit fix
+ #         npx jsdoc -r -d $GITHUB_WORKSPACE/source/documentation $GITHUB_WORKSPACE/source/collection/*.js 
           
       - name: Cleanup modules
         run: |
