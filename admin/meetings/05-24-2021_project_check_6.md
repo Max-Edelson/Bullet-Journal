@@ -20,7 +20,6 @@ Maxim
 Qiuyu 
 - Build Custom Log Page(start with the list view)
 
-
 Carmen:
 - 
 
@@ -42,6 +41,12 @@ Ricardo:
 
 ## Agenda:
 1. Discuss issue, pull request, and branching strategy for wiki
+2. Introduce the wiki and have everyone review style guide
+	* Get ideas for possible wiki pages/content
+	* Remind everyone about naming guides and date guidelines
+3. demos
+4. Jobs for next week
+5. Remind everyone about upcoming meetings
 
 ## Notes from discussion:
--
+- 
