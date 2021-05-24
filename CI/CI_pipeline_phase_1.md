@@ -24,4 +24,4 @@
 - https://youtu.be/7QSyaevo0jk
 
 ## Project checkpoint 1 diagram
-- [diagram](ci_pipeline.drawio.png)
+- ![diagram](./ci_pipeline.drawio.png)
