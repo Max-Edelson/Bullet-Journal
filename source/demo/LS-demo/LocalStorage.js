@@ -101,3 +101,4 @@ export default class LocalStorage {
     }
 };
   
+export.module = LocalStorage;
