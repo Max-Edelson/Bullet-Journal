@@ -41,12 +41,15 @@ Ricardo:
 
 ## Agenda:
 1. Discuss issue, pull request, and branching strategy for wiki
+	* If you're assigned to something, look at it
+	* Delete old patch branches
 2. Introduce the wiki and have everyone review style guide
 	* Get ideas for possible wiki pages/content
 	* Remind everyone about naming guides and date guidelines
-3. demos
-4. Jobs for next week
-5. Remind everyone about upcoming meetings
+3. Grading ruberic
+4. demos
+5. Jobs for next week
+6. Remind everyone about upcoming meetings
 
 ## Notes from discussion:
 - 
