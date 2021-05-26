@@ -35,6 +35,8 @@ class Entry extends HTMLElement {
             <div class="sub-section">
                 <p class="sub-item"></p>
             </div>
+            <button id="edit-btn" type="button">edit</button>
+            <button id="dlt-btn" type="button">delete</button>
         </article>
         `;
 
