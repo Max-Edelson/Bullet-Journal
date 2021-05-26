@@ -1,4 +1,4 @@
-name: unit testing back end
+name: backend unit testing
 
 on:
   push:
@@ -31,3 +31,8 @@ jobs:
         run: |
          cd $GITHUB_WORKSPACE/CI
          npm test
+         
+      - name: Clean up
+        run: |
+         cd $GITHUB_WORKSPACE/CI
+         rm -rf temp
