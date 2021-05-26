@@ -124,7 +124,8 @@ module.exports = {
 
   //  A list of paths to directories that Jest should use to search for files in
    roots: [
-     "<rootDir>/../source/"
+     "<rootDir>/../source/",
+     "<rootDir>/"
    ],
 
   // Allows you to use a custom runner instead of Jest's default test runner
@@ -190,7 +191,7 @@ module.exports = {
   // unmockedModulePathPatterns: undefined,
 
   // Indicates whether each individual test should be reported during the run
-  // verbose: undefined,
+  verbose: true,
 
   // An array of regexp patterns that are matched against all source file paths before re-running tests in watch mode
   // watchPathIgnorePatterns: [],
