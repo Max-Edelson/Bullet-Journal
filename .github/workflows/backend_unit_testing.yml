@@ -1,10 +1,10 @@
 name: unit testing back end
 
 on:
-#  push:
-#    branches: 
-#      - collection_team
-   workflow_dispatch:
+  push:
+    branches: 
+      - test-demo
+  workflow_dispatch:
 
 jobs:
   build:
@@ -17,4 +17,17 @@ jobs:
         run: |
           cd $GITHUB_WORKSPACE/CI
           npm install --save-dev jest
+          npm i --save-dev jest-localstorage-mock
           npm update
+          
+      - name: Move testing files
+        run: |
+         cd $GITHUB_WORKSPACE/CI
+         mkdir temp
+         cp  ../source/testing/* temp
+         cp ../source/demo/LS-demo/* temp
+
+      - name: Run unit tests
+        run: |
+         cd $GITHUB_WORKSPACE/CI
+         npm test
