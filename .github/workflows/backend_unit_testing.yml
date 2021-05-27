@@ -25,6 +25,7 @@ jobs:
       - name: Move testing files
         run: |
          cd $GITHUB_WORKSPACE/CI
+         rm -rf temp 2> /dev/null
          mkdir temp
          cp  ../source/testing/* temp
          cp ../source/demo/LS-demo/* temp
@@ -32,11 +33,9 @@ jobs:
       - name: Run unit tests
         run: |
          cd $GITHUB_WORKSPACE/CI
-         ls
          npm test
          
       - name: Clean up
         run: |
          cd $GITHUB_WORKSPACE/CI
          rm -rf temp node_modules
-         
