@@ -32,9 +32,11 @@ jobs:
       - name: Run unit tests
         run: |
          cd $GITHUB_WORKSPACE/CI
+         ls
          npm test
          
       - name: Clean up
         run: |
          cd $GITHUB_WORKSPACE/CI
-         rm -rf temp
+         rm -rf temp node_modules
+         
