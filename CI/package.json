@@ -1,5 +1,5 @@
 {
-  "name": "javascript ci",
+  "name": "javascript_ci",
   "version": "1.0.0",
   "description": "This project is aimed at building a bullet journal website for CSE 110 at UCSD in spring of 2021.",
   "main": "index.js",
