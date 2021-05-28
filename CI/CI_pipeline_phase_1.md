@@ -14,8 +14,7 @@
 - We now have branch protection over the ```main``` branch that requires that two people, other than the poster, reviews and approves the changes before allowing any pull requests through. 
 
 ## Unit tests via automation
-- Jest is currently being implement and unit tests are being written up to test the backend code
-- Jest will automatically be worked into a github action once we have some unit tests
+- Jest has been set up to automatically run through a GitHub action that activates on a push to the ```demo-team``` branch and it checks that ```LocalStorage.js``` operates correctly.
 
 ## Documentation generation via automation
 - JSdocs is setup in the auto-linting github action to provide automatic documentation generation each time code is loaded onto the ```collection_team``` branch.
