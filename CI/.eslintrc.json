@@ -10,16 +10,26 @@
         "sourceType": "module"
     },
     "rules": {
-        "indent": [
-            "error",
-            "tab"
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
+	"no-undef": "warn",
+        "indent": ["warn", "tab"],
+        "linebreak-style": ["warn", "unix"],
+	"padding-line-between-statements": ["warn",
+      		{ "blankLine": "always", "prev": "*", "next": "return" },
+      		{ "blankLine": "always", "prev": ["const", "let", "var"], "next": "*"},
+      		{ "blankLine": "any", "prev": ["const", "let", "var"], "next": ["const", "let", "var"]}
+    	],
+	"no-var": "warn",
+	"prefer-const": "warn",
+	"no-useless-constructor": "warn",
+	"arrow-spacing": ["warn", { "before": false, "after": true }],
+	"line-comment-position": ["warn", { "position": "above" }],
+	"keyword-spacing": ["warn", { "after": true }],
+	"space-before-function-paren": ["warn", "always"],
+	"brace-style": [2, "stroustrup", { "allowSingleLine": true }],
 	"no-unused-vars": ["warn", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
-	"spaced-comment": ["error", "always", {
+	"camelcase": ["warn", {"properties": "always"}],
+	"comma-spacing": [2, {"before": false, "after": true}],
+	"spaced-comment": ["warn", "always", {
             "line": {
                 "markers": ["/"],
                 "exceptions": ["-", "+"]

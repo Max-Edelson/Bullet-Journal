@@ -53,16 +53,28 @@
             <button type="button" class="subevent">Create Event</button>
             <button type="button" class="subtask">Create Task</button>
         </div>
-        
+
+        <!-- <button type="button" id="customButton">Add to a Custom Log</button> -->
+        Add to custom log? <input type="checkbox" id="customButton"> <br>
+
+        <!-- <select class="customLogs">
+        <datalist id="customOptions" class="customLogs" hidden>
+            <option value="">please select a custom log to add to</option>
+        </datalist><br> -->
+
         <button type="button" id="subButton">Add sub-item</button> <br>
         <button type="submit">Enter Entry</button>
+        <p id="MonthlyDes">Adding to the Monthly Log<p>
+        <p hidden id="CustomDes">Adding to the Custom Log</p>
     </form>
     
     
     <main></main>
 
+    <script src="./LS-demo/LocalStorage.js" type="module"></script>
     <script src="../collection/Item.js" type="module"></script>
     <script src="../collection/Entry.js" type="module"></script>
     <script src="./custom_element_demo.js" type="module"></script>
+    
 </body>
 </html>

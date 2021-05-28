@@ -3,13 +3,15 @@ const TASK_SYMBOL = ""; /* NEED SYMBOL FOR TASK */
 const NOTE_SYMBOL = ""; /* NEED SYMBOL FOR NOTE */
 
 /**
- *   Abstract item class that will represent the item being
+ *   @Description Abstract item class that will represent the item being
  *   held in the journal entry. This can be an Event, Task or Note.
- *	Each of these types will extend this class
+ *	 Each of these types will extend this class
+ *	 @author Javier Galvan
+ *	 
  */
 class Item {
 	/**
-	 * @constructor Creates and instance of the Item object with media
+	 * @constructs Item Creates and instance of the Item object with media
 	 * @param symbol image that represents the type of item
 	 * @param text text of the item
 	 * @param media file path to additional media(video, image, audio)(optional)
@@ -32,7 +34,7 @@ class Item {
 	}
 
 	/**
-	 * check if the media has additional media
+	 * @function hasMedia check if the media has additional media
 	 * @returns returns true is item has media false otherwise
 	 */
 	hasMedia() {
@@ -45,12 +47,13 @@ class Item {
 }
 
 /**
- * Event class that extends the item class. Keeps track of upcoming or
+ * @Description Event class that extends the item class. Keeps track of upcoming or
  * past events
+ * @author Javier Galvan
  */
 class Event extends Item {
 	/**
-	 * Creates an event object that has symbol, text and optional media
+	 * @constructs Event Creates an event object that has symbol, text and optional media
 	 * title and time
 	 * @param text text describing the event
 	 * @param media filepath to additonal media
@@ -75,19 +78,23 @@ class Event extends Item {
 		}
 	}
 
+	/**
+	 * @function addDate adds date property to the event
+	 * @param newDate the new date (string) of the event
+	 */
 	addDate(newDate) {
 		this.date = newDate;
 	}
 
 	/**
-	 * removes the date from the event
+	 * @function removeDate removes the date from the event
 	 */
 	removeDate() {
 		this.date = null;
 	}
 
 	/**
-	 * check if event has a date
+	 * @function hasDate check if event has a date
 	 * @returns returns true if there exists a date for this event, false
 	 * otherwise
 	 */
@@ -101,12 +108,13 @@ class Event extends Item {
 }
 
 /**
- * Task class that extends the item class. Used to keep track of task
+ * @Description Task class that extends the item class. Used to keep track of task
  * needed to be done
+ * @author Javier Galvan
  */
 class Task extends Item {
 	/**
-	 * creates a new Task object that is an item
+	 * @constructs Item creates a new Task object that is an item
 	 * @param text text of the task
 	 * @param media additional media for the task
 	 * @param deadline date object that represents the deadline of the task
@@ -125,7 +133,7 @@ class Task extends Item {
 	}
 
 	/**
-	 * add/replaces deadline of the task
+	 * @function addDeadline add/replaces deadline of the task
 	 * @param newDeadline date object representing new deadline to be added
 	 */
 	addDeadline(newDeadline) {
@@ -133,14 +141,14 @@ class Task extends Item {
 	}
 
 	/**
-	 * removes the deadline of the task
+	 * @function removeDeadline removes the deadline of the task
 	 */
 	removeDeadline() {
 		this.deadline = null;
 	}
 
 	/**
-	 * checks if task has a deadline
+	 * @function hasDeadline checks if task has a deadline
 	 * @returns returns true if there exists a deadline, false otherwise
 	 */
 	hasDeadline() {
@@ -152,14 +160,14 @@ class Task extends Item {
 	}
 
 	/**
-	 * marks task as completed
+	 * @function markCompleted marks task as completed
 	 */
 	markCompleted() {
 		this.completed = true;
 	}
 
 	/**
-	 * marks task as uncomplete
+	 * @function markUncompleted marks task as uncomplete
 	 */
 	markUncompleted() {
 		this.completed = false;
@@ -167,11 +175,12 @@ class Task extends Item {
 }
 
 /**
- * Note class that extends the item class. Used to keep track of information
+ * @Description Note class that extends the item class. Used to keep track of information
+ * @author Javier Galvan
  */
 class Note extends Item {
 	/**
-	 * creates a new note object
+	 * @constructs Note creates a new note object
 	 * @param text text of the note
 	 * @param media additional media for the note
 	 */

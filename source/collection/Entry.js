@@ -35,6 +35,8 @@ class Entry extends HTMLElement {
             <div class="sub-section">
                 <p class="sub-item"></p>
             </div>
+            <button id="edit-btn" type="button">edit</button>
+            <button id="dlt-btn" type="button">delete</button>
         </article>
         `;
 
@@ -83,6 +85,10 @@ class Entry extends HTMLElement {
         else{
             mainText.textContent = mainItem.text;
         }
+<<<<<<< HEAD
+=======
+        //console.log(mainItem);
+>>>>>>> 4ed073f274afc484d0f19af8a39b93bf47e80903
     }
 
     /**
