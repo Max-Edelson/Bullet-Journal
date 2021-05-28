@@ -36,71 +36,150 @@ function showNotes() {
     }
     let html = '';
     notesObj.forEach(function (element, index) {
-        html += /*`<div class="card my-2 mx-2 noteCard" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Note ${index + 1}</h5>
-                        <p class="card-text">${element}</p>
-                        <button id='${index}' onclick='deleteNote(this.id)' class="btn btn-primary">Delete note</button>
-                    </div>
-                </div>`;*/
-                `<li class="taskLi">${element}</li>`;
+        html +=  `<li class="taskLi">${element} <div class="deleteOption" id='${index}' onclick='deleteNote(this.id)'><i class="fas fa-minus-circle"></i></div></li>`;
     });
     let notesElm = document.getElementById('taskUl');
     if(notesObj.length != 0){
-        notesElm.innerHTML = html+`<li onclick="togglePopup1()"><span><i class="fas fa-plus" style="margin-right: 10px;"></i>New Item</span></li>`;
+        notesElm.innerHTML = html+`<li onclick="togglePopup1()" style="list-style: none;"><span><i class="fas fa-plus" style="margin-right: 10px;"></i>New Item</span></li>`;
     }
     else {
-        notesElm.innerHTML = `<li onclick="togglePopup1()"><span><i class="fas fa-plus" style="margin-right: 10px;"></i>New Item</span></li>`
+        notesElm.innerHTML = `<li onclick="togglePopup1()" style="list-style: none;"><span><i class="fas fa-plus" style="margin-right: 10px;"></i>New Item</span></li>`
     }
 }
+function deleteNote(index){
+    console.log('this is del', index);
+    let notes = localStorage.getItem('notes');
+    if (notes == null) {
+        notesObj = []
+    }
+    else {
+        notesObj = JSON.parse(notes)
+    }
+    notesObj.splice(index, 1);
+    localStorage.setItem('notes', JSON.stringify(notesObj));
+    showNotes();
+}
+
 
 
 
 let addBtn2 = document.querySelector('.addBtn2');
-showNotes();
+showTodos();
 addBtn2.addEventListener('click', function (e) {
     let addText2 = document.querySelector('#eventInput');
-    let notes2 = localStorage.getItem('notes2');
-    if (notes2 == null) {
-        notesObj2 = []
+    let todos = localStorage.getItem('todos');
+    if (todos == null) {
+        todosObj = []
     }
     else {
-        notesObj2 = JSON.parse(notes2)
+        todosObj = JSON.parse(todos)
     }
-    notesObj2.push(addText2.value);
-    localStorage.setItem('notes2', JSON.stringify(notesObj2))
+    todosObj.push(addText2.value);
+    localStorage.setItem('todos', JSON.stringify(todosObj))
     addText2.value = '';
-    console.log(notesObj2);
-    showNotes();
+    console.log(todosObj);
+    showTodos();
 })
 
-function showNotes() {
-    let notes2 = localStorage.getItem('notes2');
-    if (notes2 == null) {
-        notesObj2 = []
+function showTodos() {
+    let todos = localStorage.getItem('todos');
+    if (todos == null) {
+        todosObj = []
     }
     else {
-        notesObj2 = JSON.parse(notes2)
+        todosObj = JSON.parse(todos)
     }
     let html2 = '';
-    notesObj2.forEach(function (element, index) {
-        html2 += /*`<div class="card my-2 mx-2 noteCard" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Note ${index + 1}</h5>
-                        <p class="card-text">${element}</p>
-                        <button id='${index}' onclick='deleteNote(this.id)' class="btn btn-primary">Delete note</button>
-                    </div>
-                </div>`;*/
-                `<li class="eventLi">${element}</li>`;
+    todosObj.forEach(function (element2, index) {
+        html2 +=  `<li class="eventLi">${element2} <div class="deleteOption" id='${index}' onclick='deleteTodos(this.id)'><i class="fas fa-minus-circle"></i></div></li>`;
     });
-    let notesElm2 = document.getElementById('eventUl');
-    if(notesObj2.length != 0){
-        notesElm2.innerHTML = html2+`<li onclick="togglePopup1()"><span><i class="fas fa-plus" style="margin-right: 10px;"></i>New Item</span></li>`;
+    let todosElm = document.getElementById('eventUl');
+    if(todosObj.length != 0){
+        todosElm.innerHTML = html2+`<li onclick="togglePopup2()" style="list-style: none;"><span><i class="fas fa-plus" style="margin-right: 10px;"></i>New Item</span></li>`;
     }
     else {
-        notesElm2.innerHTML = `<li onclick="togglePopup1()"><span><i class="fas fa-plus" style="margin-right: 10px;"></i>New Item</span></li>`
+        todosElm.innerHTML = `<li onclick="togglePopup2()" style="list-style: none;"><span><i class="fas fa-plus" style="margin-right: 10px;"></i>New Item</span></li>`
     }
 }
+function deleteTodos(index){
+    console.log('this is del', index);
+    let todos = localStorage.getItem('todos');
+    if (todos == null) {
+        todosObj = []
+    }
+    else {
+        todosObj = JSON.parse(todos)
+    }
+    todosObj.splice(index, 1);
+    localStorage.setItem('todos', JSON.stringify(todosObj));
+    showTodos();
+}
+
+
+
+
+
+let addBtn3 = document.querySelector('.addBtn3');
+showNewtodo();
+addBtn3.addEventListener('click', function (e) {
+    let addText3 = document.querySelector('#noteInput');
+    let newtodo = localStorage.getItem('newtodo');
+    if (newtodo == null) {
+        newtodoObj = []
+    }
+    else {
+        newtodoObj = JSON.parse(newtodo)
+    }
+    newtodoObj.push(addText3.value);
+    localStorage.setItem('newtodo', JSON.stringify(newtodoObj))
+    addText3.value = '';
+    console.log(newtodoObj);
+    showNewtodo();
+})
+
+function showNewtodo() {
+    let newtodo = localStorage.getItem('newtodo');
+    if (newtodo == null) {
+        newtodoObj = []
+    }
+    else {
+        newtodoObj = JSON.parse(newtodo)
+    }
+    let html3 = '';
+    newtodoObj.forEach(function (element3, index) {
+        html3 +=   `<li class="noteLi">${element3} <div class="deleteOption noteDelete" id='${index}' onclick='deleteNewtodo(this.id)'><i class="fas fa-minus-circle"></i></div></li>`;
+    });
+    let newtodoElm = document.getElementById('noteUl');
+    if(newtodoObj.length != 0){
+        newtodoElm.innerHTML = html3+`<li onclick="togglePopup3()" style="list-style: none;"><span><i class="fas fa-plus" style="margin-right: 10px;"></i>New Item</span></li>`;
+    }
+    else {
+        newtodoElm.innerHTML = `<li onclick="togglePopup3()" style="list-style: none;"><span><i class="fas fa-plus" style="margin-right: 10px;"></i>New Item</span></li>`
+    }
+}
+function deleteNewtodo(index){
+    console.log('this is del', index);
+    let newtodo = localStorage.getItem('newtodo');
+    if (newtodo == null) {
+        newtodoObj = []
+    }
+    else {
+        newtodoObj = JSON.parse(newtodo)
+    }
+    newtodoObj.splice(index, 1);
+    localStorage.setItem('newtodo', JSON.stringify(newtodoObj));
+    showNewtodo();
+}
+
+
+
+
+const dateMeta = document.getElementById("date");
+const today = new Date();
+// const options = {weekday : "long", month:"short", day:"numeric"};
+dateMeta.innerHTML = today.toLocaleDateString("en-US")
+
+
 
 
 

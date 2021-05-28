@@ -94,6 +94,7 @@ li.taskLi {
     margin-right: 10px;
     font-size: 13px;
     font-style: italic;
+    position: relative;
 }
 li.taskLi:last-child {
     margin-bottom: 0;
@@ -130,6 +131,7 @@ li.eventLi {
     margin-right: 10px;
     font-size: 13px;
     font-style: italic;
+    position: relative;
 }
 li.eventLi:last-child {
     margin-bottom: 0;
@@ -151,11 +153,13 @@ ul.noteUl {
 }
 li.noteLi {
     padding: 8px 20px;
+    padding-right: 40px;
     margin-bottom: 10px;
     word-break: break-word;
     height: auto;
     list-style: inside;
     font-style: italic;
+    position: relative;
 }
 li.noteLi:last-child {
     margin-bottom: 0;
@@ -252,4 +256,79 @@ li.noteLi:last-child {
     align-items: center;
     justify-content: center;
 }
+
+
+.item_input {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-style: italic;
+}
+
+
+
+
+.deleteOption {
+    display: flex;
+    width: fit-content;
+    height: fit-content;
+    position: absolute;
+    right: 15px;
+    top: 20px;
+    cursor: pointer;
+}
+.noteDelete {
+    right: 0;
+    top: 13px;
+}
+
+
+@media (max-width:640px){
+    .loggingNavbar {
+        padding-top: 0;
+    }
+    .logNavBtn {
+        display: flex;
+        flex-direction: column;
+    }
+    .logNavBtn button {
+        margin: 4px 5px;
+        height: 35px;
+    }
+}
+
+@media (max-width:370px){
+    .loggingNavbar {
+        padding: 0;
+    }
+}
+@media (max-width:360px){
+    .taskUl {
+        width: 96%;
+    }
+    .taskUl li {
+        width: 100%;
+    }
+    .eventUl {
+        width: 95%;
+    }
+    .eventUl li {
+        width: 100%;
+    }
+    .bxSingle {
+        margin: 30px 20px;
+    }
+}
    
+@media (max-width:300px){
+    .bxSingle {
+        margin: 30px 0;
+    }
+    .mainInput {
+        width: 85%;
+    }
+    .popup .overlay {
+        width: 100%;
+        height: 100%;
+    }
+}
