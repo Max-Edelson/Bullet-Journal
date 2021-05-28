@@ -9,10 +9,10 @@ assignees: ''
 
 **Enhancement details**
 
-**What will this enhancement affect (pages/code)**
+**What will this enhancement affect (pages/code)?**
 
 
-**What will be the affect of this enhancement**
+**What will be the affect of this enhancement?**
 
 
 **Other notes**
