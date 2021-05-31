@@ -45,7 +45,13 @@ Ricardo:
 - Clean up the monthly log(s)
 
 ## Agenda:
-1.
+1. Go over all the issues
+2. Delete Kyhat patch branch
+3. Demos
+4. Go over next week's agenda
+5. See if we are ready to merge to main branch so that we can launch a GitHub Pages website with the app
+6. Time for group questions
+7. Whole group demo meeting with Sasya
 
 ## Notes from discussion:
 -
