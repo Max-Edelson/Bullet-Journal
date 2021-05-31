@@ -85,10 +85,6 @@ class Entry extends HTMLElement {
         else{
             mainText.textContent = mainItem.text;
         }
-<<<<<<< HEAD
-=======
-        //console.log(mainItem);
->>>>>>> 4ed073f274afc484d0f19af8a39b93bf47e80903
     }
 
     /**
