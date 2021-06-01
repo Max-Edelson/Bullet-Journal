@@ -4,6 +4,12 @@
 .cld-main a{
   color: #7B00FF;
 }
+
+body{
+  font-family: Calibri, sans-serif;
+  font-family: 'Inter', sans-serif;
+  color: #000;
+}
   .cld-datetime{
     position: relative;
     width: 100%;
