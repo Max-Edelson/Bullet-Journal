@@ -1,4 +1,4 @@
-Date: ##-##-#### <br>
+Date: 05-31-2021 <br>
 Type of meeting: Weekly Project Check <br>
 Team number: 16 <br>
 Meeting location: Zoom <br>
@@ -52,6 +52,7 @@ Ricardo:
 5. See if we are ready to merge to main branch so that we can launch a GitHub Pages website with the app
 6. Time for group questions
 7. Whole group demo meeting with Sasya
+8. Decide if we want to make a SPA
 
 ## Notes from discussion:
 -
