@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+        integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+
+<body>
+    <div id="calendar"></div>
+    <section class="logging">
+        <div class="loggingWrapper">
+            <div class="loggingNavbar">
+                <div class="logNavInfo">
+                    <h1>Daily Logging</h1>
+                    <span class="loggingDate">Date: <span id="date" class="dateMeta"></span></span>
+                </div>
+                <div class="logNavBtn">
+                    <button>select day</button>
+                    <button><i class="fas fa-angle-left" style="margin-right: 5px;"></i>last day</button>
+                    <button>next day<i class="fas fa-angle-right" style="margin-left: 5px;"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="allTaskWrapper">
+            <div class="bxSingle taskBx">
+                <h1>Tasks</h1>
+                <ul class="taskUl" id="taskUl">
+                    <li onclick="togglePopup1()" style="list-style: none;"><span><i class="fas fa-plus" style="margin-right: 10px;"></i>New Item</span></li>
+                </ul>
+            </div>
+            <div class="popup" id="popup-1">
+                <div class="overlay"></div>
+                <div class="content">
+                    <div class="close-btn" onclick="togglePopup1()">×</div>
+                    <h1>Input Tasks</h1>
+                    <div class="mainInpWrapper">
+                        <input type="text" name="task" id="taskInput" class="mainInput">
+                        <button class="addBtn addBtn1">Add</button>
+                    </div>
+                </div>
+            </div>
+            <div class="bxSingle eventBx">
+                <h1>Events</h1>
+                <ul class="eventUl" id="eventUl">
+                    <li onclick="togglePopup2()" style="list-style: none;"><span><i class="fas fa-plus" style="margin-right: 10px;"></i>New Item</span></li>
+                </ul>
+            </div>
+            <div class="popup" id="popup-2">
+                <div class="overlay"></div>
+                <div class="content">
+                    <div class="close-btn" onclick="togglePopup2()">×</div>
+                    <h1>Input Events</h1>
+                    <div class="mainInpWrapper">
+                        <input type="text" name="event" id="eventInput" class="mainInput">
+                        <button class="addBtn addBtn2">Add</button>
+                    </div>
+                </div>
+            </div>
+            <div class="bxSingle noteBx">
+                <h1>Notes</h1>
+                <ul class="noteUl" id="noteUl">
+                    <li onclick="togglePopup3()" style="list-style: none;"><span><i class="fas fa-plus" style="margin-right: 10px;"></i>New Note</span></li>
+                </ul>
+            </div>
+            <div class="popup" id="popup-3">
+                <div class="overlay"></div>
+                <div class="content">
+                    <div class="close-btn" onclick="togglePopup3()">×</div>
+                    <h1>Input Notes</h1>
+                    <div class="mainInpWrapper">
+                        <input type="text" name="note" id="noteInput" class="mainInput">
+                        <button class="addBtn addBtn3">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>

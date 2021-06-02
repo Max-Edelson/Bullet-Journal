@@ -52,9 +52,18 @@ Khyat, Joshua, and Ricardo (GUI):
 ## Agenda:
 1. Maxim no longer coding with colleciton team but will joing any meeting with any team if asked to
 2. Discuss making an mvp
-3. Demos
-4. Plan jobs for next week
+3. Qiuyu talk about storage
+4. Mini collection team demos
+5. Discuss how we want code to be accepted onto repo
+6. Setup future meeting for sprint review
+7. Demos
+8. Plan jobs for next week
+9. Status video
+10. Remind frontend to discuss coding style and then bring it to Maxim to make an action
 
 ## Notes from discussion:
 - Collection team leader: Javier
 - GUI team leader: Joshua
+- GUI team meet to discuss next steps concerning MVP
+- Collections team to meet to discuss back-end/front-end demos
+- Meeting on May 16th
