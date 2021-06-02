@@ -4,6 +4,7 @@ on:
   push:
     branches: 
       - 'collection_team'
+      - 'main'
   workflow_dispatch:
 
 jobs:
