@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-CI/node_modules/*
-source/testing/addingTest.*
-=======
 /CI/node_modules
 /admin/videos/*.mov
 /admin/videos/*.mp4
->>>>>>> temp
