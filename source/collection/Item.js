@@ -60,7 +60,7 @@ class Event extends Item {
 	 * @param title title of the event (optional)
 	 * @param date date object that represents date of the event (optional)
 	 */
-	constructor(text, media, title, date) {
+	constructor(text, media, title, date, time=null) {
 		super(EVENT_SYMBOL, text, media);
 
 		// check if title was included
@@ -91,6 +91,21 @@ class Event extends Item {
 	 */
 	removeDate() {
 		this.date = null;
+	}
+
+	/**
+	 * @function addTime adds time property to the event
+	 * @param newTime new time to add to the event
+	 */
+	addTime(newTime){
+		this.time = newTime;
+	}
+
+	/**
+	 * @function removeTime removes the time property from event
+	 */
+	removeTime(){
+		this.time = null;
 	}
 
 	/**
