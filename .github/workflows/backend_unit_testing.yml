@@ -3,7 +3,8 @@ name: backend unit testing
 on:
   push:
     branches: 
-      - test-demo
+      - 'test-demo'
+      - 'main'
   workflow_dispatch:
 
 jobs:
