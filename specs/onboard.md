@@ -16,8 +16,11 @@ Commits should be in present tense and start with a capital letter.
 There should never be any redundant branches and branches created with the sole purpose of merging into the main branch should be swiftly deleted after the pull request has been merged. As soon as a branch is no longer relevant, it should be merged (if necessary) and then deleted from the remote repository.
 Branche names should be all lowercase and words should be seperated with hyphens (-).
 
-## Label Usage
+## Common Coding Style
+Coding style rules can found [here](https://github.com/Max-Edelson/cse110-sp21-group16/blob/main/specs/house_styles/backend_house_style.md).
+The rules that the autolinter abides by can be found [here](https://github.com/Max-Edelson/cse110-sp21-group16/blob/collection_team/specs/house_styles/auto_linting_rules.md).
 
+## Label Usage
 * bug
     * Used when describing a behavior or visual aspect that is not as expected.
 * documentation
