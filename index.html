@@ -39,14 +39,22 @@
             <div class="popup" id="popup-1">
                 <div class="overlay"></div>
                 <div class="content">
-                    <div class="close-btn" onclick="togglePopup1()">×</div>
-                    <h1>Input Tasks</h1>
+                    <div class="close-btn" onclick="togglePopup1()">Cancel</div>
+                    <button class="addBtn addBtn1">Save</button>
+                    <h1>Create new task</h1>
                     <div class="mainInpWrapper">
+                        <label for="task">TITLE</label>
                         <input type="text" name="task" id="taskInput" class="mainInput">
-                        <button class="addBtn addBtn1">Add</button>
+                        <label for="date">SELECT DATE</label>
+                        <input type="date" class="date" name="date" id="date1">
+                        <label for="description">DESCRIPTION</label>
+                        <input type="text" name="description" id="description1" class="description">
                     </div>
                 </div>
             </div>
+
+
+
             <div class="bxSingle eventBx">
                 <h1>Events</h1>
                 <ul class="eventUl" id="eventUl">
@@ -56,11 +64,16 @@
             <div class="popup" id="popup-2">
                 <div class="overlay"></div>
                 <div class="content">
-                    <div class="close-btn" onclick="togglePopup2()">×</div>
-                    <h1>Input Events</h1>
+                    <div class="close-btn" onclick="togglePopup2()">Cancel</div>
+                    <button class="addBtn addBtn2">Save</button>
+                    <h1>Create new event</h1>
                     <div class="mainInpWrapper">
+                        <label for="task">TITLE</label>
                         <input type="text" name="event" id="eventInput" class="mainInput">
-                        <button class="addBtn addBtn2">Add</button>
+                        <label for="date">SELECT DATE</label>
+                        <input type="date" class="date" id="date2" name="date">
+                        <label for="description">DESCRIPTION</label>
+                        <input type="text" name="description" id="description2" class="description">
                     </div>
                 </div>
             </div>
@@ -73,11 +86,14 @@
             <div class="popup" id="popup-3">
                 <div class="overlay"></div>
                 <div class="content">
-                    <div class="close-btn" onclick="togglePopup3()">×</div>
-                    <h1>Input Notes</h1>
+                    <div class="close-btn" onclick="togglePopup3()">Cancel</div>
+                    <button class="addBtn addBtn3">Save</button>
+                    <h1>Create new note</h1>
                     <div class="mainInpWrapper">
+                        <label for="task">TITLE</label>
                         <input type="text" name="note" id="noteInput" class="mainInput">
-                        <button class="addBtn addBtn3">Add</button>
+                        <label for="description">DESCRIPTION</label>
+                        <input type="text" name="description" id="description3" class="description">
                     </div>
                 </div>
             </div>

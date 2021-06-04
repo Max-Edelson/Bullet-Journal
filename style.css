@@ -191,35 +191,38 @@ li.noteLi:last-child {
 }
    
 .popup .content {
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%) scale(0);
-    background:#fff;
-    width:95%;
-    max-width:500px;
-    height:250px;
-    z-index:2;
-    text-align:center;
-    padding:20px;
-    box-sizing:border-box;
-    font-family:"Open Sans",sans-serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0);
+    background: #fff;
+    width: 95%;
+    max-width: 350px;
+    height: fit-content;
+    border-radius: 15px;
+    z-index: 2;
+    text-align: center;
+    padding: 20px;
+    padding-bottom: 65px;
+    box-sizing: border-box;
+    font-family: "Open Sans",sans-serif;
   }
    
 .popup .close-btn {
-    cursor:pointer;
-    position:absolute;
-    right:20px;
-    top:20px;
-    width:30px;
-    height:30px;
-    background:#222;
-    color:#fff;
-    font-size:25px;
-    font-weight:600;
-    line-height:30px;
-    text-align:center;
-    border-radius:50%;
+    cursor: pointer;
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
+    width: 140px;
+    height: 35px;
+    background: #fff;
+    color: #6a6dcd;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid #6a6dcd;
+    border-radius: 10px;
 }
    
 .popup.active .overlay {
@@ -233,28 +236,41 @@ li.noteLi:last-child {
 }
 .content h1 {
     margin-bottom: 50px;
+    text-align: start;
 }
 
 .mainInput {
-    background: #e7e7e7;
+    background: #7f82c211;
     border: none;
     width: 300px;
     height: 40px;
     outline: none;
-    font-size: 20px;
+    font-size: 16px;
     padding: 0 5px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid #6a6dcd;
 }
 .addBtn {
-    width: 65px;
-    height: 40px;
-    background: #000;
+    width: 140px;
+    height: 35px;
+    background: #6a6dcd;
     color: #fff;
     border: none;
-}
-.mainInpWrapper {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    border-radius: 10px;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.mainInpWrapper {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
 }
 
 
@@ -263,6 +279,31 @@ li.noteLi:last-child {
     border: none;
     color: #fff;
     font-style: italic;
+}
+label {
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+.date {
+    width: 300px;
+    height: 40px;
+    border: 1px solid #6a6dcd;
+    outline: none;
+    border-radius: 8px;
+    padding: 0 5px;
+    margin-bottom: 10px;
+}
+.description {
+    background: #7f82c211;
+    border: none;
+    width: 300px;
+    height: 40px;
+    outline: none;
+    font-size: 16px;
+    padding: 0 5px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border: 1px solid #6a6dcd;
 }
 
 
