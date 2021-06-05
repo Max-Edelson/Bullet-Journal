@@ -131,7 +131,7 @@ function createCalendar(calendar, element, adjuster){
       }
       var today = document.createElement('div');
       today.className += ' today';
-      today.innerHTML = months[calendar.Selected.Month];
+      today.innerHTML = months[calendar.Selected.Month] + ", " + calendar.Selected.Year;
       //+ ", " + calendar.Selected.Year
       datetime.appendChild(today);
       if(calendar.Options.NavShow && !calendar.Options.NavVertical){
@@ -202,7 +202,7 @@ function createCalendar(calendar, element, adjuster){
       // Check Date against Event Dates
       for(var n = 0; n < calendar.Model.length; n++){
         var evDate = calendar.Model[n].Date;
-        var toDate = new Date(calendar.Selected.Year, calendar.Selected.Month, (i+1));
+        var toDate = new Date(calendar.Selected.Year, calendar.Selected.Month + 1, (i+1));
         if(evDate.getTime() == toDate.getTime()){
           number.className += " eventday";
           var title = document.createElement('span');
