@@ -3,7 +3,7 @@
 BananaNotes is a bullet journaling application that is designed to rapidly log and organize a user's information. The goal of this application is to function as a planner, journal, and task list.
 
 ## Usage
-Visit [BananaNotes](https://github.com/Max-Edelson/cse110-sp21-group16/BananaNotes.html) to get started.
+Visit [BananaNotes](https://max-edelson.github.io/cse110-sp21-group16) to get started.
 
 ### **Rapid Logging Page**
 When you first open the app, you will be confronted with our rapid logging page. This is where you will be able to quickly and easily log information about the day, may it be a note, task, or event, and then you can migrate it to another log. The migration can take the form of a single item (note, task, or event) or it can be an entire entry. If the migration is a single item, it can be sent to any of the other logs (monthly log, daily log, future log, or custom log). If the migration is an entire entry, then it only has the option to go to a custom log that accepts entries.
