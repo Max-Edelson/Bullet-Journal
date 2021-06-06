@@ -58,9 +58,8 @@ Joshua:
 
 ## Agenda:
 1. SPA's may need to be updated to reflect our decisions
-2. Ask Joshua about Rapid Log code placement
-3. Demos
-4. Connect Site
+2. Demos
+3. Connect Site
 
 ## Notes from discussion:
 - Will make a SPA
