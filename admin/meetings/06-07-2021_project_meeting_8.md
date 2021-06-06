@@ -57,7 +57,10 @@ Joshua:
 - Make sure future log is ready for merge to main
 
 ## Agenda:
-1.
+1. SPA's may need to be updated to reflect our decisions
+2. Ask Joshua about Rapid Log code placement
+3. Demos
+4. Connect Site
 
 ## Notes from discussion:
 - Will make a SPA

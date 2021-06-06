@@ -1,3 +1,5 @@
 /CI/node_modules
 /admin/videos/*.mov
 /admin/videos/*.mp4
+
+!phase1.mp4
