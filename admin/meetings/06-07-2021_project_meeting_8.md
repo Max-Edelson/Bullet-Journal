@@ -60,6 +60,8 @@ Joshua:
 1. SPA's may need to be updated to reflect our decisions
 2. Demos
 3. Connect Site
+4. Ensure everyone updates their bio to include their lab 1 html page.
+	- Comment on Joshua's really high ROC value 	
 
 ## Notes from discussion:
 - Will make a SPA
