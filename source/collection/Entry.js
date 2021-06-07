@@ -100,11 +100,11 @@ class Entry extends HTMLElement {
         let mainText = this.shadowRoot.querySelector('.main-item');
         
         
-        if (mainItem instanceof Event){
+        if (mainItem instanceof Event || mainItem.mainType == "event"){
             mainText.textContent = mainItem.title + '/// ' + mainItem.date + ': ' + mainItem.text;
         }
 
-        else if (mainItem instanceof Task){
+        else if (mainItem instanceof Task || mainItem.mainType == "task"){
             mainText.textContent = mainItem.text + '/// Deadline: ' + mainItem.deadline;
         }
         
@@ -126,11 +126,11 @@ class Entry extends HTMLElement {
         let subText = this.shadowRoot.querySelector('.sub-item');
         
         
-        if (subItem instanceof Event){
+        if (subItem instanceof Event || subItem.subType == "event"){
             subText.textContent = subItem.title + '/// ' + subItem.date + ': ' + subItem.text;
         }
 
-        else if (subItem instanceof Task){
+        else if (subItem instanceof Task || subItem.subType == "task"){
             subText.textContent = subItem.text + '/// Deadline: ' + subItem.deadline;
         }
         else{

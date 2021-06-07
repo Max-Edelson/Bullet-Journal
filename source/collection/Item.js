@@ -76,6 +76,8 @@ class Event extends Item {
 		} else {
 			this.date = date;
 		}
+
+		this.type = "event";
 	}
 
 	/**
@@ -130,6 +132,7 @@ class Task extends Item {
 		} else {
 			this.deadline = deadline;
 		}
+		this.type = "task";
 	}
 
 	/**
@@ -186,6 +189,7 @@ class Note extends Item {
 	 */
 	constructor(text, media) {
 		super(NOTE_SYMBOL, text, media);
+		this.type = "note";
 	}
 }
 

@@ -149,9 +149,7 @@ entries.forEach((data) => {
     createEntryFromData(data);
 });
 /*
-custom.forEach((data) => {
-    createEntryFromData(data);
-});
+
 */
 // edit button
 // editButton.addEventListener('click', () => {
@@ -221,12 +219,13 @@ form.addEventListener('submit', (e) => {
     // add new entry to the webpage
     for (var i = 0; i < monthNames.length; i++) {
         // if the month matches a month header
-        console.log(newEntry.futureMonth);
-        console.log(monthNames[i].innerHTML);
         if (data.futureMonth === monthNames[i].innerHTML) {
-            // add new entry to the webpage
-            console.log('added');
-            addEntries[i].appendChild(newEntry);
+            // check if will exceed max 8 entries
+            var count = $(addEntries[i]).children().length;
+            if (count < 8) {
+                // add new entry to the webpage
+                addEntries[i].appendChild(newEntry);
+            }
         }
     }
 
@@ -340,12 +339,12 @@ function createEntryFromData(data){
         }  
         for (var i = 0; i < monthNames.length; i++) {
             // if the month matches a month header
-            console.log(newEntry.futureMonth);
-            console.log(monthNames[i].innerHTML);
             if (data.futureMonth === monthNames[i].innerHTML) {
-                // add new entry to the webpage
-                console.log('added');
-                addEntries[i].appendChild(newEntry);
+                var count = $(addEntries[i]).children().length;
+                if (count < 8) {
+                    // add new entry to the webpage
+                    addEntries[i].appendChild(newEntry);
+                }
             }
         }
         
