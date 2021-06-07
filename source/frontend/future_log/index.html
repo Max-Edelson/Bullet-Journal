@@ -81,125 +81,115 @@
             <div class = "future_grid">
                 <div class="month_box">
                     <h2 class="month_header">This Month</h2>
-                    <div class="task">
+                    <!-- <div class="entry">
                         <h3>Loren Ipsum</h3>
                         <button>...</button>
-                    </div>
-                    <div class="task">
-                        <h3>Loren Ipsum</h3>
-                        <button>...</button>
-                    </div>
-                    <div class="task">
-                        <h3>Loren Ipsum</h3>
-                        <button>...</button>
-                    </div>
-                    <div class="task">
-                        <h3>Loren Ipsum</h3>
-                        <button>...</button>
-                    </div>
-                    <div class="task">
-                        <h3>Loren Ipsum</h3>
-                        <button>...</button>
-                    </div>
-                    <div class="task">
-                        <h3>Loren Ipsum</h3>
-                        <button>...</button>
-                    </div>
+                    </div> -->
+                    <div class="add_entries"></div>
                     <div class="add_button">
-                        <button type="button">+ New Item</button>
+                        <!-- Trigger/Open The Modal -->
+                        <button id="new_item1" type="button">+ New Item</button>
+                
                     </div>
                 </div>
                 <div class="month_box">
                     <h2 class="month_header">This Month</h2>
-                    <div class="task">
-                        <h3>Loren Ipsum</h3>
-                        <button>...</button>
-                    </div>
-                    <div class="task">
-                        <h3>Loren Ipsum</h3>
-                        <button>...</button>
-                    </div>
-                    <div class="task">
-                        <h3>Loren Ipsum</h3>
-                        <button>...</button>
-                    </div>
+                    <div class="add_entries"></div>
                     <div class="add_button">
-                        <button type="button">+ New Item</button>
+                        <button id="new_item2" type="button">+ New Item</button>
                     </div>
                 </div>
                 <div class="month_box">
                     <h2 class="month_header">This Month</h2>
-                    <div class="task">
-                        <h3>Loren Ipsum</h3>
-                        <button>...</button>
-                    </div>
-                    <div class="task">
-                        <h3>Loren Ipsum</h3>
-                        <button>...</button>
-                    </div>
-                    <div class="task">
-                        <h3>Loren Ipsum</h3>
-                        <button>...</button>
-                    </div>
+                    <div class="add_entries"></div>
                     <div class="add_button">
-                        <button type="button">+ New Item</button>
+                        <button id="new_item3" type="button">+ New Item</button>
                     </div>
                 </div>
                 <div class="month_box">
                     <h2 class="month_header">This Month</h2>
-                    <div class="task">
-                        <h3>Loren Ipsum</h3>
-                        <button>...</button>
-                    </div>
-                    <div class="task">
-                        <h3>Loren Ipsum</h3>
-                        <button>...</button>
-                    </div>
-                    <div class="task">
-                        <h3>Loren Ipsum</h3>
-                        <button>...</button>
-                    </div>
+                    <div class="add_entries"></div>
                     <div class="add_button">
-                        <button type="button">+ New Item</button>
+                        <button id="new_item4" type="button">+ New Item</button>
                     </div>
                 </div>
                 <div class="month_box">
                     <h2 class="month_header">This Month</h2>
-                    <div class="task">
-                        <h3>Loren Ipsum</h3>
-                        <button>...</button>
-                    </div>
-                    <div class="task">
-                        <h3>Loren Ipsum</h3>
-                        <button>...</button>
-                    </div>
-                    <div class="task">
-                        <h3>Loren Ipsum</h3>
-                        <button>...</button>
-                    </div>
+                    <div class="add_entries"></div>
                     <div class="add_button">
-                        <button type="button">+ New Item</button>
+                        <button id="new_item5" type="button">+ New Item</button>
                     </div>
                 </div>
                 <div class="month_box">
                     <h2 class="month_header">This Month</h2>
-                    <div class="task">
-                        <h3>Loren Ipsum</h3>
-                        <button>...</button>
-                    </div>
-                    <div class="task">
-                        <h3>Loren Ipsum</h3>
-                        <button>...</button>
-                    </div>
-                    <div class="task">
-                        <h3>Loren Ipsum</h3>
-                        <button>...</button>
-                    </div>
+                    <div class="add_entries"></div>
                     <div class="add_button">
-                        <button type="button">+ New Item</button>
+                        <button id="new_item6" type="button">+ New Item</button>
                     </div>
                 </div>
                 
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <!-- Form -->
+                        <form id="entry-form">
+                            <div id="main-section">
+                                <label for="main-section">Main Item:</label><br>
+                                <label hidden for="entry-title" class="event-specific">Enter Title of Event</label><br hidden class="event-specific">
+                                <textarea hidden id="entry-title" name="event" class="event-specific"
+                                    rows="2" cols="33" maxlength="50">Enter title of event
+                                </textarea><br hidden class="event-specific">
+                    
+                                <label for="entry-date" hidden class="event-specific">Enter date of event</label><br hidden class="event-specific">
+                                <input type="date" id="entry-date" hidden class="event-specific"> <br hidden class="event-specific">
+                    
+                                <label for="entry-content">Enter Text of Item</label><br>
+                                <textarea id="entry-content" name="note"
+                                    rows="5" cols="33" maxlength="50">Enter Text of Item
+                                </textarea><br>
+                    
+                                <label for="deadline" hidden class="task-specific">Enter Deadline of Task</label><br hidden class="task-specific">
+                                <input type="date" id="deadline" hidden class="task-specific"> <br hidden class="task-specific">
+                    
+                                <button type="button" class="note">Create Note</button>
+                                <button type="button" class="event">Create Event</button>
+                                <button type="button" class="task">Create Task</button>
+                            </div>
+                            <div id="sub-section" hidden>
+                                <br>
+                                <label for="sub-section">Sub Item:</label><br>
+                                <label hidden for="subentry-title" class="subevent-specific">Enter Title of Event</label><br hidden class="subevent-specific">
+                                <textarea hidden id="subentry-title" name="subevent" class="subevent-specific"
+                                    rows="2" cols="33" maxlength="50">Enter title of event
+                                </textarea><br hidden class="subevent-specific">
+                    
+                                <label for="subentry-date" hidden class="subevent-specific">Enter date of event</label><br hidden class="subevent-specific">
+                                <input type="date" id="subentry-date" hidden class="subevent-specific"> <br hidden class="subevent-specific">
+                    
+                                <label for="subentry-content">Enter Text of Item</label><br>
+                                <textarea id="subentry-content" name="subnote"
+                                    rows="5" cols="33" maxlength="50">Enter Text of Item
+                                </textarea><br>
+                    
+                                <label for="subdeadline" hidden class="subtask-specific">Enter Deadline of Task</label><br hidden class="subtask-specific">
+                                <input type="date" id="subdeadline" hidden class="subtask-specific"> <br hidden class="subtask-specific">
+                    
+                                <button type="button" class="subnote">Create Note</button>
+                                <button type="button" class="subevent">Create Event</button>
+                                <button type="button" class="subtask">Create Task</button>
+                            </div>
+                    
+                    
+                            <button type="button" id="subButton">Add sub-item</button> <br>
+                            <button type="submit">Enter Entry</button>
+                        </form>
+                    </div>
+                
+                </div>
+            
             </div>
         </div>
     </div>
@@ -213,7 +203,11 @@
     <!-- jQuery Custom Scroller CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
     
-    <script type="text/javascript" src="source.js"></script>
+    <script src="../../collection/LocalStorage.js" type="module"></script>
+    <script src="../../collection/Item.js" type="module"></script>
+    <script src="../../collection/Entry.js" type="module"></script>
+    <script src="source.js" type="module"></script>
+
 </body>
 
 </html>
