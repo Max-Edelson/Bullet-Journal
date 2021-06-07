@@ -37,7 +37,7 @@ jobs:
           cd CI
           rm -rf node_modules
           
-      - if: git diff-index HEAD
+      - if: git diff-index HEAD == true
         name: Commit files
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
