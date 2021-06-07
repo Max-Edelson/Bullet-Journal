@@ -7,7 +7,7 @@ const NOTE_SYMBOL = ""; /* NEED SYMBOL FOR NOTE */
  *   held in the journal entry. This can be an Event, Task or Note.
  *	 Each of these types will extend this class
  *	 @author Javier Galvan
- *	 
+ *
  */
 class Item {
 	/**
@@ -60,7 +60,7 @@ class Event extends Item {
 	 * @param title title of the event (optional)
 	 * @param date date object that represents date of the event (optional)
 	 */
-	constructor(text, media, title, date, time=null) {
+	constructor(text, media, title, date, time = null) {
 		super(EVENT_SYMBOL, text, media);
 
 		// check if title was included
@@ -97,14 +97,14 @@ class Event extends Item {
 	 * @function addTime adds time property to the event
 	 * @param newTime new time to add to the event
 	 */
-	addTime(newTime){
+	addTime(newTime) {
 		this.time = newTime;
 	}
 
 	/**
 	 * @function removeTime removes the time property from event
 	 */
-	removeTime(){
+	removeTime() {
 		this.time = null;
 	}
 
@@ -204,4 +204,4 @@ class Note extends Item {
 	}
 }
 
-export {Item, Event, Task, Note};
+export { Item, Event, Task, Note };
