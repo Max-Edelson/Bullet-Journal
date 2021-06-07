@@ -195,7 +195,6 @@ a.article:hover {
 #content.active {
   width: 100%;
 }
-
 #content h1 {
   font-family: Mulish;
   font-style: normal;
@@ -228,6 +227,8 @@ a.article:hover {
   display: none;
 }
 
+
+
 .month_header {
   font-family: Mulish;
   font-style: italic;
@@ -235,6 +236,7 @@ a.article:hover {
   font-size: min(25px, 2vw);
   line-height: min(25px, 2vw);
   /* or 119% */
+
 
   text-align: center;
 

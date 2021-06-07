@@ -8,6 +8,7 @@ function togglePopup3(){
     document.getElementById("popup-3").classList.toggle("active");
 }
 
+
 let addBtn1 = document.querySelector('.addBtn1');
 showNotes();
 addBtn1.addEventListener('click', function (e) {

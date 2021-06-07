@@ -1,12 +1,15 @@
 import {Item, Event, Task, Note} from './Item.js';
 class Entry extends HTMLElement {
-
+  
     /**
      * @constructor creates a Entry custom element that holds items
      */
     constructor(){
         super();
 
+        this.date = null;
+        this.main = null;
+        this.sub = null;
         const template = document.createElement('template');
 
         template.innerHTML = `
@@ -56,6 +59,7 @@ class Entry extends HTMLElement {
             }
         </style>
         <div class="entry">
+
             <div class="main-section">
                 <p class="main-item"></p>
             </div>
@@ -97,8 +101,10 @@ class Entry extends HTMLElement {
       //  let entryArticle = this.shadowRoot.querySelector('.entry');
       //  let mainSec = this.shadowRoot.querySelector('.main-section');
 
+      this.main = mainItem;
+
+
         let mainText = this.shadowRoot.querySelector('.main-item');
-        
         
         if (mainItem instanceof Event || mainItem.type == "event"){
             mainText.textContent = mainItem.title + '/// ' + mainItem.date + ': ' + mainItem.text;
@@ -111,7 +117,6 @@ class Entry extends HTMLElement {
         else{
             mainText.textContent = mainItem.text;
         }
-        //console.log(mainItem);
     }
 
     /**
@@ -120,9 +125,7 @@ class Entry extends HTMLElement {
      * @param subItem item object that will server as the sub item
      */
      set subItem(subItem){
-        let entryArticle = this.shadowRoot.querySelector('.entry');
-        let subSec = this.shadowRoot.querySelector('.sub-section');
-
+        this.sub = subItem;
         let subText = this.shadowRoot.querySelector('.sub-item');
         
         
