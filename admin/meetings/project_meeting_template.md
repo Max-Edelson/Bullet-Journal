@@ -3,7 +3,7 @@ Type of meeting: Weekly Project Check <br>
 Team number: 16 <br>
 Meeting location: Zoom <br>
 Time began: 6:30 PM <br> 
-When the meeting finished:
+When the meeting finished: 7:45 PM
 
 ### Who is in attendance:
 -
@@ -12,22 +12,28 @@ When the meeting finished:
 -
 
 ## Job due for this meeting:
-Everyone:
+Maxim 
 -
 
-Maxim (Coordinator/Planner/Organizer):
+Qiuyu 
 -
 
-Qiuyu (Coordinator/Designer):
+Carmen:
 -
 
-Design Team:
+Sophia:
 -
 
-Carmen, Sophia, and Javier (Collection):
+Javier:
 -
 
-Khyat, Joshua, and Ricardo (GUI):
+Khyat:
+-
+
+Joshua:
+-
+
+Ricardo:
 -
 
 ## Agenda:
