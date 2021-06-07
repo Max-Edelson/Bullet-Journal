@@ -1,12 +1,12 @@
 import {Item, Event, Task, Note} from './Item.js';
 class Entry extends HTMLElement {
-
-    
+  
     /**
      * @constructor creates a Entry custom element that holds items
      */
     constructor(){
         super();
+
         this.date = null;
         this.main = null;
         this.sub = null;
@@ -14,33 +14,60 @@ class Entry extends HTMLElement {
 
         template.innerHTML = `
         <style>
-            .main-item{
+            .main-item .sub-item {
+                vertical-align: none;
                 font-size: 20px;
-                margin-top:30px
+                padding: 0px;
+                
             }
-            .sub-item{
+            .sub-item {
                 font-size: 15px;
-                margin-top: -20px;
-                marign-bottom:-20px;
             }
-            .sub-section{
+        
+            .sub-section {
                 margin-left:25px;
                 margin-right:-25px;
             }
-            .entry{
-                border-style: solid;
+
+            .entry {
+            background: #6a6dcd;
+            box-shadow: 0px 2.92414px 5.84828px rgba(0, 0, 0, 0.12),
+                0px 11.6966px 23.3931px rgba(0, 0, 0, 0.08);
+            border-radius: 5.84828px;
+            height: 20%;
+            padding: 5%;
+            margin: 5%;
+            display: flex;
+            align-items: center;
+            }
+            
+            .entry .main-item .sub-item .sub-section {
+            vertical-align: baseline;
+            float: left;
+            font-size: min(1.75rem, 1.5vw);
+            margin: 0;
+            }
+            
+            .entry button {
+            border: 1px solid rgba(255, 255, 255, 0.75);
+            box-sizing: border-box;
+            border-radius: 2px;
+            vertical-align: auto;
+            float: right;
+            outline: none;
+            margin-left: auto;
             }
         </style>
-        <article class="entry">
+        <div class="entry">
+
             <div class="main-section">
                 <p class="main-item"></p>
             </div>
             <div class="sub-section">
                 <p class="sub-item"></p>
             </div>
-            <button id="edit-btn" type="button">edit</button>
-            <button id="dlt-btn" type="button">delete</button>
-        </article>
+            <button>...</button>
+        </div>
         `;
 
         // create a shadow root for this web component
@@ -73,16 +100,17 @@ class Entry extends HTMLElement {
     set mainItem(mainItem){
       //  let entryArticle = this.shadowRoot.querySelector('.entry');
       //  let mainSec = this.shadowRoot.querySelector('.main-section');
+
       this.main = mainItem;
+
 
         let mainText = this.shadowRoot.querySelector('.main-item');
         
-        
-        if (mainItem instanceof Event){
+        if (mainItem instanceof Event || mainItem.type == "event"){
             mainText.textContent = mainItem.title + '/// ' + mainItem.date + ': ' + mainItem.text;
         }
 
-        else if (mainItem instanceof Task){
+        else if (mainItem instanceof Task || mainItem.type == "task"){
             mainText.textContent = mainItem.text + '/// Deadline: ' + mainItem.deadline;
         }
         
@@ -101,11 +129,11 @@ class Entry extends HTMLElement {
         let subText = this.shadowRoot.querySelector('.sub-item');
         
         
-        if (subItem instanceof Event){
+        if (subItem instanceof Event || subItem.type == "event"){
             subText.textContent = subItem.title + '/// ' + subItem.date + ': ' + subItem.text;
         }
 
-        else if (subItem instanceof Task){
+        else if (subItem instanceof Task || subItem.type == "task"){
             subText.textContent = subItem.text + '/// Deadline: ' + subItem.deadline;
         }
         else{
