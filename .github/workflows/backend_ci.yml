@@ -37,13 +37,16 @@ jobs:
           cd CI
           rm -rf node_modules
           
-      - if: git diff-index HEAD == true
-        name: Commit files
-        run: |
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add -A
-          git diff-index --quiet HEAD || git commit -m 'Prettified/Eslinted collection javascript code and generated documentation' || git push
-          continue-on-error: true
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Auto-lint code and generate documentation
+    #  - if: git diff-index HEAD == true
+    #    name: Commit files
+    #    run: |
+    #      git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+    #      git config --local user.name "github-actions[bot]"
+    #      git add -A
+    #      git diff-index --quiet HEAD || git commit -m 'Prettified/Eslinted collection javascript code and generated documentation' || git push
+    #      continue-on-error: true
    #       git commit -m "Enforced backend house coding style" -a
    #       git push
