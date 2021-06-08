@@ -21,6 +21,7 @@ const data = {
   addToFuture // boolean value 
   futureMonth // string of month it is in
   customName  // name of custom title if addToCustom is true 
+}
 ``` 
 
 **Events:**
