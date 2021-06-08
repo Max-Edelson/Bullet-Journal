@@ -6,10 +6,14 @@ Time began: 6:30 PM <br>
 When the meeting finished: 7:45 PM
 
 ### Who is in attendance:
--
-
-### Who is missing:
--
+- Maxim
+- Ricardo
+- Sophia
+- Carmen
+- Khyat
+- Javier
+- Qiuyu
+- Joshua
 
 ## Job due for this meeting:
 Maxim 
@@ -57,11 +61,11 @@ Joshua:
 - Make sure future log is ready for merge to main
 
 ## Agenda:
-1. SPA's may need to be updated to reflect our decisions
+1. ADR's may need to be updated to reflect our decisions
 2. Demos
 3. Connect Site
 4. Ensure everyone updates their bio to include their lab 1 html page.
 	- Comment on Joshua's really high ROC value 	
 
 ## Notes from discussion:
-- Will make a SPA
+- Will not make a SPA
