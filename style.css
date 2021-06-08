@@ -51,7 +51,6 @@ body {
     margin: 30px;
 }
 .bxSingle span {
-    width: 100%;
     padding: 0 30px;
     font-size: 13px;
     cursor: pointer;
@@ -149,7 +148,7 @@ ul.noteUl {
     width: 100%;
 }
 .noteUl span {
-    padding: 0 18px !important;
+    padding: 0 18px;
 }
 li.noteLi {
     padding: 8px 20px;
@@ -157,7 +156,7 @@ li.noteLi {
     margin-bottom: 10px;
     word-break: break-word;
     height: auto;
-    list-style: inside;
+    /* list-style: inside; */
     font-style: italic;
     position: relative;
 }
@@ -177,6 +176,45 @@ li.noteLi:last-child {
 .noteUl::-webkit-scrollbar-thumb:hover {
     background: #000;
 }
+.dateSpan {
+    width: unset;
+    position: absolute;
+    top: 0;
+    left: 90px;
+}
+.liMainWrap ul li {
+    list-style: none;
+}
+.mouseover {
+    list-style: none;
+    position: absolute;
+    right: 5px;
+    top: 25px;
+}
+
+.mouseover ul {
+    visibility: hidden;
+    opacity: 0;
+    transition: .1s;
+    position: absolute;
+    top: 20px;
+    padding: 5px;
+    right: 2px;
+}
+.mouseover li:hover > ul {
+    top: 15px;
+    visibility: visible;
+    opacity: 1;
+    z-index: 10;
+    cursor: pointer;
+}
+.ellips {
+    width: unset !important;
+    padding: 2px 9px !important;
+    border: 1px solid;
+    border-radius: 3px;
+}
+
 
 
 .popup .overlay {
@@ -206,6 +244,10 @@ li.noteLi:last-child {
     padding-bottom: 65px;
     box-sizing: border-box;
     font-family: "Open Sans",sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
    
 .popup .close-btn {
@@ -249,7 +291,7 @@ li.noteLi:last-child {
     padding: 0 5px;
     margin-bottom: 10px;
     border-radius: 8px;
-    border: 1px solid #6a6dcd;
+    border: 1px solid #2B4BF2;
 }
 .addBtn {
     width: 140px;
@@ -283,15 +325,18 @@ li.noteLi:last-child {
 label {
     margin-bottom: 10px;
     font-size: 12px;
+    color: #2B4BF2;
+    font-weight: 600;
 }
 .date {
     width: 300px;
     height: 40px;
-    border: 1px solid #6a6dcd;
+    border: 1px solid #2B4BF2;
     outline: none;
     border-radius: 8px;
     padding: 0 5px;
     margin-bottom: 10px;
+    background: #7f82c211
 }
 .description {
     background: #7f82c211;
@@ -303,13 +348,38 @@ label {
     padding: 0 5px;
     margin-bottom: 10px;
     border-radius: 8px;
-    border: 1px solid #6a6dcd;
+    border: 1px solid #2B4BF2;
+}
+.timeSelector {
+    display: flex;
+    height: 60px;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+}
+.allDay {
+    margin-bottom: 0 !important;
+    position: absolute;
+    left: 25px;
+    color: #000;
+    font-size: 16px;
+    font-weight: 400;
+}
+.timeInput {
+    width: 120px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid #2B4BF2;
+    padding: 0 8px;
+    outline: none;
+    background: #7f82c211
 }
 
 
 
 
-.deleteOption {
+/* .deleteOption {
     display: flex;
     width: fit-content;
     height: fit-content;
@@ -317,6 +387,23 @@ label {
     right: 15px;
     top: 20px;
     cursor: pointer;
+} */
+.optionSelect {
+    width: 130px;
+    height: 40px;
+    color: #888;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+}
+.optionSelect:nth-child(1){
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 2px;
+}
+.optionSelect:nth-child(2){
+    border-radius: 0 0 10px 10px;
 }
 .noteDelete {
     right: 0;
@@ -373,3 +460,127 @@ label {
         height: 100%;
     }
 }
+
+
+
+
+
+
+
+
+
+
+.confirm {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    box-sizing: border-box;
+    z-index: 1000;
+    opacity: 0;
+    animation-name: confirm---open;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.confirm--close {
+    animation-name: confirm---close;
+}
+
+.confirm__window {
+    width: 100%;
+    max-width: 350px;
+    background: white;
+    font-size: 14px;
+    font-family: 'Noto Sans', sans-serif;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    opacity: 0;
+    transform: scale(0.75);
+    animation-name: confirm__window---open;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.2s;
+}
+
+.confirm__titlebar,
+.confirm__content,
+.confirm__buttons {
+    padding: 1.25em;
+}
+
+.confirm__titlebar {
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.confirm__title {
+    font-weight: bold;
+    font-size: 2em;
+}
+
+
+
+.confirm__content {
+    line-height: 1.8em;
+}
+
+.confirm__content h3 {
+    margin-bottom: 25px;
+    font-size: 20px;
+}
+
+.confirm__buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.confirm__button {
+    padding: 0.6em 2.8em;
+    border: 1px solid #6a6dcd;
+    border-radius: 5px;
+    background: #ffffff;
+    color: #000;
+    font-weight: bold;
+    font-size: 1.1em;
+    cursor: pointer;
+    outline: none;
+}
+
+.confirm__button--fill {
+    background: #6a6dcd;
+    color: #ffffff;
+}
+
+.confirm__button:focus {
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes confirm---open {
+    from { opacity: 0 }
+    to { opacity: 1 }
+}
+
+@keyframes confirm---close {
+    from { opacity: 1 }
+    to { opacity: 0 }
+}
+
+@keyframes confirm__window---open {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
