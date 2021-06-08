@@ -12,7 +12,7 @@ export default class LocalStorage {
         // if item by key of the array is not defined, then empty array
         this.entries = JSON.parse(localStorage.getItem('entries')) || [];
         this.custom = JSON.parse(localStorage.getItem('custom')) || [];
-        this.future = JSON.parse(localStorage.getItem('future')) || [];
+        // this.future = JSON.parse(localStorage.getItem('future')) || [];
     } 
   
     /**
