@@ -17,7 +17,6 @@ Proper naming of variables and functions:
 
 Code grouping an organization:
 - Functions that are related should be next to eachother
-- 
 
 Patterns to be used:
 - Keep all files together (for now)

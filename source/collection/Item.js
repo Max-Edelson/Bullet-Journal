@@ -1,192 +1,248 @@
-const EVENT_SYMBOL = ""; /* NEED SYMBOL FOR EVENT */
-const TASK_SYMBOL = ""; /* NEED SYMBOL FOR TASK */
-const NOTE_SYMBOL = ""; /* NEED SYMBOL FOR NOTE */
+const EVENT_SYMBOL = ''; /* NEED SYMBOL FOR EVENT */
+const TASK_SYMBOL = ''; /* NEED SYMBOL FOR TASK */
+const NOTE_SYMBOL = ''; /* NEED SYMBOL FOR NOTE */
 
 /**
- *   @Description Abstract item class that will represent the item being
- *   held in the journal entry. This can be an Event, Task or Note.
- *	 Each of these types will extend this class
- *	 @author Javier Galvan
- *	 
+*   Abstract item class that will represent the item being
+*   held in the journal entry. This can be an Event, Task or Note. 
+*	Each of these types will extend this class
  */
-class Item {
+class Item{
 	/**
-	 * @constructs Item Creates and instance of the Item object with media
+	 * Creates and instance of the Item object with media
 	 * @param symbol image that represents the type of item
 	 * @param text text of the item
 	 * @param media file path to additional media(video, image, audio)(optional)
 	 */
-	constructor(symbol, text, media) {
+	constructor(symbol, text, media){
 		// prevent the abstract class from being created alone
-		if (this.constructor === Item) {
-			throw new Error("Instance of Abstrct class cannot be instatiated");
+		if(this.constructor === Item){
+			throw new Error('Instance of Abstrct class cannot be instatiated');
 		}
 
 		this.symbol = symbol;
 		this.text = text;
 
 		// check if media was included
-		if (media === undefined) {
-			this.media = "";
-		} else {
+		if (media === undefined){
+			this.media = '';
+		} 
+		else{		
 			this.media = media;
 		}
 	}
 
 	/**
-	 * @function hasMedia check if the media has additional media
+	 * getter method for symbol of item
+	 * @returns returns image that is symbol of item
+	 */
+	get symbol(){
+		return this.symbol;
+	}
+
+	/**
+	 * getter method for text of item
+	 * @returns returns string that is text of item
+	 */
+	get text(){
+		return this.text;
+	}
+
+	/**
+	 * getter method for media of item
+	 * @returns returns string that is filepath to media
+	 */
+	get media(){
+		return this.media;
+	}
+
+	/**
+	 * check if the media has additional media
 	 * @returns returns true is item has media false otherwise
 	 */
-	hasMedia() {
-		if (this.media === "") {
+	hasMedia(){
+		if (this.media === ''){
 			return false;
-		} else {
+		}
+		else{
 			return true;
 		}
 	}
 }
 
 /**
- * @Description Event class that extends the item class. Keeps track of upcoming or
+ * Event class that extends the item class. Keeps track of upcoming or 
  * past events
- * @author Javier Galvan
  */
-class Event extends Item {
+class Events extends Item{
 	/**
-	 * @constructs Event Creates an event object that has symbol, text and optional media
+	 * Creates an event object that has symbol, text and optional media
 	 * title and time
 	 * @param text text describing the event
 	 * @param media filepath to additonal media
 	 * @param title title of the event (optional)
 	 * @param date date object that represents date of the event (optional)
 	 */
-	constructor(text, media, title, date) {
+	constructor(text, media, title, date){
 		super(EVENT_SYMBOL, text, media);
-
+		
 		// check if title was included
-		if (title === undefined) {
-			this.title = "";
-		} else {
-			this.title = title;
+		if (title === undefined){
+			this.title = '';
+		} 
+		else{
+			this.title = title;	
 		}
 
 		// check if time was included
-		if (date === undefined) {
+		if (date === undefined){
 			this.date = null;
-		} else {
-			this.date = date;
+		}
+		else{
+			this.date = time;
 		}
 	}
 
 	/**
-	 * @function addDate adds date property to the event
-	 * @param newDate the new date (string) of the event
+	 * getter method for date of the event
+	 * @returns date object representing date/time of the event
 	 */
+	get date(){
+		return this.date;
+	}
+
+	/**
+	 * getter method for title of the event
+	 * @returns string representing title of the event
+	 */
+	get title(){
+		return this.title;
+	}
+	/**
+		 * adds/replaces the date of the event
+		 * @param newDate date object representing new date 
+		 */
 	addDate(newDate) {
 		this.date = newDate;
 	}
 
 	/**
-	 * @function removeDate removes the date from the event
+	 * removes the date from the event
 	 */
-	removeDate() {
+	removeDate(){
 		this.date = null;
 	}
 
 	/**
-	 * @function hasDate check if event has a date
+	 * check if event has a date
 	 * @returns returns true if there exists a date for this event, false
 	 * otherwise
 	 */
-	hasDate() {
-		if (this.date === null) {
+	hasDate(){
+		if (this.date === null){
 			return false;
-		} else {
+		}
+		else{
 			return true;
 		}
 	}
 }
 
 /**
- * @Description Task class that extends the item class. Used to keep track of task
+ * Task class that extends the item class. Used to keep track of task
  * needed to be done
- * @author Javier Galvan
  */
-class Task extends Item {
+class Task extends Item{
+
 	/**
-	 * @constructs Item creates a new Task object that is an item
+	 * creates a new Task object that is an item
 	 * @param text text of the task
 	 * @param media additional media for the task
 	 * @param deadline date object that represents the deadline of the task
 	 */
-	constructor(text, media, deadline) {
+	constructor(text, media, deadline){
 		super(TASK_SYMBOL, text, media);
 
 		this.completed = false;
 
 		// check if dealine was included
-		if (deadline === undefined) {
+		if (deadline === undefined){
 			this.deadline = null;
-		} else {
+		} 
+		else{
 			this.deadline = deadline;
 		}
 	}
 
 	/**
-	 * @function addDeadline add/replaces deadline of the task
+	 * getter method for the deadline
+	 * @returns returns date object representing the dealine of task
+	 */
+	get deadline(){
+		return this.deadline;
+	}
+
+	/**
+	 * getter method whether task is completed or not
+	 * @returns returns boolean representing if task is completed
+	 */
+	get completed(){
+		return this.completed;
+	}
+
+	/**
+	 * add/replaces deadline of the task
 	 * @param newDeadline date object representing new deadline to be added
 	 */
-	addDeadline(newDeadline) {
+	addDeadline(newDeadline){
 		this.deadline = newDeadline;
 	}
 
 	/**
-	 * @function removeDeadline removes the deadline of the task
+	 * removes the deadline of the task
 	 */
-	removeDeadline() {
+	removeDeadline(){
 		this.deadline = null;
 	}
 
 	/**
-	 * @function hasDeadline checks if task has a deadline
+	 * checks if task has a deadline
 	 * @returns returns true if there exists a deadline, false otherwise
 	 */
-	hasDeadline() {
-		if (this.deadline === null) {
+	hasDeadline(){
+		if (this.deadline === null){
 			return false;
-		} else {
+		} else{
 			return true;
 		}
 	}
 
 	/**
-	 * @function markCompleted marks task as completed
+	 * marks task as completed
 	 */
-	markCompleted() {
+	markCompleted(){
 		this.completed = true;
 	}
 
 	/**
-	 * @function markUncompleted marks task as uncomplete
+	 * marks task as uncomplete
 	 */
-	markUncompleted() {
+	markUncompleted(){
 		this.completed = false;
 	}
 }
 
 /**
- * @Description Note class that extends the item class. Used to keep track of information
- * @author Javier Galvan
+ * Note class that extends the item class. Used to keep track of information
  */
-class Note extends Item {
+class Notes extends Item{
+	
 	/**
-	 * @constructs Note creates a new note object
+	 * creates a new note object
 	 * @param text text of the note
 	 * @param media additional media for the note
 	 */
-	constructor(text, media) {
+	constructor(text, media){
 		super(NOTE_SYMBOL, text, media);
 	}
 }
-
-export {Item, Event, Task, Note};
