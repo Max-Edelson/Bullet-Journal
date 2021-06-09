@@ -1,4 +1,4 @@
-# Users have two custom logs options for users to choose
+# Users have two custom logs options for users to choose(Changed on 06/08/2021, finally decided to only contain one option. Reasons at the end)
 * Status: accepted
 * Deciders: The whole team member
 * Date: 2021-05-03
@@ -45,4 +45,6 @@ Only choose to implement list or implement notes.<!-- optional -->
 * Good, because less work will be impelmented this feature and more efforts can be used to accomplish other things.
 * Bad, users might find useless of our custom logs because of the limited choice.
 
+## Final Decision(Changed on 06/08/2021)
+Fianlly, we decided only contain one custom log options, which is note. We believe that users will use custom log is more likely to because users want to record some notes. If users want to use list, they can record through daily logs. So we finally decided to let custom log only contains notes.
 
