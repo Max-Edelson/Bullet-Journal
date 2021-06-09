@@ -227,8 +227,6 @@ a.article:hover {
   display: none;
 }
 
-
-
 .month_header {
   font-family: Mulish;
   font-style: italic;
@@ -236,7 +234,6 @@ a.article:hover {
   font-size: min(25px, 2vw);
   line-height: min(25px, 2vw);
   /* or 119% */
-
 
   text-align: center;
 
@@ -287,7 +284,9 @@ a.article:hover {
   outline: none;
 }
 
-/* The Modal (background) */
+/* ---------------------------------------------------
+    MODAL STYLE
+----------------------------------------------------- */
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -303,11 +302,130 @@ a.article:hover {
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #fefefe;
+  background: #ffffff;
+  box-shadow: 0px 8px 36px rgba(0, 0, 0, 0.16);
+  border-radius: 16px;
   margin: 15% auto; /* 15% from the top and centered */
+  display: flex;
+  flex-direction: column;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: min(40%, 350px); /* Could be more or less, depending on screen size */
+  /*
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */ /*
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; Could be more or less, depending on screen size
+  */
+}
+
+.modal-content label {
+  font-style: normal;
+  font-weight: 600;
+  font-size: min(12px, 3vw);
+  margin: 0;
+  color: #2b4bf2;
+}
+
+#create-name {
+  font-style: normal;
+  font-weight: bolder;
+  font-size: min(19px, 5vw);
+  margin: 0 0 30px;
+  color: #000000;
+}
+
+.modal-content input,
+textarea {
+  /* Highlight soft */
+
+  background: rgba(123, 151, 206, 0.06);
+  /* Accent color */
+
+  border: 1px solid #2b4bf2;
+  box-sizing: border-box;
+  border-radius: 8px;
+  margin: 12px 0 20px;
+  padding: 10px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: min(16px, 4vw);
+  line-height: min(24px, 6vw);
+}
+
+.time_input {
+  width: 40%;
+  border-radius: 8px;
+  margin: 0 0 20px;
+  line-height: min(75px, 20vw);
+}
+
+.allDay_input {
+  width: 10%;
+  border-radius: 8px;
+  margin: 0 0 20px;
+}
+
+.time_selector {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.time_selector span {
+  display: inline-block;
+  vertical-align: middle;
+  font-family: Public Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: min(19px, 5vw);
+  /* line-height: min(22px, 5.5vw); */
+  line-height: min(75px, 20vw);
+}
+.time_selector label {
+  margin-right: auto;
+  font-family: Public Sans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: min(16px, 4vw);
+  line-height: min(21px, 5.5vw);
+}
+
+.modal-content button {
+  border: 1px solid rgba(86, 103, 137, 0.26);
+  box-sizing: border-box;
+  border-radius: 8px;
+  width: 48%;
+  font-style: normal;
+  font-weight: 600;
+  font-size: min(14px, 3.5vw);
+  line-height: 36px;
+}
+
+.cancel_button {
+  border: 1px solid rgba(86, 103, 137, 0.26);
+  box-sizing: border-box;
+  border-radius: 8px;
+  width: 48%;
+  font-style: normal;
+  font-weight: 600;
+  font-size: min(14px, 3.5vw);
+  line-height: 36px;
+}
+
+#save_button {
+  float: right;
+  background: #6a6dcd;
+  border: 1px solid #6a6dcd;
+  border-radius: 8px;
+  width: 48%;
+  font-style: normal;
+  font-weight: 600;
+  font-size: min(14px, 3.5vw);
+  line-height: 36px;
+  color: #ffffff;
 }
 
 /* The Close Button */
