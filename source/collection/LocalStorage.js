@@ -63,7 +63,7 @@ export default class LocalStorage {
             if (index !== -1) {
                 this.custom[index] = data;
                 localStorage.setItem('custom', JSON.stringify(this.custom));
-            }
+            } 
         } 
     }
   
