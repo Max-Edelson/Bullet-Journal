@@ -25,16 +25,85 @@
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">	
-<link rel="stylesheet" href="./log.css">
-	<div class="swiper-container">
-		<h1 class="title-uppercase"><a href="#" class="previous round">&#8249;</a><strong>OCTOBER</strong><a href="#" class="next round">&#8250;</a></h1>
-	</div>
-	<div class="container-fluid">
-	</div>
-	
-<script type="text/javascript">
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>BananaNotes</h3>
+            </div>
 
-</script>
+            <ul class="list-unstyled components">
+                <p><img src="home.png" alt="Home Icon"> Index</p>
+                <li>
+                    <a href="#">Rapid Log</a>
+                </li>
+                <li>
+                    <a href="#">Future Log</a>
+                </li>
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Monthly Logs</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="#">January</a>
+                        </li>
+                        <li>
+                            <a href="#">February</a>
+                        </li>
+                        <li>
+                            <a href="#">March</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Daily Logs</a>
+                </li>
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Custom Logs</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <a href="#">Grocery List</a>
+                        </li>
+                        <li>
+                            <a href="#">Reading List</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><img src="create.png" alt="Create Icon"> New Log</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div id= "sidebarIcon">
+            <span>&#187;</span>
+        </div>
+
+        <div id="content">
+            <div class="swiper-container">
+                <h1 class="title-uppercase"><a href="#" class="previous round">&#8249;</a><strong>OCTOBER</strong><a href="#" class="next round">&#8250;</a></h1>
+            </div>
+            <div class="container-fluid">
+            </div>
+        </div>
+    </div>
+
 </body>
+
+<script type="text/javascript" src="source.js"></script>
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">	
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+<!-- jQuery CDN - Slim version (=without AJAX) -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<!-- Popper.JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+<!-- jQuery Custom Scroller CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+
+<link rel="stylesheet" href="./log.css">
+
+
 </html>
