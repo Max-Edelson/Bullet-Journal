@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+        integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+
+<body>
+    <div id="calendar"></div>
+    <section class="logging">
+        <div class="loggingWrapper">
+            <div class="loggingNavbar">
+                <div class="logNavInfo">
+                    <!-- Custom Log Name -->
+                    <h1>Custom Log Title</h1>
+                </div>
+            </div>
+        </div>
+        <div class="allTaskWrapper">
+            <div class="bxSingle noteBx">
+                <h1>Notes</h1>
+                <ul class="noteUl" id="noteUl">
+                    
+                </ul>
+                <li  style="list-style: none;"><button id="newitem"><i class="fas fa-plus" style="margin-right: 10px;"></i>New Note</button></li>
+            </div>
+
+            <div class="popup" id="popup-3">
+                <div class="overlay"></div>
+                <div class="content">
+                    <!--<form id="entry-form">-->
+                        <div class="close-btn" >Cancel</div>
+                        <button class="submit addBtn addBtn3">Save</button>
+                        <h1>Create new note</h1>
+                        <div id="form" class="mainInpWrapper">
+                            <label for="description">TEXT/DESCRIPTION</label>
+                            <input type="text" name="description" id="description3" class="description">
+                            <button id="subBtn">Add subitem</button>
+                            <div id="sub-section" hidden>
+                                <label for="description">SUBITEM TEXT/DESCRIPTION</label>
+                                <input type="text" name="description" id="subText" class="description">
+                            </div>
+                        
+                        </div>
+                    <!--</form>-->
+                    
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+
+
+
+<script src="../../../collection/LocalStorage.js" type="module"></script>
+<script src="../../../collection/Item.js" type="module"></script>
+<script src="../../../collection/Entry.js" type="module"></script>   
+    
+<script src="script.js" type="module"></script>
+
+
+</body>
+
+</html>
