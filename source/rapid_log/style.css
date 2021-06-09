@@ -179,8 +179,6 @@ a.article:hover {
 }
 
 
-
-
 /* ---------------------------------------------------
     CONTENT STYLE
 ----------------------------------------------------- */
@@ -217,6 +215,7 @@ body {
 .loggingNavbar {
     display: flex;
     justify-content: space-between;
+    margin: 0% 1%;
 }
 .logNavInfo h1 {
     font-weight: 600;
@@ -229,10 +228,10 @@ body {
     line-height: min(25px, 2vw);
     font-weight: 300;
 }
+
 .logNavBtn button {
     width: 90%;
     height: 100%;
-    margin: 0 5px;
     border: none;
     border-radius: 10px;
     background: #6a6dcd;
@@ -240,6 +239,7 @@ body {
     font-style: italic;
     cursor: pointer;
     transition: .3s;
+    float: right;
 }
 .allTaskWrapper {
     display: flex;
@@ -256,6 +256,7 @@ body {
     flex-direction: column;
     margin: 1%;
     padding-top: 20px;
+    padding: 20px max(0px, calc())
 }
 .bxSingle span {
     width: 100%;
