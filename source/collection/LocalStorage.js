@@ -87,7 +87,7 @@ export default class LocalStorage {
             }
         } 
         // else remove from custom
-        else {
+        else { 
             // retrieve index of data 
             index = this.getIndexByTokenCustom(data.token);
 
@@ -95,7 +95,7 @@ export default class LocalStorage {
             if (index !== -1) {
                 this.custom.splice(index, 1);
                 localStorage.setItem('custom', JSON.stringify(this.custom));
-            }
+            } 
         } 
     }
   
