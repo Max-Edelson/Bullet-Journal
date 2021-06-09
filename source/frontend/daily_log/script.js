@@ -1,3 +1,14 @@
+// import LocalStorage from '../../collection/LocalStorage.js';
+
+// let storage = new LocalStorage(); // create new instance of local storage
+// let entries = storage.entries; // get list of entries 
+
+// add entries in storage to the webpage
+// entries.forEach((data) => {
+//     createEntryFromData(data);
+// });
+
+// DELETE POPUP 
 const Confirm = {
     open (options) {
         options = Object.assign({}, {
@@ -64,11 +75,7 @@ const Confirm = {
 };
 
 
-
-
-
-
-
+// TOGGLE POPUPS
 function togglePopup1(){
     document.getElementById("popup-1").classList.toggle("active");
 }
@@ -80,12 +87,16 @@ function togglePopup3(){
 }
 
 
+// TASKS
 let addBtn1 = document.querySelector('.addBtn1');
 showNotes();
 addBtn1.addEventListener('click', function (e) {
+    e.preventDefault();
+
     let addText = document.querySelector('#taskInput').value;
     let description1 = document.querySelector("#description1").value
     let date1 = document.querySelector("#date1").value
+
     let notes = localStorage.getItem('notes');
     if (notes == null) {
         notesObj = []
@@ -114,8 +125,7 @@ function showNotes() {
     notesObj.forEach(function (element, index) {
         html +=  `<li class="taskLi">
                     <div class="liMainWrap">
-                    <span class="dateSpan">${element[2]}</span>
-                    <h3>${element[0]}</h3>
+                    <h3>${element[0]} • ${element[2]}</h3>
                     <p>${element[1]}</p>
                     <ul class="mouseover">
                     <li>
@@ -136,7 +146,8 @@ function showNotes() {
     else {
         notesElm.innerHTML = `<li onclick="togglePopup1()" style="list-style: none;"><span><i class="fas fa-plus" style="margin-right: 10px;"></i>New Item</span></li>`
     }
-}
+};
+
 function deleteNote(index){
     Confirm.open({
         title: `<i class="fas fa-info-circle"></i>`,
@@ -154,13 +165,11 @@ function deleteNote(index){
             localStorage.setItem('notes', JSON.stringify(notesObj));
             showNotes();
         }
-      })
-        
-}
+    })
+};
 
 
-
-
+// EVENTS
 let addBtn2 = document.querySelector('.addBtn2');
 showTodos();
 addBtn2.addEventListener('click', function (e) {
@@ -181,7 +190,7 @@ addBtn2.addEventListener('click', function (e) {
     date2.value = '';
     console.log(todosObj);
     showTodos();
-})
+});
 
 function showTodos() {
     let todos = localStorage.getItem('todos');
@@ -195,8 +204,7 @@ function showTodos() {
     todosObj.forEach(function (element, index) {
         html2 +=  `<li class="eventLi">
                     <div class="liMainWrap">
-                    <span class="dateSpan">${element[2]}</span>
-                    <h3>${element[0]}</h3>
+                    <h3>${element[0]} • ${element[2]}</h3>
                     <p>${element[1]}</p>
                     <ul class="mouseover">
                     <li>
@@ -240,14 +248,7 @@ function deleteTodos(index){
 }
 
 
-
-
-
-
-
-
-
-
+// NOTES
 let addBtn3 = document.querySelector('.addBtn3');
 showNewtodo();
 addBtn3.addEventListener('click', function (e) {
@@ -301,7 +302,8 @@ function showNewtodo() {
     else {
         newtodoElm.innerHTML = `<li onclick="togglePopup3()" style="list-style: none;"><span><i class="fas fa-plus" style="margin-right: 10px;"></i>New Item</span></li>`
     }
-}
+};
+
 function deleteNewtodo(index){
     Confirm.open({
         title: `<i class="fas fa-info-circle"></i>`,
@@ -319,11 +321,8 @@ function deleteNewtodo(index){
             localStorage.setItem('newtodo', JSON.stringify(newtodoObj));
             showNewtodo();
         }
-      })
-    
-}
-
-
+    })
+};
 
 
 const dateMeta = document.getElementById("date");
