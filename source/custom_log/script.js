@@ -1,5 +1,5 @@
-import {Item, Event, Task, Note} from '../../collection/Item.js';
-import LocalStorage from '../../collection/LocalStorage.js';
+import {Item, Event, Task, Note} from '../collection/Item.js';
+import LocalStorage from '../collection/LocalStorage.js';
 
 //get name of custom log
 let cusTitle = window.location.hash.substr(1);
@@ -102,7 +102,7 @@ function updateNavbarLogs(cusNames) {
     });
 
     let li = document.createElement("li");
-    li.innerHTML = "<img src='create.png' alt='Create Icon'><button id='custom_add'>New Log</button>"
+    li.innerHTML = "<img src='../create.png' alt='Create Icon'><button id='custom_add'>New Log</button>"
     navBar_Logs.appendChild(li);
 }
 

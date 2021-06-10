@@ -29,43 +29,37 @@
             </div>
 
             <ul class="list-unstyled components">
-                <p><img src="home.png" alt="Home Icon"> Index</p>
+                <p><a href="#RAPID LOG"><img src="../home.png" alt="Home Icon"> Index</a></p>
                 <li>
-                    <a href="#">Rapid Log</a>
+                    <a href="../rapid_log/index.html">Rapid Log</a>
                 </li>
                 <li>
-                    <a href="#">Future Log</a>
+                    <a href="../future_log/index.html">Future Log</a>
                 </li>
                 <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Monthly Logs</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            <a href="#">January</a>
+                            <a href="../monthlylog/demo.html">January</a>
                         </li>
                         <li>
-                            <a href="#">February</a>
+                            <a href="../monthlylog/demo.html">February</a>
                         </li>
                         <li>
-                            <a href="#">March</a>
+                            <a href="../monthlylog/demo.html">March</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#">Daily Logs</a>
+                    <a href="../daily_log/index.html">Daily Logs</a>
                 </li>
                 <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Custom Logs</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
-                            <a href="#">Grocery List</a>
-                        </li>
-                        <li>
-                            <a href="#">Reading List</a>
+                            <img src="../create.png" alt="Create Icon"><button id="custom_add"> New Log</button>
                         </li>
                     </ul>
-                </li>
-                <li>
-                    <a href="#"><img src="create.png" alt="Create Icon"> New Log</a>
                 </li>
             </ul>
         </nav>
@@ -205,6 +199,18 @@
             </div>
         </div>
     </div>
+    <div class="popup" id="new-custom" hidden>
+        <div class="popup_box">
+            <h1>Create new log</h1>
+            <h2>Log Name</h2>
+            <input type="text"value="" id="custom_name">
+            <div class="popup_buttons">
+                <button class="cancel_button" id="custom_cancel">Cancel</button>
+                <button class="save_button" id="custom_save">Save</button>
+            </div>
+        </div>
+    </div>
+
 
     <!-- jQuery CDN - Slim version (=without AJAX) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
