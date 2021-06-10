@@ -41,7 +41,7 @@ class Entry extends HTMLElement {
             align-items: center;
             }
             
-            .entry .main-item .sub-item .sub-section {
+            .entry .main-item {
             vertical-align: baseline;
             float: left;
             font-size: min(1.75rem, 1.5vw);
@@ -62,9 +62,6 @@ class Entry extends HTMLElement {
 
             <div class="main-section">
                 <p class="main-item"></p>
-            </div>
-            <div class="sub-section">
-                <p class="sub-item"></p>
             </div>
             <button>...</button>
         </div>
@@ -107,11 +104,27 @@ class Entry extends HTMLElement {
         let mainText = this.shadowRoot.querySelector('.main-item');
         
         if (mainItem instanceof Event || mainItem.type == "event"){
-            mainText.textContent = mainItem.title + '/// ' + mainItem.date + ': ' + mainItem.text;
+            mainText.textContent = mainItem.title
+            if (mainItem.date != '') {
+                mainText.textContent += ' • ' + mainItem.date;
+            }
+            if (mainItem.startTime != '') {
+                mainText.textContent += ' • ' + mainItem.startTime;
+            }
+            if (mainItem.endTime != '') {
+                mainText.textContent += '-' + mainItem.endTime;
+            }
+
         }
 
         else if (mainItem instanceof Task || mainItem.type == "task"){
-            mainText.textContent = mainItem.text + '/// Deadline: ' + mainItem.deadline;
+            mainText.textContent = mainItem.text
+            if (mainItem.deadline != '') {
+                mainText.textContent += ' • Deadline: ' + mainItem.deadline;
+            }
+            if ((mainItem.taskTime != '')) {
+                mainText.textContent += ' • ' + mainItem.taskTime;
+            }
         }
         
         else{
@@ -128,7 +141,7 @@ class Entry extends HTMLElement {
         this.sub = subItem;
         let subText = this.shadowRoot.querySelector('.sub-item');
         
-        
+        /*
         if (subItem instanceof Event || subItem.type == "event"){
             subText.textContent = subItem.title + '/// ' + subItem.date + ': ' + subItem.text;
         }
@@ -139,6 +152,7 @@ class Entry extends HTMLElement {
         else{
             subText.textContent = subItem.text;
         }
+        */
     }
 }
 
