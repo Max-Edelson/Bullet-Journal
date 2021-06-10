@@ -102,7 +102,7 @@ class Entry extends HTMLElement {
 
     this.main = mainItem;
 
-    let mainText = this.shadowRoot.querySelector(".main-item");
+    const mainText = this.shadowRoot.querySelector(".main-item");
 
     if (mainItem instanceof Event || mainItem.type == "event") {
       mainText.textContent =
@@ -122,7 +122,7 @@ class Entry extends HTMLElement {
    */
   set subItem(subItem) {
     this.sub = subItem;
-    let subText = this.shadowRoot.querySelector(".sub-item");
+    const subText = this.shadowRoot.querySelector(".sub-item");
 
     if (subItem instanceof Event || subItem.type == "event") {
       subText.textContent =
