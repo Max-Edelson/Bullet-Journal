@@ -19,6 +19,7 @@ export default class LocalStorage {
 	 * @function create pushes new data into correct array (collection)
      * and sets the updated array in Local Storage
      * @param data entry object 
+     * @return token
 	 */
     create(data) {
         data.token = this.token;
@@ -34,6 +35,8 @@ export default class LocalStorage {
             this.custom.push(data);
             localStorage.setItem('custom', JSON.stringify(this.custom));
         }
+
+        return data.token;
     }
 
     createLog(name) {
