@@ -18,7 +18,7 @@
       		{ "blankLine": "always", "prev": ["const", "let", "var"], "next": "*"},
       		{ "blankLine": "any", "prev": ["const", "let", "var"], "next": ["const", "let", "var"]}
     	],
-	"quotes": ["warn", "single"],
+	"quotes": [2, "single"],
 	"no-var": "warn",
 	"prefer-const": "warn",
 	"no-useless-constructor": "warn",
