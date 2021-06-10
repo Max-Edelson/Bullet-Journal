@@ -131,7 +131,7 @@ function createCalendar(calendar, element, adjuster){
       }
       var today = document.createElement('div');
       today.className += ' today';
-      today.innerHTML = months[calendar.Selected.Month];
+      today.innerHTML = months[calendar.Selected.Month] + ", " + calendar.Selected.Year;
       //+ ", " + calendar.Selected.Year
       datetime.appendChild(today);
       if(calendar.Options.NavShow && !calendar.Options.NavVertical){
@@ -160,6 +160,10 @@ function createCalendar(calendar, element, adjuster){
     }
     mainSection.appendChild(labels);
   }
+
+  //day selected by user when a day is clicked
+  let inputDay;
+
   function AddDays(){
     // Create Number Element
     function DayNumber(n){
@@ -170,6 +174,7 @@ function createCalendar(calendar, element, adjuster){
     }
     var days = document.createElement('ul');
     days.className += "cld-days";
+    
     // Previous Month's Days
     for(var i = 0; i < (calendar.Selected.FirstDay); i++){
       var day = document.createElement('li');
@@ -191,6 +196,13 @@ function createCalendar(calendar, element, adjuster){
     for(var i = 0; i < calendar.Selected.Days; i++){
       var day = document.createElement('li');
       day.className += "cld-day currMonth";
+      day.addEventListener('click', () => {
+        //show input popup
+        let popup = document.querySelector('.popup');
+        popup.hidden = false;
+        let dayNum = day.childNodes[0];
+        inputDay = new Day(parseInt(dayNum.innerHTML), calendar.Selected.Month, calendar.Selected.Year);
+      });
       //Disabled Days
       var d = (i + calendar.Selected.FirstDay)%7;
       for(var q = 0; q < calendar.Options.DisabledDays.length; q++){
@@ -202,7 +214,7 @@ function createCalendar(calendar, element, adjuster){
       // Check Date against Event Dates
       for(var n = 0; n < calendar.Model.length; n++){
         var evDate = calendar.Model[n].Date;
-        var toDate = new Date(calendar.Selected.Year, calendar.Selected.Month, (i+1));
+        var toDate = new Date(calendar.Selected.Year, calendar.Selected.Month + 1, (i+1));
         if(evDate.getTime() == toDate.getTime()){
           number.className += " eventday";
           var title = document.createElement('span');
@@ -255,6 +267,12 @@ function createCalendar(calendar, element, adjuster){
 
     for(var i = 0; i < (extraDays - calendar.Selected.LastDay); i++){
       var day = document.createElement('li');
+      day.addEventListener('click', () => {
+        //show input popup
+        let popup = document.querySelector('.popup');
+        popup.hidden = false;
+        
+      });
       day.className += "cld-day nextMonth";
       //Disabled Days
       var d = (i + calendar.Selected.LastDay + 1)%7;
@@ -288,6 +306,56 @@ function createCalendar(calendar, element, adjuster){
   AddLabels();
   AddDays();
 }
+
+document.querySelector('#note_button').addEventListener('click', () => {
+  let popup = document.querySelector('.popup');
+  popup.hidden = true;
+  let notePopup = document.querySelector('#note_popup');
+  notePopup.hidden = false;
+});
+
+document.querySelector('#event_button').addEventListener('click', () => {
+  let popup = document.querySelector('.popup');
+  popup.hidden = true;
+  let eventPopup = document.querySelector('#event_popup');
+  eventPopup.hidden = false;
+});
+
+document.querySelector('#task_button').addEventListener('click', () => {
+  let popup = document.querySelector('.popup');
+  popup.hidden = true;
+  let taskPopup = document.querySelector('#task_popup');
+  taskPopup.hidden = false;
+});
+
+let cancelButtonList = document.getElementsByClassName('cancel_button');
+for(cancelButton of cancelButtonList){
+  cancelButton.addEventListener('click', () => {
+    let popups = document.getElementsByClassName('popup');
+    for(popupItem of popups){
+      popupItem.hidden = true;
+    }
+  });
+}
+
+document.querySelector('#save_event').addEventListener('click', () => {
+  let titleInput = document.querySelector('#eventTitle').value;
+  let dateInput = document.querySelector('#eventDate').value;
+  let startTimeInput = document.querySelector('#eventStartTime').value;
+  let endTimeInput = document.querySelector('#eventEndTime').value;
+  let descriptionInput = document.querySelector('#eventDescription').value;
+});
+
+document.querySelector('#save_note').addEventListener('click', () =>{
+  let descriptionInput = document.querySelector('#noteDescription').value;
+});
+
+document.querySelector('#save_task').addEventListener('click', () =>{
+  let deadlineInput = document.querySelector('#taskDeadline').value;
+  let checkInput = document.querySelector('#taskCheck').value;
+  let timeInput = document.querySelector('#taskTime').value;
+  let descriptionInput = document.querySelector('#taskDescription').value;
+});
 
 function caleandar(el, data, settings){
   var obj = new Calendar(data, settings);
