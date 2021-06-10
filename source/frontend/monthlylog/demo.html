@@ -8,9 +8,72 @@
     </style>
   </head>
   <body>
-    <div id="caleandar">
-    </div>
+    <div id="caleandar"></div>
+    <div hidden class="popup">
+      <div class="popup_box">
+          <h1>Choose Entry type</h1>
 
+          <button id="note_button" class="select_button">Note</button>
+          <button id="event_button" class="select_button">Event</button>
+          <button id="task_button" class="select_button">Task</button>
+
+      </div>
+    </div>
+    <div id="note_popup" hidden class="popup">
+      <div class="popup_box">
+          <h1>Create new note</h1>
+          <h2>DESCRIPTION</h2>
+          <input id="nodeDescription" type="text"value="Note description" >
+          <div class="popup_buttons">
+              <button class="cancel_button">Cancel</button>
+              <button id="save_note" class="save_button">Save</button>
+          </div>
+      </div>
+    </div>
+    <div id="event_popup" hidden class="popup">
+      <div class="popup_box">
+          <h1>Create new event</h1>
+          <h2>TITLE</h2>
+          <input id="eventTitle" type="text" value="Note title">
+
+          <h2>SELECT DATE AND TIME</h2>
+          <input id="eventDate" type="date">
+          <div class="time_selector">
+              <input id="eventStartTime" type="time" class="time_input" style="margin-right: auto;">
+              <span> to </span>
+              <input id="eventEndTime" type="time" class="time_input" style="margin-left: auto; ">
+          </div>
+
+
+          <h2>DESCRIPTION</h2>
+          <input id="eventDescription" type="text"value="Note description" >
+          <div class="popup_buttons">
+              <button class="cancel_button">Cancel</button>
+              <button id='save_event' class="save_button">Save</button>
+          </div>
+      </div>
+    </div>
+    <div id="task_popup" hidden class="popup">
+      <div class="popup_box">
+          <h1>Create new task</h1>
+
+          <h2>SELECT DATE AND TIME</h2>
+          <input id="taskDeadline" type="date">
+          <div class="time_selector">
+              <input id="taskCheck" type="checkbox" class="allDay_input" id="allDay">
+              <label for="allDay">All Day</label>
+              <input id="taskTime" type="time" class="time_input" style="margin-left: auto; ">
+          </div>
+
+
+          <h2>DESCRIPTION</h2>
+          <input id="taskDescription" type="text"value="Note description" >
+          <div class="popup_buttons">
+              <button class="cancel_button">Cancel</button>
+              <button id='save_task' class="save_button">Save</button>
+          </div>
+      </div>
+    </div>
     <script type="text/javascript" src="js/caleandar.js"></script>
     <script type="text/javascript" src="js/demo.js"></script>
   </body>
