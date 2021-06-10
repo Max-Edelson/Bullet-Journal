@@ -78,6 +78,7 @@ class Entry extends HTMLElement {
   /**
    * getter method for the main item of the entry
    * @returns item object that is the main item
+   * @method getter function for the main-item
    */
   get mainItem() {
     return this.getAttribute("main-item");
@@ -86,6 +87,7 @@ class Entry extends HTMLElement {
   /**
    * getter method for the sub item of the entry
    * @returns item object that is the sub item
+   * @method getter method for the sub-item
    */
   get subItem() {
     return this.getAttribute("sub-item");
@@ -95,6 +97,7 @@ class Entry extends HTMLElement {
    * setter method that runs when mainItem attribute is changed
    * adds all the content of the item to the entry custom element
    * @param mainItem item object that will server as the main item
+   * @method setter method for the main-item
    */
   set mainItem(mainItem) {
     //  let entryArticle = this.shadowRoot.querySelector('.entry');
@@ -119,6 +122,7 @@ class Entry extends HTMLElement {
    * setter method that runs when subItem attribute is changed
    * adds all the content of the item to the entry custom element
    * @param subItem item object that will server as the sub item
+   * @method setter method for the sub-item
    */
   set subItem(subItem) {
     this.sub = subItem;
