@@ -101,7 +101,7 @@ class Entry extends HTMLElement {
       //  let entryArticle = this.shadowRoot.querySelector('.entry');
       //  let mainSec = this.shadowRoot.querySelector('.main-section');
 
-      this.main = mainItem;
+        this.main = mainItem;
 
 
         let mainText = this.shadowRoot.querySelector('.main-item');

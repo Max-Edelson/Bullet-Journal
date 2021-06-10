@@ -136,10 +136,10 @@ class Task extends Item {
 	 * @param media additional media for the task
 	 * @param deadline date object that represents the deadline of the task
 	 */
-	constructor(text, media, deadline) {
+	constructor(text, media, deadline, completed=false) {
 		super(TASK_SYMBOL, text, media);
 
-		this.completed = false;
+		this.completed = completed;
 
 		// check if dealine was included
 		if (deadline === undefined) {
