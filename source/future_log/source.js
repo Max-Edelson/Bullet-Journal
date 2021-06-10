@@ -172,21 +172,18 @@ submitBtn.addEventListener("click", (e) => {
         mainItem = new Note(note.value, '');
     }
     else if (currMainItem == "event"){
-        mainItem = new Event(note.value, '', eventTitle.value, eventDate.value);
+        mainItem = new Event(note.value, '', eventTitle.value, eventDate.value, startTime.value, endTime.value);
     }
     else{
-        mainItem = new Task(note.value, '', taskDeadline.value);
+        mainItem = new Task(note.value, '', taskDeadline.value, taskTime.value);
     }
     
-    //let tempDate = new Date();
-    console.log(date);
     for (var i = 0; i < 12; i++) {
         if (month[i] === currMonth) {
             date.setMonth(i);
             break;
         }
     }
-    console.log(date);
     //create new entry element
     let newEntry = document.createElement('journal-entry');
     newEntry.setAttribute('dateMade', date.toLocaleDateString("en-US"));

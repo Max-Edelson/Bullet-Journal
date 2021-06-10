@@ -99,16 +99,33 @@ class Entry extends HTMLElement {
       //  let mainSec = this.shadowRoot.querySelector('.main-section');
 
       this.main = mainItem;
+      
 
 
         let mainText = this.shadowRoot.querySelector('.main-item');
         
         if (mainItem instanceof Event || mainItem.type == "event"){
-            mainText.textContent = mainItem.title + ' • ' + mainItem.date;
+            mainText.textContent = mainItem.title
+            if (mainItem.date != '') {
+                mainText.textContent += ' • ' + mainItem.date;
+            }
+            if (mainItem.startTime != '') {
+                mainText.textContent += ' • ' + mainItem.startTime;
+            }
+            if (mainItem.endTime != '') {
+                mainText.textContent += '-' + mainItem.endTime;
+            }
+
         }
 
         else if (mainItem instanceof Task || mainItem.type == "task"){
-            mainText.textContent = mainItem.text + ' • Deadline: ' + mainItem.deadline;
+            mainText.textContent = mainItem.text
+            if (mainItem.deadline != '') {
+                mainText.textContent += ' • Deadline: ' + mainItem.deadline;
+            }
+            if ((mainItem.taskTime != '')) {
+                mainText.textContent += ' • ' + mainItem.taskTime;
+            }
         }
         
         else{
