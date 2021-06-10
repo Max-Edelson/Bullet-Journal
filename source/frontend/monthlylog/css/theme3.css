@@ -1,8 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+
+.popup {
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.popup_box {
+    background: #FFFFFF;
+    box-shadow: 0px 8px 36px rgba(0, 0, 0, 0.16);
+    border-radius: 16px;
+    margin: 15% auto; /* 15% from the top and centered */
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 1px solid #888;
+    width: min(40%, 350px); /* Could be more or less, depending on screen size */
+}
+
+.popup_box h1 {
+    font-family: Public Sans;
+    font-style: normal;
+    font-weight: bolder;
+    font-size: min(19px, 5vw);
+    margin: 0 0 30px;
+}
+
+.popup_box h2 {
+    font-family: Public Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: min(12px, 3vw);
+    margin: 0;
+    color: #2B4BF2;
+}
+
+.popup_box h3 {
+    font-family: Public Sans;
+    font-style: normal;
+    font-size: min(16px, 4vw);
+    margin: 0 0 20px; 
+}
+
+.popup_box input {
+    /* Highlight soft */
+
+    background: rgba(123, 151, 206, 0.06);
+    /* Accent color */
+
+    border: 1px solid #2B4BF2;
+    box-sizing: border-box;
+    border-radius: 8px;
+    margin: 12px 0 20px; 
+    padding: 10px;
+    font-family: Public Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: min(16px, 4vw);
+    line-height: min(24px, 6vw);
+}
+
+.popup_box select {
+    background: rgba(123, 151, 206, 0.06);
+    /* Accent color */
+
+    border: 1px solid #2B4BF2;
+    box-sizing: border-box;
+    border-radius: 8px;
+    margin: 12px 0 20px; 
+    padding: 10px;
+    font-family: Public Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: min(16px, 4vw);
+    line-height: min(24px, 6vw);
+}
+
+.time_input{
+    width: 40%;
+    border-radius: 8px;
+    margin: 0 0 20px; 
+    line-height: min(75px, 20vw);
+}
+
+.allDay_input {
+    width: 10%;
+    border-radius: 8px;
+    margin: 0 0 20px; 
+}
+
+.time_selector{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.time_selector span {
+    display: inline-block;
+    vertical-align: middle;
+    font-family: Public Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: min(19px, 5vw);
+    /* line-height: min(22px, 5.5vw); */
+    line-height: min(75px, 20vw);
+}
+ .time_selector label {
+    margin-right: auto;
+    font-family: Public Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-size: min(16px, 4vw);
+    line-height: min(21px, 5.5vw);
+ }
+
+
+.cancel_button {
+    border: 1px solid rgba(86, 103, 137, 0.26);
+    box-sizing: border-box;
+    border-radius: 8px;
+    width: 48%;
+    font-family: Work Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: min(14px, 3.5vw);
+    line-height: 36px;
+    
+}
+
+.save_button {
+    float: right;
+    background: #6A6DCD;
+    border: 1px solid #6A6DCD;
+    border-radius: 8px;
+    width: 48%;
+    font-family: Work Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: min(14px, 3.5vw);
+    line-height: 36px;
+    color: #FFFFFF;
+    
+}
+
+.select_button {
+    background: #6A6DCD;
+    border: 1px solid #6A6DCD;
+    border-radius: 8px;
+    width: 100%;
+    margin: 2%;
+    font-family: Work Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: min(14px, 3.5vw);
+    line-height: 36px;
+    color: #FFFFFF;
+    
+}
+
 .cld-main{
   width: 100%;
 }
 .cld-main a{
-  color: #7B00FF;
+  color: white;
 }
 
 body{
@@ -10,6 +179,7 @@ body{
   font-family: 'Inter', sans-serif;
   color: #000;
 }
+
   .cld-datetime{
     position: relative;
     width: 100%;
@@ -48,9 +218,7 @@ body{
   .cld-fwd{
     float: right;
   }
-    .cld-nav svg:hover{
 
-    }
 .cld-labels, .cld-days{
   padding-left: 0;
 }
@@ -96,11 +264,20 @@ body{
         background: #eee;
       }
       .cld-number.eventday{
-        font-weight: bold;
+        font-weight: bold; 
+      }
+      .cld-title{
+        background: #6A6DCD;
+        box-shadow: 0px 2.92414px 5.84828px rgba(0, 0, 0, 0.12), 0px 11.6966px 23.3931px rgba(0, 0, 0, 0.08);
+        border-radius: 5.84828px;
+        height: 9%;
+        padding: 6%;
+        margin: 2%;
+        margin-top: 5%;
+        display: flex;
+        align-items: center;
       }
       .cld-number.eventday:hover{
         background: #eee;
-      }
-      .today .cld-number.eventday:hover{
       }
       
