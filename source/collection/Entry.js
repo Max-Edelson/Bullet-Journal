@@ -1,4 +1,7 @@
 import { Item, Event, Task, Note } from "./Item.js";
+/**
+* @class new Entry class that extends 'HTMLElement'
+*/
 class Entry extends HTMLElement {
   /**
    * @constructor creates a Entry custom element that holds items
