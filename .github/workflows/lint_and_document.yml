@@ -23,7 +23,7 @@ jobs:
           npm install --save-dev eslint-config-prettier
           npm install --save-dev is-core-module
           npx eslint --fix -c .eslintrc.json $GITHUB_WORKSPACE/source/collection/*.js
-          npx prettier --write --config .prettierrc.json $GITHUB_WORKSPACE/source/collection/*.js
+          npx prettier --write  $GITHUB_WORKSPACE/source/collection/*.js
         
       - name: Generate documentation
         run: |
