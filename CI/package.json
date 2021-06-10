@@ -32,6 +32,17 @@
     "jest-cli": "^26.6.3",
     "save-dev": "^0.0.1-security"
   },
+  "prettier": {
+    "overrides": [
+    {
+      "files": "*.js",
+      "options": {
+        "trailingComma": "es5",
+        "tabWidth": 4,
+        "useTabs": true
+      }
+    }]
+  },
   "jest": {
     "resetMocks": false,
     "setupFiles": ["jest-localstorage-mock"]
