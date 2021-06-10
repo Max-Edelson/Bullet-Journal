@@ -6,10 +6,16 @@ Time began: 6:30 PM <br>
 When the meeting finished:
 
 ### Who is in attendance:
--
+- Maxim
+- Qiuyu
+- Sophia
+- Javier
+- Joshua
+- Ricardo
+- Carmen
 
 ### Who is missing:
--
+- Khyat
 
 Maxim (Coordinator/Planner/Organizer):
 - Expand lint action to more branches
@@ -38,7 +44,11 @@ Ricardo:
 - Monthly log
 
 ## Agenda:
-1.
+1. The response of github issues from Maxim
+2. Go over demos.
+3. There is a CI/CD Pipeline due soon.
+4. Goal for next week.
 
 ## Notes from discussion:
--
+- Main branch and collection branch will be protected.
+- Friday will be the only stand-up meeting

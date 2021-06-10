@@ -1,0 +1,4 @@
+/CI/node_modules
+/admin/videos/*.mov
+/admin/videos/*.mp4
+**/.DS_Store
