@@ -86,7 +86,14 @@ btn6.onclick = function() {
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
     modal.style.display = "none";
-    currMonth = null;
+    
+}
+
+let cancelBtn = document.querySelector(".cancel_button");
+// When the user clicks on cancel, close the modal
+cancelBtn.onclick = function() {
+    modal.style.display = "none";
+    
 }
 
 // When the user clicks anywhere outside of the modal, close it
@@ -105,6 +112,7 @@ let entries = storage.entries; // get list of entries
 let custom = storage.custom; // get list of entries 
 
 let form = document.querySelector('#entry-form');
+let submitBtn = document.querySelector('#save_button');
 let note = document.querySelector('#entry-content');
 let subnote = document.querySelector('#subentry-content');
 let subButton = document.querySelector("#subButton");
@@ -127,6 +135,10 @@ let subeventButton = document.querySelector('button.subevent');
 let subtaskButton = document.querySelector('button.subtask');
 let subnoteButton = document.querySelector('button.subnote');
 
+let startTime = document.querySelector('#startTime');
+let endTime = document.querySelector('#endTime');
+let taskTime = document.querySelector('#taskDeadline');
+
 let editButton = document.querySelector('#edit-btn');
 let deleteButton = document.querySelector('#dlt-btn');
 
@@ -148,21 +160,11 @@ let date = new Date();
 entries.forEach((data) => {
     createEntryFromData(data);
 });
-/*
 
-*/
-// edit button
-// editButton.addEventListener('click', () => {
-//     storage.update(data);
-// });
 
-// //delete button
-// deleteButton.addEventListener('click', () => {
-//     storage.update(data);
-// });
-
-form.addEventListener('submit', (e) => {
+submitBtn.addEventListener("click", (e) => {
     e.preventDefault();
+    form.submit();
 
     // create main item for new entry
     let mainItem;
@@ -184,6 +186,9 @@ form.addEventListener('submit', (e) => {
     newEntry.setAttribute('inCustom', false);
     newEntry.setAttribute('inFuture', true);
     newEntry.setAttribute('futureMonth', currMonth);
+    newEntry.setAttribute('startTime', startTime.value);
+    newEntry.setAttribute('endTime', endTime.value);
+    newEntry.setAttribute('taskTime', taskTime.value);
     newEntry.mainItem = mainItem;
     
     // if add subitem was selected, add sub item attribute to new entry
@@ -211,7 +216,10 @@ form.addEventListener('submit', (e) => {
         dateSet: newEntry.getAttribute('dateSet'),
         addToCustom: newEntry.getAttribute('inCustom'),
         addToFuture: newEntry.getAttribute('inFuture'),
-        futureMonth: newEntry.getAttribute('futureMonth')
+        futureMonth: newEntry.getAttribute('futureMonth'),
+        startTime: newEntry.getAttribute('startTime'),
+        endTime: newEntry.getAttribute('endTime'),
+        taskTime: newEntry.getAttribute('taskTime')
     };
 
     storage.create(data);
@@ -251,6 +259,7 @@ eventButton.addEventListener('click', () => {
     currMainItem = "event";
     setElementsHidden('event-specific', false);
     setElementsHidden('task-specific', true);
+    document.querySelector('#create-name').innerHTML = "Create New Event";
 })
 
 taskButton.addEventListener('click', () => {
@@ -258,6 +267,7 @@ taskButton.addEventListener('click', () => {
     currMainItem = "task";
     setElementsHidden('event-specific', true);
     setElementsHidden('task-specific', false);
+    document.querySelector('#create-name').innerHTML = "Create New Task";
 })
 
 noteButton.addEventListener('click', () => {
@@ -266,6 +276,7 @@ noteButton.addEventListener('click', () => {
     noteButton.hidden = false;
     setElementsHidden('event-specific', true);
     setElementsHidden('task-specific', true);
+    document.querySelector('#create-name').innerHTML = "Create New Note";
 })
 
 subeventButton.addEventListener('click', () => {
@@ -333,6 +344,9 @@ function createEntryFromData(data){
         newEntry.setAttribute('inCustom', data.addToCustom);
         newEntry.setAttribute('inFuture', data.addToFuture);
         newEntry.setAttribute('futureMonth', data.futureMonth);
+        newEntry.setAttribute('startTime', startTime.value);
+        newEntry.setAttribute('endTime', endTime.value);
+        newEntry.setAttribute('taskTime', taskTime.value);
         newEntry.mainItem = data.main;
         if (data.sub != undefined){
             newEntry.subItem = data.sub;

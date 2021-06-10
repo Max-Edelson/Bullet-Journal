@@ -1,8 +1,9 @@
-import {Item, Event, Task, Note} from '../../../collection/Item.js';
-import LocalStorage from '../../../collection/LocalStorage.js';
+import {Item, Event, Task, Note} from '../../collection/Item.js';
+import LocalStorage from '../../collection/LocalStorage.js';
 
 //get name of custom log
-var cusTitle = document.querySelector(".logNavInfo h1").innerHTML;
+let cusTitle = window.location.hash.substr(1);
+document.querySelector(".logNavInfo h1").innerHTML = cusTitle;
 
 
 /*
@@ -79,25 +80,42 @@ const Confirm = {
 let subSection = document.getElementById("sub-section");
 let subButton = document.getElementById("subBtn");
 let addBtn = document.getElementById('newitem');
-let saveBtn = document.querySelector('.addBtn3');
+let saveBtn = document.getElementById('note_save');
 let popup = document.getElementById("popup-3");
-let cancelBtn = document.querySelector(".close-btn");
-let note = document.querySelector('#description3');
+let cancelBtn = document.getElementById("note_cancel");
+let note = document.getElementById('description3');
 let subnote = document.querySelector('#subText');
 
 let storage = new LocalStorage(); 
 let custom = storage.custom; // get list of custom entries
 
+//Adds custom log names and URLs to sidebar
+let cusNames = storage.cusNames;
+
+function updateNavbarLogs(cusNames) {
+    let navBar_Logs = document.getElementById("pageSubmenu");
+    navBar_Logs.innerHTML = "";
+    cusNames.forEach((log) => {
+        let li = document.createElement("li");
+        li.innerHTML = "<a href='../custom_log/index.html#" + log + "'>" + log + "</a>"
+        navBar_Logs.appendChild(li);
+    });
+
+    let li = document.createElement("li");
+    li.innerHTML = "<img src='create.png' alt='Create Icon'><button id='custom_add'>New Log</button>"
+    navBar_Logs.appendChild(li);
+}
+
+updateNavbarLogs(cusNames);
 
 
 /*
 * Open popup
 */
 addBtn.onclick = function(){
-    popup.style.display = "block";
-    popup.classList.toggle("active");
     subSection.hidden = true;
     subButton.hidden = false;
+    popup.hidden = false;
 }
 
 /*
@@ -105,11 +123,11 @@ addBtn.onclick = function(){
 */
 // When the user clicks on cancel, close the modal
 cancelBtn.onclick = function() {
-    popup.style.display = "none";
     document.getElementById('description3').value='';
     document.getElementById('subText').value='';
     subSection.hidden = true;
     subButton.hidden = false;
+    popup.hidden = true;
 }
 
 /*
@@ -175,6 +193,7 @@ saveBtn.addEventListener("click", (e) => {
     // change page to default state
     subButton.hidden = false;
     subSection.hidden = true;
+    popup.hidden = true;
 
     // change input boxes back to empty
     document.getElementById('description3').value='';
@@ -240,3 +259,56 @@ custom.forEach((data) => {
 
 //storage.delete(data);
 
+$('#sidebar, #content').addClass('active');
+$('#sidebarIcon').addClass('active');
+
+$(document).ready(function () {
+    $("#sidebar").mCustomScrollbar({
+        theme: "minimal"
+    });
+
+    $(function(){
+        $('#sidebar, #sidebarIcon').hover(function(){
+            $('#sidebar, #content').removeClass('active');
+            $('#sidebarIcon').removeClass('active');
+            $('.collapse.in').removeClass('in');
+            $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+        },function(){
+            $('#sidebar, #content').addClass('active');
+            $('#sidebarIcon').addClass('active');
+            $('.collapse.in').addClass('in');
+            $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+        }).trigger('mouseleave');
+    });
+});
+
+$(window).on('hashchange',function(){ 
+    window.location.reload(true); 
+});
+
+let addCustom = document.getElementById("new-custom");
+let addCustomButton = document.getElementById("custom_add");
+let addCustomCancel = document.getElementById("custom_cancel");
+let addCustomAccept = document.getElementById("custom_save");
+
+addCustomButton.onclick = function(){
+    addCustom.hidden = false;
+}
+
+addCustomCancel.onclick = function() {
+    document.getElementById('custom_name').value='';
+    addCustom.hidden = true;
+}
+
+addCustomAccept.onclick = function() {
+    storage.createLog(document.getElementById('custom_name').value);
+    addCustom.hidden = true;
+
+    updateNavbarLogs(storage.cusNames);
+
+    document.getElementById('custom_name').value='';
+    addCustomButton = document.getElementById("custom_add");
+    addCustomButton.onclick = function(){
+        addCustom.hidden = false;
+    }
+}

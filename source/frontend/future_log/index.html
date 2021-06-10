@@ -137,26 +137,37 @@
                         <!-- Form -->
                         <form id="entry-form">
                             <div id="main-section">
-                                <label for="main-section">Main Item:</label><br>
-                                <label hidden for="entry-title" class="event-specific">Enter Title of Event</label><br hidden class="event-specific">
-                                <textarea hidden id="entry-title" name="event" class="event-specific"
-                                    rows="2" cols="33" maxlength="50">Enter title of event
-                                </textarea><br hidden class="event-specific">
-                    
-                                <label for="entry-date" hidden class="event-specific">Enter date of event</label><br hidden class="event-specific">
-                                <input type="date" id="entry-date" hidden class="event-specific"> <br hidden class="event-specific">
-                    
-                                <label for="entry-content">Enter Text of Item</label><br>
-                                <textarea id="entry-content" name="note"
-                                    rows="5" cols="33" maxlength="50">Enter Text of Item
-                                </textarea><br>
-                    
-                                <label for="deadline" hidden class="task-specific">Enter Deadline of Task</label><br hidden class="task-specific">
-                                <input type="date" id="deadline" hidden class="task-specific"> <br hidden class="task-specific">
-                    
+                                <!-- choose which type of entry -->
                                 <button type="button" class="note">Create Note</button>
                                 <button type="button" class="event">Create Event</button>
                                 <button type="button" class="task">Create Task</button>
+                                <button type="button" id="subButton">Add sub-item</button> <br>
+
+                                <label id="create-name" for="main-section">Create New Note</label><br>
+                                <!-- Event Input -->
+                                <label hidden for="entry-title" class="event-specific">Title</label><br hidden class="event-specific">
+                                <textarea hidden id="entry-title" name="event" class="event-specific"
+                                    rows="2" cols="33" maxlength="50">Enter title of event</textarea><br hidden class="event-specific">
+                                <label for="entry-date" hidden class="event-specific">Select Date and Time</label><br hidden class="event-specific">
+                                <input type="date" id="entry-date" hidden class="event-specific"> <br hidden class="event-specific">
+                                <div id="time_selector" hidden class="event-specific">
+                                    <input id="startTime" type="time" class="time_input" style="margin-right: auto;">
+                                    <span> to </span>
+                                    <input id="endTime" type="time" class="time_input" style="margin-left: auto; ">
+                                </div>
+                                <!-- Shared Event, Note, Task Input -->
+                                <label for="entry-content">Text/Description</label><br>
+                                <textarea id="entry-content" name="note"
+                                    rows="3" cols="33" maxlength="50">Enter Text of Item</textarea><br>
+                                <!-- Task Input -->
+                                <label for="deadline" hidden class="task-specific">Select Date and Time</label><br hidden class="task-specific">
+                                <input type="date" id="deadline" hidden class="task-specific"> 
+                                <div id="time_selector" hidden class="task-specific">
+                                    <input type="checkbox" class="allDay_input" id="allDay">
+                                    <label for="allDay">All Day</label>
+                                    <input id="taskDeadline" type="time" class="time_input" style="margin-left: auto; ">
+                                </div><br hidden class="task-specific">
+                    
                             </div>
                             <div id="sub-section" hidden>
                                 <br>
@@ -182,9 +193,8 @@
                                 <button type="button" class="subtask">Create Task</button>
                             </div>
                     
-                    
-                            <button type="button" id="subButton">Add sub-item</button> <br>
-                            <button type="submit">Enter Entry</button>
+                            <button class="cancel_button">Cancel</button>
+                            <button type="submit" id="save_button">Save</button>
                         </form>
                     </div>
                 
