@@ -20,6 +20,15 @@ Branche names should be all lowercase and words should be seperated with hyphens
 Coding style rules can found [here](https://github.com/Max-Edelson/cse110-sp21-group16/blob/main/specs/house_styles/backend_house_style.md).
 The rules that the autolinter abides by can be found [here](https://github.com/Max-Edelson/cse110-sp21-group16/blob/collection_team/specs/house_styles/auto_linting_rules.md).
 
+## Documentation
+Automatically produced code documentation via JSdoc can be found in cse110-sp21-group16/source/documentation/. The JSdoc tags that we are using in our javascript can be found [here](https://github.com/Max-Edelson/cse110-sp21-group16/blob/collection_team/specs/house_styles/block_tags_for_jsdoc.md).
+
+## App Building
+In the root of the ```main``` branch, there is an index.html file which is loaded as the default GitHub pages page for the website. This index.html page simply redirects the the page to the [rapid log](https://github.com/Max-Edelson/cse110-sp21-group16/tree/main/source/rapid_log).
+
+## Clone the repo
+To clone the repo, simply fork it in the top right of this window, or you can create a new branch if you're part of the team.
+
 ## Label Usage
 * bug
     * Used when describing a behavior or visual aspect that is not as expected.
