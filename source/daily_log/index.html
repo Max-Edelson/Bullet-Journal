@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+        integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>BananaNotes</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <p><a href="#RAPID LOG"><img src="../home.png" alt="Home Icon"> Index</a></p>
+                <li>
+                    <a href="../rapid_log/index.html">Rapid Log</a>
+                </li>
+                <li>
+                    <a href="../future_log/index.html">Future Log</a>
+                </li>
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Monthly Logs</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="../monthlylog/demo.html">January</a>
+                        </li>
+                        <li>
+                            <a href="../monthlylog/demo.html">February</a>
+                        </li>
+                        <li>
+                            <a href="../monthlylog/demo.html">March</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="../daily_log/index.html">Daily Logs</a>
+                </li>
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Custom Logs</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <img src="../create.png" alt="Create Icon"><button id="custom_add"> New Log</button>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <div id= "sidebarIcon">
+            <span>&#187;</span>
+        </div>
+        <!-- Page Content  -->
+        <div id="content">
+            <div id="calendar"></div>
+            <section class="logging">
+                <div class="loggingWrapper">
+                    <div class="loggingNavbar">
+                        <div class="logNavInfo">
+                            <h1>Daily Logging</h1>
+                            <span class="loggingDate">Date: <span id="date" class="dateMeta"></span></span>
+                        </div>
+                        <div class="logNavBtn">
+                            <button>select day</button>
+                            <button id="lastDay"><i class="fas fa-angle-left" style="margin-right: 5px;"></i>last day</button>
+                            <button id="nextDay">next day<i class="fas fa-angle-right" style="margin-left: 5px;"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="allTaskWrapper">
+                    <div class="bxSingle taskBx">
+                        <h1>Tasks</h1>
+                        <ul class="taskUl" id="taskUl">
+                        </ul>
+                        <!-- INDIVIDUAL TASK ITEM -->
+                        <template id="task">
+                            <li class="taskLi">
+                                <div class="liMainWrap">
+                                    <h3 class="taskTitle"></h3>
+                                    <ul class="mouseover">
+                                        <li>
+                                            <span class="ellips"><i class="fas fa-ellipsis-h"></i></span>
+                                            <ul>
+                                                <div class="deleteOption optionSelect"><span style="padding:0 !important">delete</span><i class="fas fa-trash"></i></div>
+                                                <div class="editOption optionSelect"><span style="padding:0 !important">edit</span><i class="fas fa-pen"></i></div>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </template>
+                        </ul>
+                        <li style="list-style: none;"><button id="newTask" class="addButton"><i class="fas fa-plus" style="margin-right: 10px;"></i>New Task</button></li>
+                    </div>
+                    <div class="popup1" id="popup-1">
+                        <div class="overlay"></div>
+                        <div class="content">
+                            <div class="close-btn">Cancel</div>
+                            <button class="addBtn addBtn1">Save</button>
+                            <h1>Create new task</h1>
+                            <div class="mainInpWrapper">
+                                <label for="task">TITLE</label>
+                                <input type="text" name="task" id="taskInput" class="mainInput">
+                                <label for="date">SELECT DATE</label>
+                                <input type="date" class="date" name="date" id="date1">
+                                <div class="timeSelector">
+                                    <input type="checkbox" class="allDayInput" id="allDay" name="allDay">
+                                    <label for="allDay" class="allDay">All Day</label>
+                                    <input type="time" class="timeInput" id="timeInput1" name="timeInput">
+                                </div>
+                                <label for="description">DESCRIPTION</label>
+                                <input type="text" name="description" id="description1" class="description">
+                            </div>
+                        </div>
+                    </div>
+                    
+
+
+                    <div class="bxSingle eventBx">
+                        <h1>Events</h1>
+                        <ul class="eventUl" id="eventUl">
+                        </ul>
+                        <!-- INDIVIDUAL EVENT ITEM -->
+                        <template id="event">
+                            <li class="eventLi">
+                                <div class="liMainWrap">
+                                    <h3 class="eventTitle"></h3>
+                                    <ul class="mouseover">
+                                        <li>
+                                            <span class="ellips"><i class="fas fa-ellipsis-h"></i></span>
+                                            <ul>
+                                                <div class="deleteOption optionSelect"><span style="padding:0 !important">delete</span><i class="fas fa-trash"></i></div>
+                                                <div class="editOption optionSelect"><span style="padding:0 !important">edit</span><i class="fas fa-pen"></i></div>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </template>
+                        <li style="list-style: none;"><button id="newEvent" class="addButton"><i class="fas fa-plus" style="margin-right: 10px;"></i>New Event</button></li>
+                    </div>
+                    <div class="popup1" id="popup-2">
+                        <div class="overlay"></div>
+                        <div class="content">
+                            <div class="close-btn">Cancel</div>
+                            <button class="addBtn addBtn2">Save</button>
+                            <h1>Create new event</h1>
+                            <div class="mainInpWrapper">
+                                <label for="task">TITLE</label>
+                                <input type="text" name="event" id="eventInput" class="mainInput">
+                                <label for="date">SELECT DATE</label>
+                                <input type="date" class="date" id="date2" name="date">
+                                <div class="timeSelector">
+                                    <input type="time" class="timeInput" id="timeInput2" name="timeInput2">
+                                    <h3>to</h3>
+                                    <input type="time" class="timeInput" id="timeInput3" name="timeInput3">
+                                </div>
+                                <label for="description">DESCRIPTION</label>
+                                <input type="text" name="description" id="description2" class="description">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="bxSingle noteBx">
+                        <h1>Notes</h1>
+                        <ul class="noteUl" id="noteUl">
+                        </ul>
+                        <!-- INDIVIDUAL NOTE ITEM -->
+                        <template id="note">
+                            <li class="noteLi">
+                                <div class="liMainWrap">
+                                    <h3 class="noteTitle"></h3>
+                                    <ul class="mouseover">
+                                        <li>
+                                            <span class="ellips"><i class="fas fa-ellipsis-h"></i></span>
+                                            <ul>
+                                                <div class="deleteOption optionSelect"><span style="padding:0 !important">delete</span><i class="fas fa-trash"></i></div>
+                                                <div class="editOption optionSelect"><span style="padding:0 !important">edit</span><i class="fas fa-pen"></i></div>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </template>
+                        <li style="list-style: none;"><button id="newNote" class="addButton"><i class="fas fa-plus" style="margin-right: 10px;"></i>New Note</button></li>
+                    </div>
+                    <div class="popup1" id="popup-3">
+                        <div class="overlay"></div>
+                        <div class="content">
+                            <div class="close-btn">Cancel</div>
+                            <button class="addBtn addBtn3">Save</button>
+                            <h1>Create new note</h1>
+                            <div class="mainInpWrapper">
+                                <label for="task">TITLE</label>
+                                <input type="text" name="note" id="noteInput" class="mainInput">
+                                <label for="description">DESCRIPTION</label>
+                                <input type="text" name="description" id="description3" class="description">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="popup" id="popup-4" hidden>
+                    <div class="overlay"></div>
+                    <div class="content">
+                        <div class="close-btn">Cancel</div>
+                        <button class="addBtn addBtn4">Save</button>
+                        <h1>Edit task</h1>
+                        <div class="mainInpWrapper">
+                            <label for="task">TITLE</label>
+                            <input type="text" name="task" id="taskInput" class="mainInput">
+                            <label for="date">SELECT DATE</label>
+                            <input type="date" class="date" name="date" id="date4">
+                            <div class="timeSelector">
+                                <input type="checkbox" class="allDayInput" id="allDay" name="allDay">
+                                <label for="allDay" class="allDay">All Day</label>
+                                <input type="time" class="timeInput" id="timeInput4" name="timeInput">
+                            </div>
+                            <label for="description">DESCRIPTION</label>
+                            <input type="text" name="description" id="description4" class="description">
+                        </div>
+                    </div>
+                </div>
+                <div class="popup" id="popup-5" hidden>
+                    <div class="overlay"></div>
+                    <div class="content">
+                        <div class="close-btn">Cancel</div>
+                        <button class="addBtn addBtn5">Save</button>
+                        <h1>Edit event</h1>
+                        <div class="mainInpWrapper">
+                            <label for="task">TITLE</label>
+                            <input type="text" name="event" id="eventInput" class="mainInput">
+                            <label for="date">SELECT DATE</label>
+                            <input type="date" class="date" id="date5" name="date">
+                            <div class="timeSelector">
+                                <input type="time" class="timeInput" id="timeInput5" name="timeInput5">
+                                <h3>to</h3>
+                                <input type="time" class="timeInput" id="timeInput6" name="timeInput6">
+                            </div>
+                            <label for="description">DESCRIPTION</label>
+                            <input type="text" name="description" id="description5" class="description">
+                        </div>
+                    </div>
+                </div>
+                <div class="popup" id="popup-6" hidden>
+                    <div class="overlay"></div>
+                    <div class="content">
+                        <div class="close-btn">Cancel</div>
+                        <button class="addBtn addBtn6">Save</button>
+                        <h1>Edit note</h1>
+                        <div class="mainInpWrapper">
+                            <label for="task">TITLE</label>
+                            <input type="text" name="note" id="noteInput" class="mainInput">
+                            <label for="description">DESCRIPTION</label>
+                            <input type="text" name="description" id="description6" class="description">
+                        </div>
+                    </div>
+                </div> -->
+            </section>
+        </div>
+
+        <div class="popup" id="new-custom" hidden>
+            <div class="popup_box">
+                <h1>Create new log</h1>
+                <h2>Log Name</h2>
+                <input type="text"value="" id="custom_name">
+                <div class="popup_buttons">
+                    <button class="cancel_button" id="custom_cancel">Cancel</button>
+                    <button class="save_button" id="custom_save">Save</button>
+                </div>
+            </div>
+        </div>
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+
+
+<script src="../collection/LocalStorage.js" type="module"></script>
+<script src="../collection/Item.js" type="module"></script>
+<script src="../collection/Entry.js" type="module"></script>   
+        
+<script src="script.js" type="module"></script>
+
+
+</body>
+
+</html>

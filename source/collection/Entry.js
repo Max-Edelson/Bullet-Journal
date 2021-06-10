@@ -46,6 +46,7 @@ class Entry extends HTMLElement {
             float: left;
             font-size: min(1.75rem, 1.5vw);
             margin: 0;
+            color: #fff;
             }
             
             .entry button {
