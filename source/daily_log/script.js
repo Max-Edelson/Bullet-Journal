@@ -1,5 +1,6 @@
-import {Item, Event, Task, Note} from '../../collection/Item.js';
-import LocalStorage from '../../collection/LocalStorage.js';
+import {Item, Event, Task, Note} from '../collection/Item.js';
+import LocalStorage from '../collection/LocalStorage.js';
+
 
 // CURRENT DATE
 let dateMeta = document.getElementById("date");
@@ -7,7 +8,6 @@ let today = new Date();
 let dateString = today.toLocaleDateString("en-US");
 // const options = {weekday : "long", month:"short", day:"numeric"};
 dateMeta.innerHTML = dateString;
-
 
 // last day and next day functionality
 let lastDay = document.getElementById("lastDay");
@@ -19,7 +19,14 @@ lastDay.onclick = function() {
     today = yesterday;
     dateString = today.toLocaleDateString("en-US");
     dateMeta.innerHTML = dateString;
-    //var html = '';
+
+    let taskContainer = document.querySelector('.taskUl');
+    taskContainer.innerHTML = '';
+    let eventContainer = document.querySelector('.eventUl');
+    eventContainer.innerHTML = '';
+    let noteContainer = document.querySelector('.noteUl');
+    noteContainer.innerHTML = '';
+
     entries.forEach((data) => {
         showEntries(data); 
     }); 
@@ -31,7 +38,14 @@ nextDay.onclick = function() {
     today = tmw;
     dateString = today.toLocaleDateString("en-US");
     dateMeta.innerHTML = dateString;
-    // var html = '';
+    
+    let taskContainer = document.querySelector('.taskUl');
+    taskContainer.innerHTML = '';
+    let eventContainer = document.querySelector('.eventUl');
+    eventContainer.innerHTML = '';
+    let noteContainer = document.querySelector('.noteUl');
+    noteContainer.innerHTML = '';
+
     entries.forEach((data) => {
         showEntries(data);
     });
@@ -390,7 +404,7 @@ function showEntries(data) {
     let container = document.querySelector(listType);
     // console.log(container);
     let template = document.querySelector(itemClass);
-    // console.log(template);
+    console.log(template);
     let clone = template.content.cloneNode(true);
     let task = clone.querySelector(itemType);
     let title = clone.querySelector(titleType);
@@ -413,13 +427,13 @@ function showEntries(data) {
         editEntry(data);
     })
 
-    console.log(typeof data.dateSet);
-    console.log(typeof dateString);
-    if (data.dateSet === dateString) {
-        // title.innerHTML = entryTitle;
+    // console.log(typeof data.dateSet);
+    // console.log(typeof dateString);
+    if (data.dateSet === dateString){
         container.appendChild(clone);
-    };
-    
+    }
+
+    // container.appendChild(clone);
 };
 
 // DELETE POPUP 
@@ -553,7 +567,7 @@ function updateNavbarLogs(cusNames) {
     });
 
     let li = document.createElement("li");
-    li.innerHTML = "<img src='create.png' alt='Create Icon'><button id='custom_add'>New Log</button>"
+    li.innerHTML = "<img src='../create.png' alt='Create Icon'><button id='custom_add'>New Log</button>"
     navBar_Logs.appendChild(li);
 }
 

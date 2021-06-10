@@ -1,5 +1,5 @@
-import {Item, Event, Task, Note} from '../../collection/Item.js';
-import LocalStorage from '../../collection/LocalStorage.js';
+import {Item, Event, Task, Note} from '../collection/Item.js';
+import LocalStorage from '../collection/LocalStorage.js';
 
 //getting correct months to display
 var d = new Date();
@@ -93,7 +93,10 @@ let cancelBtn = document.querySelector(".cancel_button");
 // When the user clicks on cancel, close the modal
 cancelBtn.onclick = function() {
     modal.style.display = "none";
-    
+    subButton.hidden = false;
+    subSection.hidden = true;
+    currMainItem = "note";
+    currSubItem = "note";
 }
 
 // When the user clicks anywhere outside of the modal, close it
@@ -143,8 +146,7 @@ let editButton = document.querySelector('#edit-btn');
 let deleteButton = document.querySelector('#dlt-btn');
 
 let customButton = document.querySelector('#customButton');
-// let customLogSelect = document.querySelector('.customLogs');
-// let customDataList = document.querySelector('#customOptions');
+
 
 let monthlyDes = document.querySelector('#MonthlyDes');
 let customDes = document.querySelector('#CustomDes');
@@ -152,7 +154,6 @@ let customDes = document.querySelector('#CustomDes');
 let currMainItem = "note";
 let currSubItem = "note";
 
-// let addToCustom = false;
 
 let date = new Date();
 
@@ -160,7 +161,6 @@ let date = new Date();
 entries.forEach((data) => {
     createEntryFromData(data);
 });
-
 
 submitBtn.addEventListener("click", (e) => {
     e.preventDefault();
@@ -172,15 +172,21 @@ submitBtn.addEventListener("click", (e) => {
         mainItem = new Note(note.value, '');
     }
     else if (currMainItem == "event"){
-        mainItem = new Event(note.value, '', eventTitle.value, eventDate.value);
+        mainItem = new Event(note.value, '', eventTitle.value, eventDate.value, startTime.value, endTime.value);
     }
     else{
-        mainItem = new Task(note.value, '', taskDeadline.value);
+        mainItem = new Task(note.value, '', taskDeadline.value, taskTime.value);
     }
     
+    for (var i = 0; i < 12; i++) {
+        if (month[i] === currMonth) {
+            date.setMonth(i);
+            break;
+        }
+    }
     //create new entry element
     let newEntry = document.createElement('journal-entry');
-    newEntry.setAttribute('dateMade', date.toDateString());
+    newEntry.setAttribute('dateMade', date.toLocaleDateString("en-US"));
     newEntry.setAttribute('timeMade', date.toTimeString());
     newEntry.setAttribute('dateSet', eventDate.value);
     newEntry.setAttribute('inCustom', false);
@@ -194,17 +200,7 @@ submitBtn.addEventListener("click", (e) => {
     // if add subitem was selected, add sub item attribute to new entry
     let subItem;
     if(subSection.hidden == false){
-        
-        if (currSubItem == "note"){
-            subItem = new Note(subnote.value, '');
-        }
-        else if (currSubItem == "event"){
-            subItem = new Event(subnote.value, '', subeventTitle.value, subeventDate.value);
-        }
-        else{
-            subItem = new Task(subnote.value, '', subtaskDeadline.value);
-        }
-        
+        subItem = new Note(subnote.value, '');
         newEntry.subItem = subItem;
     }
 
@@ -242,11 +238,11 @@ submitBtn.addEventListener("click", (e) => {
     subSection.hidden = true;
     currMainItem = "note";
     currSubItem = "note";
-    //customLogSelect.hidden = true;
     setElementsHidden('event-specific', true);
     setElementsHidden('task-specific', true);
     setElementsHidden('subevent-specific', true);
     setElementsHidden('subtask-specific', true);
+    modal.style.display = "none";
 });
 
 subButton.addEventListener('click', () => {
@@ -255,7 +251,6 @@ subButton.addEventListener('click', () => {
 });
 
 eventButton.addEventListener('click', () => {
-    //addToMonthly(true);
     currMainItem = "event";
     setElementsHidden('event-specific', false);
     setElementsHidden('task-specific', true);
@@ -263,7 +258,6 @@ eventButton.addEventListener('click', () => {
 })
 
 taskButton.addEventListener('click', () => {
-    //addToMonthly(true);
     currMainItem = "task";
     setElementsHidden('event-specific', true);
     setElementsHidden('task-specific', false);
@@ -271,7 +265,6 @@ taskButton.addEventListener('click', () => {
 })
 
 noteButton.addEventListener('click', () => {
-    //addToMonthly(true);
     currMainItem = "note";
     noteButton.hidden = false;
     setElementsHidden('event-specific', true);
@@ -279,42 +272,6 @@ noteButton.addEventListener('click', () => {
     document.querySelector('#create-name').innerHTML = "Create New Note";
 })
 
-subeventButton.addEventListener('click', () => {
-    //addToMonthly(true);
-    currSubItem = "event";
-    setElementsHidden('subevent-specific', false);
-    setElementsHidden('subtask-specific', true);
-})
-
-subtaskButton.addEventListener('click', () => {
-    //addToMonthly(true);
-    currSubItem = "task";
-    setElementsHidden('subevent-specific', true);
-    setElementsHidden('subtask-specific', false);
-})
-
-subnoteButton.addEventListener('click', () => {
-    //addToMonthly(true);
-    currSubItem = "note";
-    noteButton.hidden = false;
-    setElementsHidden('subevent-specific', true);
-    setElementsHidden('subtask-specific', true);
-})
-
-// customButton.addEventListener('click', () => {
-//     if (customButton.checked == true) {
-//         addToMonthly(false);
-//     }
-//     if (customButton.checked == false) {
-//         addToMonthly(true);
-//     }
-//     currSubItem = "note";
-//     currMainItem = "note";
-//     setElementsHidden('event-specific', true);
-//     setElementsHidden('task-specific', true);
-//     setElementsHidden('subevent-specific', true);
-//     setElementsHidden('subtask-specific', true);
-// });
 
 function setElementsHidden(className, newHiddenVal){
     let eventElements = document.getElementsByClassName(className);
@@ -323,17 +280,10 @@ function setElementsHidden(className, newHiddenVal){
         eventElement.hidden = newHiddenVal;
     }
 };
+
 /*
-function addToMonthly(newBool){
-    monthlyDes.hidden = !newBool;
-    customDes.hidden = newBool;
-   // customLogSelect.hidden = newBool;
-    addToCustom = !newBool;
-}
+* Displays the data on page
 */
-
-
-
 function createEntryFromData(data){
     // if data is in the future log
     if (data.addToFuture === "true") {
@@ -365,9 +315,6 @@ function createEntryFromData(data){
     }
     
 
-    // add new entry to the webpage
-    // let main = document.querySelector('main');
-    // main.appendChild(newEntry);
 }
 
 
@@ -409,3 +356,53 @@ $(document).ready(function () {
         }).trigger('mouseleave');
     });
 });
+//Adds custom log names and URLs to sidebar
+let cusNames = storage.cusNames;
+
+function updateNavbarLogs(cusNames) {
+    let navBar_Logs = document.getElementById("pageSubmenu");
+    navBar_Logs.innerHTML = "";
+    cusNames.forEach((log) => {
+        let li = document.createElement("li");
+        li.innerHTML = "<a href='../custom_log/index.html#" + log + "'>" + log + "</a>"
+        navBar_Logs.appendChild(li);
+    });
+
+    let li = document.createElement("li");
+    li.innerHTML = "<img src='../create.png' alt='Create Icon'><button id='custom_add'>New Log</button>"
+    navBar_Logs.appendChild(li);
+}
+
+updateNavbarLogs(cusNames);
+
+
+$(window).on('hashchange',function(){ 
+    window.location.reload(true); 
+});
+
+let addCustom = document.getElementById("new-custom");
+let addCustomButton = document.getElementById("custom_add");
+let addCustomCancel = document.getElementById("custom_cancel");
+let addCustomAccept = document.getElementById("custom_save");
+
+addCustomButton.onclick = function(){
+    addCustom.hidden = false;
+}
+
+addCustomCancel.onclick = function() {
+    document.getElementById('custom_name').value='';
+    addCustom.hidden = true;
+}
+
+addCustomAccept.onclick = function() {
+    storage.createLog(document.getElementById('custom_name').value);
+    addCustom.hidden = true;
+
+    updateNavbarLogs(storage.cusNames);
+
+    document.getElementById('custom_name').value='';
+    addCustomButton = document.getElementById("custom_add");
+    addCustomButton.onclick = function(){
+        addCustom.hidden = false;
+    }
+}

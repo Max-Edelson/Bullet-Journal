@@ -29,43 +29,37 @@
             </div>
 
             <ul class="list-unstyled components">
-                <p><img src="home.png" alt="Home Icon"> Index</p>
+                <p><a href="#RAPID LOG"><img src="../home.png" alt="Home Icon"> Index</a></p>
                 <li>
-                    <a href="#">Rapid Log</a>
+                    <a href="../rapid_log/index.html">Rapid Log</a>
                 </li>
                 <li>
-                    <a href="#">Future Log</a>
+                    <a href="../future_log/index.html">Future Log</a>
                 </li>
                 <li class="active">
                     <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Monthly Logs</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            <a href="#">January</a>
+                            <a href="../monthlylog/demo.html">January</a>
                         </li>
                         <li>
-                            <a href="#">February</a>
+                            <a href="../monthlylog/demo.html">February</a>
                         </li>
                         <li>
-                            <a href="#">March</a>
+                            <a href="../monthlylog/demo.html">March</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#">Daily Logs</a>
+                    <a href="../daily_log/index.html">Daily Logs</a>
                 </li>
                 <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Custom Logs</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
-                            <a href="#">Grocery List</a>
-                        </li>
-                        <li>
-                            <a href="#">Reading List</a>
+                            <img src="../create.png" alt="Create Icon"><button id="custom_add"> New Log</button>
                         </li>
                     </ul>
-                </li>
-                <li>
-                    <a href="#"><img src="create.png" alt="Create Icon"> New Log</a>
                 </li>
             </ul>
         </nav>
@@ -91,56 +85,148 @@
                     <div class="bxSingle taskBx">
                         <h1>Tasks</h1>
                         <ul class="taskUl" id="taskUl">
-                            <li onclick="togglePopup1()" style="list-style: none;"><span><i class="fas fa-plus" style="margin-right: 10px;"></i>New Item</span></li>
+                            <!-- INDIVIDUAL TASK ITEM -->
+                            <template id="task">
+                                <li class="taskLi">
+                                    <div class="liMainWrap">
+                                        <h3 class="taskTitle"></h3>
+                                        <ul class="mouseover">
+                                            <li>
+                                                <span class="ellips"><i class="fas fa-ellipsis-h"></i></span>
+                                                <ul>
+                                                    <div class="deleteOption optionSelect"><span style="padding:0 !important">delete</span><i class="fas fa-trash"></i></div>
+                                                    <div class="editOption optionSelect"><span style="padding:0 !important">edit</span><i class="fas fa-pen"></i></div>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </template>
                         </ul>
+                        </ul>
+                        <li style="list-style: none;"><button id="newTask" class="addButton"><i class="fas fa-plus" style="margin-right: 10px;"></i>New Task</button></li>
                     </div>
-                    <div class="popup" id="popup-1">
+                    <div class="popup1" id="popup-1">
                         <div class="overlay"></div>
                         <div class="content">
-                            <div class="close-btn" onclick="togglePopup1()">×</div>
-                            <h1>Input Tasks</h1>
+                            <div class="close-btn">Cancel</div>
+                            <button class="addBtn addBtn1">Save</button>
+                            <h1>Create new task</h1>
                             <div class="mainInpWrapper">
+                                <label for="task">TITLE</label>
                                 <input type="text" name="task" id="taskInput" class="mainInput">
-                                <button class="addBtn addBtn1">Add</button>
+                                <label for="date">SELECT DATE</label>
+                                <input type="date" class="date" name="date" id="date1">
+                                <div class="timeSelector">
+                                    <input type="checkbox" class="allDayInput" id="allDay" name="allDay">
+                                    <label for="allDay" class="allDay">All Day</label>
+                                    <input type="time" class="timeInput" id="timeInput1" name="timeInput">
+                                </div>
+                                <label for="description">DESCRIPTION</label>
+                                <input type="text" name="description" id="description1" class="description">
                             </div>
                         </div>
                     </div>
+                    
+
+
                     <div class="bxSingle eventBx">
                         <h1>Events</h1>
                         <ul class="eventUl" id="eventUl">
-                            <li onclick="togglePopup2()" style="list-style: none;"><span><i class="fas fa-plus" style="margin-right: 10px;"></i>New Item</span></li>
+                            <!-- INDIVIDUAL EVENT ITEM -->
+                            <template id="event">
+                                <li class="eventLi">
+                                    <div class="liMainWrap">
+                                        <h3 class="eventTitle"></h3>
+                                        <ul class="mouseover">
+                                            <li>
+                                                <span class="ellips"><i class="fas fa-ellipsis-h"></i></span>
+                                                <ul>
+                                                    <div class="deleteOption optionSelect"><span style="padding:0 !important">delete</span><i class="fas fa-trash"></i></div>
+                                                    <div class="editOption optionSelect"><span style="padding:0 !important">edit</span><i class="fas fa-pen"></i></div>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </template>
                         </ul>
+                        <li style="list-style: none;"><button id="newEvent" class="addButton"><i class="fas fa-plus" style="margin-right: 10px;"></i>New Event</button></li>
                     </div>
-                    <div class="popup" id="popup-2">
+                    <div class="popup1" id="popup-2">
                         <div class="overlay"></div>
                         <div class="content">
-                            <div class="close-btn" onclick="togglePopup2()">×</div>
-                            <h1>Input Events</h1>
+                            <div class="close-btn">Cancel</div>
+                            <button class="addBtn addBtn2">Save</button>
+                            <h1>Create new event</h1>
                             <div class="mainInpWrapper">
+                                <label for="task">TITLE</label>
                                 <input type="text" name="event" id="eventInput" class="mainInput">
-                                <button class="addBtn addBtn2">Add</button>
+                                <label for="date">SELECT DATE</label>
+                                <input type="date" class="date" id="date2" name="date">
+                                <div class="timeSelector">
+                                    <input type="time" class="timeInput" id="timeInput2" name="timeInput2">
+                                    <h3>to</h3>
+                                    <input type="time" class="timeInput" id="timeInput3" name="timeInput3">
+                                </div>
+                                <label for="description">DESCRIPTION</label>
+                                <input type="text" name="description" id="description2" class="description">
                             </div>
                         </div>
                     </div>
+
+
                     <div class="bxSingle noteBx">
                         <h1>Notes</h1>
                         <ul class="noteUl" id="noteUl">
-                            <li onclick="togglePopup3()" style="list-style: none;"><span><i class="fas fa-plus" style="margin-right: 10px;"></i>New Note</span></li>
+                            <!-- INDIVIDUAL NOTE ITEM -->
+                            <template id="note">
+                                <li class="noteLi">
+                                    <div class="liMainWrap">
+                                        <h3 class="noteTitle"></h3>
+                                        <ul class="mouseover">
+                                            <li>
+                                                <span class="ellips"><i class="fas fa-ellipsis-h"></i></span>
+                                                <ul>
+                                                    <div class="deleteOption optionSelect"><span style="padding:0 !important">delete</span><i class="fas fa-trash"></i></div>
+                                                    <div class="editOption optionSelect"><span style="padding:0 !important">edit</span><i class="fas fa-pen"></i></div>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </template>
                         </ul>
+                        <li style="list-style: none;"><button id="newNote" class="addButton"><i class="fas fa-plus" style="margin-right: 10px;"></i>New Note</button></li>
                     </div>
-                    <div class="popup" id="popup-3">
+                    <div class="popup1" id="popup-3">
                         <div class="overlay"></div>
                         <div class="content">
-                            <div class="close-btn" onclick="togglePopup3()">×</div>
-                            <h1>Input Notes</h1>
+                            <div class="close-btn">Cancel</div>
+                            <button class="addBtn addBtn3">Save</button>
+                            <h1>Create new note</h1>
                             <div class="mainInpWrapper">
+                                <label for="task">TITLE</label>
                                 <input type="text" name="note" id="noteInput" class="mainInput">
-                                <button class="addBtn addBtn3">Add</button>
+                                <label for="description">DESCRIPTION</label>
+                                <input type="text" name="description" id="description3" class="description">
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+        </div>
+    </div>
+
+    <div class="popup" id="new-custom" hidden>
+        <div class="popup_box">
+            <h1>Create new log</h1>
+            <h2>Log Name</h2>
+            <input type="text"value="" id="custom_name">
+            <div class="popup_buttons">
+                <button class="cancel_button" id="custom_cancel">Cancel</button>
+                <button class="save_button" id="custom_save">Save</button>
+            </div>
         </div>
     </div>
 
@@ -153,7 +239,7 @@
     <!-- jQuery Custom Scroller CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
     
-    <script type="text/javascript" src="source.js"></script>
+    <script type="module" src="source.js"></script>
 
     <!-- <script src="./components/future_log.js" type="module"></script> -->
 </body>

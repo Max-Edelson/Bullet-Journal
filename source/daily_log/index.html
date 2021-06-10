@@ -26,7 +26,7 @@
             </div>
 
             <ul class="list-unstyled components">
-                <p><a href="#RAPID LOG"><img src="home.png" alt="Home Icon"> Index</a></p>
+                <p><a href="#RAPID LOG"><img src="../home.png" alt="Home Icon"> Index</a></p>
                 <li>
                     <a href="../rapid_log/index.html">Rapid Log</a>
                 </li>
@@ -54,7 +54,7 @@
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Custom Logs</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
-                            <img src="create.png" alt="Create Icon"><button id="custom_add"> New Log</button>
+                            <img src="../create.png" alt="Create Icon"><button id="custom_add"> New Log</button>
                         </li>
                     </ul>
                 </li>
@@ -85,26 +85,26 @@
                     <div class="bxSingle taskBx">
                         <h1>Tasks</h1>
                         <ul class="taskUl" id="taskUl">
-                            <!-- INDIVIDUAL TASK ITEM -->
-                            <template id="task">
-                                <li class="taskLi">
-                                    <div class="liMainWrap">
-                                        <h3 class="taskTitle"></h3>
-                                        <ul class="mouseover">
-                                            <li>
-                                                <span class="ellips"><i class="fas fa-ellipsis-h"></i></span>
-                                                <ul>
-                                                    <div class="deleteOption optionSelect"><span style="padding:0 !important">delete</span><i class="fas fa-trash"></i></div>
-                                                    <div class="editOption optionSelect"><span style="padding:0 !important">edit</span><i class="fas fa-pen"></i></div>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </template>
                         </ul>
+                        <!-- INDIVIDUAL TASK ITEM -->
+                        <template id="task">
+                            <li class="taskLi">
+                                <div class="liMainWrap">
+                                    <h3 class="taskTitle"></h3>
+                                    <ul class="mouseover">
+                                        <li>
+                                            <span class="ellips"><i class="fas fa-ellipsis-h"></i></span>
+                                            <ul>
+                                                <div class="deleteOption optionSelect"><span style="padding:0 !important">delete</span><i class="fas fa-trash"></i></div>
+                                                <div class="editOption optionSelect"><span style="padding:0 !important">edit</span><i class="fas fa-pen"></i></div>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </template>
                         </ul>
-                        <li style="list-style: none;"><button id="newTask"><i class="fas fa-plus" style="margin-right: 10px;"></i>New Task</button></li>
+                        <li style="list-style: none;"><button id="newTask" class="addButton"><i class="fas fa-plus" style="margin-right: 10px;"></i>New Task</button></li>
                     </div>
                     <div class="popup1" id="popup-1">
                         <div class="overlay"></div>
@@ -133,25 +133,25 @@
                     <div class="bxSingle eventBx">
                         <h1>Events</h1>
                         <ul class="eventUl" id="eventUl">
-                            <!-- INDIVIDUAL EVENT ITEM -->
-                            <template id="event">
-                                <li class="eventLi">
-                                    <div class="liMainWrap">
-                                        <h3 class="eventTitle"></h3>
-                                        <ul class="mouseover">
-                                            <li>
-                                                <span class="ellips"><i class="fas fa-ellipsis-h"></i></span>
-                                                <ul>
-                                                    <div class="deleteOption optionSelect"><span style="padding:0 !important">delete</span><i class="fas fa-trash"></i></div>
-                                                    <div class="editOption optionSelect"><span style="padding:0 !important">edit</span><i class="fas fa-pen"></i></div>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </template>
                         </ul>
-                        <li style="list-style: none;"><button id="newEvent"><i class="fas fa-plus" style="margin-right: 10px;"></i>New Event</button></li>
+                        <!-- INDIVIDUAL EVENT ITEM -->
+                        <template id="event">
+                            <li class="eventLi">
+                                <div class="liMainWrap">
+                                    <h3 class="eventTitle"></h3>
+                                    <ul class="mouseover">
+                                        <li>
+                                            <span class="ellips"><i class="fas fa-ellipsis-h"></i></span>
+                                            <ul>
+                                                <div class="deleteOption optionSelect"><span style="padding:0 !important">delete</span><i class="fas fa-trash"></i></div>
+                                                <div class="editOption optionSelect"><span style="padding:0 !important">edit</span><i class="fas fa-pen"></i></div>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </template>
+                        <li style="list-style: none;"><button id="newEvent" class="addButton"><i class="fas fa-plus" style="margin-right: 10px;"></i>New Event</button></li>
                     </div>
                     <div class="popup1" id="popup-2">
                         <div class="overlay"></div>
@@ -179,25 +179,25 @@
                     <div class="bxSingle noteBx">
                         <h1>Notes</h1>
                         <ul class="noteUl" id="noteUl">
-                            <!-- INDIVIDUAL NOTE ITEM -->
-                            <template id="note">
-                                <li class="noteLi">
-                                    <div class="liMainWrap">
-                                        <h3 class="noteTitle"></h3>
-                                        <ul class="mouseover">
-                                            <li>
-                                                <span class="ellips"><i class="fas fa-ellipsis-h"></i></span>
-                                                <ul>
-                                                    <div class="deleteOption optionSelect"><span style="padding:0 !important">delete</span><i class="fas fa-trash"></i></div>
-                                                    <div class="editOption optionSelect"><span style="padding:0 !important">edit</span><i class="fas fa-pen"></i></div>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </template>
                         </ul>
-                        <li style="list-style: none;"><button id="newNote"><i class="fas fa-plus" style="margin-right: 10px;"></i>New Note</button></li>
+                        <!-- INDIVIDUAL NOTE ITEM -->
+                        <template id="note">
+                            <li class="noteLi">
+                                <div class="liMainWrap">
+                                    <h3 class="noteTitle"></h3>
+                                    <ul class="mouseover">
+                                        <li>
+                                            <span class="ellips"><i class="fas fa-ellipsis-h"></i></span>
+                                            <ul>
+                                                <div class="deleteOption optionSelect"><span style="padding:0 !important">delete</span><i class="fas fa-trash"></i></div>
+                                                <div class="editOption optionSelect"><span style="padding:0 !important">edit</span><i class="fas fa-pen"></i></div>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </template>
+                        <li style="list-style: none;"><button id="newNote" class="addButton"><i class="fas fa-plus" style="margin-right: 10px;"></i>New Note</button></li>
                     </div>
                     <div class="popup1" id="popup-3">
                         <div class="overlay"></div>
@@ -296,9 +296,9 @@
 
 
 
-<script src="../../collection/LocalStorage.js" type="module"></script>
-<script src="../../collection/Item.js" type="module"></script>
-<script src="../../collection/Entry.js" type="module"></script>   
+<script src="../collection/LocalStorage.js" type="module"></script>
+<script src="../collection/Item.js" type="module"></script>
+<script src="../collection/Entry.js" type="module"></script>   
         
 <script src="script.js" type="module"></script>
 
