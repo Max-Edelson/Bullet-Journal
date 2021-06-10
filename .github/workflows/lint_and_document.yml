@@ -38,4 +38,4 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: Apply linting and documentation changes
-          token: ${{ secrets.MAXIM_TOKEN }}
+          token: ${{ MAXIM_TOKEN }}
