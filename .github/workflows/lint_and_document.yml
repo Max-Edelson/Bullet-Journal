@@ -37,5 +37,5 @@ jobs:
           
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: Auto-lint code and generate documentation
-	  push_options: --force
+          commit_message: Apply php-cs-fixer changes
+          push_options: --force
