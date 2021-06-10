@@ -10,7 +10,7 @@
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
 }
 
 .popup_box {
@@ -157,7 +157,7 @@
     border: 1px solid #6A6DCD;
     border-radius: 8px;
     width: 100%;
-    margin: 2%;
+    margin: 2% 2% 2% 0;
     font-family: Work Sans;
     font-style: normal;
     font-weight: 600;
