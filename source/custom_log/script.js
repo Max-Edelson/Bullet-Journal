@@ -219,8 +219,8 @@ function displayEntries(data) {
             let task = clone.querySelector("h3");
             let subNote = clone.querySelector("p");
 
-            task.innerHTML = noteText;
-            subNote.innerHTML = subNoteText;
+            task.innerHTML = "• " + noteText;
+            subNote.innerHTML = "- " + subNoteText;
 
             let deleteBtn = clone.querySelector('.deleteOption');
             let editBtn = clone.querySelector('.editOption');
@@ -245,7 +245,7 @@ function displayEntries(data) {
             let container = clone.querySelector(".noteLi");
             let task = clone.querySelector("h3");
 
-            task.innerHTML = noteText;
+            task.innerHTML = "• " + noteText;
 
             let deleteBtn = clone.querySelector('.deleteOption');
             let editBtn = clone.querySelector('.editOption');

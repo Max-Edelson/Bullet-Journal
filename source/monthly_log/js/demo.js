@@ -59,6 +59,25 @@ $(window).on('hashchange',function(){
     window.location.reload(true); 
 });
 
+let cusNames = storage.cusNames;
+
+function updateNavbarLogs(cusNames) {
+    let navBar_Logs = document.getElementById("pageSubmenu");
+    navBar_Logs.innerHTML = "";
+    cusNames.forEach((log) => {
+        let li = document.createElement("li");
+        li.innerHTML = "<a href='../custom_log/index.html#" + log + "'>" + log + "</a>"
+        navBar_Logs.appendChild(li);
+    });
+
+    let li = document.createElement("li");
+    li.innerHTML = "<img src='../create.png' alt='Create Icon'><button id='custom_add'>New Log</button>"
+    navBar_Logs.appendChild(li);
+}
+
+updateNavbarLogs(cusNames);
+
+
 let addCustom = document.getElementById("new-custom");
 let addCustomButton = document.getElementById("custom_add");
 let addCustomCancel = document.getElementById("custom_cancel");
