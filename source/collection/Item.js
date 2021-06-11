@@ -53,88 +53,88 @@ class Item {
  * @class Creates an Event item derived from the Item object
  */
 class Event extends Item {
-	/**
-	 * @constructs Event Creates an event object that has symbol, text and optional media
-	 * title and time
-	 * @param text text describing the event
-	 * @param media filepath to additonal media
-	 * @param title title of the event (optional)
-	 * @param date date object that represents date of the event (optional)
-	 */
-	constructor(text, media, title, date, startTime, endTime) {
-		super(EVENT_SYMBOL, text, media);
+  /**
+   * @constructs Event Creates an event object that has symbol, text and optional media
+   * title and time
+   * @param text text describing the event
+   * @param media filepath to additonal media
+   * @param title title of the event (optional)
+   * @param date date object that represents date of the event (optional)
+   */
+  constructor(text, media, title, date, startTime, endTime) {
+    super(EVENT_SYMBOL, text, media);
 
-		// check if title was included
-		if (title === undefined) {
-			this.title = "";
-		} else {
-			this.title = title;
-		}
+    // check if title was included
+    if (title === undefined) {
+      this.title = "";
+    } else {
+      this.title = title;
+    }
 
-		// check if time was included
-		if (date === undefined) {
-			this.date = null;
-		} else {
-			this.date = date;
-		}
+    // check if time was included
+    if (date === undefined) {
+      this.date = null;
+    } else {
+      this.date = date;
+    }
 
-		if (startTime === undefined) {
-			this.startTime = null;
-		} else {
-			this.startTime = startTime;
-		}
+    if (startTime === undefined) {
+      this.startTime = null;
+    } else {
+      this.startTime = startTime;
+    }
 
-		if (endTime === undefined) {
-			this.endTime = null;
-		} else {
-			this.endTime = endTime;
-		}
+    if (endTime === undefined) {
+      this.endTime = null;
+    } else {
+      this.endTime = endTime;
+    }
 
-		this.type = "event";
-	}
+    this.type = "event";
+  }
 
-	/**
-	 * @function addDate adds date property to the event
-	 * @param newDate the new date (string) of the event
-	 */
-	addDate(newDate) {
-		this.date = newDate;
-	}
+  /**
+   * @function addDate adds date property to the event
+   * @param newDate the new date (string) of the event
+   */
+  addDate(newDate) {
+    this.date = newDate;
+  }
 
-	/**
-	 * @function removeDate removes the date from the event
-	 */
-	removeDate() {
-		this.date = null;
-	}
+  /**
+   * @function removeDate removes the date from the event
+   */
+  removeDate() {
+    this.date = null;
+  }
 
-	/**
-	 * @function addTime adds time property to the event
-	 * @param newTime new time to add to the event
-	 */
-	addTime(newTime){
-		this.time = newTime;
-	}
+  /**
+   * @function addTime adds time property to the event
+   * @param newTime new time to add to the event
+   */
+  addTime(newTime) {
+    this.time = newTime;
+  }
 
-	/**
-	 * @function removeTime removes the time property from event
-	 */
-	removeTime(){
-		this.time = null;
-	}
+  /**
+   * @function removeTime removes the time property from event
+   */
+  removeTime() {
+    this.time = null;
+  }
 
-	/**
-	 * @function hasDate check if event has a date
-	 * @returns returns true if there exists a date for this event, false
-	 * otherwise
-	 */
-	hasDate() {
-		if (this.date === null) {
-			return false;
-		} else {
-			return true;
-		}
-	}
+  /**
+   * @function hasDate check if event has a date
+   * @returns returns true if there exists a date for this event, false
+   * otherwise
+   */
+  hasDate() {
+    if (this.date === null) {
+      return false;
+    } else {
+      return true;
+    }
+  }
 }
 
 /**
