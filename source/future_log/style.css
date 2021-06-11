@@ -356,6 +356,10 @@ textarea {
   font-weight: 500;
   font-size: min(16px, 4vw);
   line-height: min(24px, 6vw);
+  
+}
+
+.modal-content textarea {
   width: 100%;
 }
 
