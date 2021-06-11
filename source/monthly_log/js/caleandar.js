@@ -2,7 +2,7 @@ import {Item, Event, Task, Note} from '../../collection/Item.js';
 import LocalStorage from '../../../source/collection/LocalStorage.js';
 
 let storage = new LocalStorage();
-let entries = storage.entries; 
+let entries = storage.entries;
 
 var Calendar = function(model, options, date){
   // Default Values
@@ -202,14 +202,6 @@ function createCalendar(calendar, element, adjuster){
     for(var i = 0; i < calendar.Selected.Days; i++){
       var day = document.createElement('li');
       day.className += "cld-day currMonth";
-      // day.addEventListener('click', () => {
-      //   //show input popup
-      //   let popup = document.querySelector('.popup');
-      //   popup.hidden = false;
-      //   //TODO cant find day number of clicked day
-      //   inputDay = new Date(calendar.Selected.Year, calendar.Selected.Month, i);
-      //   console.log(inputDay);
-      // });
       //Disabled Days
       var d = (i + calendar.Selected.FirstDay)%7;
       for(var q = 0; q < calendar.Options.DisabledDays.length; q++){
@@ -274,12 +266,6 @@ function createCalendar(calendar, element, adjuster){
 
     for(var i = 0; i < (extraDays - calendar.Selected.LastDay); i++){
       var day = document.createElement('li');
-      day.addEventListener('click', () => {
-        //show input popup
-        let popup = document.querySelector('.popup');
-        popup.hidden = false;
-        
-      });
       day.className += "cld-day nextMonth";
       //Disabled Days
       var d = (i + calendar.Selected.LastDay + 1)%7;
@@ -312,6 +298,7 @@ function createCalendar(calendar, element, adjuster){
   }
   AddLabels();
   AddDays();
+  showEntries(calendar);
 }
 
 document.querySelector('#note_button').addEventListener('click', () => {
@@ -413,8 +400,8 @@ document.querySelector('#save_note').addEventListener('click', () =>{
   newEntry.setAttribute('inCustom', false);
   newEntry.setAttribute('inFuture', true);
   newEntry.setAttribute('futureMonth', '');
-  // newEntry.setAttribute('startTime', startTimeInput.value);
-  // newEntry.setAttribute('endTime', endTimeInput.value);
+  newEntry.setAttribute('startTime', '');
+  newEntry.setAttribute('endTime', '');
   newEntry.setAttribute('taskTime', '');
 
   newEntry.mainItem = newNote;
@@ -444,11 +431,20 @@ document.querySelector('#save_note').addEventListener('click', () =>{
   let appendDays = document.querySelectorAll(".cld-day.currMonth");
   appendDays[singleDay-1].appendChild(newEntry);
 
+  //console.log(appendDays);
+
   //events.push(createCalendarEntry(newEntry));
   //console.log(events);
 
   makePopupsDisappear();
 });
+
+console.log(document.querySelector('#addEntry'));
+  document.querySelector('#addEntry').addEventListener('click', () => {
+    console.log("clicked");
+    let popup = document.querySelector('.popup');
+    popup.hidden = false;
+  });
 
 document.querySelector('#save_task').addEventListener('click', () =>{
   let deadlineInput = document.querySelector('#taskDeadline').value;
@@ -472,8 +468,8 @@ document.querySelector('#save_task').addEventListener('click', () =>{
   newEntry.setAttribute('inCustom', false);
   newEntry.setAttribute('inFuture', true);
   newEntry.setAttribute('futureMonth', '');
-  // newEntry.setAttribute('startTime', startTimeInput.value);
-  // newEntry.setAttribute('endTime', endTimeInput.value);
+  newEntry.setAttribute('startTime', '');
+  newEntry.setAttribute('endTime', '');
   newEntry.setAttribute('taskTime', '');
 
   newEntry.mainItem = newTask;
@@ -521,6 +517,26 @@ function makePopupsDisappear(){
 }
 
 /**
+ * @function showEntries goes through local storage and displays entries onto calendar
+ */
+let showEntries = function(calendar){
+  entries.forEach((data) => {
+  let newEntry = document.createElement('journal-entry');
+  newEntry.mainItem = data.main;
+  newEntry.subItem = data.sub;
+
+  let newDate = new Date(data.date);
+  let singleDay = newDate.getDate();
+  //console.log(newDate.getMonth());
+  if(newDate.getMonth() == calendar.Selected.Month){
+    let appendDays = document.querySelectorAll(".cld-day.currMonth");
+  //console.log(appendDays)
+  appendDays[singleDay-1].appendChild(newEntry);
+  }
+ });
+}
+
+/**
  * @function createCalendarEntry creates an object to insert into calendar based on context of entry
  * @param entry journal-entry element that holds the item 
  * @returns object that is used by caleandar.js to insert into the calendar
@@ -536,5 +552,15 @@ var events = [
 var settings = {};
 var element = document.getElementById('caleandar');
 caleandar(element, events, settings);
+
+
+let futureSteps = window.location.hash.substr(1);
+console.log(futureSteps);
+if (parseInt(futureSteps) != NaN) {
+  for (let i = 0; i < parseInt(futureSteps); i++) {
+    document.getElementsByClassName('cld-fwd')[0].click();
+  }
+}
+
 
 export {caleandar};

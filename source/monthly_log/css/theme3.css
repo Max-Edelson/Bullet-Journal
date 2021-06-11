@@ -259,14 +259,6 @@ body{
         display: block;
         margin: 0;
         font-weight: normal;
-      }
-      .cld-day:hover{
-        background: #eee;
-      }
-      .cld-number.eventday{
-        font-weight: bold; 
-      }
-      .cld-title{
         background: #6A6DCD;
         box-shadow: 0px 2.92414px 5.84828px rgba(0, 0, 0, 0.12), 0px 11.6966px 23.3931px rgba(0, 0, 0, 0.08);
         border-radius: 5.84828px;
@@ -276,6 +268,12 @@ body{
         margin-top: 5%;
         display: flex;
         align-items: center;
+      }
+      .cld-day:hover{
+        background: #eee;
+      }
+      .cld-number.eventday{
+        font-weight: bold; 
       }
       .cld-number.eventday:hover{
         background: #eee;
