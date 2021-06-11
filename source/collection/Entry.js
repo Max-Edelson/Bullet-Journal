@@ -1,18 +1,20 @@
-import {Item, Event, Task, Note} from './Item.js';
+import { Item, Event, Task, Note } from "./Item.js";
+/**
+ * @class new Entry class that extends 'HTMLElement'
+ */
 class Entry extends HTMLElement {
-  
-    /**
-     * @constructor creates a Entry custom element that holds items
-     */
-    constructor(){
-        super();
+  /**
+   * @constructor creates a Entry custom element that holds items
+   */
+  constructor() {
+    super();
 
-        this.date = null;
-        this.main = null;
-        this.sub = null;
-        const template = document.createElement('template');
+    this.date = null;
+    this.main = null;
+    this.sub = null;
+    const template = document.createElement("template");
 
-        template.innerHTML = `
+    template.innerHTML = `
         <style>
             .main-item .sub-item {
                 vertical-align: none;
@@ -68,39 +70,41 @@ class Entry extends HTMLElement {
         </div>
         `;
 
-        // create a shadow root for this web component
-        this.attachShadow({ mode: 'open' })
-        // attach cloned content of template to shadow DOM 
-        this.shadowRoot.appendChild(template.content.cloneNode(true))
-    }
+    // create a shadow root for this web component
+    this.attachShadow({ mode: "open" });
+    // attach cloned content of template to shadow DOM
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
+  }
 
-    /**
-     * getter method for the main item of the entry
-     * @returns item object that is the main item
-     */
-    get mainItem(){
-        return this.getAttribute('main-item');
-    }
+  /**
+   * getter method for the main item of the entry
+   * @returns item object that is the main item
+   * @method getter function for the main-item
+   */
+  get mainItem() {
+    return this.getAttribute("main-item");
+  }
 
-    /**
-     * getter method for the sub item of the entry
-     * @returns item object that is the sub item
-     */
-     get subItem(){
-        return this.getAttribute('sub-item');
-    }
+  /**
+   * getter method for the sub item of the entry
+   * @returns item object that is the sub item
+   * @method getter method for the sub-item
+   */
+  get subItem() {
+    return this.getAttribute("sub-item");
+  }
 
-    /**
-     * setter method that runs when mainItem attribute is changed
-     * adds all the content of the item to the entry custom element
-     * @param mainItem item object that will server as the main item
-     */
-    set mainItem(mainItem){
-      //  let entryArticle = this.shadowRoot.querySelector('.entry');
-      //  let mainSec = this.shadowRoot.querySelector('.main-section');
+  /**
+   * setter method that runs when mainItem attribute is changed
+   * adds all the content of the item to the entry custom element
+   * @param mainItem item object that will server as the main item
+   * @method setter method for the main-item
+   */
+  set mainItem(mainItem) {
+    //  let entryArticle = this.shadowRoot.querySelector('.entry');
+    //  let mainSec = this.shadowRoot.querySelector('.main-section');
 
-        this.main = mainItem;
-
+    this.main = mainItem;
 
         let mainText = this.shadowRoot.querySelector('.main-item');
         
@@ -132,11 +136,12 @@ class Entry extends HTMLElement {
             mainText.textContent = mainItem.text;
         }
     }
-
+  }
     /**
      * setter method that runs when subItem attribute is changed
      * adds all the content of the item to the entry custom element
      * @param subItem item object that will server as the sub item
+     * @method setter method for the sub-item
      */
      set subItem(subItem){
         this.sub = subItem;
@@ -155,6 +160,7 @@ class Entry extends HTMLElement {
         }
         */
     }
+  }
 }
 
-customElements.define('journal-entry', Entry);
+customElements.define("journal-entry", Entry);

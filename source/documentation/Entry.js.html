@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Entry.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Entry.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { Item, Event, Task, Note } from "./Item.js";
+/**
+ * @class new Entry class that extends 'HTMLElement'
+ */
+class Entry extends HTMLElement {
+  /**
+   * @constructor creates a Entry custom element that holds items
+   */
+  constructor() {
+    super();
+
+    this.date = null;
+    this.main = null;
+    this.sub = null;
+    const template = document.createElement("template");
+
+    template.innerHTML = `
+        &lt;style>
+            .main-item .sub-item {
+                vertical-align: none;
+                font-size: 20px;
+                padding: 0px;
+                
+            }
+            .sub-item {
+                font-size: 15px;
+            }
+        
+            .sub-section {
+                margin-left:25px;
+                margin-right:-25px;
+            }
+
+            .entry {
+            background: #6a6dcd;
+            box-shadow: 0px 2.92414px 5.84828px rgba(0, 0, 0, 0.12),
+                0px 11.6966px 23.3931px rgba(0, 0, 0, 0.08);
+            border-radius: 5.84828px;
+            height: 20%;
+            padding: 5%;
+            margin: 5%;
+            display: flex;
+            align-items: center;
+            }
+            
+            .entry .main-item .sub-item .sub-section {
+            vertical-align: baseline;
+            float: left;
+            font-size: min(1.75rem, 1.5vw);
+            margin: 0;
+            }
+            
+            .entry button {
+            border: 1px solid rgba(255, 255, 255, 0.75);
+            box-sizing: border-box;
+            border-radius: 2px;
+            vertical-align: auto;
+            float: right;
+            outline: none;
+            margin-left: auto;
+            }
+        &lt;/style>
+        &lt;div class="entry">
+
+            &lt;div class="main-section">
+                &lt;p class="main-item">&lt;/p>
+            &lt;/div>
+            &lt;div class="sub-section">
+                &lt;p class="sub-item">&lt;/p>
+            &lt;/div>
+            &lt;button>...&lt;/button>
+        &lt;/div>
+        `;
+
+    // create a shadow root for this web component
+    this.attachShadow({ mode: "open" });
+    // attach cloned content of template to shadow DOM
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
+  }
+
+  /**
+   * getter method for the main item of the entry
+   * @returns item object that is the main item
+   * @method getter function for the main-item
+   */
+  get mainItem() {
+    return this.getAttribute("main-item");
+  }
+
+  /**
+   * getter method for the sub item of the entry
+   * @returns item object that is the sub item
+   * @method getter method for the sub-item
+   */
+  get subItem() {
+    return this.getAttribute("sub-item");
+  }
+
+  /**
+   * setter method that runs when mainItem attribute is changed
+   * adds all the content of the item to the entry custom element
+   * @param mainItem item object that will server as the main item
+   * @method setter method for the main-item
+   */
+  set mainItem(mainItem) {
+    //  let entryArticle = this.shadowRoot.querySelector('.entry');
+    //  let mainSec = this.shadowRoot.querySelector('.main-section');
+
+    this.main = mainItem;
+
+    const mainText = this.shadowRoot.querySelector(".main-item");
+
+    if (mainItem instanceof Event || mainItem.type == "event") {
+      mainText.textContent =
+        mainItem.title + "/// " + mainItem.date + ": " + mainItem.text;
+    } else if (mainItem instanceof Task || mainItem.type == "task") {
+      mainText.textContent =
+        mainItem.text + "/// Deadline: " + mainItem.deadline;
+    } else {
+      mainText.textContent = mainItem.text;
+    }
+  }
+
+  /**
+   * setter method that runs when subItem attribute is changed
+   * adds all the content of the item to the entry custom element
+   * @param subItem item object that will server as the sub item
+   * @method setter method for the sub-item
+   */
+  set subItem(subItem) {
+    this.sub = subItem;
+    const subText = this.shadowRoot.querySelector(".sub-item");
+
+    if (subItem instanceof Event || subItem.type == "event") {
+      subText.textContent =
+        subItem.title + "/// " + subItem.date + ": " + subItem.text;
+    } else if (subItem instanceof Task || subItem.type == "task") {
+      subText.textContent = subItem.text + "/// Deadline: " + subItem.deadline;
+    } else {
+      subText.textContent = subItem.text;
+    }
+  }
+}
+
+customElements.define("journal-entry", Entry);
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="creates%2520a%2520Entry%2520custom%2520element%2520that%2520holds%2520items.html">creates a Entry custom element that holds items</a></li><li><a href="Entry.html">Entry</a></li><li><a href="Event.html">Event</a></li><li><a href="Item.html">Item</a></li><li><a href="module.exports.html">exports</a></li><li><a href="Note.html">Note</a></li><li><a href="Task.html">Task</a></li></ul><h3>Global</h3><ul><li><a href="global.html#addDateaddsdatepropertytotheevent">addDate adds date property to the event</a></li><li><a href="global.html#addDeadlineadd/replacesdeadlineofthetask">addDeadline add/replaces deadline of the task</a></li><li><a href="global.html#addTimeaddstimepropertytotheevent">addTime adds time property to the event</a></li><li><a href="global.html#createpushesnewdataintocorrectarray(collection)andsetstheupdatedarrayinLocalStorage">create pushes new data into correct array (collection)
+and sets the updated array in Local Storage</a></li><li><a href="global.html#deletedeletesentryfromcorrectarray(collection)andsetstheupdatedarrayinLocalStorage">delete deletes entry from correct array (collection)
+and sets the updated array in Local Storage</a></li><li><a href="global.html#getIndexByTokensearchesforentryindexinthis.entriesinordertoupdateordeleteit">getIndexByToken searches for entry index in this.entries
+in order to update or delete it</a></li><li><a href="global.html#getIndexByTokenCustomsearchesforentryindexinthis.custominordertoupdateordeleteit">getIndexByTokenCustom searches for entry index in this.custom
+in order to update or delete it</a></li><li><a href="global.html#getterfunctionforthemain-item">getter function for the main-item</a></li><li><a href="global.html#gettermethodforthesub-item">getter method for the sub-item</a></li><li><a href="global.html#hasDatecheckifeventhasadate">hasDate check if event has a date</a></li><li><a href="global.html#hasDeadlinechecksiftaskhasadeadline">hasDeadline checks if task has a deadline</a></li><li><a href="global.html#hasMediacheckifthemediahasadditionalmedia">hasMedia check if the media has additional media</a></li><li><a href="global.html#markCompletedmarkstaskascompleted">markCompleted marks task as completed</a></li><li><a href="global.html#markUncompletedmarkstaskasuncomplete">markUncompleted marks task as uncomplete</a></li><li><a href="global.html#removeDateremovesthedatefromtheevent">removeDate removes the date from the event</a></li><li><a href="global.html#removeDeadlineremovesthedeadlineofthetask">removeDeadline removes the deadline of the task</a></li><li><a href="global.html#removeTimeremovesthetimepropertyfromevent">removeTime removes the time property from event</a></li><li><a href="global.html#settermethodforthemain-item">setter method for the main-item</a></li><li><a href="global.html#settermethodforthesub-item">setter method for the sub-item</a></li><li><a href="global.html#tokengettermethodtogeneratearandomtoken/idforanentry">token getter method to generate a random token/id for an entry</a></li><li><a href="global.html#updateeditsentryintocorrectarray(collection)andsetstheupdatedarrayinLocalStorage">update edits entry into correct array (collection)
+and sets the updated array in Local Storage</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Thu Jun 10 2021 23:07:25 GMT+0000 (Coordinated Universal Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

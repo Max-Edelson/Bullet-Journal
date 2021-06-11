@@ -3,53 +3,54 @@ const TASK_SYMBOL = ""; /* NEED SYMBOL FOR TASK */
 const NOTE_SYMBOL = ""; /* NEED SYMBOL FOR NOTE */
 
 /**
- *   @Description Abstract item class that will represent the item being
+ *   @description Abstract item class that will represent the item being
  *   held in the journal entry. This can be an Event, Task or Note.
  *	 Each of these types will extend this class
  *	 @author Javier Galvan
- *	 
+ *   @class Creates the basic Item class object
  */
 class Item {
-	/**
-	 * @constructs Item Creates and instance of the Item object with media
-	 * @param symbol image that represents the type of item
-	 * @param text text of the item
-	 * @param media file path to additional media(video, image, audio)(optional)
-	 */
-	constructor(symbol, text, media) {
-		// prevent the abstract class from being created alone
-		if (this.constructor === Item) {
-			throw new Error("Instance of Abstrct class cannot be instatiated");
-		}
+  /**
+   * @constructs Item: Creates and instance of the Item object with media
+   * @param symbol image that represents the type of item
+   * @param text text of the item
+   * @param media file path to additional media(video, image, audio)(optional)
+   */
+  constructor(symbol, text, media) {
+    // prevent the abstract class from being created alone
+    if (this.constructor === Item) {
+      throw new Error("Instance of Abstrct class cannot be instatiated");
+    }
 
-		this.symbol = symbol;
-		this.text = text;
+    this.symbol = symbol;
+    this.text = text;
 
-		// check if media was included
-		if (media === undefined) {
-			this.media = "";
-		} else {
-			this.media = media;
-		}
-	}
+    // check if media was included
+    if (media === undefined) {
+      this.media = "";
+    } else {
+      this.media = media;
+    }
+  }
 
-	/**
-	 * @function hasMedia check if the media has additional media
-	 * @returns returns true is item has media false otherwise
-	 */
-	hasMedia() {
-		if (this.media === "") {
-			return false;
-		} else {
-			return true;
-		}
-	}
+  /**
+   * @method hasMedia check if the media has additional media
+   * @returns returns true is item has media false otherwise
+   */
+  hasMedia() {
+    if (this.media === "") {
+      return false;
+    } else {
+      return true;
+    }
+  }
 }
 
 /**
- * @Description Event class that extends the item class. Keeps track of upcoming or
+ * @description Event class that extends the item class. Keeps track of upcoming or
  * past events
  * @author Javier Galvan
+ * @class Creates an Event item derived from the Item object
  */
 class Event extends Item {
 	/**
@@ -137,7 +138,7 @@ class Event extends Item {
 }
 
 /**
- * @Description Task class that extends the item class. Used to keep track of task
+ * @description Task class that extends the item class. Used to keep track of task
  * needed to be done
  * @author Javier Galvan
  */
@@ -211,19 +212,19 @@ class Task extends Item {
 }
 
 /**
- * @Description Note class that extends the item class. Used to keep track of information
+ * @description Note class that extends the item class. Used to keep track of information
  * @author Javier Galvan
  */
 class Note extends Item {
-	/**
-	 * @constructs Note creates a new note object
-	 * @param text text of the note
-	 * @param media additional media for the note
-	 */
-	constructor(text, media) {
-		super(NOTE_SYMBOL, text, media);
-		this.type = "note";
-	}
+  /**
+   * @constructs Note creates a new note object
+   * @param text text of the note
+   * @param media additional media for the note
+   */
+  constructor(text, media) {
+    super(NOTE_SYMBOL, text, media);
+    this.type = "note";
+  }
 }
 
-export {Item, Event, Task, Note};
+export { Item, Event, Task, Note };

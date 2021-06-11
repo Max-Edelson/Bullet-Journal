@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: LocalStorage.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: LocalStorage.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ *   @Description Class that will represent Local Storage and
+ *   define the functions to be able to manipulate data storage.
+ *	 @author Carmen Li
+ */
+export default class LocalStorage {
+  /**
+   * @constructs LocalStorage Creates an instance of the Local Storage object
+   */
+  constructor() {
+    // retrieve entries and custom arrays
+    // if item by key of the array is not defined, then empty array
+    this.entries = JSON.parse(localStorage.getItem("entries")) || [];
+    this.custom = JSON.parse(localStorage.getItem("custom")) || [];
+    this.cusNames = JSON.parse(localStorage.getItem("cusNames")) || [];
+  }
+
+  /**
+   * @function create pushes new data into correct array (collection)
+   * and sets the updated array in Local Storage
+   * @param data entry object
+   */
+  create(data) {
+    data.token = this.token;
+
+    // add to entries array if addToCustom attribute is set to "false"
+    if (data.addToCustom === "false") {
+      this.entries.push(data);
+      localStorage.setItem("entries", JSON.stringify(this.entries));
+    }
+
+    // else add to custom array
+    else {
+      this.custom.push(data);
+      localStorage.setItem("custom", JSON.stringify(this.custom));
+    }
+  }
+
+  createLog(name) {
+    this.cusNames.push(name);
+    localStorage.setItem("cusNames", JSON.stringify(this.cusNames));
+  }
+
+  /**
+   * @function update edits entry into correct array (collection)
+   * and sets the updated array in Local Storage
+   * @param data entry object
+   */
+  update(data) {
+    let index; // stores index of data in array
+
+    // edit entries
+    if (data.addToCustom === "false") {
+      // retrieve index of data
+      index = this.getIndexByToken(data.token);
+
+      // if index is found, update this.entries and rewrite localStorage item
+      if (index !== -1) {
+        this.entries[index] = data;
+        localStorage.setItem("entries", JSON.stringify(this.entries));
+      }
+    }
+    // else edit custom
+    else {
+      // retrieve index of data
+      index = this.getIndexByTokenCustom(data.token);
+
+      // if index is found, update this.custom and rewrite localStorage item
+      if (index !== -1) {
+        this.custom[index] = data;
+        localStorage.setItem("custom", JSON.stringify(this.custom));
+      }
+    }
+  }
+
+  /**
+   * @function delete deletes entry from correct array (collection)
+   * and sets the updated array in Local Storage
+   * @param data entry object
+   */
+  delete(data) {
+    let index; // stores index of data in array
+
+    // remove from entries
+    if (data.addToCustom === "false") {
+      // retrieve index of data
+      index = this.getIndexByToken(data.token);
+
+      // if index is found, delete it from this.entries and rewrite localStorage item
+      if (index !== -1) {
+        this.entries.splice(index, 1);
+        localStorage.setItem("entries", JSON.stringify(this.entries));
+      }
+    }
+    // else remove from custom
+    else {
+      // retrieve index of data
+      index = this.getIndexByTokenCustom(data.token);
+
+      // if index is found, delete it from this.custom and rewrite localStorage item
+      if (index !== -1) {
+        this.custom.splice(index, 1);
+        localStorage.setItem("custom", JSON.stringify(this.custom));
+      }
+    }
+  }
+
+  /**
+   * @function getIndexByToken searches for entry index in this.entries
+   * in order to update or delete it
+   * @param token token/id of current data
+   * @returns index of entry if found, -1 if else
+   */
+  getIndexByToken(token) {
+    // iterate through entries array
+    for (let i = 0; i &lt; this.entries.length; i++) {
+      // if token of current element equals specified token
+      if (this.entries[i].token === token) {
+        return i;
+      }
+    }
+
+    // if not in array
+    return -1;
+  }
+
+  /**
+   * @function getIndexByTokenCustom searches for entry index in this.custom
+   * in order to update or delete it
+   * @param token token/id of current data
+   * @returns index of entry if found, -1 if else
+   */
+  getIndexByTokenCustom(token) {
+    // iterate through entries array
+    for (let i = 0; i &lt; this.custom.length; i++) {
+      // if token of current element equals specified token
+      if (this.custom[i].token === token) {
+        return i;
+      }
+    }
+
+    // if not in array
+    return -1;
+  }
+
+  /**
+   * @function token getter method to generate a random token/id for an entry
+   */
+  get token() {
+    return (
+      Math.random().toString(36).substring(2, 15) +
+      Math.random().toString(36).substring(2, 15)
+    );
+  }
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="creates%2520a%2520Entry%2520custom%2520element%2520that%2520holds%2520items.html">creates a Entry custom element that holds items</a></li><li><a href="Entry.html">Entry</a></li><li><a href="Event.html">Event</a></li><li><a href="Item.html">Item</a></li><li><a href="module.exports.html">exports</a></li><li><a href="Note.html">Note</a></li><li><a href="Task.html">Task</a></li></ul><h3>Global</h3><ul><li><a href="global.html#addDateaddsdatepropertytotheevent">addDate adds date property to the event</a></li><li><a href="global.html#addDeadlineadd/replacesdeadlineofthetask">addDeadline add/replaces deadline of the task</a></li><li><a href="global.html#addTimeaddstimepropertytotheevent">addTime adds time property to the event</a></li><li><a href="global.html#createpushesnewdataintocorrectarray(collection)andsetstheupdatedarrayinLocalStorage">create pushes new data into correct array (collection)
+and sets the updated array in Local Storage</a></li><li><a href="global.html#deletedeletesentryfromcorrectarray(collection)andsetstheupdatedarrayinLocalStorage">delete deletes entry from correct array (collection)
+and sets the updated array in Local Storage</a></li><li><a href="global.html#getIndexByTokensearchesforentryindexinthis.entriesinordertoupdateordeleteit">getIndexByToken searches for entry index in this.entries
+in order to update or delete it</a></li><li><a href="global.html#getIndexByTokenCustomsearchesforentryindexinthis.custominordertoupdateordeleteit">getIndexByTokenCustom searches for entry index in this.custom
+in order to update or delete it</a></li><li><a href="global.html#getterfunctionforthemain-item">getter function for the main-item</a></li><li><a href="global.html#gettermethodforthesub-item">getter method for the sub-item</a></li><li><a href="global.html#hasDatecheckifeventhasadate">hasDate check if event has a date</a></li><li><a href="global.html#hasDeadlinechecksiftaskhasadeadline">hasDeadline checks if task has a deadline</a></li><li><a href="global.html#hasMediacheckifthemediahasadditionalmedia">hasMedia check if the media has additional media</a></li><li><a href="global.html#markCompletedmarkstaskascompleted">markCompleted marks task as completed</a></li><li><a href="global.html#markUncompletedmarkstaskasuncomplete">markUncompleted marks task as uncomplete</a></li><li><a href="global.html#removeDateremovesthedatefromtheevent">removeDate removes the date from the event</a></li><li><a href="global.html#removeDeadlineremovesthedeadlineofthetask">removeDeadline removes the deadline of the task</a></li><li><a href="global.html#removeTimeremovesthetimepropertyfromevent">removeTime removes the time property from event</a></li><li><a href="global.html#settermethodforthemain-item">setter method for the main-item</a></li><li><a href="global.html#settermethodforthesub-item">setter method for the sub-item</a></li><li><a href="global.html#tokengettermethodtogeneratearandomtoken/idforanentry">token getter method to generate a random token/id for an entry</a></li><li><a href="global.html#updateeditsentryintocorrectarray(collection)andsetstheupdatedarrayinLocalStorage">update edits entry into correct array (collection)
+and sets the updated array in Local Storage</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Thu Jun 10 2021 23:07:25 GMT+0000 (Coordinated Universal Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
