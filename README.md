@@ -31,7 +31,8 @@ The custom log is where the user can make lists that are not necessarily time ba
 ![Custom Log](~/specs/screenshots/../../../specs/screenshots/custom_log_v2.png)
 **List style custom log**
 
-## TODO: ADD GIF (with a g) OF USAGE
+## Usage
+![Usage Gif](~/specs/screenshots/../../../specs/screenshots/usage.gif)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
