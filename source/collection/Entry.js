@@ -136,7 +136,6 @@ class Entry extends HTMLElement {
             mainText.textContent = mainItem.text;
         }
     }
-  }
     /**
      * setter method that runs when subItem attribute is changed
      * adds all the content of the item to the entry custom element
@@ -161,6 +160,5 @@ class Entry extends HTMLElement {
         */
     }
   }
-}
 
 customElements.define("journal-entry", Entry);
