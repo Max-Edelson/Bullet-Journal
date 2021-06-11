@@ -668,6 +668,7 @@ a:focus {
     font-family: Mulish;
     font-style: italic;
     font-weight: bold;
+    margin: 0;
   }
 
 #sidebar ul.components {
