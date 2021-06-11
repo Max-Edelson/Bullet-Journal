@@ -3,7 +3,7 @@ import LocalStorage from '../collection/LocalStorage.js';
 
 //get name of custom log
 let cusTitle = window.location.hash.substr(1);
-document.querySelector(".logNavInfo h1").innerHTML = cusTitle;
+document.querySelector(".logNavInfo h1").innerHTML = decodeURI(cusTitle);
 
 
 /*
