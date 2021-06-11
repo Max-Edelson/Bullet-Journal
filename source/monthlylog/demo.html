@@ -4,80 +4,162 @@
     <title>Hello</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
     <link rel="stylesheet" href="css/theme3.css"/>
-    <style>
-    </style>
+    <link rel="stylesheet" href="css/demo.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+        integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
   </head>
   <body>
-    <div id="caleandar"></div>
-    <div hidden class="popup">
-      <div class="popup_box">
-          <h1>Choose Entry type</h1>
-
+    <div class="wrapper">
+      <!-- Sidebar  -->
+      <nav id="sidebar">
+          <div class="sidebar-header">
+              <h3><img src="../logo.png" style="max-width:12%;" alt="Logo">BananaNotes</h3>
+          </div>
+<!-- Start Marker -->
           <button id="note_button" class="select_button">Note</button>
           <button id="event_button" class="select_button">Event</button>
           <button id="task_button" class="select_button">Task</button>
           <button class="cancel_button">Cancel</button>
-
+<!-- Center Marker -->
+          <ul class="list-unstyled components">
+              <p><a href="../rapid_log/index.html"><img src="../home.png" alt="Home Icon"> Index</a></p>
+              <li>
+                  <a href="../rapid_log/index.html">Rapid Log</a>
+              </li>
+              <li>
+                  <a href="../future_log/index.html">Future Log</a>
+              </li>
+              <li class="active">
+                  <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Monthly Logs</a>
+                  <ul class="collapse list-unstyled" id="homeSubmenu">
+                      <li>
+                          <a href="../monthlylog/demo.html">January</a>
+                      </li>
+                      <li>
+                          <a href="../monthlylog/demo.html">February</a>
+                      </li>
+                      <li>
+                          <a href="../monthlylog/demo.html">March</a>
+                      </li>
+                  </ul>
+              </li>
+              <li>
+                  <a href="../daily_log/index.html">Daily Logs</a>
+              </li>
+              <li>
+                  <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Custom Logs</a>
+                  <ul class="collapse list-unstyled" id="pageSubmenu">
+                      <li>
+                          <img src="../create.png" alt="Create Icon"><button id="custom_add"> New Log</button>
+                      </li>
+                  </ul>
+              </li>
+          </ul>
+      </nav>
+<!-- End Marker -->
+      <div id= "sidebarIcon">
+          <span>&#187;</span>
       </div>
-    </div>
-    <div id="note_popup" hidden class="popup">
-      <div class="popup_box">
-          <h1>Create new note</h1>
-          <h2>DESCRIPTION</h2>
-          <input id="noteDescription" type="text"value="Note description" >
-          <div class="popup_buttons">
-              <button class="cancel_button">Cancel</button>
-              <button id="save_note" class="save_button">Save</button>
+      <!-- Page Content  -->
+      <div id="content">
+        <div id="caleandar"></div>
+        <div hidden class="popup">
+          <div class="popup_box">
+              <h1>Choose Entry type</h1>
+
+              <button id="note_button" class="select_button">Note</button>
+              <button id="event_button" class="select_button">Event</button>
+              <button id="task_button" class="select_button">Task</button>
+
+          </div>
+        </div>
+        <div id="note_popup" hidden class="popup">
+          <div class="popup_box">
+              <h1>Create new note</h1>
+              <h2>DESCRIPTION</h2>
+              <input id="noteDescription" type="text"value="Note description" >
+              <div class="popup_buttons">
+                  <button class="cancel_button">Cancel</button>
+                  <button id="save_note" class="save_button">Save</button>
+              </div>
+          </div>
+        </div>
+        <div id="event_popup" hidden class="popup">
+          <div class="popup_box">
+              <h1>Create new event</h1>
+              <h2>TITLE</h2>
+              <input id="eventTitle" type="text" value="Note title">
+
+              <h2>SELECT DATE AND TIME</h2>
+              <input id="eventDate" type="date">
+              <div class="time_selector">
+                  <input id="eventStartTime" type="time" class="time_input" style="margin-right: auto;">
+                  <span> to </span>
+                  <input id="eventEndTime" type="time" class="time_input" style="margin-left: auto; ">
+              </div>
+
+
+              <h2>DESCRIPTION</h2>
+              <input id="eventDescription" type="text"value="Note description" >
+              <div class="popup_buttons">
+                  <button class="cancel_button">Cancel</button>
+                  <button id='save_event' class="save_button">Save</button>
+              </div>
+          </div>
+        </div>
+        <div id="task_popup" hidden class="popup">
+          <div class="popup_box">
+              <h1>Create new task</h1>
+
+              <h2>SELECT DATE AND TIME</h2>
+              <input id="taskDeadline" type="date">
+              <div class="time_selector">
+                  <input id="taskCheck" type="checkbox" class="allDay_input" id="allDay">
+                  <label for="allDay">All Day</label>
+                  <input id="taskTime" type="time" class="time_input" style="margin-left: auto; ">
+              </div>
+
+
+              <h2>DESCRIPTION</h2>
+              <input id="taskDescription" type="text"value="Note description" >
+              <div class="popup_buttons">
+                  <button class="cancel_button">Cancel</button>
+                  <button id='save_task' class="save_button">Save</button>
+              </div>
+          </div>
+        </div>       
+      </div>
+      <div class="popup" id="new-custom" hidden>
+          <div class="popup_box">
+              <h1>Create new log</h1>
+              <h2>Log Name</h2>
+              <input type="text"value="" id="custom_name">
+              <div class="popup_buttons">
+                  <button class="cancel_button" id="custom_cancel">Cancel</button>
+                  <button class="save_button" id="custom_save">Save</button>
+              </div>
           </div>
       </div>
-    </div>
-    <div id="event_popup" hidden class="popup">
-      <div class="popup_box">
-          <h1>Create new event</h1>
-          <h2>TITLE</h2>
-          <input id="eventTitle" type="text" value="Note title">
 
-          <h2>SELECT DATE AND TIME</h2>
-          <input id="eventDate" type="date">
-          <div class="time_selector">
-              <input id="eventStartTime" type="time" class="time_input" style="margin-right: auto;">
-              <span> to </span>
-              <input id="eventEndTime" type="time" class="time_input" style="margin-left: auto; ">
-          </div>
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
 
-          <h2>DESCRIPTION</h2>
-          <input id="eventDescription" type="text"value="Note description" >
-          <div class="popup_buttons">
-              <button class="cancel_button">Cancel</button>
-              <button id='save_event' class="save_button">Save</button>
-          </div>
-      </div>
-    </div>
-    <div id="task_popup" hidden class="popup">
-      <div class="popup_box">
-          <h1>Create new task</h1>
 
-          <h2>SELECT DATE AND TIME</h2>
-          <input id="taskDeadline" type="date">
-          <div class="time_selector">
-              <input id="taskCheck" type="checkbox" class="allDay_input" id="allDay">
-              <label for="allDay">All Day</label>
-              <input id="taskTime" type="time" class="time_input" style="margin-left: auto; ">
-          </div>
-
-
-          <h2>DESCRIPTION</h2>
-          <input id="taskDescription" type="text"value="Note description" >
-          <div class="popup_buttons">
-              <button class="cancel_button">Cancel</button>
-              <button id='save_task' class="save_button">Save</button>
-          </div>
-      </div>
-    </div>
     <script type="module" src='../collection/Item.js'></script>
     <script type="module" src='../collection/Entry.js'></script>
     <script type="module" src="js/caleandar.js"></script>
-    <!-- <script type="module" src="js/demo.js"></script> -->
+    <script type="module" src="js/demo.js"></script>
   </body>
 </html>
