@@ -149,7 +149,7 @@ class Task extends Item {
 	 * @param media additional media for the task
 	 * @param deadline date object that represents the deadline of the task
 	 */
-	constructor(text, media, deadline, completed=false) {
+	constructor(text, media, deadline, completed=false, taskTime) {
 		super(TASK_SYMBOL, text, media);
 
 		this.completed = completed;
