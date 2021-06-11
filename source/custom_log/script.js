@@ -212,41 +212,59 @@ function displayEntries(data) {
         //if there is a subnote
         if (data.sub != undefined){
             let subNoteText = data.sub.text;
-            htmlEntry +=   `<li class="noteLi">
-                            <div class="liMainWrap">
-                            <h3>•${noteText}</h3>
-                            <p>-${subNoteText}</p>
-                            <ul class="mouseover">
-                            <li>
-                            <span class="ellips"><i class="fas fa-ellipsis-h"></i></span>
-                            <ul>
-                            <div class="deleteOption optionSelect noteDelete" id='none' onclick='deleteNewtodo(this.id)'><span style="padding:0 !important">delete</span><i class="fas fa-trash"></i></div>
-                            <div class="editOption optionSelect" id="editBtn"><span style="padding:0 !important">edit</span><i class="fas fa-pen"></i></div>
-                            </ul>
-                            </li>
-                            </ul>
-                            </div>
-                            </li>`;
+
+            let template = document.getElementById("subnote");
+            let clone = template.content.cloneNode(true);
+            let container = clone.querySelector(".noteLi");
+            let task = clone.querySelector("h3");
+            let subNote = clone.querySelector("p");
+
+            task.innerHTML = noteText;
+            subNote.innerHTML = subNoteText;
+
+            let deleteBtn = clone.querySelector('.deleteOption');
+            let editBtn = clone.querySelector('.editOption');
+        
+            deleteBtn.addEventListener('click', () => {
+                storage.delete(data);
+                // deleteEntry(data);
+                container.remove();
+            });
+        
+            editBtn.addEventListener('click', () => {
+                console.log('edit button');
+                editEntry(data);
+            })
+
+            addEntries.append(clone)
         }  
         //if there is no subnote
         else {
-            htmlEntry +=   `<li class="noteLi">
-                        <div class="liMainWrap">
-                        <h3>•${noteText}</h3>
-                        <ul class="mouseover">
-                        <li>
-                        <span class="ellips"><i class="fas fa-ellipsis-h"></i></span>
-                        <ul>
-                        <div class="deleteOption optionSelect noteDelete" id='none' onclick='deleteNewtodo(this.id)'><span style="padding:0 !important">delete</span><i class="fas fa-trash"></i></div>
-                        <div class="editOption optionSelect" id="editBtn"><span style="padding:0 !important">edit</span><i class="fas fa-pen"></i></div>
-                        </ul>
-                        </li>
-                        </ul>
-                        </div>
-                        </li>`;
+            let template = document.getElementById("note");
+            let clone = template.content.cloneNode(true);
+            let container = clone.querySelector(".noteLi");
+            let task = clone.querySelector("h3");
+
+            task.innerHTML = noteText;
+
+            let deleteBtn = clone.querySelector('.deleteOption');
+            let editBtn = clone.querySelector('.editOption');
+        
+            deleteBtn.addEventListener('click', () => {
+                storage.delete(data);
+                // deleteEntry(data);
+                container.remove();
+            });
+        
+            editBtn.addEventListener('click', () => {
+                console.log('edit button');
+                editEntry(data);
+            })
+
+            addEntries.append(clone)
         }
         
-        addEntries.innerHTML = htmlEntry;
+        //addEntries.innerHTML = htmlEntry;
     }
 }
 
