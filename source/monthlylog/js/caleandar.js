@@ -1,4 +1,4 @@
-import {Item, Event, Task, Note} from '../../../collection/Item.js';
+import {Item, Event, Task, Note} from '../../collection/Item.js';
 
 var Calendar = function(model, options, date){
   // Default Values
