@@ -28,11 +28,28 @@ export default class LocalStorage {
       this.entries.push(data);
       localStorage.setItem("entries", JSON.stringify(this.entries));
     }
+    /**
+	 * @function create pushes new data into correct array (collection)
+     * and sets the updated array in Local Storage
+     * @param data entry object 
+     * @return token
+	 */
+    create(data) {
+        data.token = this.token;
 
-    // else add to custom array
-    else {
-      this.custom.push(data);
-      localStorage.setItem("custom", JSON.stringify(this.custom));
+        // add to entries array if addToCustom attribute is set to "false"
+        if (data.addToCustom === "false") {
+            this.entries.push(data);
+            localStorage.setItem('entries', JSON.stringify(this.entries));
+        }
+
+        // else add to custom array 
+        else {
+            this.custom.push(data);
+            localStorage.setItem('custom', JSON.stringify(this.custom));
+        }
+
+        return data.token;
     }
   }
 

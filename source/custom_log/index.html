@@ -25,7 +25,7 @@
             </div>
 
             <ul class="list-unstyled components">
-                <p><a href="#RAPID LOG"><img src="home.png" alt="Home Icon"> Index</a></p>
+                <p><a href="#RAPID LOG"><img src="../home.png" alt="Home Icon"> Index</a></p>
                 <li>
                     <a href="../rapid_log/index.html">Rapid Log</a>
                 </li>
@@ -53,7 +53,7 @@
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Custom Logs</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
-                            <img src="create.png" alt="Create Icon"><button id="custom_add"> New Log</button>
+                            <img src="../create.png" alt="Create Icon"><button id="custom_add"> New Log</button>
                         </li>
                     </ul>
                 </li>
@@ -81,7 +81,7 @@
                         <ul class="noteUl" id="noteUl">
                             
                         </ul>
-                        <li  style="list-style: none;"><button id="newitem"><i class="fas fa-plus" style="margin-right: 10px;"></i>New Note</button></li>
+                        <li  style="list-style: none;"><button id="newitem" class="addButton"><i class="fas fa-plus" style="margin-right: 10px;"></i>New Note</button></li>
                     </div>
         
                     <div class="popup" id="popup-3" hidden>
@@ -115,7 +115,39 @@
                 </div>
             </div>
         </div>
-
+        <template id="subnote">
+            <li class="noteLi">
+                <div class="liMainWrap">
+                    <h3></h3>
+                    <p>-</p>
+                    <ul class="mouseover">
+                        <li>
+                        <span class="ellips"><i class="fas fa-ellipsis-h"></i></span>
+                            <ul>
+                                <div class="deleteOption optionSelect noteDelete" id='none'><span style="padding:0 !important">delete</span><i class="fas fa-trash"></i></div>
+                                <div class="editOption optionSelect" id="editBtn"><span style="padding:0 !important">edit</span><i class="fas fa-pen"></i></div>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </template>
+        <template id="note">
+            <li class="noteLi">
+                <div class="liMainWrap">
+                    <h3></h3>
+                    <ul class="mouseover">
+                        <li>
+                        <span class="ellips"><i class="fas fa-ellipsis-h"></i></span>
+                            <ul>
+                                <div class="deleteOption optionSelect noteDelete" id='none' ><span style="padding:0 !important">delete</span><i class="fas fa-trash"></i></div>
+                                <div class="editOption optionSelect" id="editBtn"><span style="padding:0 !important">edit</span><i class="fas fa-pen"></i></div>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </template>
 
 <!-- jQuery CDN - Slim version (=without AJAX) -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -126,9 +158,9 @@
 <!-- jQuery Custom Scroller CDN -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
-<script src="../../../collection/LocalStorage.js" type="module"></script>
-<script src="../../../collection/Item.js" type="module"></script>
-<script src="../../../collection/Entry.js" type="module"></script>   
+<script src="../collection/LocalStorage.js" type="module"></script>
+<script src="../collection/Item.js" type="module"></script>
+<script src="../collection/Entry.js" type="module"></script>   
     
 <script src="script.js" type="module"></script>
 

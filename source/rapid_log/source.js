@@ -1,3 +1,6 @@
+import {Item, Event, Task, Note} from '../collection/Item.js';
+import LocalStorage from '../collection/LocalStorage.js';
+
 $('#sidebar, #content').addClass('active');
 $('#sidebarIcon').addClass('active');
 
@@ -33,189 +36,460 @@ $(document).ready(function () {
     });
 });
 
-
-function togglePopup1(){
-    document.getElementById("popup-1").classList.toggle("active");
-}
-function togglePopup2(){
-    document.getElementById("popup-2").classList.toggle("active");
-}
-function togglePopup3(){
-    document.getElementById("popup-3").classList.toggle("active");
-}
-
-let addBtn1 = document.querySelector('.addBtn1');
-showNotes();
-addBtn1.addEventListener('click', function (e) {
-    let addText = document.querySelector('#taskInput');
-    let notes = localStorage.getItem('notes');
-    if (notes == null) {
-        notesObj = []
-    }
-    else {
-        notesObj = JSON.parse(notes)
-    }
-    notesObj.push(addText.value);
-    localStorage.setItem('notes', JSON.stringify(notesObj))
-    addText.value = '';
-    console.log(notesObj);
-    showNotes();
-})
-
-function showNotes() {
-    let notes = localStorage.getItem('notes');
-    if (notes == null) {
-        notesObj = []
-    }
-    else {
-        notesObj = JSON.parse(notes)
-    }
-    let html = '';
-    notesObj.forEach(function (element, index) {
-        html +=  `<li class="taskLi">${element} <div class="deleteOption" id='${index}' onclick='deleteNote(this.id)'><i class="fas fa-minus-circle"></i></div></li>`;
-    });
-    let notesElm = document.getElementById('taskUl');
-    if(notesObj.length != 0){
-        notesElm.innerHTML = html+`<li onclick="togglePopup1()" style="list-style: none;"><span><i class="fas fa-plus" style="margin-right: 10px;"></i>New Item</span></li>`;
-    }
-    else {
-        notesElm.innerHTML = `<li onclick="togglePopup1()" style="list-style: none;"><span><i class="fas fa-plus" style="margin-right: 10px;"></i>New Item</span></li>`
-    }
-}
-function deleteNote(index){
-    console.log('this is del', index);
-    let notes = localStorage.getItem('notes');
-    if (notes == null) {
-        notesObj = []
-    }
-    else {
-        notesObj = JSON.parse(notes)
-    }
-    notesObj.splice(index, 1);
-    localStorage.setItem('notes', JSON.stringify(notesObj));
-    showNotes();
-}
-
-
-
-
-let addBtn2 = document.querySelector('.addBtn2');
-showTodos();
-addBtn2.addEventListener('click', function (e) {
-    let addText2 = document.querySelector('#eventInput');
-    let todos = localStorage.getItem('todos');
-    if (todos == null) {
-        todosObj = []
-    }
-    else {
-        todosObj = JSON.parse(todos)
-    }
-    todosObj.push(addText2.value);
-    localStorage.setItem('todos', JSON.stringify(todosObj))
-    addText2.value = '';
-    console.log(todosObj);
-    showTodos();
-})
-
-function showTodos() {
-    let todos = localStorage.getItem('todos');
-    if (todos == null) {
-        todosObj = []
-    }
-    else {
-        todosObj = JSON.parse(todos)
-    }
-    let html2 = '';
-    todosObj.forEach(function (element2, index) {
-        html2 +=  `<li class="eventLi">${element2} <div class="deleteOption" id='${index}' onclick='deleteTodos(this.id)'><i class="fas fa-minus-circle"></i></div></li>`;
-    });
-    let todosElm = document.getElementById('eventUl');
-    if(todosObj.length != 0){
-        todosElm.innerHTML = html2+`<li onclick="togglePopup2()" style="list-style: none;"><span><i class="fas fa-plus" style="margin-right: 10px;"></i>New Item</span></li>`;
-    }
-    else {
-        todosElm.innerHTML = `<li onclick="togglePopup2()" style="list-style: none;"><span><i class="fas fa-plus" style="margin-right: 10px;"></i>New Item</span></li>`
-    }
-}
-function deleteTodos(index){
-    console.log('this is del', index);
-    let todos = localStorage.getItem('todos');
-    if (todos == null) {
-        todosObj = []
-    }
-    else {
-        todosObj = JSON.parse(todos)
-    }
-    todosObj.splice(index, 1);
-    localStorage.setItem('todos', JSON.stringify(todosObj));
-    showTodos();
-}
-
-
-
-
-
-let addBtn3 = document.querySelector('.addBtn3');
-showNewtodo();
-addBtn3.addEventListener('click', function (e) {
-    let addText3 = document.querySelector('#noteInput');
-    let newtodo = localStorage.getItem('newtodo');
-    if (newtodo == null) {
-        newtodoObj = []
-    }
-    else {
-        newtodoObj = JSON.parse(newtodo)
-    }
-    newtodoObj.push(addText3.value);
-    localStorage.setItem('newtodo', JSON.stringify(newtodoObj))
-    addText3.value = '';
-    console.log(newtodoObj);
-    showNewtodo();
-})
-
-function showNewtodo() {
-    let newtodo = localStorage.getItem('newtodo');
-    if (newtodo == null) {
-        newtodoObj = []
-    }
-    else {
-        newtodoObj = JSON.parse(newtodo)
-    }
-    let html3 = '';
-    newtodoObj.forEach(function (element3, index) {
-        html3 +=   `<li class="noteLi">${element3} <div class="deleteOption noteDelete" id='${index}' onclick='deleteNewtodo(this.id)'><i class="fas fa-minus-circle"></i></div></li>`;
-    });
-    let newtodoElm = document.getElementById('noteUl');
-    if(newtodoObj.length != 0){
-        newtodoElm.innerHTML = html3+`<li onclick="togglePopup3()" style="list-style: none;"><span><i class="fas fa-plus" style="margin-right: 10px;"></i>New Item</span></li>`;
-    }
-    else {
-        newtodoElm.innerHTML = `<li onclick="togglePopup3()" style="list-style: none;"><span><i class="fas fa-plus" style="margin-right: 10px;"></i>New Item</span></li>`
-    }
-}
-function deleteNewtodo(index){
-    console.log('this is del', index);
-    let newtodo = localStorage.getItem('newtodo');
-    if (newtodo == null) {
-        newtodoObj = []
-    }
-    else {
-        newtodoObj = JSON.parse(newtodo)
-    }
-    newtodoObj.splice(index, 1);
-    localStorage.setItem('newtodo', JSON.stringify(newtodoObj));
-    showNewtodo();
-}
-
-
-
-
-const dateMeta = document.getElementById("date");
-const today = new Date();
+// CURRENT DATE
+let dateMeta = document.getElementById("date");
+let today = new Date();
+let dateString = today.toLocaleDateString("en-US");
 // const options = {weekday : "long", month:"short", day:"numeric"};
-dateMeta.innerHTML = today.toLocaleDateString("en-US")
+dateMeta.innerHTML = dateString;
+
+let storage = new LocalStorage(); // create new instance of local storage
+let entries = storage.entries; // get list of entries 
+
+// POPUP TEMPLATE FOR DELETE
+const Confirm = {
+    open (options) {
+        options = Object.assign({}, {
+            title: '',
+            message: '',
+            okText: 'Confirm',
+            cancelText: 'Cancel',
+            onok: function () {},
+            oncancel: function () {}
+        }, options);
+        
+        const html = `
+            <div class="confirm">
+                <div class="confirm__window">
+                    <div class="confirm__titlebar">
+                        <span class="confirm__title">${options.title}</span>
+                    </div>
+                    <div class="confirm__content">${options.message}</div>
+                    <div class="confirm__buttons">
+                        <button class="confirm__button confirm__button--cancel">${options.cancelText}</button>
+                        <button class="confirm__button confirm__button--ok confirm__button--fill">${options.okText}</button>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        const template = document.createElement('template');
+        template.innerHTML = html;
+
+        // Elements
+        const confirmEl = template.content.querySelector('.confirm');
+        const btnOk = template.content.querySelector('.confirm__button--ok');
+        const btnCancel = template.content.querySelector('.confirm__button--cancel');
+
+        confirmEl.addEventListener('click', e => {
+            if (e.target === confirmEl) {
+                options.oncancel();
+                this._close(confirmEl);
+            }
+        });
+
+        btnOk.addEventListener('click', () => {
+            options.onok();
+            this._close(confirmEl);
+        });
+
+        [btnCancel].forEach(el => {
+            el.addEventListener('click', () => {
+                options.oncancel();
+                this._close(confirmEl);
+            });
+        });
+
+        document.body.appendChild(template.content);
+    },
+
+    _close (confirmEl) {
+        confirmEl.classList.add('confirm--close');
+
+        confirmEl.addEventListener('animationend', () => {
+            document.body.removeChild(confirmEl);
+        });
+    }
+};
 
 
+// TOGGLE POPUPS
+// function togglePopup1(){
+//     document.getElementById("popup-1").classList.toggle("active");
+// }
+// function togglePopup2(){
+//     document.getElementById("popup-2").classList.toggle("active");
+// }
+// function togglePopup3(){
+//     document.getElementById("popup-3").classList.toggle("active");
+// }
+
+let addTaskPopup = document.getElementById("popup-1");
+let addEventPopup = document.getElementById("popup-2");
+let addNotePopup = document.getElementById("popup-3");
+
+let newTaskBtn = document.getElementById("newTask");
+let newEventBtn = document.getElementById("newEvent");
+let newNoteBtn = document.getElementById("newNote");
+
+// open new task popup
+newTaskBtn.onclick = function() {
+    console.log('new task clicked');
+    addTaskPopup.style.display = "block";
+    addTaskPopup.classList.toggle("active");
+}
+
+// open new event popup
+newEventBtn.onclick = function() {
+    console.log('new event clicked');
+    addEventPopup.style.display = "block";
+    addEventPopup.classList.toggle("active");
+}
+
+// open new note popup
+newNoteBtn.onclick = function() {
+    console.log('new note clicked');
+    addNotePopup.style.display = "block";
+    addNotePopup.classList.toggle("active");
+}
+
+let popups = document.getElementsByClassName('popup1');
+
+Array.from(popups).forEach((popup) => {
+    let cancelBtn = popup.querySelector('.close-btn');
+
+    cancelBtn.onclick = function() {
+        // document.getElementById('description3').value='';
+        // document.getElementById('subText').value='';
+        // subSection.hidden = true;
+        // subButton.hidden = false;
+        console.log('cancel button clicked');
+        popup.style.display = 'none';
+        popup.classList.toggle("active");
+    }
+})
+
+// TASKS
+let saveTaskBtn = document.querySelector('.addBtn1');
+// showEntries("task");
+saveTaskBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    console.log('save task clicked');
+
+    let taskTitle = document.querySelector('#taskInput').value;
+    let taskDesc = document.querySelector("#description1").value;
+    let taskDate = document.querySelector("#date1").value;
+    // let deadlineTime = document.querySelector("timeInput1").value;
+
+    // create main item with input values of text and deadline
+    let mainItem = new Task(taskTitle, '', taskDate);
+
+    // create new entry element
+    let newEntry = document.createElement('journal-entry');
+    newEntry.setAttribute('dateMade', dateString);
+    newEntry.setAttribute('timeMade', "");
+    newEntry.setAttribute('dateSet', dateString);
+    newEntry.setAttribute('inCustom', false);
+    newEntry.setAttribute('inFuture', false);
+    newEntry.setAttribute('futureMonth', "");
+    newEntry.setAttribute('startTime', "");
+    newEntry.setAttribute('endTime', "");
+    newEntry.setAttribute('taskTime', "");
+    newEntry.setAttribute('customName', "");
+    newEntry.mainItem = mainItem;
+    
+    // if add subitem was selected, add sub item attribute to new entry
+    let subItem;
+    // if(subSection.hidden === false){
+    //     subItem = new Note(subnote.value, '');
+    //     newEntry.subItem = subItem;
+    // }
+
+    const data = {
+        main: mainItem,
+        sub: subItem,
+        date: newEntry.getAttribute('dateMade'),
+        time: newEntry.getAttribute('timeMade'),
+        dateSet: newEntry.getAttribute('dateSet'),
+        addToCustom: newEntry.getAttribute('inCustom'),
+        addToFuture: newEntry.getAttribute('inFuture'),
+        futureMonth: newEntry.getAttribute('futureMonth'),
+        startTime: newEntry.getAttribute('startTime'),
+        endTime: newEntry.getAttribute('endTime'),
+        taskTime: newEntry.getAttribute('taskTime'),
+        customName: newEntry.getAttribute('customName')
+    };
+
+    storage.create(data);
+
+    showEntries(data);
+
+    // return to default state
+    addTaskPopup.style.display = 'none';
+    addTaskPopup.classList.toggle("active");
+
+    document.querySelector('#taskInput').value = '';
+    document.querySelector("#description1").value = '';
+    document.querySelector("#date1").value = '';
+});
+
+
+// EVENTS
+let saveEventBtn = document.querySelector('.addBtn2');
+// showEntries("event");
+saveEventBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    console.log('save event clicked');
+
+    let eventTitle = document.querySelector('#eventInput').value;
+    let eventDesc = document.querySelector('#description2').value;
+    let eventDate = document.querySelector("#date2").value;
+
+    // create main item with input values of text and deadline
+    let mainItem = new Event('', '', eventTitle, eventDate);
+
+    // create new entry element
+    let newEntry = document.createElement('journal-entry');
+    newEntry.setAttribute('dateMade', dateString);
+    newEntry.setAttribute('timeMade', "");
+    newEntry.setAttribute('dateSet', dateString);
+    newEntry.setAttribute('inCustom', false);
+    newEntry.setAttribute('inFuture', false);
+    newEntry.setAttribute('futureMonth', "");
+    newEntry.setAttribute('startTime', "");
+    newEntry.setAttribute('endTime', "");
+    newEntry.setAttribute('taskTime', "");
+    newEntry.setAttribute('customName', "");
+    newEntry.mainItem = mainItem;
+    
+    // if add subitem was selected, add sub item attribute to new entry
+    let subItem;
+    // if(subSection.hidden === false){
+    //     subItem = new Note(subnote.value, '');
+    //     newEntry.subItem = subItem;
+    // }
+
+    const data = {
+        main: mainItem,
+        sub: subItem,
+        date: newEntry.getAttribute('dateMade'),
+        time: newEntry.getAttribute('timeMade'),
+        dateSet: newEntry.getAttribute('dateSet'),
+        addToCustom: newEntry.getAttribute('inCustom'),
+        addToFuture: newEntry.getAttribute('inFuture'),
+        futureMonth: newEntry.getAttribute('futureMonth'),
+        startTime: newEntry.getAttribute('startTime'),
+        endTime: newEntry.getAttribute('endTime'),
+        taskTime: newEntry.getAttribute('taskTime'),
+        customName: newEntry.getAttribute('customName')
+    };
+
+    storage.create(data);
+
+    showEntries(data);
+
+    // return to default state
+    addEventPopup.style.display = 'none';
+    addEventPopup.classList.toggle("active");
+
+    document.querySelector('#eventInput').value = '';
+    document.querySelector("#description2").value = '';
+    document.querySelector("#date2").value = '';
+});
+
+
+// NOTES
+let saveNoteBtn = document.querySelector('.addBtn3');
+// showEntries("note");
+saveNoteBtn.addEventListener('click', function(e) {
+    let noteTitle = document.querySelector('#noteInput').value;
+    let noteDesc = document.querySelector('#description3').value;
+
+    // create main item with input values of text and deadline
+    let mainItem = new Note(noteTitle, '');
+
+    // create new entry element
+    let newEntry = document.createElement('journal-entry');
+    newEntry.setAttribute('dateMade', dateString);
+    newEntry.setAttribute('timeMade', "");
+    newEntry.setAttribute('dateSet', dateString);
+    newEntry.setAttribute('inCustom', false);
+    newEntry.setAttribute('inFuture', false);
+    newEntry.setAttribute('futureMonth', "");
+    newEntry.setAttribute('startTime', "");
+    newEntry.setAttribute('endTime', "");
+    newEntry.setAttribute('taskTime', "");
+    newEntry.setAttribute('customName', "");
+    newEntry.mainItem = mainItem;
+    
+    // if add subitem was selected, add sub item attribute to new entry
+    let subItem;
+    // if(subSection.hidden === false){
+    //     subItem = new Note(subnote.value, '');
+    //     newEntry.subItem = subItem;
+    // }
+
+    const data = {
+        main: mainItem,
+        sub: subItem,
+        date: newEntry.getAttribute('dateMade'),
+        time: newEntry.getAttribute('timeMade'),
+        dateSet: newEntry.getAttribute('dateSet'),
+        addToCustom: newEntry.getAttribute('inCustom'),
+        addToFuture: newEntry.getAttribute('inFuture'),
+        futureMonth: newEntry.getAttribute('futureMonth'),
+        startTime: newEntry.getAttribute('startTime'),
+        endTime: newEntry.getAttribute('endTime'),
+        taskTime: newEntry.getAttribute('taskTime'),
+        customName: newEntry.getAttribute('customName')
+    };
+
+    storage.create(data);
+
+    showEntries(data);
+
+    // return to default state
+    addNotePopup.style.display = 'none';
+    addNotePopup.classList.toggle("active");
+
+    document.querySelector('#noteInput').value = '';
+    document.querySelector("#description3").value = '';
+})
+
+// entry template
+var html = '';
+// SHOW ENTRIES IN RESPECTIVE SECTION
+function showEntries(data) {
+    let listType, itemType, itemClass, titleType, entryTitle;
+    console.log(data.token);
+
+    // show tasks
+    if (data.main.type === "task") {
+        itemType = '.taskLi';
+        listType = '.taskUl';
+        itemClass = '#task';
+        titleType = '.taskTitle';
+        entryTitle = data.main.text;
+    }
+    // show events
+    if (data.main.type === "event") {
+        itemType = '.eventLi';
+        listType = '.eventUl';
+        itemClass = '#event';
+        titleType = '.eventTitle';
+        entryTitle = data.main.title;
+    }
+    // show notes
+    if (data.main.type === "note") {
+        itemType = '.noteLi';
+        listType = '.noteUl';
+        itemClass = '#note';
+        titleType = '.noteTitle';
+        entryTitle = data.main.text;
+    }
+
+    console.log(dateString);
+    // if it belongs to the current date
+    console.log(dateMeta.innerHTML);
+
+    let container = document.querySelector(listType);
+    // console.log(container);
+    let template = document.querySelector(itemClass);
+    // console.log(template);
+    let clone = template.content.cloneNode(true);
+    let task = clone.querySelector(itemType);
+    let title = clone.querySelector(titleType);
+    // console.log(title);
+
+    // console.log(entryTitle);
+    title.innerHTML = entryTitle;
+
+    let deleteBtn = clone.querySelector('.deleteOption');
+    let editBtn = clone.querySelector('.editOption');
+
+    deleteBtn.addEventListener('click', () => {
+        storage.delete(data);
+        // deleteEntry(data);
+        task.remove();
+    });
+
+    editBtn.addEventListener('click', () => {
+        console.log('edit button');
+        editEntry(data);
+    })
+
+    console.log(typeof data.dateSet);
+    console.log(typeof dateString);
+    if (data.dateSet === dateString) {
+        // title.innerHTML = entryTitle;
+        container.appendChild(clone);
+    };
+    
+};
+
+// DELETE POPUP 
+function deleteEntry(data){
+    Confirm.open({
+        title: `<i class="fas fa-info-circle"></i>`,
+        message: `<h3>Are you sure you want to delete this entry?</h3><p>You can't undo this action</p>`,
+        onok: () => {
+            console.log('this is del', data);
+
+            storage.delete(data);
+        }
+    });
+}
+
+//Adds custom log names and URLs to sidebar
+let cusNames = storage.cusNames;
+
+function updateNavbarLogs(cusNames) {
+    let navBar_Logs = document.getElementById("pageSubmenu");
+    navBar_Logs.innerHTML = "";
+    cusNames.forEach((log) => {
+        let li = document.createElement("li");
+        li.innerHTML = "<a href='../custom_log/index.html#" + log + "'>" + log + "</a>"
+        navBar_Logs.appendChild(li);
+    });
+
+    let li = document.createElement("li");
+    li.innerHTML = "<img src='../create.png' alt='Create Icon'><button id='custom_add'>New Log</button>"
+    navBar_Logs.appendChild(li);
+}
+
+updateNavbarLogs(cusNames);
+
+
+$(window).on('hashchange',function(){ 
+    window.location.reload(true); 
+});
+
+let addCustom = document.getElementById("new-custom");
+let addCustomButton = document.getElementById("custom_add");
+let addCustomCancel = document.getElementById("custom_cancel");
+let addCustomAccept = document.getElementById("custom_save");
+
+addCustomButton.onclick = function(){
+    addCustom.hidden = false;
+}
+
+addCustomCancel.onclick = function() {
+    document.getElementById('custom_name').value='';
+    addCustom.hidden = true;
+}
+
+addCustomAccept.onclick = function() {
+    storage.createLog(document.getElementById('custom_name').value);
+    addCustom.hidden = true;
+
+    updateNavbarLogs(storage.cusNames);
+
+    document.getElementById('custom_name').value='';
+    addCustomButton = document.getElementById("custom_add");
+    addCustomButton.onclick = function(){
+        addCustom.hidden = false;
+    }
+}
 
 
 

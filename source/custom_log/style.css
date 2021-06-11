@@ -312,6 +312,12 @@ li.noteLi:last-child {
   align-items: center;
   justify-content: center;
 }
+.addButton {
+  border-style : none;
+  outline : none;
+}
+
+
 .mainInpWrapper {
   display: flex;
   align-items: start;

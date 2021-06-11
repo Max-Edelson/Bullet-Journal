@@ -1,3 +1,5 @@
+import {Item, Event, Task, Note} from '../../../collection/Item.js';
+
 var Calendar = function(model, options, date){
   // Default Values
   this.Options = {
@@ -37,6 +39,9 @@ var Calendar = function(model, options, date){
   if(this.Selected.Month==0){this.Prev = new Date(this.Selected.Year-1, 11, 1);}
   this.Prev.Days = new Date(this.Prev.getFullYear(), (this.Prev.getMonth() + 1), 0).getDate();
 };
+
+//day selected by user when a day is clicked
+let inputDay;
 
 function createCalendar(calendar, element, adjuster){
   if(typeof adjuster !== 'undefined'){
@@ -161,9 +166,6 @@ function createCalendar(calendar, element, adjuster){
     mainSection.appendChild(labels);
   }
 
-  //day selected by user when a day is clicked
-  let inputDay;
-
   function AddDays(){
     // Create Number Element
     function DayNumber(n){
@@ -200,8 +202,8 @@ function createCalendar(calendar, element, adjuster){
         //show input popup
         let popup = document.querySelector('.popup');
         popup.hidden = false;
-        let dayNum = day.childNodes[0];
-        inputDay = new Day(parseInt(dayNum.innerHTML), calendar.Selected.Month, calendar.Selected.Year);
+        //TODO cant find day number of clicked day
+        inputDay = new Date(calendar.Selected.Year, calendar.Selected.Month, i);
       });
       //Disabled Days
       var d = (i + calendar.Selected.FirstDay)%7;
@@ -329,12 +331,9 @@ document.querySelector('#task_button').addEventListener('click', () => {
 });
 
 let cancelButtonList = document.getElementsByClassName('cancel_button');
-for(cancelButton of cancelButtonList){
+for(const cancelButton of cancelButtonList){
   cancelButton.addEventListener('click', () => {
-    let popups = document.getElementsByClassName('popup');
-    for(popupItem of popups){
-      popupItem.hidden = true;
-    }
+    makePopupsDisappear();
   });
 }
 
@@ -344,10 +343,28 @@ document.querySelector('#save_event').addEventListener('click', () => {
   let startTimeInput = document.querySelector('#eventStartTime').value;
   let endTimeInput = document.querySelector('#eventEndTime').value;
   let descriptionInput = document.querySelector('#eventDescription').value;
+
+  let newEvent = new Event(descriptionInput, '', titleInput, dateInput, startTimeInput);
+  let newEntry = document.createElement('journal-entry');
+  newEntry.mainItem = newEvent;
+  newEntry.date = inputDay;
+  events.push(createCalendarEntry(newEntry));
+  location.reload();
+
+  makePopupsDisappear();
 });
 
 document.querySelector('#save_note').addEventListener('click', () =>{
   let descriptionInput = document.querySelector('#noteDescription').value;
+
+  let newNote = new Note(descriptionInput, '');
+  let newEntry = document.createElement('journal-entry');
+  newEntry.mainItem = newNote;
+  newEntry.date = inputDay;
+  events.push(createCalendarEntry(newEntry));
+  console.log(events);
+
+  makePopupsDisappear();
 });
 
 document.querySelector('#save_task').addEventListener('click', () =>{
@@ -355,9 +372,49 @@ document.querySelector('#save_task').addEventListener('click', () =>{
   let checkInput = document.querySelector('#taskCheck').value;
   let timeInput = document.querySelector('#taskTime').value;
   let descriptionInput = document.querySelector('#taskDescription').value;
+
+  let completed;
+  if(checkInput = 'on'){
+    completed = true;
+  } else{
+    completed = false;
+  }
+  let newTask = new Task(descriptionInput, '', deadlineInput, completed);
+  let newEntry = document.createElement('journal-entry');
+  newEntry.mainItem = newTask;
+  newEntry.date = inputDay;
+  events.push(createCalendarEntry(newEntry));
+
+  makePopupsDisappear();
 });
 
 function caleandar(el, data, settings){
   var obj = new Calendar(data, settings);
   createCalendar(obj, el);
 }
+
+function makePopupsDisappear(){
+  let popups = document.getElementsByClassName('popup');
+    for(const popupItem of popups){
+      popupItem.hidden = true;
+    }
+}
+
+/**
+ * @function createCalendarEntry creates an object to insert into calendar based on context of entry
+ * @param entry journal-entry element that holds the item 
+ * @returns object that is used by caleandar.js to insert into the calendar
+ */
+ let createCalendarEntry = function(entry){
+  return {'Date': entry.date, 'Title': entry.main.text};
+};
+
+var events = [
+  //{'Date': new Date(2021, 5, 10), 'Title': 'Doctor appointment at 3:25pm.'}, createCalendarEntry(newEntry)
+];
+
+var settings = {};
+var element = document.getElementById('caleandar');
+caleandar(element, events, settings);
+
+export {caleandar};

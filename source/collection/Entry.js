@@ -43,11 +43,12 @@ class Entry extends HTMLElement {
             align-items: center;
             }
             
-            .entry .main-item .sub-item .sub-section {
+            .entry .main-item {
             vertical-align: baseline;
             float: left;
             font-size: min(1.75rem, 1.5vw);
             margin: 0;
+            color: #fff;
             }
             
             .entry button {
@@ -64,9 +65,6 @@ class Entry extends HTMLElement {
 
             <div class="main-section">
                 <p class="main-item"></p>
-            </div>
-            <div class="sub-section">
-                <p class="sub-item"></p>
             </div>
             <button>...</button>
         </div>
@@ -108,36 +106,59 @@ class Entry extends HTMLElement {
 
     this.main = mainItem;
 
-    const mainText = this.shadowRoot.querySelector(".main-item");
+        let mainText = this.shadowRoot.querySelector('.main-item');
+        
+        if (mainItem instanceof Event || mainItem.type == "event"){
+            mainText.textContent = mainItem.title
+            if (mainItem.date != '') {
+                mainText.textContent += ' • ' + mainItem.date;
+            }
+            if (mainItem.startTime != '') {
+                mainText.textContent += ' • ' + mainItem.startTime;
+            }
+            if (mainItem.endTime != '') {
+                mainText.textContent += '-' + mainItem.endTime;
+            }
 
-    if (mainItem instanceof Event || mainItem.type == "event") {
-      mainText.textContent =
-        mainItem.title + "/// " + mainItem.date + ": " + mainItem.text;
-    } else if (mainItem instanceof Task || mainItem.type == "task") {
-      mainText.textContent =
-        mainItem.text + "/// Deadline: " + mainItem.deadline;
-    } else {
-      mainText.textContent = mainItem.text;
+        }
+
+        else if (mainItem instanceof Task || mainItem.type == "task"){
+            mainText.textContent = mainItem.text
+            if (mainItem.deadline != '') {
+                mainText.textContent += ' • Deadline: ' + mainItem.deadline;
+            }
+            if ((mainItem.taskTime != '')) {
+                mainText.textContent += ' • ' + mainItem.taskTime;
+            }
+        }
+        
+        else{
+            mainText.textContent = mainItem.text;
+        }
     }
   }
+    /**
+     * setter method that runs when subItem attribute is changed
+     * adds all the content of the item to the entry custom element
+     * @param subItem item object that will server as the sub item
+     * @method setter method for the sub-item
+     */
+     set subItem(subItem){
+        this.sub = subItem;
+        let subText = this.shadowRoot.querySelector('.sub-item');
+        
+        /*
+        if (subItem instanceof Event || subItem.type == "event"){
+            subText.textContent = subItem.title + '/// ' + subItem.date + ': ' + subItem.text;
+        }
 
-  /**
-   * setter method that runs when subItem attribute is changed
-   * adds all the content of the item to the entry custom element
-   * @param subItem item object that will server as the sub item
-   * @method setter method for the sub-item
-   */
-  set subItem(subItem) {
-    this.sub = subItem;
-    const subText = this.shadowRoot.querySelector(".sub-item");
-
-    if (subItem instanceof Event || subItem.type == "event") {
-      subText.textContent =
-        subItem.title + "/// " + subItem.date + ": " + subItem.text;
-    } else if (subItem instanceof Task || subItem.type == "task") {
-      subText.textContent = subItem.text + "/// Deadline: " + subItem.deadline;
-    } else {
-      subText.textContent = subItem.text;
+        else if (subItem instanceof Task || subItem.type == "task"){
+            subText.textContent = subItem.text + '/// Deadline: ' + subItem.deadline;
+        }
+        else{
+            subText.textContent = subItem.text;
+        }
+        */
     }
   }
 }
