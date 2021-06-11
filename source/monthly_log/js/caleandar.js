@@ -2,7 +2,7 @@ import {Item, Event, Task, Note} from '../../collection/Item.js';
 import LocalStorage from '../../../source/collection/LocalStorage.js';
 
 let storage = new LocalStorage();
-let entries = storage.entries; 
+let entries = storage.entries;
 
 var Calendar = function(model, options, date){
   // Default Values
@@ -202,14 +202,6 @@ function createCalendar(calendar, element, adjuster){
     for(var i = 0; i < calendar.Selected.Days; i++){
       var day = document.createElement('li');
       day.className += "cld-day currMonth";
-      day.addEventListener('click', () => {
-        //show input popup
-        let popup = document.querySelector('.popup');
-        popup.hidden = false;
-        //TODO cant find day number of clicked day
-        inputDay = new Date(calendar.Selected.Year, calendar.Selected.Month, i);
-        console.log(inputDay);
-      });
       //Disabled Days
       var d = (i + calendar.Selected.FirstDay)%7;
       for(var q = 0; q < calendar.Options.DisabledDays.length; q++){
@@ -274,12 +266,6 @@ function createCalendar(calendar, element, adjuster){
 
     for(var i = 0; i < (extraDays - calendar.Selected.LastDay); i++){
       var day = document.createElement('li');
-      day.addEventListener('click', () => {
-        //show input popup
-        let popup = document.querySelector('.popup');
-        popup.hidden = false;
-        
-      });
       day.className += "cld-day nextMonth";
       //Disabled Days
       var d = (i + calendar.Selected.LastDay + 1)%7;
@@ -312,6 +298,7 @@ function createCalendar(calendar, element, adjuster){
   }
   AddLabels();
   AddDays();
+  showEntries(calendar);
 }
 
 document.querySelector('#note_button').addEventListener('click', () => {
@@ -349,10 +336,12 @@ document.querySelector('#save_event').addEventListener('click', () => {
   let startTimeInput = document.querySelector('#eventStartTime').value;
   let endTimeInput = document.querySelector('#eventEndTime').value;
   let descriptionInput = document.querySelector('#eventDescription').value;
+  
+  let newDate = new Date(); 
 
   let newEvent = new Event(descriptionInput, '', titleInput, dateInput, startTimeInput, endTimeInput);
   let newEntry = document.createElement('journal-entry');
-  newEntry.setAttribute('dateMade', inputDay.toLocaleDateString("en-US"));
+  newEntry.setAttribute('dateMade', newDate.toLocaleDateString("en-US"));
   newEntry.setAttribute('timeMade', '');
   newEntry.setAttribute('dateSet', eventDate.value);
   newEntry.setAttribute('inCustom', false);
@@ -362,10 +351,11 @@ document.querySelector('#save_event').addEventListener('click', () => {
   newEntry.setAttribute('endTime', endTimeInput.value);
   newEntry.setAttribute('taskTime', '');
 
-  console.log(inputDay.toLocaleDateString("en-US"));
+  //console.log(newDate.toLocaleDateString("en-US"));
 
   newEntry.mainItem = newEvent;
-  newEntry.date = inputDay;
+  // newEntry.date = inputDay;
+  newEntry.date = newDate;
   let subItem = null;
 
   const data = {
@@ -384,36 +374,94 @@ document.querySelector('#save_event').addEventListener('click', () => {
 
   storage.create(data);
 
-  let singleDay = inputDay.getDay();
+  let singleDay = newDate.getDate();
+  //console.log(singleDay);
+  let entry = document.createElement('span');
+  entry.className += " cld-title";
+  entry.innerHTML = `${data.main.title}<a>${data.main.text}</a>`
+
   let appendDays = document.querySelectorAll(".cld-day.currMonth");
-  appendDays[singleDay-1].appendChild(newEntry);
+  appendDays[singleDay-1].appendChild(entry);
   
   
     
   //events.push(createCalendarEntry(newEntry));
   //location.reload();
-
+  //console.log(newDate);
   makePopupsDisappear();
 });
 
 document.querySelector('#save_note').addEventListener('click', () =>{
   let descriptionInput = document.querySelector('#noteDescription').value;
 
+  let newDate = new Date();
+
   let newNote = new Note(descriptionInput, '');
   let newEntry = document.createElement('journal-entry');
+  newEntry.setAttribute('dateMade', newDate.toLocaleDateString("en-US"));
+  newEntry.setAttribute('timeMade', '');
+  newEntry.setAttribute('dateSet', eventDate.value);
+  newEntry.setAttribute('inCustom', false);
+  newEntry.setAttribute('inFuture', true);
+  newEntry.setAttribute('futureMonth', '');
+  newEntry.setAttribute('startTime', '');
+  newEntry.setAttribute('endTime', '');
+  newEntry.setAttribute('taskTime', '');
+
   newEntry.mainItem = newNote;
-  newEntry.date = inputDay;
-  events.push(createCalendarEntry(newEntry));
-  console.log(events);
+  // newEntry.date = inputDay;
+  newEntry.date = newDate;
+
+  let subItem = null;
+
+  const data = {
+    main: newNote,
+    sub: subItem,
+    date: newEntry.getAttribute('dateMade'),
+    time: newEntry.getAttribute('timeMade'),
+    dateSet: newEntry.getAttribute('dateSet'),
+    addToCustom: newEntry.getAttribute('inCustom'),
+    addToFuture: newEntry.getAttribute('inFuture'),
+    futureMonth: newEntry.getAttribute('futureMonth'),
+    // startTime: newEntry.getAttribute('startTime'),
+    // endTime: newEntry.getAttribute('endTime'),
+    taskTime: newEntry.getAttribute('taskTime')
+  };
+
+  storage.create(data);
+
+  let singleDay = newDate.getDate();
+  //console.log(singleDay);
+  let entry = document.createElement('span');
+  entry.className += " cld-title";
+  entry.innerHTML = `<a>${data.main.text}</a>`
+
+
+  let appendDays = document.querySelectorAll(".cld-day.currMonth");
+  appendDays[singleDay-1].appendChild(entry);
+
+  //console.log(appendDays);
+
+  //events.push(createCalendarEntry(newEntry));
+  //console.log(events);
 
   makePopupsDisappear();
 });
+
+console.log(document.querySelector('#addEntry'));
+  document.querySelector('#addEntry').addEventListener('click', () => {
+    console.log("clicked");
+    let popup = document.querySelector('.popup');
+    popup.hidden = false;
+  });
 
 document.querySelector('#save_task').addEventListener('click', () =>{
   let deadlineInput = document.querySelector('#taskDeadline').value;
   let checkInput = document.querySelector('#taskCheck').value;
   let timeInput = document.querySelector('#taskTime').value;
   let descriptionInput = document.querySelector('#taskDescription').value;
+
+  let newDate = new Date();
 
   let completed;
   if(checkInput = 'on'){
@@ -423,9 +471,49 @@ document.querySelector('#save_task').addEventListener('click', () =>{
   }
   let newTask = new Task(descriptionInput, '', deadlineInput, completed);
   let newEntry = document.createElement('journal-entry');
+  newEntry.setAttribute('dateMade', newDate.toLocaleDateString("en-US"));
+  newEntry.setAttribute('timeMade', '');
+  newEntry.setAttribute('dateSet', eventDate.value);
+  newEntry.setAttribute('inCustom', false);
+  newEntry.setAttribute('inFuture', true);
+  newEntry.setAttribute('futureMonth', '');
+  newEntry.setAttribute('startTime', '');
+  newEntry.setAttribute('endTime', '');
+  newEntry.setAttribute('taskTime', '');
+
   newEntry.mainItem = newTask;
-  newEntry.date = inputDay;
-  events.push(createCalendarEntry(newEntry));
+  // newEntry.date = inputDay;
+  newEntry.date = newDate;
+
+  let subItem = null;
+
+  const data = {
+    main: newTask,
+    sub: subItem,
+    date: newEntry.getAttribute('dateMade'),
+    time: newEntry.getAttribute('timeMade'),
+    dateSet: newEntry.getAttribute('dateSet'),
+    addToCustom: newEntry.getAttribute('inCustom'),
+    addToFuture: newEntry.getAttribute('inFuture'),
+    futureMonth: newEntry.getAttribute('futureMonth'),
+    // startTime: newEntry.getAttribute('startTime'),
+    // endTime: newEntry.getAttribute('endTime'),
+    taskTime: newEntry.getAttribute('taskTime')
+  };
+
+  storage.create(data);
+
+  let singleDay = newDate.getDate();
+  //console.log(singleDay);
+
+  let entry = document.createElement('span');
+  entry.className += " cld-title";
+  entry.innerHTML = `<a>${data.main.text}</a>`
+
+  let appendDays = document.querySelectorAll(".cld-day.currMonth");
+  appendDays[singleDay-1].appendChild(entry);
+
+  //events.push(createCalendarEntry(newEntry));
 
   makePopupsDisappear();
 });
@@ -440,6 +528,25 @@ function makePopupsDisappear(){
     for(const popupItem of popups){
       popupItem.hidden = true;
     }
+}
+
+/**
+ * @function showEntries goes through local storage and displays entries onto calendar
+ */
+let showEntries = function(calendar){
+  entries.forEach((data) => {
+  let entry = document.createElement('span');
+  entry.className += " cld-title";
+  entry.innerHTML = `<a>${data.main.text}</a>`
+  let newDate = new Date(data.date);
+  let singleDay = newDate.getDate();
+  //console.log(newDate.getMonth());
+  if(newDate.getMonth() == calendar.Selected.Month){
+    let appendDays = document.querySelectorAll(".cld-day.currMonth");
+  //console.log(appendDays)
+  appendDays[singleDay-1].appendChild(entry);
+  }
+ });
 }
 
 /**
@@ -458,5 +565,15 @@ var events = [
 var settings = {};
 var element = document.getElementById('caleandar');
 caleandar(element, events, settings);
+
+
+let futureSteps = window.location.hash.substr(1);
+console.log(futureSteps);
+if (parseInt(futureSteps) != NaN) {
+  for (let i = 0; i < parseInt(futureSteps); i++) {
+    document.getElementsByClassName('cld-fwd')[0].click();
+  }
+}
+
 
 export {caleandar};

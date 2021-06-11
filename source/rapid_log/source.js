@@ -491,5 +491,12 @@ addCustomAccept.onclick = function() {
     }
 }
 
+let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+let monthMenu = document.getElementById("homeSubmenu");
+
+Array.from(monthMenu.getElementsByTagName("a")).forEach((link, index) => {
+    link.innerHTML = months[(new Date().getMonth()+index)%12];
+});
 
 
