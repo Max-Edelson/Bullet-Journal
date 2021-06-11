@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Future Log</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3><img src="../logo.png" style="max-width:12%;" alt="Logo">BananaNotes</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <p><a href="../rapid_log/index.html"><img src="../home.png" alt="Home Icon"> Index</a></p>
+                <li>
+                    <a href="../rapid_log/index.html">Rapid Log</a>
+                </li>
+                <li>
+                    <a href="../future_log/index.html">Future Log</a>
+                </li>
+                <li class="active">
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Monthly Logs</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenu">
+                        <li>
+                            <a href="../monthlylog/demo.html">January</a>
+                        </li>
+                        <li>
+                            <a href="../monthlylog/demo.html">February</a>
+                        </li>
+                        <li>
+                            <a href="../monthlylog/demo.html">March</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="../daily_log/index.html">Daily Logs</a>
+                </li>
+                <li>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Custom Logs</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
+                        <li>
+                            <img src="../create.png" alt="Create Icon"><button id="custom_add"> New Log</button>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <div id= "sidebarIcon">
+            <span>&#187;</span>
+        </div>
+        <!-- Page Content  -->
+        <div id="content">
+            <h1>Future Log</h1>
+            <br>
+    
+            <div class = "future_grid">
+                <div class="month_box">
+                    <h2 class="month_header">This Month</h2>
+                    <!-- <div class="entry">
+                        <h3>Loren Ipsum</h3>
+                        <button>...</button>
+                    </div> -->
+                    <div class="add_entries"></div>
+                    <div class="add_button">
+                        <!-- Trigger/Open The Modal -->
+                        <button id="new_item1" type="button">+ New Item</button>
+                
+                    </div>
+                </div>
+                <div class="month_box">
+                    <h2 class="month_header">This Month</h2>
+                    <div class="add_entries"></div>
+                    <div class="add_button">
+                        <button id="new_item2" type="button">+ New Item</button>
+                    </div>
+                </div>
+                <div class="month_box">
+                    <h2 class="month_header">This Month</h2>
+                    <div class="add_entries"></div>
+                    <div class="add_button">
+                        <button id="new_item3" type="button">+ New Item</button>
+                    </div>
+                </div>
+                <div class="month_box">
+                    <h2 class="month_header">This Month</h2>
+                    <div class="add_entries"></div>
+                    <div class="add_button">
+                        <button id="new_item4" type="button">+ New Item</button>
+                    </div>
+                </div>
+                <div class="month_box">
+                    <h2 class="month_header">This Month</h2>
+                    <div class="add_entries"></div>
+                    <div class="add_button">
+                        <button id="new_item5" type="button">+ New Item</button>
+                    </div>
+                </div>
+                <div class="month_box">
+                    <h2 class="month_header">This Month</h2>
+                    <div class="add_entries"></div>
+                    <div class="add_button">
+                        <button id="new_item6" type="button">+ New Item</button>
+                    </div>
+                </div>
+                
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <!-- Form -->
+                        <form id="entry-form">
+                            <div id="main-section">
+                                <!-- choose which type of entry -->
+                                <button type="button" class="note">Create Note</button>
+                                <button type="button" class="event">Create Event</button>
+                                <button type="button" class="task">Create Task</button>
+                                <button type="button" id="subButton">Add sub-item</button> <br>
+
+                                <label id="create-name" for="main-section">Create New Note</label><br>
+                                <!-- Event Input -->
+                                <label hidden for="entry-title" class="event-specific">Title</label><br hidden class="event-specific">
+                                <textarea hidden id="entry-title" name="event" class="event-specific"
+                                    rows="1" cols="33" maxlength="50">Enter title of event</textarea><br hidden class="event-specific">
+                                <label for="entry-date" hidden class="event-specific">Select Date and Time</label><br hidden class="event-specific">
+                                <input type="date" id="entry-date" hidden class="event-specific"> <br hidden class="event-specific">
+                                <div id="time_selector" hidden class="event-specific">
+                                    <input id="startTime" type="time" class="time_input" style="margin-right: auto;">
+                                    <span> to </span>
+                                    <input id="endTime" type="time" class="time_input" style="margin-left: auto; ">
+                                </div>
+                                <!-- Shared Event, Note, Task Input -->
+                                <label for="entry-content">Text/Description</label><br>
+                                <textarea id="entry-content" name="note"
+                                    rows="1" cols="33" maxlength="50">Enter Text of Item</textarea><br>
+                                <!-- Task Input -->
+                                <label for="deadline" hidden class="task-specific">Select Date and Time</label><br hidden class="task-specific">
+                                <input type="date" id="deadline" hidden class="task-specific"> 
+                                <div id="time_selector" hidden class="task-specific">
+                                    <input type="checkbox" class="allDay_input" id="allDay">
+                                    <label for="allDay">All Day</label>
+                                    <input id="taskDeadline" type="time" class="time_input" style="margin-left: auto; ">
+                                </div><br hidden class="task-specific">
+                    
+                            </div>
+                            <div id="sub-section" hidden>
+                                <br>
+                                <label for="sub-section">Sub Item:</label><br>
+                                <!--
+                                <label hidden for="subentry-title" class="subevent-specific">Enter Title of Event</label><br hidden class="subevent-specific">
+                                <textarea hidden id="subentry-title" name="subevent" class="subevent-specific"
+                                    rows="2" cols="33" maxlength="50">Enter title of event
+                                </textarea><br hidden class="subevent-specific">
+                                
+                                <label for="subentry-date" hidden class="subevent-specific">Enter date of event</label><br hidden class="subevent-specific">
+                                <input type="date" id="subentry-date" hidden class="subevent-specific"> <br hidden class="subevent-specific">
+                                -->
+                                <label for="subentry-content">Enter Text of Item</label><br>
+                                <textarea id="subentry-content" name="subnote"
+                                    rows="1" cols="33" maxlength="50">Enter Text of Item
+                                </textarea><br>
+                                <!--
+                                <label for="subdeadline" hidden class="subtask-specific">Enter Deadline of Task</label><br hidden class="subtask-specific">
+                                <input type="date" id="subdeadline" hidden class="subtask-specific"> <br hidden class="subtask-specific">
+                                
+                                <button type="button" class="subnote">Create Note</button>
+                                <button type="button" class="subevent">Create Event</button>
+                                <button type="button" class="subtask">Create Task</button>
+                                -->
+                            </div>
+                    
+                            <button class="cancel_button">Cancel</button>
+                            <button type="submit" id="save_button">Save</button>
+                        </form>
+                    </div>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+    <div class="popup" id="new-custom" hidden>
+        <div class="popup_box">
+            <h1>Create new log</h1>
+            <h2>Log Name</h2>
+            <input type="text"value="" id="custom_name">
+            <div class="popup_buttons">
+                <button class="cancel_button" id="custom_cancel">Cancel</button>
+                <button class="save_button" id="custom_save">Save</button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    
+    <script src="../collection/LocalStorage.js" type="module"></script>
+    <script src="../collection/Item.js" type="module"></script>
+    <script src="../collection/Entry.js" type="module"></script>
+    <script src="source.js" type="module"></script>
+
+</body>
+
+</html>

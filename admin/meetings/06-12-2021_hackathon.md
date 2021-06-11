@@ -5,12 +5,6 @@ Meeting location: Zoom <br>
 Time began: 6:30 PM <br> 
 When the meeting finished: 7:45 PM
 
-### Who is in attendance:
--
-
-### Who is missing:
--
-
 ## Job due for this meeting:
 Maxim 
 - Go through source data and add the missing jsdoc tags
@@ -45,9 +39,6 @@ Ricardo:
 - Add new item button for calender list view
 - Button for new item calender view
 - Meet with Javier
-
-## Agenda:
-1.
 
 ## Notes from discussion:
 - Only notes for the custom log

@@ -1,0 +1,40 @@
+name: backend unit testing
+
+on:
+  push:
+    branches: 
+      - 'main'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install jest
+        run: |
+          cd $GITHUB_WORKSPACE/CI
+          npm install --save-dev jest
+          npm i --save-dev jest-localstorage-mock
+          npm update
+          
+      - name: Move testing files
+        run: |
+         cd $GITHUB_WORKSPACE/CI
+         rm -rf temp 2> /dev/null
+         mkdir temp
+         cp -r ../source/testing/* temp
+         cp -r ../source/collection/* temp
+      - name: Run unit tests
+        run: |
+         cd $GITHUB_WORKSPACE/CI
+         npm test
+         
+      - name: Clean up
+        run: |
+         cd $GITHUB_WORKSPACE/CI
+         rm -rf temp node_modules

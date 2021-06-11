@@ -1,18 +1,20 @@
-import {Item, Event, Task, Note} from './Item.js';
+import { Item, Event, Task, Note } from "./Item.js";
+/**
+ * @class new Entry class that extends 'HTMLElement'
+ */
 class Entry extends HTMLElement {
-  
-    /**
-     * @constructor creates a Entry custom element that holds items
-     */
-    constructor(){
-        super();
+  /**
+   * @constructor creates a Entry custom element that holds items
+   */
+  constructor() {
+    super();
 
-        this.date = null;
-        this.main = null;
-        this.sub = null;
-        const template = document.createElement('template');
+    this.date = null;
+    this.main = null;
+    this.sub = null;
+    const template = document.createElement("template");
 
-        template.innerHTML = `
+    template.innerHTML = `
         <style>
             .main-item .sub-item {
                 vertical-align: none;
@@ -41,11 +43,12 @@ class Entry extends HTMLElement {
             align-items: center;
             }
             
-            .entry .main-item .sub-item .sub-section {
+            .entry .main-item {
             vertical-align: baseline;
             float: left;
             font-size: min(1.75rem, 1.5vw);
             margin: 0;
+            color: #fff;
             }
             
             .entry button {
@@ -63,72 +66,82 @@ class Entry extends HTMLElement {
             <div class="main-section">
                 <p class="main-item"></p>
             </div>
-            <div class="sub-section">
-                <p class="sub-item"></p>
-            </div>
             <button>...</button>
         </div>
         `;
 
-        // create a shadow root for this web component
-        this.attachShadow({ mode: 'open' })
-        // attach cloned content of template to shadow DOM 
-        this.shadowRoot.appendChild(template.content.cloneNode(true))
+    // create a shadow root for this web component
+    this.attachShadow({ mode: "open" });
+    // attach cloned content of template to shadow DOM
+    this.shadowRoot.appendChild(template.content.cloneNode(true));
+  }
+
+  /**
+   * getter method for the main item of the entry
+   * @returns item object that is the main item
+   * @method getter function for the main-item
+   */
+  get mainItem() {
+    return this.getAttribute("main-item");
+  }
+
+  /**
+   * getter method for the sub item of the entry
+   * @returns item object that is the sub item
+   * @method getter method for the sub-item
+   */
+  get subItem() {
+    return this.getAttribute("sub-item");
+  }
+
+  /**
+   * setter method that runs when mainItem attribute is changed
+   * adds all the content of the item to the entry custom element
+   * @param mainItem item object that will server as the main item
+   * @method setter method for the main-item
+   */
+  set mainItem(mainItem) {
+    //  let entryArticle = this.shadowRoot.querySelector('.entry');
+    //  let mainSec = this.shadowRoot.querySelector('.main-section');
+
+    this.main = mainItem;
+
+    const mainText = this.shadowRoot.querySelector(".main-item");
+
+    if (mainItem instanceof Event || mainItem.type == "event") {
+      mainText.textContent = mainItem.title;
+      if (mainItem.date != "") {
+        mainText.textContent += " • " + mainItem.date;
+      }
+      if (mainItem.startTime != "") {
+        mainText.textContent += " • " + mainItem.startTime;
+      }
+      if (mainItem.endTime != "") {
+        mainText.textContent += "-" + mainItem.endTime;
+      }
+    } else if (mainItem instanceof Task || mainItem.type == "task") {
+      mainText.textContent = mainItem.text;
+      if (mainItem.deadline != "") {
+        mainText.textContent += " • Deadline: " + mainItem.deadline;
+      }
+      if (mainItem.taskTime != "") {
+        mainText.textContent += " • " + mainItem.taskTime;
+      }
+    } else {
+      mainText.textContent = mainItem.text;
     }
+  }
+  /**
+   * setter method that runs when subItem attribute is changed
+   * adds all the content of the item to the entry custom element
+   * @param subItem item object that will server as the sub item
+   * @method setter method for the sub-item
+   */
+  set subItem(subItem) {
+    this.sub = subItem;
+    const subText = this.shadowRoot.querySelector(".sub-item");
 
-    /**
-     * getter method for the main item of the entry
-     * @returns item object that is the main item
-     */
-    get mainItem(){
-        return this.getAttribute('main-item');
-    }
-
-    /**
-     * getter method for the sub item of the entry
-     * @returns item object that is the sub item
-     */
-     get subItem(){
-        return this.getAttribute('sub-item');
-    }
-
-    /**
-     * setter method that runs when mainItem attribute is changed
-     * adds all the content of the item to the entry custom element
-     * @param mainItem item object that will server as the main item
-     */
-    set mainItem(mainItem){
-      //  let entryArticle = this.shadowRoot.querySelector('.entry');
-      //  let mainSec = this.shadowRoot.querySelector('.main-section');
-
-      this.main = mainItem;
-
-
-        let mainText = this.shadowRoot.querySelector('.main-item');
-        
-        if (mainItem instanceof Event || mainItem.type == "event"){
-            mainText.textContent = mainItem.title + '/// ' + mainItem.date + ': ' + mainItem.text;
-        }
-
-        else if (mainItem instanceof Task || mainItem.type == "task"){
-            mainText.textContent = mainItem.text + '/// Deadline: ' + mainItem.deadline;
-        }
-        
-        else{
-            mainText.textContent = mainItem.text;
-        }
-    }
-
-    /**
-     * setter method that runs when subItem attribute is changed
-     * adds all the content of the item to the entry custom element
-     * @param subItem item object that will server as the sub item
-     */
-     set subItem(subItem){
-        this.sub = subItem;
-        let subText = this.shadowRoot.querySelector('.sub-item');
-        
-        
+    /*
         if (subItem instanceof Event || subItem.type == "event"){
             subText.textContent = subItem.title + '/// ' + subItem.date + ': ' + subItem.text;
         }
@@ -139,7 +152,8 @@ class Entry extends HTMLElement {
         else{
             subText.textContent = subItem.text;
         }
-    }
+        */
+  }
 }
 
-customElements.define('journal-entry', Entry);
+customElements.define("journal-entry", Entry);
