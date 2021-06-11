@@ -7,7 +7,7 @@ Visit [BananaNotes](https://max-edelson.github.io/cse110-sp21-group16) to get st
 
 ### **Rapid Logging Page**
 When you first open the app, you will be confronted with our rapid logging page. This is where you will be able to quickly and easily log information about the day, may it be a note, task, or event.
-![Rapid Logging](~/specs/screenshots/../../../specs/screenshots/rapid_log_v2.png)
+![Rapid Logging](~/specs/screenshots/../../../specs/screenshots/rapid_log_v3.png)
 **Rapid logging page**
 
 ### **Monthly Log**
