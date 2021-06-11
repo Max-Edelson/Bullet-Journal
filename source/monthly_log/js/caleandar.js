@@ -376,8 +376,12 @@ document.querySelector('#save_event').addEventListener('click', () => {
 
   let singleDay = newDate.getDate();
   //console.log(singleDay);
+  let entry = document.createElement('span');
+  entry.className += " cld-title";
+  entry.innerHTML = `${data.main.title}<a>${data.main.text}</a>`
+
   let appendDays = document.querySelectorAll(".cld-day.currMonth");
-  appendDays[singleDay-1].appendChild(newEntry);
+  appendDays[singleDay-1].appendChild(entry);
   
   
     
@@ -428,8 +432,13 @@ document.querySelector('#save_note').addEventListener('click', () =>{
 
   let singleDay = newDate.getDate();
   //console.log(singleDay);
+  let entry = document.createElement('span');
+  entry.className += " cld-title";
+  entry.innerHTML = `<a>${data.main.text}</a>`
+
+
   let appendDays = document.querySelectorAll(".cld-day.currMonth");
-  appendDays[singleDay-1].appendChild(newEntry);
+  appendDays[singleDay-1].appendChild(entry);
 
   //console.log(appendDays);
 
@@ -496,8 +505,13 @@ document.querySelector('#save_task').addEventListener('click', () =>{
 
   let singleDay = newDate.getDate();
   //console.log(singleDay);
+
+  let entry = document.createElement('span');
+  entry.className += " cld-title";
+  entry.innerHTML = `<a>${data.main.text}</a>`
+
   let appendDays = document.querySelectorAll(".cld-day.currMonth");
-  appendDays[singleDay-1].appendChild(newEntry);
+  appendDays[singleDay-1].appendChild(entry);
 
   //events.push(createCalendarEntry(newEntry));
 
@@ -521,17 +535,16 @@ function makePopupsDisappear(){
  */
 let showEntries = function(calendar){
   entries.forEach((data) => {
-  let newEntry = document.createElement('journal-entry');
-  newEntry.mainItem = data.main;
-  newEntry.subItem = data.sub;
-
+  let entry = document.createElement('span');
+  entry.className += " cld-title";
+  entry.innerHTML = `<a>${data.main.text}</a>`
   let newDate = new Date(data.date);
   let singleDay = newDate.getDate();
   //console.log(newDate.getMonth());
   if(newDate.getMonth() == calendar.Selected.Month){
     let appendDays = document.querySelectorAll(".cld-day.currMonth");
   //console.log(appendDays)
-  appendDays[singleDay-1].appendChild(newEntry);
+  appendDays[singleDay-1].appendChild(entry);
   }
  });
 }

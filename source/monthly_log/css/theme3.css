@@ -262,13 +262,26 @@ body{
         background: #6A6DCD;
         box-shadow: 0px 2.92414px 5.84828px rgba(0, 0, 0, 0.12), 0px 11.6966px 23.3931px rgba(0, 0, 0, 0.08);
         border-radius: 5.84828px;
-        height: 9%;
-        padding: 6%;
+        min-height: 30%;
+        padding: 2%;
         margin: 2%;
-        margin-top: 5%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+        overflow: auto;
+      }
+      .cld-title::-webkit-scrollbar {
+        display: none;
+      }
+
+
+      .cld-title a{
+        color: white;
         display: flex;
         align-items: center;
       }
+
       .cld-day:hover{
         background: #eee;
       }
@@ -278,4 +291,6 @@ body{
       .cld-number.eventday:hover{
         background: #eee;
       }
+
+
       
