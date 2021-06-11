@@ -1,4 +1,8 @@
 import {Item, Event, Task, Note} from '../../collection/Item.js';
+import LocalStorage from '../../../source/collection/LocalStorage.js';
+
+let storage = new LocalStorage();
+let entries = storage.entries; 
 
 var Calendar = function(model, options, date){
   // Default Values
@@ -204,6 +208,7 @@ function createCalendar(calendar, element, adjuster){
         popup.hidden = false;
         //TODO cant find day number of clicked day
         inputDay = new Date(calendar.Selected.Year, calendar.Selected.Month, i);
+        console.log(inputDay);
       });
       //Disabled Days
       var d = (i + calendar.Selected.FirstDay)%7;
@@ -337,6 +342,7 @@ for(const cancelButton of cancelButtonList){
   });
 }
 
+// SAVE INPUTS
 document.querySelector('#save_event').addEventListener('click', () => {
   let titleInput = document.querySelector('#eventTitle').value;
   let dateInput = document.querySelector('#eventDate').value;
@@ -344,12 +350,48 @@ document.querySelector('#save_event').addEventListener('click', () => {
   let endTimeInput = document.querySelector('#eventEndTime').value;
   let descriptionInput = document.querySelector('#eventDescription').value;
 
-  let newEvent = new Event(descriptionInput, '', titleInput, dateInput, startTimeInput);
+  let newEvent = new Event(descriptionInput, '', titleInput, dateInput, startTimeInput, endTimeInput);
   let newEntry = document.createElement('journal-entry');
+  newEntry.setAttribute('dateMade', inputDay.toLocaleDateString("en-US"));
+  newEntry.setAttribute('timeMade', '');
+  newEntry.setAttribute('dateSet', eventDate.value);
+  newEntry.setAttribute('inCustom', false);
+  newEntry.setAttribute('inFuture', true);
+  newEntry.setAttribute('futureMonth', '');
+  newEntry.setAttribute('startTime', startTimeInput.value);
+  newEntry.setAttribute('endTime', endTimeInput.value);
+  newEntry.setAttribute('taskTime', '');
+
+  console.log(inputDay.toLocaleDateString("en-US"));
+
   newEntry.mainItem = newEvent;
   newEntry.date = inputDay;
-  events.push(createCalendarEntry(newEntry));
-  location.reload();
+  let subItem = null;
+
+  const data = {
+    main: newEvent,
+    sub: subItem,
+    date: newEntry.getAttribute('dateMade'),
+    time: newEntry.getAttribute('timeMade'),
+    dateSet: newEntry.getAttribute('dateSet'),
+    addToCustom: newEntry.getAttribute('inCustom'),
+    addToFuture: newEntry.getAttribute('inFuture'),
+    futureMonth: newEntry.getAttribute('futureMonth'),
+    startTime: newEntry.getAttribute('startTime'),
+    endTime: newEntry.getAttribute('endTime'),
+    taskTime: newEntry.getAttribute('taskTime')
+  };
+
+  storage.create(data);
+
+  let singleDay = inputDay.getDay();
+  let appendDays = document.querySelectorAll(".cld-day.currMonth");
+  appendDays[singleDay-1].appendChild(newEntry);
+  
+  
+    
+  //events.push(createCalendarEntry(newEntry));
+  //location.reload();
 
   makePopupsDisappear();
 });
@@ -405,7 +447,7 @@ function makePopupsDisappear(){
  * @param entry journal-entry element that holds the item 
  * @returns object that is used by caleandar.js to insert into the calendar
  */
- let createCalendarEntry = function(entry){
+let createCalendarEntry = function(entry){
   return {'Date': entry.date, 'Title': entry.main.text};
 };
 
