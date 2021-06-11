@@ -202,14 +202,14 @@ function createCalendar(calendar, element, adjuster){
     for(var i = 0; i < calendar.Selected.Days; i++){
       var day = document.createElement('li');
       day.className += "cld-day currMonth";
-      day.addEventListener('click', () => {
-        //show input popup
-        let popup = document.querySelector('.popup');
-        popup.hidden = false;
-        //TODO cant find day number of clicked day
-        inputDay = new Date(calendar.Selected.Year, calendar.Selected.Month, i);
-        console.log(inputDay);
-      });
+      // day.addEventListener('click', () => {
+      //   //show input popup
+      //   let popup = document.querySelector('.popup');
+      //   popup.hidden = false;
+      //   //TODO cant find day number of clicked day
+      //   inputDay = new Date(calendar.Selected.Year, calendar.Selected.Month, i);
+      //   console.log(inputDay);
+      // });
       //Disabled Days
       var d = (i + calendar.Selected.FirstDay)%7;
       for(var q = 0; q < calendar.Options.DisabledDays.length; q++){
@@ -349,10 +349,12 @@ document.querySelector('#save_event').addEventListener('click', () => {
   let startTimeInput = document.querySelector('#eventStartTime').value;
   let endTimeInput = document.querySelector('#eventEndTime').value;
   let descriptionInput = document.querySelector('#eventDescription').value;
+  
+  let newDate = new Date(); 
 
   let newEvent = new Event(descriptionInput, '', titleInput, dateInput, startTimeInput, endTimeInput);
   let newEntry = document.createElement('journal-entry');
-  newEntry.setAttribute('dateMade', inputDay.toLocaleDateString("en-US"));
+  newEntry.setAttribute('dateMade', newDate.toLocaleDateString("en-US"));
   newEntry.setAttribute('timeMade', '');
   newEntry.setAttribute('dateSet', eventDate.value);
   newEntry.setAttribute('inCustom', false);
@@ -362,10 +364,11 @@ document.querySelector('#save_event').addEventListener('click', () => {
   newEntry.setAttribute('endTime', endTimeInput.value);
   newEntry.setAttribute('taskTime', '');
 
-  console.log(inputDay.toLocaleDateString("en-US"));
+  //console.log(newDate.toLocaleDateString("en-US"));
 
   newEntry.mainItem = newEvent;
-  newEntry.date = inputDay;
+  // newEntry.date = inputDay;
+  newEntry.date = newDate;
   let subItem = null;
 
   const data = {
@@ -384,7 +387,8 @@ document.querySelector('#save_event').addEventListener('click', () => {
 
   storage.create(data);
 
-  let singleDay = inputDay.getDay();
+  let singleDay = newDate.getDate();
+  //console.log(singleDay);
   let appendDays = document.querySelectorAll(".cld-day.currMonth");
   appendDays[singleDay-1].appendChild(newEntry);
   
@@ -392,19 +396,56 @@ document.querySelector('#save_event').addEventListener('click', () => {
     
   //events.push(createCalendarEntry(newEntry));
   //location.reload();
-
+  //console.log(newDate);
   makePopupsDisappear();
 });
 
 document.querySelector('#save_note').addEventListener('click', () =>{
   let descriptionInput = document.querySelector('#noteDescription').value;
 
+  let newDate = new Date();
+
   let newNote = new Note(descriptionInput, '');
   let newEntry = document.createElement('journal-entry');
+  newEntry.setAttribute('dateMade', newDate.toLocaleDateString("en-US"));
+  newEntry.setAttribute('timeMade', '');
+  newEntry.setAttribute('dateSet', eventDate.value);
+  newEntry.setAttribute('inCustom', false);
+  newEntry.setAttribute('inFuture', true);
+  newEntry.setAttribute('futureMonth', '');
+  // newEntry.setAttribute('startTime', startTimeInput.value);
+  // newEntry.setAttribute('endTime', endTimeInput.value);
+  newEntry.setAttribute('taskTime', '');
+
   newEntry.mainItem = newNote;
-  newEntry.date = inputDay;
-  events.push(createCalendarEntry(newEntry));
-  console.log(events);
+  // newEntry.date = inputDay;
+  newEntry.date = newDate;
+
+  let subItem = null;
+
+  const data = {
+    main: newNote,
+    sub: subItem,
+    date: newEntry.getAttribute('dateMade'),
+    time: newEntry.getAttribute('timeMade'),
+    dateSet: newEntry.getAttribute('dateSet'),
+    addToCustom: newEntry.getAttribute('inCustom'),
+    addToFuture: newEntry.getAttribute('inFuture'),
+    futureMonth: newEntry.getAttribute('futureMonth'),
+    // startTime: newEntry.getAttribute('startTime'),
+    // endTime: newEntry.getAttribute('endTime'),
+    taskTime: newEntry.getAttribute('taskTime')
+  };
+
+  storage.create(data);
+
+  let singleDay = newDate.getDate();
+  //console.log(singleDay);
+  let appendDays = document.querySelectorAll(".cld-day.currMonth");
+  appendDays[singleDay-1].appendChild(newEntry);
+
+  //events.push(createCalendarEntry(newEntry));
+  //console.log(events);
 
   makePopupsDisappear();
 });
@@ -415,6 +456,8 @@ document.querySelector('#save_task').addEventListener('click', () =>{
   let timeInput = document.querySelector('#taskTime').value;
   let descriptionInput = document.querySelector('#taskDescription').value;
 
+  let newDate = new Date();
+
   let completed;
   if(checkInput = 'on'){
     completed = true;
@@ -423,9 +466,44 @@ document.querySelector('#save_task').addEventListener('click', () =>{
   }
   let newTask = new Task(descriptionInput, '', deadlineInput, completed);
   let newEntry = document.createElement('journal-entry');
+  newEntry.setAttribute('dateMade', newDate.toLocaleDateString("en-US"));
+  newEntry.setAttribute('timeMade', '');
+  newEntry.setAttribute('dateSet', eventDate.value);
+  newEntry.setAttribute('inCustom', false);
+  newEntry.setAttribute('inFuture', true);
+  newEntry.setAttribute('futureMonth', '');
+  // newEntry.setAttribute('startTime', startTimeInput.value);
+  // newEntry.setAttribute('endTime', endTimeInput.value);
+  newEntry.setAttribute('taskTime', '');
+
   newEntry.mainItem = newTask;
-  newEntry.date = inputDay;
-  events.push(createCalendarEntry(newEntry));
+  // newEntry.date = inputDay;
+  newEntry.date = newDate;
+
+  let subItem = null;
+
+  const data = {
+    main: newTask,
+    sub: subItem,
+    date: newEntry.getAttribute('dateMade'),
+    time: newEntry.getAttribute('timeMade'),
+    dateSet: newEntry.getAttribute('dateSet'),
+    addToCustom: newEntry.getAttribute('inCustom'),
+    addToFuture: newEntry.getAttribute('inFuture'),
+    futureMonth: newEntry.getAttribute('futureMonth'),
+    // startTime: newEntry.getAttribute('startTime'),
+    // endTime: newEntry.getAttribute('endTime'),
+    taskTime: newEntry.getAttribute('taskTime')
+  };
+
+  storage.create(data);
+
+  let singleDay = newDate.getDate();
+  //console.log(singleDay);
+  let appendDays = document.querySelectorAll(".cld-day.currMonth");
+  appendDays[singleDay-1].appendChild(newEntry);
+
+  //events.push(createCalendarEntry(newEntry));
 
   makePopupsDisappear();
 });
