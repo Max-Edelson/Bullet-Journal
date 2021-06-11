@@ -6,32 +6,29 @@ BananaNotes is a bullet journaling application that is designed to rapidly log a
 Visit [BananaNotes](https://max-edelson.github.io/cse110-sp21-group16) to get started.
 
 ### **Rapid Logging Page**
-When you first open the app, you will be confronted with our rapid logging page. This is where you will be able to quickly and easily log information about the day, may it be a note, task, or event, and then you can migrate it to another log. The migration can take the form of a single item (note, task, or event) or it can be all entries. The migration gives the opportunity to send the information to any of the other logs (monthly log, daily log, future log, or custom log).
-![Rapid Logging Page](~/specs/screenshots/../../../specs/screenshots/rapid_log_v1.png)
+When you first open the app, you will be confronted with our rapid logging page. This is where you will be able to quickly and easily log information about the day, may it be a note, task, or event.
+![Rapid Logging](~/specs/screenshots/../../../specs/screenshots/rapid_log_v2.png)
 **Rapid logging page**
 
 ### **Monthly Log**
-The monthly log contains all the notes, tasks, and events for each day in a given month. In the calender view, clicking on a day will open up the daily log for that day. Clicking on an item in a day will open up a window with information for that day. In the list view, all notes, tasks, and events are vertically listed in chronological order.
+The monthly log contains all the notes, tasks, and events for each day in a given month. Clicking on a day will allow the user to insert a new Task, Event, or Note for that specific day. Clicking on an item in a day will open up a window with information for that day.
 
-![Rapid Logging Page](~/specs/screenshots/../../../specs/screenshots/monthly_log_calender_v1.png)
+![Monthly Log](~/specs/screenshots/../../../specs/screenshots/monthly_log_calender_v2.png)
 **Calender view of the monthly log**
-
-![Rapid Logging Page](~/specs/screenshots/../../../specs/screenshots/monthly_log_list_v1.png)
-**List view of the monthly log**
 
 ### **Daily Log**
 The daily log contains all the information for a given day and all information from the rapid log is sent to the daily log if it was inserted in the item-view page. Information is added to the log through migration from the rapid log.
-![Rapid Logging Page](~/specs/screenshots/../../../specs/screenshots/daily_log_v1.png)
+![Daily Log](~/specs/screenshots/../../../specs/screenshots/daily_log_v2.png)
 **Daily log**
 
 ### **Future Log**
 The future log contains a limited amout of notes, tasks, and events (up to eight) for each month up to six months from the current month. Clicking on an item in a list will open up information about the item. Information is added to the log through migration from the rapid log.
-![Rapid Logging Page](~/specs/screenshots/../../../specs/screenshots/future_log_v1.png)
+![Future Log](~/specs/screenshots/../../../specs/screenshots/future_log_v2.png)
 **Future log**
 
 ### **Custom Log**
 The custom log is where the user can make lists that are not necessarily time based. The custom log displays tasks, events, and notes out in a list style. An example of this can be a custom log for favorite books: Ex. Pathfinder, Airborn, Skybreaker, etc...
-![Rapid Logging Page](~/specs/screenshots/../../../specs/screenshots/future_log_v1.png)
+![Custom Log](~/specs/screenshots/../../../specs/screenshots/custom_log_v2.png)
 **List style custom log**
 
 ## TODO: ADD GIF (with a g) OF USAGE
