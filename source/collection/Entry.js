@@ -106,47 +106,42 @@ class Entry extends HTMLElement {
 
     this.main = mainItem;
 
-        let mainText = this.shadowRoot.querySelector('.main-item');
-        
-        if (mainItem instanceof Event || mainItem.type == "event"){
-            mainText.textContent = mainItem.title
-            if (mainItem.date != '') {
-                mainText.textContent += ' • ' + mainItem.date;
-            }
-            if (mainItem.startTime != '') {
-                mainText.textContent += ' • ' + mainItem.startTime;
-            }
-            if (mainItem.endTime != '') {
-                mainText.textContent += '-' + mainItem.endTime;
-            }
+    const mainText = this.shadowRoot.querySelector(".main-item");
 
-        }
-
-        else if (mainItem instanceof Task || mainItem.type == "task"){
-            mainText.textContent = mainItem.text
-            if (mainItem.deadline != '') {
-                mainText.textContent += ' • Deadline: ' + mainItem.deadline;
-            }
-            if ((mainItem.taskTime != '')) {
-                mainText.textContent += ' • ' + mainItem.taskTime;
-            }
-        }
-        
-        else{
-            mainText.textContent = mainItem.text;
-        }
+    if (mainItem instanceof Event || mainItem.type == "event") {
+      mainText.textContent = mainItem.title;
+      if (mainItem.date != "") {
+        mainText.textContent += " • " + mainItem.date;
+      }
+      if (mainItem.startTime != "") {
+        mainText.textContent += " • " + mainItem.startTime;
+      }
+      if (mainItem.endTime != "") {
+        mainText.textContent += "-" + mainItem.endTime;
+      }
+    } else if (mainItem instanceof Task || mainItem.type == "task") {
+      mainText.textContent = mainItem.text;
+      if (mainItem.deadline != "") {
+        mainText.textContent += " • Deadline: " + mainItem.deadline;
+      }
+      if (mainItem.taskTime != "") {
+        mainText.textContent += " • " + mainItem.taskTime;
+      }
+    } else {
+      mainText.textContent = mainItem.text;
     }
-    /**
-     * setter method that runs when subItem attribute is changed
-     * adds all the content of the item to the entry custom element
-     * @param subItem item object that will server as the sub item
-     * @method setter method for the sub-item
-     */
-     set subItem(subItem){
-        this.sub = subItem;
-        let subText = this.shadowRoot.querySelector('.sub-item');
-        
-        /*
+  }
+  /**
+   * setter method that runs when subItem attribute is changed
+   * adds all the content of the item to the entry custom element
+   * @param subItem item object that will server as the sub item
+   * @method setter method for the sub-item
+   */
+  set subItem(subItem) {
+    this.sub = subItem;
+    const subText = this.shadowRoot.querySelector(".sub-item");
+
+    /*
         if (subItem instanceof Event || subItem.type == "event"){
             subText.textContent = subItem.title + '/// ' + subItem.date + ': ' + subItem.text;
         }
@@ -158,7 +153,7 @@ class Entry extends HTMLElement {
             subText.textContent = subItem.text;
         }
         */
-    }
   }
+}
 
 customElements.define("journal-entry", Entry);
