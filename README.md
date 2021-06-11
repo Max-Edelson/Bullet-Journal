@@ -13,7 +13,7 @@ When you first open the app, you will be confronted with our rapid logging page.
 ### **Monthly Log**
 The monthly log contains all the notes, tasks, and events for each day in a given month. Clicking on a day will allow the user to insert a new Task, Event, or Note for that specific day. Clicking on an item in a day will open up a window with information for that day.
 
-![Monthly Log](~/specs/screenshots/../../../specs/screenshots/monthly_log_calender_v2.png)
+![Monthly Log](~/specs/screenshots/../../../specs/screenshots/monthly_log_calendar_v2.png)
 **Calender view of the monthly log**
 
 ### **Daily Log**
