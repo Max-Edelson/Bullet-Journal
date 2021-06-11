@@ -143,72 +143,72 @@ class Event extends Item {
  * @author Javier Galvan
  */
 class Task extends Item {
-  /**
-   * @constructs Item creates a new Task object that is an item
-   * @param text text of the task
-   * @param media additional media for the task
-   * @param deadline date object that represents the deadline of the task
-   */
-  constructor(text, media, deadline, completed = false) {
-    super(TASK_SYMBOL, text, media);
+	/**
+	 * @constructs Item creates a new Task object that is an item
+	 * @param text text of the task
+	 * @param media additional media for the task
+	 * @param deadline date object that represents the deadline of the task
+	 */
+	constructor(text, media, deadline, completed=false, taskTime) {
+		super(TASK_SYMBOL, text, media);
 
-    this.completed = completed;
+		this.completed = completed;
 
-    // check if dealine was included
-    if (deadline === undefined) {
-      this.deadline = null;
-    } else {
-      this.deadline = deadline;
-    }
+		// check if dealine was included
+		if (deadline === undefined) {
+			this.deadline = null;
+		} else {
+			this.deadline = deadline;
+		}
 
-    if (taskTime === undefined) {
-      this.taskTime = null;
-    } else {
-      this.taskTime = taskTime;
-    }
-    this.type = "task";
-  }
+		if (taskTime === undefined) {
+			this.taskTime = null;
+		} else {
+			this.taskTime = taskTime;
+		}
+		this.type = "task";
+	}
 
-  /**
-   * @function addDeadline add/replaces deadline of the task
-   * @param newDeadline date object representing new deadline to be added
-   */
-  addDeadline(newDeadline) {
-    this.deadline = newDeadline;
-  }
+	/**
+	 * @function addDeadline add/replaces deadline of the task
+	 * @param newDeadline date object representing new deadline to be added
+	 */
+	addDeadline(newDeadline) {
+		this.deadline = newDeadline;
+	}
 
-  /**
-   * @function removeDeadline removes the deadline of the task
-   */
-  removeDeadline() {
-    this.deadline = null;
-  }
+	/**
+	 * @function removeDeadline removes the deadline of the task
+	 */
+	removeDeadline() {
+		this.deadline = null;
+	}
 
-  /**
-   * @function hasDeadline checks if task has a deadline
-   * @returns returns true if there exists a deadline, false otherwise
-   */
-  hasDeadline() {
-    if (this.deadline === null) {
-      return false;
-    } else {
-      return true;
-    }
-  }
+	/**
+	 * @function hasDeadline checks if task has a deadline
+	 * @returns returns true if there exists a deadline, false otherwise
+	 */
+	hasDeadline() {
+		if (this.deadline === null) {
+			return false;
+		} else {
+			return true;
+		}
+	}
 
-  /**
-   * @function markCompleted marks task as completed
-   */
-  markCompleted() {
-    this.completed = true;
-  }
+	/**
+	 * @function markCompleted marks task as completed
+	 */
+	markCompleted() {
+		this.completed = true;
+	}
 
-  /**
-   * @function markUncompleted marks task as uncomplete
-   */
-  markUncompleted() {
-    this.completed = false;
-  }
+	/**
+	 * @function markUncompleted marks task as uncomplete
+	 */
+	markUncompleted() {
+		this.completed = false;
+	}
 }
 
 /**
