@@ -3,7 +3,7 @@
 BananaNotes is a bullet journaling application that is designed to rapidly log and organize a user's information. The goal of this application is to function as a planner, journal, and task list.
 
 ## Usage
-Visit [BananaNotes](./index.html) to get started.
+Visit [BananaNotes](https://max-edelson.github.io/Bullet-Journal/source/rapid_log/index.html) to get started.
 
 ### **Rapid Logging Page**
 When you first open the app, you will be confronted with our rapid logging page. This is where you will be able to quickly and easily log information about the day, may it be a note, task, or event.
